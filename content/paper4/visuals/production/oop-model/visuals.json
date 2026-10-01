@@ -1,0 +1,2656 @@
+{
+  "schema_version": "paper4-p4r4-visual-production-v1",
+  "lesson_id": "ac-9618-p4-2026-python.lesson.oop-model",
+  "python_artifact_ref": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+  "artifact_version": "production-v1",
+  "coverage_contracts": [
+    {
+      "pattern_id": "OOP_CLASS",
+      "focus_event_names": [
+        "bind_instance",
+        "instantiate",
+        "reject_constructor"
+      ],
+      "scenario_case_kinds": [
+        "normal",
+        "boundary",
+        "failure"
+      ],
+      "execution_scope": "integrated_python_artifact",
+      "contract": "Every case binds the exact production-v1 independent rerun trace. Shared integrated execution is retained only with explicit pattern and case equivalence justification."
+    },
+    {
+      "pattern_id": "OOP_INSTANTIATE",
+      "focus_event_names": [
+        "bind_instance",
+        "instantiate",
+        "reject_constructor"
+      ],
+      "scenario_case_kinds": [
+        "normal",
+        "boundary",
+        "failure"
+      ],
+      "execution_scope": "integrated_python_artifact",
+      "contract": "Every case binds the exact production-v1 independent rerun trace. Shared integrated execution is retained only with explicit pattern and case equivalence justification."
+    }
+  ],
+  "traces": [
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_CLASS",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-class.normal.production-v1",
+        "case_kind": "normal",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-002",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-003",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-004"
+        ],
+        "expected_output_ref": "oop-model.normal.expected-output",
+        "fixture_ref": "oop-model.normal",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_CLASS uses the integrated oop-model production-v1 execution for normal. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_CLASS",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-class.boundary.production-v1",
+        "case_kind": "boundary",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-002"
+        ],
+        "expected_output_ref": "oop-model.boundary.expected-output",
+        "fixture_ref": "oop-model.boundary",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_CLASS uses the integrated oop-model production-v1 execution for boundary. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_CLASS",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-class.failure.production-v1",
+        "case_kind": "failure",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-002",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-003"
+        ],
+        "expected_output_ref": "oop-model.failure.expected-output",
+        "fixture_ref": "oop-model.failure",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_CLASS uses the integrated oop-model production-v1 execution for failure. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_INSTANTIATE",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-instantiate.normal.production-v1",
+        "case_kind": "normal",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-002",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-003",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-004"
+        ],
+        "expected_output_ref": "oop-model.normal.expected-output",
+        "fixture_ref": "oop-model.normal",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_INSTANTIATE uses the integrated oop-model production-v1 execution for normal. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_INSTANTIATE",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-instantiate.boundary.production-v1",
+        "case_kind": "boundary",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-002"
+        ],
+        "expected_output_ref": "oop-model.boundary.expected-output",
+        "fixture_ref": "oop-model.boundary",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_INSTANTIATE uses the integrated oop-model production-v1 execution for boundary. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualScenarioTrace",
+      "record": {
+        "pattern_id": "OOP_INSTANTIATE",
+        "scenario_id": "ac-9618-p4-2026-python.scenario.oop-model.oop-instantiate.failure.production-v1",
+        "case_kind": "failure",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1",
+        "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-model.production-v1",
+        "artifact_version": "production-v1",
+        "initial_state": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "event_ids": [
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-001",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-002",
+          "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-003"
+        ],
+        "expected_output_ref": "oop-model.failure.expected-output",
+        "fixture_ref": "oop-model.failure",
+        "execution_evidence_ref": "p4r3.a3.oop-model.production-v1.independent-rerun",
+        "equivalence_justification": "Pattern OOP_INSTANTIATE uses the integrated oop-model production-v1 execution for failure. The complete rerun path is retained because each visible transition depends on the same fixture state; pattern identity is expressed by its own scenario, trace, event identities, criterion and visual targets."
+      }
+    }
+  ],
+  "events": [
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1",
+        "sequence": 0,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: bind_instance",
+            "en": "Step 1: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1",
+        "sequence": 1,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: instantiate",
+            "en": "Step 2: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-003",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1",
+        "sequence": 2,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 2
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 2
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 3: bind_instance",
+            "en": "Step 3: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-003.focus",
+          "focus_order": 2,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-004",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1",
+        "sequence": 3,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 2
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 4,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            },
+            {
+              "event": "instantiate",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 2
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 4: instantiate",
+            "en": "Step 4: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.normal.production-v1.event-004.focus",
+          "focus_order": 3,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1",
+        "sequence": 0,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: bind_instance",
+            "en": "Step 1: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1",
+        "sequence": 1,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: instantiate",
+            "en": "Step 2: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.boundary.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1",
+        "sequence": 0,
+        "event_type": "reject",
+        "active_line_ids": [
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "reject_constructor",
+            "object_created": false
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            }
+          ],
+          "latest_event": "reject_constructor",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "reject_constructor",
+            "object_created": false
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện reject_constructor phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event reject_constructor must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Điều kiện nào khiến dữ liệu bị từ chối? (reject constructor)",
+          "en": "Which condition causes the input to be rejected? (reject constructor)"
+        },
+        "feedback": {
+          "vi": "Đường lỗi dừng hoặc bảo vệ trạng thái tại đúng điểm kiểm tra. Sự kiện: reject constructor.",
+          "en": "The failure path stops or protects state at the exact guard. Event: reject constructor."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.reject-constructor"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: reject_constructor",
+            "en": "Step 1: reject_constructor"
+          },
+          "action_description": {
+            "vi": "Điều kiện nào khiến dữ liệu bị từ chối? (reject constructor)",
+            "en": "Which condition causes the input to be rejected? (reject constructor)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "assertive",
+            "message": {
+              "vi": "Đường lỗi dừng hoặc bảo vệ trạng thái tại đúng điểm kiểm tra. Sự kiện: reject constructor.",
+              "en": "The failure path stops or protects state at the exact guard. Event: reject constructor."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1",
+        "sequence": 1,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            }
+          ],
+          "latest_event": "reject_constructor",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 3
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 3
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: bind_instance",
+            "en": "Step 2: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-003",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1",
+        "sequence": 2,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 3
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            },
+            {
+              "event": "instantiate",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "PARTIAL_REJECT",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ],
+            "rejected": 1,
+            "status": "PARTIAL_REJECT"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 3
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ],
+            "rejected": 1,
+            "status": "PARTIAL_REJECT"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Thuộc tính nào thuộc instance nào, và self đang trỏ tới object nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "Which attributes belong to which instance, and which object does self reference? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-class.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 3: instantiate",
+            "en": "Step 3: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-class.failure.production-v1.event-003.focus",
+          "focus_order": 2,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1",
+        "sequence": 0,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: bind_instance",
+            "en": "Step 1: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1",
+        "sequence": 1,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: instantiate",
+            "en": "Step 2: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-003",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1",
+        "sequence": 2,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 2
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 2
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 3: bind_instance",
+            "en": "Step 3: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-003.focus",
+          "focus_order": 2,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-004",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1",
+        "sequence": 3,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 2
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.normal",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ]
+          },
+          "trace_cursor": 4,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 2
+            },
+            {
+              "event": "instantiate",
+              "student_id": 2
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 2
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Ada",
+                "score": 90,
+                "student_id": 1
+              },
+              {
+                "name": "Lin",
+                "score": 80,
+                "student_id": 2
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 4: instantiate",
+            "en": "Step 4: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.normal.production-v1.event-004.focus",
+          "focus_order": 3,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1",
+        "sequence": 0,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 1
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: bind_instance",
+            "en": "Step 1: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1",
+        "sequence": 1,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "OK"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.boundary",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "bind_instance",
+              "student_id": 1
+            },
+            {
+              "event": "instantiate",
+              "student_id": 1
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "OK",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 1
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "",
+                "score": 0,
+                "student_id": 1
+              }
+            ],
+            "rejected": 0,
+            "status": "OK"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: instantiate",
+            "en": "Step 2: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.boundary.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-001",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1",
+        "sequence": 0,
+        "event_type": "reject",
+        "active_line_ids": [
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 0,
+          "history": [],
+          "latest_event": null,
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "reject_constructor",
+            "object_created": false
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            }
+          ],
+          "latest_event": "reject_constructor",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "reject_constructor",
+            "object_created": false
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện reject_constructor phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event reject_constructor must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Điều kiện nào khiến dữ liệu bị từ chối? (reject constructor)",
+          "en": "Which condition causes the input to be rejected? (reject constructor)"
+        },
+        "feedback": {
+          "vi": "Đường lỗi dừng hoặc bảo vệ trạng thái tại đúng điểm kiểm tra. Sự kiện: reject constructor.",
+          "en": "The failure path stops or protects state at the exact guard. Event: reject constructor."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.reject-constructor"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 1: reject_constructor",
+            "en": "Step 1: reject_constructor"
+          },
+          "action_description": {
+            "vi": "Điều kiện nào khiến dữ liệu bị từ chối? (reject constructor)",
+            "en": "Which condition causes the input to be rejected? (reject constructor)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-001.focus",
+          "focus_order": 0,
+          "live_status": {
+            "mode": "assertive",
+            "message": {
+              "vi": "Đường lỗi dừng hoặc bảo vệ trạng thái tại đúng điểm kiểm tra. Sự kiện: reject constructor.",
+              "en": "The failure path stops or protects state at the exact guard. Event: reject constructor."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-002",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1",
+        "sequence": 1,
+        "event_type": "assign",
+        "active_line_ids": [
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L032"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 1,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            }
+          ],
+          "latest_event": "reject_constructor",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "bind_instance",
+            "student_id": 3
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "bind_instance",
+            "student_id": 3
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện bind_instance phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event bind_instance must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+          "en": "Which state changes after this step? (bind instance)"
+        },
+        "feedback": {
+          "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+          "en": "The new state preserves the event and values from the trace. Event: bind instance."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.bind-instance"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 2: bind_instance",
+            "en": "Step 2: bind_instance"
+          },
+          "action_description": {
+            "vi": "Trạng thái nào thay đổi sau bước này? (bind instance)",
+            "en": "Which state changes after this step? (bind instance)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-002.focus",
+          "focus_order": 1,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Trạng thái mới giữ đúng sự kiện và giá trị trong trace. Sự kiện: bind instance.",
+              "en": "The new state preserves the event and values from the trace. Event: bind instance."
+            }
+          }
+        }
+      }
+    },
+    {
+      "schema_version": "2.0.0",
+      "artifact_type": "VisualEventBinding",
+      "record": {
+        "event_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-003",
+        "trace_id": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1",
+        "sequence": 2,
+        "event_type": "call",
+        "active_line_ids": [
+          "oop-model.production-v1.L029",
+          "oop-model.production-v1.L027",
+          "oop-model.production-v1.L032",
+          "oop-model.production-v1.L035"
+        ],
+        "before": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 2,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "bind_instance",
+          "execution_status": "PARTIAL_REJECT"
+        },
+        "delta": {
+          "execution_trace_event": {
+            "event": "instantiate",
+            "student_id": 3
+          },
+          "pattern_focus": true
+        },
+        "after": {
+          "fixture_ref": "oop-model.failure",
+          "fixture_input": {
+            "records": [
+              {
+                "name": "Bad",
+                "score": 50,
+                "student_id": 0
+              },
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ]
+          },
+          "trace_cursor": 3,
+          "history": [
+            {
+              "event": "reject_constructor",
+              "object_created": false
+            },
+            {
+              "event": "bind_instance",
+              "student_id": 3
+            },
+            {
+              "event": "instantiate",
+              "student_id": 3
+            }
+          ],
+          "latest_event": "instantiate",
+          "execution_status": "PARTIAL_REJECT",
+          "verified_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ],
+            "rejected": 1,
+            "status": "PARTIAL_REJECT"
+          }
+        },
+        "output_delta": {
+          "emitted_trace_event": {
+            "event": "instantiate",
+            "student_id": 3
+          },
+          "final_result": {
+            "independent_instances": true,
+            "objects": [
+              {
+                "name": "Good",
+                "score": 100,
+                "student_id": 3
+              }
+            ],
+            "rejected": 1,
+            "status": "PARTIAL_REJECT"
+          }
+        },
+        "invariant_or_criterion": {
+          "vi": "Hai lần gọi constructor tạo hai identity và state độc lập như thế nào? Sự kiện instantiate phải khớp trace chạy lại độc lập và line Python production-v1.",
+          "en": "How do two constructor calls create separate identities and state? Event instantiate must match the independent rerun trace and production-v1 Python lines."
+        },
+        "prediction": {
+          "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+          "en": "Which object or method is called dynamically? (instantiate)"
+        },
+        "feedback": {
+          "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+          "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+        },
+        "visual_targets": [
+          "visual.oop.class-instance-memory",
+          "visual.oop-instantiate.instantiate"
+        ],
+        "accessibility": {
+          "accessible_label": {
+            "vi": "Bước 3: instantiate",
+            "en": "Step 3: instantiate"
+          },
+          "action_description": {
+            "vi": "Đối tượng hoặc phương thức nào được gọi động? (instantiate)",
+            "en": "Which object or method is called dynamically? (instantiate)"
+          },
+          "interaction_role": "step",
+          "keyboard_instruction": {
+            "vi": "Dùng phím mũi tên trái/phải để đổi bước; nhấn Enter để nghe phản hồi của bước đang chọn.",
+            "en": "Use Left/Right Arrow to change step; press Enter to hear feedback for the selected step."
+          },
+          "focus_target": "ac-9618-p4-2026-python.trace.oop-model.oop-instantiate.failure.production-v1.event-003.focus",
+          "focus_order": 2,
+          "live_status": {
+            "mode": "polite",
+            "message": {
+              "vi": "Lời gọi dùng đúng kiểu chạy và kết quả ghi trong trace. Sự kiện: instantiate.",
+              "en": "The call uses the runtime type and result recorded in the trace. Event: instantiate."
+            }
+          }
+        }
+      }
+    }
+  ]
+}

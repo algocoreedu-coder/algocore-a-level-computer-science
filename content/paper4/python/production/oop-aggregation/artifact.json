@@ -1,0 +1,434 @@
+{
+  "author_run_ref": "p4r3.a3.oop-aggregation.production-v1.author-run",
+  "caption": {
+    "en": "A has-a relationship, object graph, and bounded component references.",
+    "vi": "Quan hệ has-a, object graph và bounded component references."
+  },
+  "code_sha256": "a3253eca8a3fd37124dd9fec5dad58ad9219df3450d1d98e40de0a3dcf2e392d",
+  "entry_point": "run(fixture)",
+  "execution_log_sha256": "940c7e0fcba10957c0d97bcd7ec2c24b44a56fedcadae465f427020658332e8f",
+  "execution_status": "PASS",
+  "expected_outputs": [
+    {
+      "expected_output_id": "oop-aggregation.normal.expected-output",
+      "fixture_ref": "oop-aggregation.normal",
+      "value": {
+        "capacity": 3,
+        "count": 2,
+        "labels": [
+          "ALGORITHMS",
+          "DATA"
+        ],
+        "status": "OK",
+        "trace": [
+          {
+            "count": 1,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": true,
+            "unchanged_on_reject": true
+          },
+          {
+            "count": 2,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": true,
+            "unchanged_on_reject": true
+          }
+        ]
+      }
+    },
+    {
+      "expected_output_id": "oop-aggregation.boundary.expected-output",
+      "fixture_ref": "oop-aggregation.boundary",
+      "value": {
+        "capacity": 1,
+        "count": 1,
+        "labels": [
+          "ONLY"
+        ],
+        "status": "OK",
+        "trace": [
+          {
+            "count": 1,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": true,
+            "unchanged_on_reject": true
+          }
+        ]
+      }
+    },
+    {
+      "expected_output_id": "oop-aggregation.failure.expected-output",
+      "fixture_ref": "oop-aggregation.failure",
+      "value": {
+        "capacity": 1,
+        "count": 1,
+        "labels": [
+          "FIRST"
+        ],
+        "status": "OK",
+        "trace": [
+          {
+            "count": 1,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": true,
+            "unchanged_on_reject": true
+          },
+          {
+            "count": 1,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": false,
+            "unchanged_on_reject": true
+          },
+          {
+            "count": 1,
+            "event": "bounded_add",
+            "relationship": "has-a",
+            "success": false,
+            "unchanged_on_reject": true
+          }
+        ]
+      }
+    }
+  ],
+  "filename": "content/paper4/python/production/oop-aggregation/source.py",
+  "fixtures": [
+    {
+      "case_kind": "normal",
+      "fixture_id": "oop-aggregation.normal",
+      "input": {
+        "capacity": 3,
+        "items": [
+          "Algorithms",
+          "Data"
+        ]
+      }
+    },
+    {
+      "case_kind": "boundary",
+      "fixture_id": "oop-aggregation.boundary",
+      "input": {
+        "capacity": 1,
+        "items": [
+          "Only"
+        ]
+      }
+    },
+    {
+      "case_kind": "failure",
+      "fixture_id": "oop-aggregation.failure",
+      "input": {
+        "capacity": 1,
+        "items": [
+          "First",
+          "Second",
+          42
+        ]
+      }
+    }
+  ],
+  "independent_rerun_ref": "p4r3.a3.oop-aggregation.production-v1.independent-rerun",
+  "language": "python",
+  "lesson_id": "ac-9618-p4-2026-python.lesson.oop-aggregation",
+  "lines": [
+    {
+      "line_id": "oop-aggregation.production-v1.L001",
+      "order": 1,
+      "text": "from pathlib import Path"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L002",
+      "order": 2,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L003",
+      "order": 3,
+      "text": "class Book:"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L004",
+      "order": 4,
+      "text": "    def __init__(self, title):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L005",
+      "order": 5,
+      "text": "        self.title = title"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L006",
+      "order": 6,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L007",
+      "order": 7,
+      "text": "    def label(self):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L008",
+      "order": 8,
+      "text": "        return self.title.upper()"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L009",
+      "order": 9,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L010",
+      "order": 10,
+      "text": "class Shelf:"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L011",
+      "order": 11,
+      "text": "    def __init__(self, capacity):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L012",
+      "order": 12,
+      "text": "        self.capacity = capacity"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L013",
+      "order": 13,
+      "text": "        self.books = []"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L014",
+      "order": 14,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L015",
+      "order": 15,
+      "text": "    def add(self, book):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L016",
+      "order": 16,
+      "text": "        valid_book = isinstance(book, Book)"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L017",
+      "order": 17,
+      "text": "        has_space = len(self.books) < self.capacity"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L018",
+      "order": 18,
+      "text": "        if not valid_book or not has_space:"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L019",
+      "order": 19,
+      "text": "            return False"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L020",
+      "order": 20,
+      "text": "        self.books.append(book)"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L021",
+      "order": 21,
+      "text": "        return True"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L022",
+      "order": 22,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L023",
+      "order": 23,
+      "text": "    def labels(self):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L024",
+      "order": 24,
+      "text": "        return [book.label() for book in self.books]"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L025",
+      "order": 25,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L026",
+      "order": 26,
+      "text": "def run(fixture):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L027",
+      "order": 27,
+      "text": "    shelf = Shelf(fixture[\"capacity\"])"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L028",
+      "order": 28,
+      "text": "    trace = []"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L029",
+      "order": 29,
+      "text": "    for value in fixture.get(\"items\", []):"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L030",
+      "order": 30,
+      "text": "        item = Book(value) if isinstance(value, str) else value"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L031",
+      "order": 31,
+      "text": "        before = len(shelf.books)"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L032",
+      "order": 32,
+      "text": "        success = shelf.add(item)"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L033",
+      "order": 33,
+      "text": "        trace.append({"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L034",
+      "order": 34,
+      "text": "            \"event\": \"bounded_add\","
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L035",
+      "order": 35,
+      "text": "            \"success\": success,"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L036",
+      "order": 36,
+      "text": "            \"count\": len(shelf.books),"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L037",
+      "order": 37,
+      "text": "            \"unchanged_on_reject\": success or before == len(shelf.books),"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L038",
+      "order": 38,
+      "text": "            \"relationship\": \"has-a\","
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L039",
+      "order": 39,
+      "text": "        })"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L040",
+      "order": 40,
+      "text": "    return {"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L041",
+      "order": 41,
+      "text": "        \"status\": \"OK\","
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L042",
+      "order": 42,
+      "text": "        \"count\": len(shelf.books),"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L043",
+      "order": 43,
+      "text": "        \"labels\": shelf.labels(),"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L044",
+      "order": 44,
+      "text": "        \"capacity\": shelf.capacity,"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L045",
+      "order": 45,
+      "text": "        \"trace\": trace,"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L046",
+      "order": 46,
+      "text": "    }"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L047",
+      "order": 47,
+      "text": ""
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L048",
+      "order": 48,
+      "text": "if __name__ == \"__main__\":"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L049",
+      "order": 49,
+      "text": "    import json"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L050",
+      "order": 50,
+      "text": "    import sys"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L051",
+      "order": 51,
+      "text": "    fixture = json.loads(Path(sys.argv[1]).read_text(encoding=\"utf-8\"))"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L052",
+      "order": 52,
+      "text": "    result = run(fixture)"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L053",
+      "order": 53,
+      "text": "    if not result[\"trace\"]:"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L054",
+      "order": 54,
+      "text": "        result[\"trace\"].append({\"event\": \"complete_no_steps\"})"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L055",
+      "order": 55,
+      "text": "    print(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\")))"
+    },
+    {
+      "line_id": "oop-aggregation.production-v1.L056",
+      "order": 56,
+      "text": ""
+    }
+  ],
+  "normal_boundary_failure_coverage": {
+    "boundary": true,
+    "failure": true,
+    "normal": true
+  },
+  "pattern_ids": [
+    "OOP_CAPACITY_ADD"
+  ],
+  "python_artifact_id": "ac-9618-p4-2026-python.artifact.oop-aggregation.production-v1",
+  "stage5_source_refs": [
+    "stage5.b6.pattern-provenance"
+  ],
+  "status": "independently-rerun",
+  "syntax_status": "PASS",
+  "version": "production-v1"
+}
