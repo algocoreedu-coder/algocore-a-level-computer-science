@@ -2,6 +2,8 @@
 
 Next.js 16 and Fumadocs learning application for Cambridge International AS & A Level Computer Science (9618). The current release includes the bilingual Paper 3 and Paper 4 learning areas, Python examples, trace activities, revision practice and the AlgoCore design system.
 
+Live learning site: [algocore-cs-9618.vercel.app](https://algocore-cs-9618.vercel.app)
+
 ## Requirements
 
 - Node.js 22 or later
