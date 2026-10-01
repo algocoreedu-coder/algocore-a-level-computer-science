@@ -5,7 +5,7 @@ export const STUDENT_SESSION_MAX_AGE_SECONDS = 60 * 60 * 12;
 
 const TOKEN_VERSION = "v1";
 const MINIMUM_SESSION_SECRET_LENGTH = 32;
-const ALLOWED_PATH_PREFIXES = ["/docs", "/paper-3", "/paper-4"] as const;
+const ALLOWED_PATH_PREFIXES = ["/paper-3", "/paper-4"] as const;
 const ENCODED_SEPARATOR_OR_CONTROL = /%(?:2f|5c|0[0-9a-f]|1[0-9a-f]|7f)/i;
 const RAW_CONTROL = /[\u0000-\u001f\u007f]/;
 
@@ -112,7 +112,7 @@ export function safeInternalPath(value: unknown) {
 export function safeLearningPath(value: unknown, requestedLanguage: unknown = "en") {
   const language = requestedLanguage === "vi" ? "vi" : "en";
   const candidate = safeInternalPath(value);
-  if (candidate === "/" && value !== "/") return `/paper-3?lang=${language}`;
+  if (candidate === "/") return `/paper-3?lang=${language}`;
 
   const destination = new URL(candidate, "http://algocore.internal");
   if (

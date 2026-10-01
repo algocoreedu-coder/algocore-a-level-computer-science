@@ -61,9 +61,9 @@ The start command listens on `0.0.0.0` and respects the hosting platform's `PORT
 Main routes:
 
 - `/login`
-- `/paper-3`
+- `/paper-3` — default learning area after sign-in
 - `/paper-4`
 
-Legacy `/docs` links redirect to the Paper 3 study map.
+Paper 3 and Paper 4 are released from this single repository and the same `main` branch. The site root, a sign-in without an explicit destination, and legacy `/docs` links all resolve to the Paper 3 study map. Explicit `/paper-4` links continue to open Paper 4.
 
 The repository contains application source and generated learning data required at runtime. Local credentials, dependency folders, build output, preview artifacts and temporary agent files are excluded.

@@ -66,7 +66,7 @@ function sameOriginJson(body, cookie = undefined) {
   return { method: "POST", headers, body: JSON.stringify(body) };
 }
 
-async function login(next = "/paper-4?lang=en", lang = "en") {
+async function login(next = "/paper-3?lang=en", lang = "en") {
   return request("/api/auth/login", sameOriginJson({ username, password, next, lang }));
 }
 
@@ -99,8 +99,8 @@ async function runHttpChecks() {
   });
 
   for (const [id, pathname, expectedNext] of [
-    ["AUTH-H03", "/", "/"],
-    ["AUTH-H04", "/docs", "/docs"],
+    ["AUTH-H03", "/", "/paper-3?lang=en"],
+    ["AUTH-H04", "/docs", "/paper-3?lang=en"],
     ["AUTH-H04B", "/paper-3", "/paper-3?lang=en"],
   ]) {
     const response = await request(pathname);
@@ -168,6 +168,19 @@ async function runHttpChecks() {
     cacheControl: successful.headers.get("cache-control"),
   });
 
+  const defaultDestination = await login();
+  const defaultDestinationPayload = await defaultDestination.json().catch(() => null);
+  record(
+    "AUTH-H08P",
+    defaultDestination.status === 200
+      && defaultDestinationPayload?.redirectTo === "/paper-3?lang=en",
+    "A sign-in without an explicit destination opens Paper 3",
+    {
+      status: defaultDestination.status,
+      redirectTo: defaultDestinationPayload?.redirectTo,
+    },
+  );
+
   for (const [id, pathname] of [
     ["AUTH-H09", "/paper-4?lang=en"],
     ["AUTH-H10", "/paper-4/lessons/recursion?lang=vi"],
@@ -222,7 +235,7 @@ async function runHttpChecks() {
     ["AUTH-H14", "https://attacker.invalid/steal", "en", "/paper-3?lang=en"],
     ["AUTH-H15", "//attacker.invalid/steal", "vi", "/paper-3?lang=vi"],
     ["AUTH-H16", "/paper-4%2F%2Fattacker.invalid", "en", "/paper-3?lang=en"],
-    ["AUTH-H17", "/docs", "vi", "/docs"],
+    ["AUTH-H17", "/docs", "vi", "/paper-3?lang=vi"],
   ]) {
     const response = await login(next, lang);
     const payload = await response.json().catch(() => null);

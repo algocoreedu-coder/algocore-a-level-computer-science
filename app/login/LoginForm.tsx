@@ -36,10 +36,6 @@ function isRedirectPayload(value: unknown): value is { redirectTo: string } {
   if (!value || typeof value !== "object" || !("redirectTo" in value)) return false;
   const redirectTo = (value as { redirectTo?: unknown }).redirectTo;
   return typeof redirectTo === "string" && (
-    redirectTo === "/" ||
-    redirectTo === "/docs" ||
-    redirectTo.startsWith("/docs?") ||
-    redirectTo.startsWith("/docs/") ||
     redirectTo === "/paper-3" ||
     redirectTo.startsWith("/paper-3?") ||
     redirectTo.startsWith("/paper-3/") ||
