@@ -101,6 +101,7 @@ function MemoryBoard({ state, locale }: { readonly state: unknown; readonly loca
   const registers = map(stateValue(state, "registers"));
   const flags = map(stateValue(state, "flags"));
   const cells = Object.entries(memory);
+  const dereferencePath = (stateValue(state, "dereferencePath") ?? []) as unknown[];
   return <div className={styles.machine}>
     <div className={styles.metricGrid}>
       <Metric label="Operand" value={stateValue(state, "operandField")} />
@@ -110,9 +111,9 @@ function MemoryBoard({ state, locale }: { readonly state: unknown; readonly loca
       <Metric label={locale === "vi" ? "Giá trị cuối" : "Final value"} value={stateValue(state, "value") ?? registers.ACC} />
       <Metric label={locale === "vi" ? "So sánh" : "Comparison"} value={flags.comparison} />
     </div>
-    <div className={styles.path} role="group" aria-label={locale === "vi" ? "Đường resolve operand" : "Operand resolution path"}>
-      {(stateValue(state, "dereferencePath") as unknown[] | undefined)?.map((address, index) => <span key={`${compact(address)}-${index}`} data-address={compact(address)}>{index ? "→ " : ""}M[{compact(address)}]</span>) ?? null}
-    </div>
+    {dereferencePath.length ? <div className={styles.path} role="group" aria-label={locale === "vi" ? "Đường resolve operand" : "Operand resolution path"}>
+      {dereferencePath.map((address, index) => <span key={`${compact(address)}-${index}`} data-address={compact(address)}>{index ? "→ " : ""}M[{compact(address)}]</span>)}
+    </div> : null}
     {cells.length ? <div className={styles.memoryGrid}>{cells.map(([address, value]) => <div key={address} data-address={address}><small>{address}</small><strong>{compact(value)}</strong></div>)}</div> : null}
   </div>;
 }

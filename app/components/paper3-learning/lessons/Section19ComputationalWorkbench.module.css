@@ -7,7 +7,7 @@
 .controls { display: grid; grid-template-columns: repeat(3,max-content) minmax(190px,1fr); gap: 9px; align-items: end; padding: 14px 20px 0; }
 .controls button,.manual button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 7px; padding: 9px 13px; border: 1px solid var(--alg-border-strong); border-radius: 7px; background: var(--alg-surface-panel); color: var(--alg-text-default); font: inherit; font-weight: 800; cursor: pointer; }
 .controls button:nth-child(2),.manual button:first-child { border-color: var(--alg-action-primary); background: var(--alg-action-primary); color: var(--alg-action-primary-foreground); }
-.controls button:disabled,.controls button[aria-disabled="true"] { cursor: not-allowed; opacity: .45; }
+.controls button:disabled { border-color: var(--alg-border-default); background: var(--alg-surface-panel-muted); color: var(--alg-text-muted); cursor: not-allowed; opacity: 1; }
 .controls button:focus-visible,.controls select:focus-visible,.setup select:focus-visible,.manual button:focus-visible,.manual input:focus-visible,.fallback summary:focus-visible,.tableWrap:focus-visible,.beforeAfter article:focus-visible { outline: 3px solid var(--alg-focus-ring); outline-offset: 2px; }
 .stepCard { margin: 14px 20px; padding: 15px; border: 1px solid var(--alg-border-default); border-radius: 10px; background: var(--alg-surface-panel-muted); }
 .stepCard header { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }

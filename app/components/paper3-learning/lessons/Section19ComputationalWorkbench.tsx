@@ -131,7 +131,7 @@ function Controls({ trace, index, setIndex, reset, locale }: { trace: Trace; ind
   const jumpId = useId();
   return <div className={styles.controls}>
     <button type="button" data-s19-previous disabled={index === 0} onClick={() => setIndex(index - 1)}><ArrowLeft size={17} aria-hidden="true" />{locale === "vi" ? "Bước trước" : "Previous"}</button>
-    <button type="button" data-s19-next aria-disabled={index === trace.steps.length - 1} onClick={() => { if (index < trace.steps.length - 1) setIndex(index + 1); }}>{locale === "vi" ? "Bước tiếp" : "Next"}<ArrowRight size={17} aria-hidden="true" /></button>
+    <button type="button" data-s19-next disabled={index === trace.steps.length - 1} onClick={() => setIndex(index + 1)}>{locale === "vi" ? "Bước tiếp" : "Next"}<ArrowRight size={17} aria-hidden="true" /></button>
     <button type="button" data-s19-reset onClick={reset}><RotateCcw size={17} aria-hidden="true" />{locale === "vi" ? "Đặt lại" : "Reset"}</button>
     <label htmlFor={jumpId}><span>{locale === "vi" ? "Đi thẳng tới bước" : "Jump to step"}</span><select id={jumpId} data-s19-jump value={index} onChange={event => setIndex(Number(event.target.value))}>{trace.steps.map((item, itemIndex) => <option key={item.id} value={itemIndex}>{itemIndex + 1}. {local(item.title, locale)}</option>)}</select></label>
   </div>;

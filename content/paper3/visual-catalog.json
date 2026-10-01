@@ -1,0 +1,1656 @@
+{
+  "schemaVersion": 1,
+  "examYear": 2026,
+  "visuals": [
+    {
+      "topicId": "P3-13.1-T01",
+      "sectionId": "13",
+      "slug": "user-defined-and-enumerated-types",
+      "lessonTitle": {
+        "en": "User-defined and enumerated types",
+        "vi": "Kiểu tự định nghĩa và kiểu liệt kê"
+      },
+      "visualKind": "enumeration",
+      "runtimeFamily": "concept-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “User-defined and enumerated types” as the “Build a domain and test an assignment” activity. Activity direction: Remove a permitted member, rebuild the type, then test an allowed value, an absent value and a quoted string.",
+        "vi": "Dùng trong bài “Kiểu tự định nghĩa và kiểu liệt kê” ở hoạt động “Tạo miền và thử phép gán”. Yêu cầu hoạt động: Bỏ một phần tử được phép, tạo lại kiểu rồi thử giá trị hợp lệ, giá trị vắng mặt và chuỗi có dấu nháy."
+      },
+      "learningFocus": {
+        "en": "Explain why a built-in type may be too general for a problem. Define an enumerated type, declare a variable and assign a valid member.",
+        "vi": "Giải thích vì sao kiểu có sẵn có thể quá tổng quát cho bài toán. Định nghĩa kiểu liệt kê, khai báo biến và gán phần tử hợp lệ."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “Defining a type assigns its first member.” Require students to correct it with the rule: Definition, declaration and assignment are separate. No default value is assumed in this model.",
+        "vi": "Kiểm tra hiểu sai này: “Định nghĩa kiểu là gán phần tử đầu.” Yêu cầu học sinh sửa bằng quy tắc: Định nghĩa, khai báo và gán là riêng biệt. Mô hình không giả định giá trị mặc định."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.1-T02",
+      "sectionId": "13",
+      "slug": "pointers-and-referenced-data",
+      "lessonTitle": {
+        "en": "Pointers and referenced data",
+        "vi": "Con trỏ và dữ liệu được tham chiếu"
+      },
+      "visualKind": "pointers",
+      "runtimeFamily": "concept-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Pointers and referenced data” as the “Follow the reference” activity. Activity direction: Point P at the other cell, read P^, then edit that cell and read again. Predict which labels should stay unchanged.",
+        "vi": "Dùng trong bài “Con trỏ và dữ liệu được tham chiếu” ở hoạt động “Lần theo tham chiếu”. Yêu cầu hoạt động: Cho P trỏ sang ô kia, đọc P^ rồi sửa ô đó và đọc lại. Dự đoán nhãn nào phải giữ nguyên."
+      },
+      "learningFocus": {
+        "en": "Define a pointer type compatible with its destination data. Distinguish the pointer value, the target address and the target data.",
+        "vi": "Định nghĩa kiểu con trỏ tương thích với dữ liệu đích. Phân biệt giá trị con trỏ, địa chỉ đích và dữ liệu đích."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “P becomes 45 when its target becomes 45.” Require students to correct it with the rule: P keeps the target address. Only the dereferenced result changes.",
+        "vi": "Kiểm tra hiểu sai này: “P thành 45 khi đích của nó thành 45.” Yêu cầu học sinh sửa bằng quy tắc: P giữ địa chỉ đích. Chỉ kết quả giải tham chiếu thay đổi."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.1-T03",
+      "sectionId": "13",
+      "slug": "sets",
+      "lessonTitle": {
+        "en": "Sets",
+        "vi": "Tập hợp"
+      },
+      "visualKind": "sets",
+      "runtimeFamily": "concept-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Sets” as the “Change the members, keep the rule visible” activity. Activity direction: Start with X={A,C}, Y={B,C}. Compare union and intersection, then remove C from Y and explain both results.",
+        "vi": "Dùng trong bài “Tập hợp” ở hoạt động “Đổi phần tử, giữ rõ quy tắc”. Yêu cầu hoạt động: Bắt đầu X={A,C}, Y={B,C}. So sánh hợp và giao, rồi bỏ C khỏi Y và giải thích hai kết quả."
+      },
+      "learningFocus": {
+        "en": "Define a typed set and explain uniqueness and lack of ordering. Predict membership, union and intersection from the same data.",
+        "vi": "Định nghĩa tập hợp có kiểu và giải thích tính không trùng, không có thứ tự. Dự đoán phép kiểm thuộc, hợp và giao từ cùng dữ liệu."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “The union contains two copies of C.” Require students to correct it with the rule: Sets contain distinct elements; membership in both inputs does not duplicate the result.",
+        "vi": "Kiểm tra hiểu sai này: “Hợp chứa hai bản sao C.” Yêu cầu học sinh sửa bằng quy tắc: Tập hợp gồm các phần tử khác nhau; thuộc cả hai đầu vào không làm trùng kết quả."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.1-T04",
+      "sectionId": "13",
+      "slug": "records-and-composite-models",
+      "lessonTitle": {
+        "en": "Records and composite models",
+        "vi": "Bản ghi và mô hình dữ liệu phức hợp"
+      },
+      "visualKind": "records",
+      "runtimeFamily": "concept-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Records and composite models” as the “Select a record, then select a field” activity. Activity direction: Read Students[2].Score, update it to 85, then try a value of the wrong type. Identify which cells must remain unchanged.",
+        "vi": "Dùng trong bài “Bản ghi và mô hình dữ liệu phức hợp” ở hoạt động “Chọn bản ghi rồi chọn trường”. Yêu cầu hoạt động: Đọc Students[2].Score, cập nhật thành 85 rồi thử giá trị sai kiểu. Xác định những ô phải giữ nguyên."
+      },
+      "learningFocus": {
+        "en": "Choose meaningful field names and appropriate types for an entity. Distinguish a record type, one instance and an array of records.",
+        "vi": "Chọn tên trường có nghĩa và kiểu phù hợp cho thực thể. Phân biệt kiểu record, một bản ghi cụ thể và mảng record."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “All fields in a record must have the same type.” Require students to correct it with the rule: A record can combine different field types; the common structure defines each record instance.",
+        "vi": "Kiểm tra hiểu sai này: “Mọi trường record phải cùng kiểu.” Yêu cầu học sinh sửa bằng quy tắc: Record có thể kết hợp trường khác kiểu; cấu trúc chung quy định từng bản ghi."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.2-T01",
+      "sectionId": "13",
+      "slug": "organisation-versus-access",
+      "lessonTitle": {
+        "en": "Organisation versus access",
+        "vi": "Tổ chức tệp và cách truy cập"
+      },
+      "visualKind": "file-organisation",
+      "runtimeFamily": "file-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Organisation versus access” as the “Same records, different journeys” activity. Activity direction: Find key 20 in the serial and sequential layouts. Predict why the sorted search stops at 25 while the serial scan must continue.",
+        "vi": "Dùng trong bài “Tổ chức tệp và cách truy cập” ở hoạt động “Cùng bản ghi, các đường truy cập khác nhau”. Yêu cầu hoạt động: Tìm khóa 20 trong bố trí serial và sequential. Dự đoán vì sao tìm trên dãy có thứ tự dừng tại 25 còn quét serial phải tiếp tục."
+      },
+      "learningFocus": {
+        "en": "Distinguish serial, sequential and random organisation. Trace sequential access and explain when an unsuccessful scan may stop early.",
+        "vi": "Phân biệt tổ chức serial, sequential và random. Trace truy cập tuần tự và giải thích khi nào tìm không thấy được phép dừng sớm."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “Random organisation means random shuffle.” Require students to correct it with the rule: A repeatable key-to-location rule is used; collisions need a policy.",
+        "vi": "Kiểm tra hiểu sai này: “Tổ chức random là xáo ngẫu nhiên.” Yêu cầu học sinh sửa bằng quy tắc: Dùng quy tắc khóa-vị trí lặp lại được; va chạm cần chính sách."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.2-T02",
+      "sectionId": "13",
+      "slug": "hashing-to-locate-records",
+      "lessonTitle": {
+        "en": "Hashing to locate records",
+        "vi": "Dùng hàm băm để định vị bản ghi"
+      },
+      "visualKind": "hashing",
+      "runtimeFamily": "file-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Hashing to locate records” as the “From key to home slot” activity. Activity direction: Compare 10 with 17, then choose 6. Explain why the first change keeps the home slot but the second changes it.",
+        "vi": "Dùng trong bài “Dùng hàm băm để định vị bản ghi” ở hoạt động “Từ khóa đến ô gốc”. Yêu cầu hoạt động: So sánh 10 với 17 rồi chọn 6. Giải thích vì sao lần đổi đầu giữ ô gốc còn lần thứ hai làm đổi ô."
+      },
+      "learningFocus": {
+        "en": "Calculate a MOD hash with the stated divisor and index base. Distinguish a logical slot from a physical byte address.",
+        "vi": "Tính hash MOD theo số chia và gốc chỉ số đã cho. Phân biệt ô logic với địa chỉ byte vật lý."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “MOD returns the quotient.” Require students to correct it with the rule: MOD returns the remainder; reconstruct the division to verify it.",
+        "vi": "Kiểm tra hiểu sai này: “MOD trả thương.” Yêu cầu học sinh sửa bằng quy tắc: MOD trả số dư; dựng lại phép chia để kiểm."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.2-T03",
+      "sectionId": "13",
+      "slug": "collisions-and-retrieval",
+      "lessonTitle": {
+        "en": "Collisions and retrieval",
+        "vi": "Va chạm băm và truy xuất"
+      },
+      "visualKind": "collisions",
+      "runtimeFamily": "file-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Collisions and retrieval” as the “Watch the probe, not just the home slot” activity. Activity direction: Build 10,17,24,6,13, then compare lookup 24 with lookup 31. Explain the wrap from 6 to 0 and the reason to stop at empty 1.",
+        "vi": "Dùng trong bài “Va chạm băm và truy xuất” ở hoạt động “Theo dõi ô dò, không chỉ ô gốc”. Yêu cầu hoạt động: Dựng 10,17,24,6,13 rồi so sánh tìm 24 với tìm 31. Giải thích bước quay từ 6 về 0 và lý do dừng ở ô 1 trống."
+      },
+      "learningFocus": {
+        "en": "Trace collision insertion without overwriting another record. Retrieve a displaced record using the same probing route.",
+        "vi": "Trace chèn khi va chạm mà không ghi đè bản ghi khác. Tìm bản ghi bị dời bằng cùng đường dò."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “A collision means replace the record already there.” Require students to correct it with the rule: Different records must be retained through the stated collision policy.",
+        "vi": "Kiểm tra hiểu sai này: “Va chạm nghĩa là thay bản ghi đang có.” Yêu cầu học sinh sửa bằng quy tắc: Phải giữ các bản ghi khác nhau theo chính sách va chạm."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.3-T01",
+      "sectionId": "13",
+      "slug": "signed-floating-point-conversion",
+      "lessonTitle": {
+        "en": "Signed floating-point conversion",
+        "vi": "Chuyển đổi số dấu phẩy động có dấu"
+      },
+      "visualKind": "floating-conversion",
+      "runtimeFamily": "float-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Signed floating-point conversion” as the “Build the bits, then read them back” activity. Activity direction: Start with −13.25. Predict the exponent before revealing it, then compare with +6.5 and +0.375. Switch to decode and follow how each field contributes to the final value.",
+        "vi": "Dùng trong bài “Chuyển đổi số dấu phẩy động có dấu” ở hoạt động “Tạo dãy bit rồi đọc ngược lại”. Yêu cầu hoạt động: Bắt đầu với −13.25. Dự đoán số mũ trước khi xem, rồi so sánh với +6.5 và +0.375. Chuyển sang giải mã và theo dõi cách từng trường góp phần tạo giá trị cuối."
+      },
+      "learningFocus": {
+        "en": "Read the width, point position and signedness before interpreting a floating-point number. Encode an exactly representable positive or negative denary value in the stated format.",
+        "vi": "Đọc số bit, vị trí dấu chấm và quy ước dấu trước khi diễn giải số dấu phẩy động. Mã hóa số thập phân dương hoặc âm biểu diễn chính xác được trong định dạng đã cho."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “A negative number needs a negative exponent.” Require students to correct it with the rule: The mantissa determines the sign. The exponent sets scale: −13.25 uses E=+4, whereas +0.375 uses E=−1.",
+        "vi": "Kiểm tra hiểu sai này: “Số âm phải có số mũ âm.” Yêu cầu học sinh sửa bằng quy tắc: Định trị quyết định dấu. Số mũ đặt thang độ lớn: −13.25 dùng E=+4 còn +0.375 dùng E=−1."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.3-T02",
+      "sectionId": "13",
+      "slug": "normalisation",
+      "lessonTitle": {
+        "en": "Normalisation",
+        "vi": "Chuẩn hóa"
+      },
+      "visualKind": "normalisation",
+      "runtimeFamily": "numeric-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Normalisation” as the “Preserve the value at every shift” activity. Activity direction: Trace−6 and predict E before each shift. Then compare+5, zero and the exponent-floor case.",
+        "vi": "Dùng trong bài “Chuẩn hóa” ở hoạt động “Giữ giá trị ở từng phép dịch”. Yêu cầu hoạt động: Trace−6 và dự đoán E trước mỗi phép dịch. Sau đó so sánh+5, số không và trường hợp chạm sàn số mũ."
+      },
+      "learningFocus": {
+        "en": "Recognise normalised positive and negative two’s-complement mantissas. Trace a value-preserving shift with a compensating exponent change.",
+        "vi": "Nhận biết định trị bù hai dương và âm đã chuẩn hóa. Trace phép dịch giữ giá trị cùng thay đổi số mũ để bù."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “A left shift needs E to increase.” Require students to correct it with the rule: Doubling M requires halving the scale, so E decreases. Increasing E as well would multiply the value by 4.",
+        "vi": "Kiểm tra hiểu sai này: “Dịch trái cần tăng E.” Yêu cầu học sinh sửa bằng quy tắc: Nhân đôi M cần giảm nửa thang độ lớn nên E giảm. Tăng cả E sẽ nhân giá trị với 4."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.3-T03",
+      "sectionId": "13",
+      "slug": "precision-range-and-limits",
+      "lessonTitle": {
+        "en": "Precision, range and limits",
+        "vi": "Độ chính xác, phạm vi và giới hạn"
+      },
+      "visualKind": "precision-range",
+      "runtimeFamily": "numeric-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Precision, range and limits” as the “Change the allocation, keep the comparison fair” activity. Activity direction: Compare M6/E6 with M10/E2 at E0. Predict which has finer spacing, then switch to limits and explain the opposite range trade-off.",
+        "vi": "Dùng trong bài “Độ chính xác, phạm vi và giới hạn” ở hoạt động “Đổi cách chia nhưng giữ phép so công bằng”. Yêu cầu hoạt động: So M6/E6 với M10/E2 tại E0. Dự đoán dạng nào sát hơn rồi chuyển sang giới hạn và giải thích đánh đổi ngược về phạm vi."
+      },
+      "learningFocus": {
+        "en": "Calculate spacing at a specified exponent. Explain the mantissa/exponent trade-off under a fixed total width.",
+        "vi": "Tính khoảng cách tại số mũ xác định. Giải thích đánh đổi giữa định trị và số mũ khi tổng bit cố định."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “More exponent bits mean finer precision at the same E.” Require students to correct it with the rule: Mantissa width determines local steps at fixed E; exponent width supplies more scales.",
+        "vi": "Kiểm tra hiểu sai này: “Thêm bit số mũ làm precision tốt hơn tại cùng E.” Yêu cầu học sinh sửa bằng quy tắc: Độ rộng định trị quyết định bước cục bộ tại E cố định; độ rộng số mũ cho thêm thang."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-13.3-T04",
+      "sectionId": "13",
+      "slug": "approximation-rounding-and-range-errors",
+      "lessonTitle": {
+        "en": "Approximation, rounding and range errors",
+        "vi": "Xấp xỉ, làm tròn và lỗi phạm vi"
+      },
+      "visualKind": "rounding-errors",
+      "runtimeFamily": "numeric-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Approximation, rounding and range errors” as the “See the exact value and its stored neighbour” activity. Activity direction: For 13.375 in M6/E4, predict the truncate and nearest results, then compare their signed errors. Switch to 0.1, overflow and underflow to identify the different causes.",
+        "vi": "Dùng trong bài “Xấp xỉ, làm tròn và lỗi phạm vi” ở hoạt động “Nhìn giá trị chính xác và hàng xóm được lưu”. Yêu cầu hoạt động: Với 13.375 trong M6/E4, dự đoán kết quả cắt và làm tròn gần nhất rồi so sai số có dấu. Chuyển sang 0.1, overflow và underflow để nhận diện nguyên nhân khác nhau."
+      },
+      "learningFocus": {
+        "en": "Explain why finite storage may not represent a real value exactly. Compare truncation and rounding under an explicit tie rule.",
+        "vi": "Giải thích vì sao lưu trữ hữu hạn có thể không biểu diễn chính xác giá trị thực. So cắt và làm tròn theo quy tắc xử lý hòa rõ ràng."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: “Finite binary expansion always fits.” Require students to correct it with the rule: It may need more significant positions than the available mantissa.",
+        "vi": "Kiểm tra hiểu sai này: “Nhị phân hữu hạn luôn vừa.” Yêu cầu học sinh sửa bằng quy tắc: Nó có thể cần nhiều vị trí có nghĩa hơn định trị sẵn có."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-14.1-T01",
+      "sectionId": "14",
+      "slug": "tcp-ip-stack-and-message-journey",
+      "lessonTitle": {
+        "en": "TCP/IP stack and message journey",
+        "vi": "Mô hình TCP/IP và hành trình thông điệp"
+      },
+      "visualKind": "tcp-ip-stack",
+      "runtimeFamily": "network-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “TCP/IP stack and message journey” as the “Follow one request through both hosts” activity. Activity direction: Before Next, predict which adjacent layer handles the request next and whether the number of wrappers grows or shrinks. Use the responsibility mode to explain one layer without tracing the entire journey.",
+        "vi": "Dùng trong bài “Mô hình TCP/IP và hành trình thông điệp” ở hoạt động “Theo dõi một yêu cầu qua hai host”. Yêu cầu hoạt động: Trước khi nhấn Next, dự đoán tầng kề nào xử lý tiếp và số phần bao sẽ tăng hay giảm. Dùng chế độ trách nhiệm để giải thích một tầng mà không kể toàn bộ hành trình."
+      },
+      "learningFocus": {
+        "en": "Explain why the communicating parties need agreed protocols, not just a physical connection. Name the four TCP/IP layers in order and assign a precise responsibility to each.",
+        "vi": "Giải thích vì sao hai bên cần giao thức thống nhất, bên cạnh kết nối vật lý. Nêu đúng thứ tự bốn tầng TCP/IP và gắn một trách nhiệm cụ thể với từng tầng."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: TCP/IP has TCP and IP as its only two layers. Require students to correct it with the rule: They are protocol names within a four-layer suite: Application, Transport, Internet and Link.",
+        "vi": "Kiểm tra hiểu sai này: TCP/IP chỉ có hai tầng TCP và IP. Yêu cầu học sinh sửa bằng quy tắc: Đó là tên giao thức trong bộ có bốn tầng: Application, Transport, Internet và Link."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-14.1-T02",
+      "sectionId": "14",
+      "slug": "application-protocol-selection",
+      "lessonTitle": {
+        "en": "Choose an application protocol",
+        "vi": "Chọn giao thức ứng dụng"
+      },
+      "visualKind": "application-protocols",
+      "runtimeFamily": "network-topic-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Choose an application protocol” as the “Match the service to the protocol” activity. Activity direction: Explain why your choice fits before revealing feedback. Compare a plausible near miss, especially SMTP versus IMAP and POP3 versus IMAP.",
+        "vi": "Dùng trong bài “Chọn giao thức ứng dụng” ở hoạt động “Ghép dịch vụ với giao thức”. Yêu cầu hoạt động: Giải thích vì sao lựa chọn phù hợp trước khi mở phản hồi. So sánh phương án gần đúng, đặc biệt SMTP với IMAP và POP3 với IMAP."
+      },
+      "learningFocus": {
+        "en": "Match HTTP, FTP, SMTP, POP3, IMAP and BitTorrent to their purposes. Distinguish email submission/relay from retrieval and mailbox synchronisation.",
+        "vi": "Gắn HTTP, FTP, SMTP, POP3, IMAP và BitTorrent với đúng mục đích. Phân biệt nộp/chuyển tiếp email với lấy thư và đồng bộ hộp thư."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: SMTP receives the user’s inbox because it is an email protocol. Require students to correct it with the rule: SMTP submits or relays outgoing messages; POP3/IMAP serve mailbox access.",
+        "vi": "Kiểm tra hiểu sai này: SMTP nhận inbox của người dùng vì đây là giao thức email. Yêu cầu học sinh sửa bằng quy tắc: SMTP nộp hoặc chuyển tiếp thư gửi đi; POP3/IMAP phục vụ truy cập hộp thư."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-14.1-T03",
+      "sectionId": "14",
+      "slug": "bittorrent-and-peer-to-peer-transfer",
+      "lessonTitle": {
+        "en": "BitTorrent and peer-to-peer transfer",
+        "vi": "BitTorrent và truyền tệp peer-to-peer"
+      },
+      "visualKind": "bittorrent",
+      "runtimeFamily": "network-topic-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “BitTorrent and peer-to-peer transfer” as the “Track who owns each piece” activity. Activity direction: Before each step, name an eligible source and predict the destination inventory. Then try the variant where S leaves before D is copied.",
+        "vi": "Dùng trong bài “BitTorrent và truyền tệp peer-to-peer” ở hoạt động “Theo dõi ai đang giữ từng phần”. Yêu cầu hoạt động: Trước mỗi bước, nêu nguồn phù hợp và dự đoán tập phần của đích. Sau đó thử nhánh S rời mạng trước khi D được sao chép."
+      },
+      "learningFocus": {
+        "en": "Explain the separate roles of metadata, tracker, peers, pieces, swarm and seed. Trace piece availability through downloads and uploads without removing the source copy.",
+        "vi": "Giải thích vai trò riêng của metadata, tracker, peer, các phần, swarm và seed. Theo dõi phần tệp có sẵn qua tải xuống/lên mà không xóa bản ở nguồn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: The torrent descriptor contains the whole shared file. Require students to correct it with the rule: It contains metadata; peers supply the payload pieces.",
+        "vi": "Kiểm tra hiểu sai này: Tệp mô tả torrent chứa toàn bộ tệp chia sẻ. Yêu cầu học sinh sửa bằng quy tắc: Nó chứa metadata; peer cung cấp các phần payload."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-14.2-T01",
+      "sectionId": "14",
+      "slug": "packet-journey-and-routers",
+      "lessonTitle": {
+        "en": "Packet journey and routers",
+        "vi": "Hành trình packet và router"
+      },
+      "visualKind": "packet-routing",
+      "runtimeFamily": "network-topic-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Packet journey and routers” as the “Read, look up and forward” activity. Activity direction: Predict the next hop from the destination and table. When the link fails, check whether an explicit alternative exists before forwarding. Reconstruct only after all three identities arrive.",
+        "vi": "Dùng trong bài “Hành trình packet và router” ở hoạt động “Đọc, tra bảng và chuyển tiếp”. Yêu cầu hoạt động: Dự đoán next hop từ đích và bảng. Khi liên kết hỏng, kiểm tra có phương án thay thế rõ ràng trước khi chuyển tiếp. Chỉ khôi phục sau khi đủ ba định danh."
+      },
+      "learningFocus": {
+        "en": "Trace splitting, addressing, forwarding, arrival and reassembly in packet switching. Use a router’s destination lookup and available next-hop information to justify forwarding.",
+        "vi": "Theo dõi chia nhỏ, đánh địa chỉ, chuyển tiếp, nhận và ghép lại trong packet switching. Dùng tra cứu theo đích và next hop khả dụng để giải thích chuyển tiếp của router."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Every packet takes a different or geometrically shortest route. Require students to correct it with the rule: Routes can coincide; routers use available routing information and policy.",
+        "vi": "Kiểm tra hiểu sai này: Mọi packet đi tuyến khác nhau hoặc tuyến ngắn nhất trên hình. Yêu cầu học sinh sửa bằng quy tắc: Các tuyến có thể trùng; router dùng thông tin và chính sách định tuyến khả dụng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-14.2-T02",
+      "sectionId": "14",
+      "slug": "choosing-a-switching-method",
+      "lessonTitle": {
+        "en": "Choose a switching method",
+        "vi": "Chọn phương pháp chuyển mạch"
+      },
+      "visualKind": "switching-methods",
+      "runtimeFamily": "network-topic-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Choose a switching method” as the “Compare the same demand twice” activity. Activity direction: At the interval, predict whether another conversation can use the capacity. Then justify the preferred method using the scenario’s priority and one tradeoff.",
+        "vi": "Dùng trong bài “Chọn phương pháp chuyển mạch” ở hoạt động “So sánh cùng nhu cầu qua hai cách”. Yêu cầu hoạt động: Ở khoảng giữa, dự đoán cuộc trao đổi khác có dùng được dung lượng không. Sau đó giải thích phương pháp ưu tiên bằng ưu tiên của tình huống và một đánh đổi."
+      },
+      "learningFocus": {
+        "en": "Describe circuit establishment, reserved use and release. Explain how packets share capacity and why overhead, queueing and ordering may matter.",
+        "vi": "Mô tả thiết lập circuit, sử dụng phần dành riêng và giải phóng. Giải thích packet dùng chung dung lượng và vì sao thông tin điều khiển, hàng đợi, sắp thứ tự có thể quan trọng."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Idle means a reserved circuit is available to other users. Require students to correct it with the rule: It can be idle and still allocated; release is a separate event.",
+        "vi": "Kiểm tra hiểu sai này: Nhàn rỗi nghĩa circuit dành riêng đang cho người khác dùng được. Yêu cầu học sinh sửa bằng quy tắc: Nó có thể nhàn rỗi mà vẫn được cấp; giải phóng là sự kiện riêng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.1-T01",
+      "sectionId": "15",
+      "slug": "risc-and-cisc",
+      "lessonTitle": {
+        "en": "RISC and CISC",
+        "vi": "RISC và CISC"
+      },
+      "visualKind": "risc-cisc",
+      "runtimeFamily": "hardware-scale-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “RISC and CISC” as the “One calculation, two instruction profiles” activity. Activity direction: Before each step, predict which value changes and whether Z is already updated.",
+        "vi": "Dùng trong bài “RISC và CISC” ở hoạt động “Một phép tính, hai kiểu tập lệnh”. Yêu cầu hoạt động: Trước từng bước, dự đoán giá trị nào đổi và Z đã được cập nhật chưa."
+      },
+      "learningFocus": {
+        "en": "Compare instruction formats, addressing modes, registers and memory access. Trace a load/store sequence and a symbolic complex instruction for the same calculation.",
+        "vi": "So sánh định dạng lệnh, chế độ địa chỉ, thanh ghi và truy cập bộ nhớ. Truy vết chuỗi load/store và một lệnh phức hợp minh họa cho cùng phép tính."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: RISC always finishes every program faster. Require students to correct it with the rule: Performance needs workload and implementation assumptions; the label alone is insufficient.",
+        "vi": "Kiểm tra hiểu sai này: RISC luôn chạy mọi chương trình nhanh hơn. Yêu cầu học sinh sửa bằng quy tắc: Hiệu năng cần giả định về công việc và triển khai; chỉ nhãn chưa đủ."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.1-T02",
+      "sectionId": "15",
+      "slug": "pipelines-registers-and-interrupts",
+      "lessonTitle": {
+        "en": "Pipelines, registers and interrupts",
+        "vi": "Đường ống lệnh, thanh ghi và ngắt"
+      },
+      "visualKind": "pipeline-registers-interrupts",
+      "runtimeFamily": "hardware-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Pipelines, registers and interrupts” as the “Follow clocks and saved state” activity. Activity direction: Read the current clock column, predict the next boundary register, then explain which instructions can restart after the interrupt.",
+        "vi": "Dùng trong bài “Đường ống lệnh, thanh ghi và ngắt” ở hoạt động “Theo dõi nhịp và trạng thái được lưu”. Yêu cầu hoạt động: Đọc cột nhịp hiện tại, dự đoán thanh ghi ranh giới kế tiếp rồi giải thích lệnh nào phải chạy lại sau ngắt."
+      },
+      "learningFocus": {
+        "en": "Trace IF, ID, OF, IE and WB across a stated clock schedule. Distinguish the stage occupied during a clock from the boundary register contents after it.",
+        "vi": "Theo dõi IF, ID, OF, IE, WB trên lịch nhịp đã cho. Phân biệt giai đoạn đang hoạt động trong nhịp với nội dung thanh ghi ở cuối nhịp."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: One completion per clock means every instruction takes one clock. Require students to correct it with the rule: That is throughput. Trace I1 across IF,ID,OF,IE,WB: its latency remains five clocks.",
+        "vi": "Kiểm tra hiểu sai này: Một lệnh hoàn tất mỗi nhịp nghĩa là mọi lệnh chỉ mất một nhịp. Yêu cầu học sinh sửa bằng quy tắc: Đó là throughput. Theo I1 qua IF,ID,OF,IE,WB: latency của nó vẫn năm nhịp."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.1-T03",
+      "sectionId": "15",
+      "slug": "flynn-architectures-and-massive-parallelism",
+      "lessonTitle": {
+        "en": "Flynn architectures and massive parallelism",
+        "vi": "Phân loại Flynn và xử lý song song quy mô lớn"
+      },
+      "visualKind": "flynn-parallelism",
+      "runtimeFamily": "hardware-scale-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Flynn architectures and massive parallelism” as the “See instruction and data streams” activity. Activity direction: Name the streams before revealing the category or combined result.",
+        "vi": "Dùng trong bài “Phân loại Flynn và xử lý song song quy mô lớn” ở hoạt động “Quan sát luồng lệnh và dữ liệu”. Yêu cầu hoạt động: Gọi tên các luồng trước khi mở loại kiến trúc hoặc kết quả gộp."
+      },
+      "learningFocus": {
+        "en": "Classify SISD, SIMD, MISD and MIMD from stream evidence. Trace independent lane operations and a coordinated parallel sum.",
+        "vi": "Phân loại SISD, SIMD, MISD, MIMD từ dữ kiện luồng. Truy vết thao tác ở các nhánh độc lập và phép tổng song song phối hợp."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Many processors always means MIMD. Require students to correct it with the rule: SIMD and MISD can also have many processing elements; inspect the streams.",
+        "vi": "Kiểm tra hiểu sai này: Nhiều bộ xử lý luôn là MIMD. Yêu cầu học sinh sửa bằng quy tắc: SIMD và MISD cũng có thể có nhiều phần tử xử lý; phải xem luồng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.1-T04",
+      "sectionId": "15",
+      "slug": "virtual-machines",
+      "lessonTitle": {
+        "en": "Virtual machines",
+        "vi": "Máy ảo"
+      },
+      "visualKind": "virtual-machines",
+      "runtimeFamily": "hardware-scale-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Virtual machines” as the “Follow the guest request and manage resources” activity. Activity direction: Predict whether a request fits and which layer handles the next part of a guest disk request.",
+        "vi": "Dùng trong bài “Máy ảo” ở hoạt động “Theo yêu cầu guest và quản lý tài nguyên”. Yêu cầu hoạt động: Dự đoán yêu cầu có vừa tài nguyên và lớp nào xử lý tiếp yêu cầu đĩa của guest."
+      },
+      "learningFocus": {
+        "en": "Explain host OS, guest OS and hypervisor roles in a hosted model. Trace a guest request and manage a bounded allocation example.",
+        "vi": "Giải thích host OS, guest OS và hypervisor trong mô hình hosted. Theo một yêu cầu của guest và quản lý ví dụ phân bổ có giới hạn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A VM is the same as virtual memory. Require students to correct it with the rule: A guest computing environment and memory-management abstraction solve different problems.",
+        "vi": "Kiểm tra hiểu sai này: VM giống virtual memory. Yêu cầu học sinh sửa bằng quy tắc: Môi trường máy tính guest và sự trừu tượng quản lý bộ nhớ giải quyết hai vấn đề khác."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.2-T01",
+      "sectionId": "15",
+      "slug": "circuit-truth-table-and-expression",
+      "lessonTitle": {
+        "en": "Circuit, truth table and expression",
+        "vi": "Mạch logic, bảng chân trị và biểu thức"
+      },
+      "visualKind": "logic-circuit",
+      "runtimeFamily": "logic-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Circuit, truth table and expression” as the “Translate one function three ways” activity. Activity direction: Predict each gate output, identify every Y=1 row and explain how its literals become a product term.",
+        "vi": "Dùng trong bài “Mạch logic, bảng chân trị và biểu thức” ở hoạt động “Chuyển một hàm qua ba cách biểu diễn”. Yêu cầu hoạt động: Dự đoán từng đầu ra cổng, xác định mọi hàng Y=1 và giải thích cách các literal thành một tích."
+      },
+      "learningFocus": {
+        "en": "Evaluate gates, including a three-input AND, in dependency order. Construct a complete truth table with named intermediate outputs.",
+        "vi": "Tính các cổng, gồm AND ba đầu vào, theo thứ tự phụ thuộc. Lập bảng chân trị đầy đủ với đầu ra trung gian có tên."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Three-input AND gives1 if two of its inputs are1. Require students to correct it with the rule: AND requires all inputs1. Test110: the missing third1 makes the output0.",
+        "vi": "Kiểm tra hiểu sai này: AND ba đầu vào cho1 nếu hai đầu vào bằng1. Yêu cầu học sinh sửa bằng quy tắc: AND đòi mọi đầu vào bằng1. Kiểm110: đầu vào thứ ba chưa1 khiến đầu ra0."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.2-T02",
+      "sectionId": "15",
+      "slug": "half-full-adders",
+      "lessonTitle": {
+        "en": "Half/full adders",
+        "vi": "Bộ cộng bán phần và toàn phần"
+      },
+      "visualKind": "adders",
+      "runtimeFamily": "logic-scale-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Half/full adders” as the “Follow sum and carry through the gates” activity. Activity direction: Predict which carry path becomes1, and test every truth-table row.",
+        "vi": "Dùng trong bài “Bộ cộng bán phần và toàn phần” ở hoạt động “Theo sum và carry qua các cổng”. Yêu cầu hoạt động: Dự đoán đường carry nào bằng1 và thử mọi hàng chân trị."
+      },
+      "learningFocus": {
+        "en": "Derive all half-adder and full-adder truth-table rows. Construct a full adder from two half adders and an OR gate.",
+        "vi": "Suy ra mọi hàng bảng chân trị half adder và full adder. Dựng full adder từ hai half adder và cổng OR."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: 1+1 gives sum1 because OR gives1. Require students to correct it with the rule: Sum uses XOR; the extra value is carried separately.",
+        "vi": "Kiểm tra hiểu sai này: 1+1 cho sum1 vì OR cho1. Yêu cầu học sinh sửa bằng quy tắc: Sum dùng XOR; phần giá trị thêm được nhớ riêng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.2-T03",
+      "sectionId": "15",
+      "slug": "sr-and-jk-flip-flops",
+      "lessonTitle": {
+        "en": "SR and JK flip-flops",
+        "vi": "Flip-flop SR và JK"
+      },
+      "visualKind": "sr-jk-flip-flops",
+      "runtimeFamily": "logic-scale-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “SR and JK flip-flops” as the “Follow feedback and stored state” activity. Activity direction: Predict Qnext from the controls, previous Q and any active edge; then explain a hold or invalid case.",
+        "vi": "Dùng trong bài “Flip-flop SR và JK” ở hoạt động “Theo feedback và trạng thái lưu”. Yêu cầu hoạt động: Dự đoán Qnext từ điều khiển, Q trước và cạnh kích hoạt; sau đó giải thích hold hoặc invalid."
+      },
+      "learningFocus": {
+        "en": "Draw and reason about the declared cross-coupled NOR SR circuit. Derive hold, set, reset, invalid and JK toggle cases using previous Q.",
+        "vi": "Vẽ và suy luận mạch SR NOR mắc hồi tiếp chéo đã nêu. Suy ra giữ, set, reset, invalid và toggle JK từ Q trước."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: SR00 always resets the bit. Require students to correct it with the rule: In this NOR convention it holds the known previous state.",
+        "vi": "Kiểm tra hiểu sai này: SR00 luôn reset bit. Yêu cầu học sinh sửa bằng quy tắc: Trong quy ước NOR này nó giữ trạng thái trước đã biết."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.2-T04",
+      "sectionId": "15",
+      "slug": "boolean-simplification",
+      "lessonTitle": {
+        "en": "Boolean simplification",
+        "vi": "Rút gọn biểu thức Boolean"
+      },
+      "visualKind": "boolean-simplification",
+      "runtimeFamily": "logic-scale-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Boolean simplification” as the “One law per step, every row checked” activity. Activity direction: Predict the next expression and justify it by one law before revealing the comparison.",
+        "vi": "Dùng trong bài “Rút gọn biểu thức Boolean” ở hoạt động “Mỗi bước một luật, kiểm mọi hàng”. Yêu cầu hoạt động: Dự đoán biểu thức tiếp và giải thích bằng một luật trước khi mở bảng so."
+      },
+      "learningFocus": {
+        "en": "Apply Boolean identities and De Morgan’s laws with correct scope. Present one justified transformation per step.",
+        "vi": "Áp dụng các đồng nhất Boolean và luật De Morgan đúng phạm vi. Trình bày mỗi bước một phép biến đổi có lý do."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: De Morgan only moves the NOT signs. Require students to correct it with the rule: It also changes AND to OR or OR to AND.",
+        "vi": "Kiểm tra hiểu sai này: De Morgan chỉ chuyển các dấu NOT. Yêu cầu học sinh sửa bằng quy tắc: Nó còn đổi AND thành OR hoặc ngược lại."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-15.2-T05",
+      "sectionId": "15",
+      "slug": "karnaugh-maps",
+      "lessonTitle": {
+        "en": "Karnaugh maps",
+        "vi": "Bản đồ Karnaugh"
+      },
+      "visualKind": "karnaugh-map",
+      "runtimeFamily": "logic-scale-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Karnaugh maps” as the “Select cells, justify a group, verify the SOP” activity. Activity direction: Try a valid wrap group and an invalid diagonal or six-cell group. Explain why each is accepted or rejected.",
+        "vi": "Dùng trong bài “Bản đồ Karnaugh” ở hoạt động “Chọn ô, giải thích nhóm, kiểm SOP”. Yêu cầu hoạt động: Thử nhóm nối mép hợp lệ và nhóm chéo hoặc sáu ô sai. Giải thích vì sao được nhận hay bị từ chối."
+      },
+      "learningFocus": {
+        "en": "Place truth-table values correctly in two-, three- and four-variable Gray-code maps. Validate groups including edge wrapping, overlap and singleton cases.",
+        "vi": "Đặt đúng giá trị bảng chân trị vào map Gray hai, ba, bốn biến. Kiểm nhóm gồm nối mép, chồng lấp và ô đơn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Any even number of1s is a valid group. Require students to correct it with the rule: The count must be a power of two and the shape a valid rectangle; six is invalid.",
+        "vi": "Kiểm tra hiểu sai này: Mọi số chẵn ô1 đều là nhóm hợp lệ. Yêu cầu học sinh sửa bằng quy tắc: Số ô phải là lũy thừa hai và hình là chữ nhật hợp lệ; sáu sai."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.1-T01",
+      "sectionId": "16",
+      "slug": "resources-processes-and-states",
+      "lessonTitle": {
+        "en": "Resources, processes and states",
+        "vi": "Tài nguyên, tiến trình và trạng thái"
+      },
+      "visualKind": "process-states",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Resources, processes and states” as the “Follow two processes through six events” activity. Activity direction: Predict whether P1 can run immediately when its I/O completes while P2 is running.",
+        "vi": "Dùng trong bài “Tài nguyên, tiến trình và trạng thái” ở hoạt động “Theo dõi hai tiến trình qua sáu sự kiện”. Yêu cầu hoạt động: Dự đoán P1 có thể chạy ngay không khi I/O của nó hoàn tất trong lúc P2 đang chạy."
+      },
+      "learningFocus": {
+        "en": "Explain CPU, memory and I/O resource management with a concrete benefit. Distinguish a stored program from a process and its saved context.",
+        "vi": "Giải thích quản lý CPU, bộ nhớ và I/O cùng lợi ích cụ thể. Phân biệt chương trình được lưu với tiến trình và ngữ cảnh đã lưu của nó."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Every waiting process is blocked. Require students to correct it with the rule: Waiting only for CPU is ready; an event dependency makes it blocked.",
+        "vi": "Kiểm tra hiểu sai này: Mọi tiến trình đang chờ đều Blocked. Yêu cầu học sinh sửa bằng quy tắc: Chỉ chờ CPU là Ready; phụ thuộc sự kiện mới là Blocked."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.1-T02",
+      "sectionId": "16",
+      "slug": "scheduling-choices",
+      "lessonTitle": {
+        "en": "Scheduling choices",
+        "vi": "Lựa chọn thuật toán lập lịch"
+      },
+      "visualKind": "cpu-scheduling",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Scheduling choices” as the “One workload, four policies” activity. Activity direction: Predict the next process before advancing; compare time 2 and time 4 under RR and SRT.",
+        "vi": "Dùng trong bài “Lựa chọn thuật toán lập lịch” ở hoạt động “Một tải công việc, bốn chính sách”. Yêu cầu hoạt động: Dự đoán tiến trình tiếp theo trước khi chuyển bước; so sánh thời điểm 2 và 4 giữa RR với SRT."
+      },
+      "learningFocus": {
+        "en": "Trace FCFS, RR, SJF and SRT with arrivals, remaining times and stated ties. Calculate response, waiting and turnaround for a declared CPU-only model.",
+        "vi": "Trace FCFS, RR, SJF và SRT với thời điểm đến, thời gian còn lại và quy tắc hòa đã nêu. Tính thời gian phản hồi, chờ và hoàn thành tính từ lúc đến trong mô hình chỉ dùng CPU đã nêu."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A quantum expiry blocks the process. Require students to correct it with the rule: It remains runnable and returns to ready; blocked requires an outstanding event.",
+        "vi": "Kiểm tra hiểu sai này: Hết quantum làm tiến trình Blocked. Yêu cầu học sinh sửa bằng quy tắc: Tiến trình vẫn có thể chạy và trở về Ready; Blocked đòi hỏi đang chờ sự kiện."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.1-T03",
+      "sectionId": "16",
+      "slug": "kernel-interrupts-and-scheduling",
+      "lessonTitle": {
+        "en": "Kernel, interrupts and scheduling",
+        "vi": "Kernel, ngắt và lập lịch"
+      },
+      "visualKind": "kernel-interrupts",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Kernel, interrupts and scheduling” as the “Compare timer and I/O paths” activity. Activity direction: Predict which saved values are restored in each scenario before advancing to restore-context.",
+        "vi": "Dùng trong bài “Kernel, ngắt và lập lịch” ở hoạt động “So sánh đường định thời và I/O”. Yêu cầu hoạt động: Dự đoán bộ giá trị đã lưu nào được khôi phục trong từng tình huống trước bước restore-context."
+      },
+      "learningFocus": {
+        "en": "Explain the kernel’s interrupt-handling and low-level scheduling responsibilities. Trace saving and restoring the correct process context.",
+        "vi": "Giải thích trách nhiệm xử lý ngắt và lập lịch mức thấp của kernel. Trace việc lưu và khôi phục đúng ngữ cảnh tiến trình."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Every interrupt switches to a different process. Require students to correct it with the rule: The handler can return to the same process after service.",
+        "vi": "Kiểm tra hiểu sai này: Mọi ngắt đều chuyển sang tiến trình khác. Yêu cầu học sinh sửa bằng quy tắc: Trình xử lý có thể trở lại cùng tiến trình sau phục vụ."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.1-T04",
+      "sectionId": "16",
+      "slug": "paging-segmentation-and-virtual-memory",
+      "lessonTitle": {
+        "en": "Paging, segmentation and virtual memory",
+        "vi": "Phân trang, phân đoạn và bộ nhớ ảo"
+      },
+      "visualKind": "memory-addressing",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Paging, segmentation and virtual memory” as the “Follow translation and fault recovery” activity. Activity direction: Compare address 35 with 50, then compare segment 1 offsets 7 and 12. Predict whether a physical address should exist at each step.",
+        "vi": "Dùng trong bài “Phân trang, phân đoạn và bộ nhớ ảo” ở hoạt động “Theo dõi dịch địa chỉ và khôi phục page fault”. Yêu cầu hoạt động: So sánh địa chỉ 35 với 50, rồi so offset 7 và 12 của đoạn 1. Dự đoán mỗi bước có nên tồn tại địa chỉ vật lý không."
+      },
+      "learningFocus": {
+        "en": "Calculate page/offset and frame/offset addresses with a page table. Check a segment limit before adding its base address.",
+        "vi": "Tính địa chỉ trang/offset và khung/offset bằng bảng trang. Kiểm tra giới hạn đoạn trước khi cộng địa chỉ nền."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Physical address=page number+offset. Require students to correct it with the rule: Look up a frame, then multiply it by page size and add the offset.",
+        "vi": "Kiểm tra hiểu sai này: Địa chỉ vật lý=số trang+offset. Yêu cầu học sinh sửa bằng quy tắc: Tra khung rồi nhân số khung với kích thước trang và cộng offset."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.1-T05",
+      "sectionId": "16",
+      "slug": "replacement-and-thrashing",
+      "lessonTitle": {
+        "en": "Replacement and thrashing",
+        "vi": "Thay thế trang và thrashing"
+      },
+      "visualKind": "page-replacement",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Replacement and thrashing” as the “Trace frames and policy memory separately” activity. Activity direction: Predict the victim for page 4 after 1,2,3,1 under both policies; then compare the two- and three-frame locality traces.",
+        "vi": "Dùng trong bài “Thay thế trang và thrashing” ở hoạt động “Trace riêng khung và lịch sử chính sách”. Yêu cầu hoạt động: Dự đoán nạn nhân khi truy cập 4 sau 1,2,3,1 ở cả hai chính sách; rồi so trace tính cục bộ với hai và ba khung."
+      },
+      "learningFocus": {
+        "en": "Trace FIFO and LRU using explicit frame contents and policy history. Count faults/hits without treating every fault as an eviction.",
+        "vi": "Trace FIFO và LRU với nội dung khung và lịch sử chính sách rõ ràng. Đếm lỗi/hit mà không coi mọi lỗi là loại trang."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A hit refreshes FIFO position. Require students to correct it with the rule: Only a new load changes FIFO residency order; LRU updates on hits.",
+        "vi": "Kiểm tra hiểu sai này: Hit làm mới vị trí FIFO. Yêu cầu học sinh sửa bằng quy tắc: Chỉ lần nạp mới đổi thứ tự FIFO; LRU cập nhật khi hit."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.2-T01",
+      "sectionId": "16",
+      "slug": "interpreter-versus-compiler",
+      "lessonTitle": {
+        "en": "Interpreter versus compiler",
+        "vi": "Thông dịch và biên dịch"
+      },
+      "visualKind": "translation-workflows",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Interpreter versus compiler” as the “Compare effects on the same program” activity. Activity direction: Run the valid program through both workflows; then predict which output survives the third-statement syntax error.",
+        "vi": "Dùng trong bài “Thông dịch và biên dịch” ở hoạt động “So sánh tác động lên cùng chương trình”. Yêu cầu hoạt động: Chạy chương trình hợp lệ qua cả hai quy trình; rồi dự đoán đầu ra nào còn khi câu lệnh thứ ba sai cú pháp."
+      },
+      "learningFocus": {
+        "en": "Explain execution by an interpreter without a standalone translated program. Separate compile-time diagnostics, target-code creation and runtime output.",
+        "vi": "Giải thích thực thi bằng trình thông dịch không tạo chương trình đã dịch độc lập. Tách chẩn đoán khi biên dịch, tạo mã đích và đầu ra khi chạy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Compiling OUTPUT immediately prints its value. Require students to correct it with the rule: Translation generates an instruction; executing it produces output.",
+        "vi": "Kiểm tra hiểu sai này: Biên dịch OUTPUT lập tức in giá trị. Yêu cầu học sinh sửa bằng quy tắc: Dịch sinh lệnh; thực thi lệnh mới tạo đầu ra."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.2-T02",
+      "sectionId": "16",
+      "slug": "compilation-stages",
+      "lessonTitle": {
+        "en": "Compilation stages",
+        "vi": "Các giai đoạn biên dịch"
+      },
+      "visualKind": "compilation-pipeline",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Compilation stages” as the “Track representations through four named stages” activity. Activity direction: Predict whether @ and a missing right operand fail at the same stage. Toggle constant folding and compare the retained OUTPUT instruction.",
+        "vi": "Dùng trong bài “Các giai đoạn biên dịch” ở hoạt động “Theo dạng biểu diễn qua bốn giai đoạn được nêu”. Yêu cầu hoạt động: Dự đoán @ và thiếu toán hạng phải có lỗi ở cùng giai đoạn không. Bật/tắt gấp hằng và so lệnh OUTPUT được giữ."
+      },
+      "learningFocus": {
+        "en": "Explain lexical analysis, syntax analysis, code generation and code optimisation. Trace tokens, a symbol table and an expression structure on a small program.",
+        "vi": "Giải thích phân tích từ vựng, phân tích cú pháp, sinh mã và tối ưu mã. Trace token, bảng ký hiệu và cấu trúc biểu thức của chương trình nhỏ."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Removing whitespace means deleting spaces inside strings. Require students to correct it with the rule: Only insignificant material can be ignored; literal values must be preserved.",
+        "vi": "Kiểm tra hiểu sai này: Bỏ khoảng trắng nghĩa là xóa dấu cách trong chuỗi. Yêu cầu học sinh sửa bằng quy tắc: Chỉ bỏ thành phần không có ý nghĩa; phải giữ giá trị hằng chuỗi."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.2-T03",
+      "sectionId": "16",
+      "slug": "bnf-and-syntax-diagrams",
+      "lessonTitle": {
+        "en": "BNF and syntax diagrams",
+        "vi": "BNF và sơ đồ cú pháp"
+      },
+      "visualKind": "bnf-explorer",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “BNF and syntax diagrams” as the “Derive a name and follow the matching diagram” activity. Activity direction: Predict whether B20, A, AB and A3 can consume the complete input. For an invalid case, identify the first symbol that cannot follow a valid path.",
+        "vi": "Dùng trong bài “BNF và sơ đồ cú pháp” ở hoạt động “Dẫn xuất tên và đi theo sơ đồ tương ứng”. Yêu cầu hoạt động: Dự đoán B20, A, AB và A3 có dùng hết đầu vào không. Với trường hợp sai, xác định ký hiệu đầu tiên không thể đi theo đường hợp lệ."
+      },
+      "learningFocus": {
+        "en": "Distinguish terminals, non-terminals, production rules, choice and sequence. Trace a derivation and the equivalent syntax-diagram path for a bounded grammar.",
+        "vi": "Phân biệt ký hiệu kết thúc, không kết thúc, luật sinh, lựa chọn và nối tiếp. Trace phép dẫn xuất và đường đi tương đương trong sơ đồ cú pháp của văn phạm hữu hạn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A | B means A followed by B. Require students to correct it with the rule: The bar means choice; adjacency expresses sequence.",
+        "vi": "Kiểm tra hiểu sai này: A | B nghĩa là A theo sau B. Yêu cầu học sinh sửa bằng quy tắc: Dấu gạch đứng là lựa chọn; đặt cạnh nhau biểu diễn nối tiếp."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-16.2-T04",
+      "sectionId": "16",
+      "slug": "rpn-and-the-stack",
+      "lessonTitle": {
+        "en": "RPN and the stack",
+        "vi": "RPN và ngăn xếp"
+      },
+      "visualKind": "rpn-stack",
+      "runtimeFamily": "section16-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “RPN and the stack” as the “Watch operands become sub-expressions” activity. Activity direction: Before each operator, predict right, left and the new top. Then try a fractional result and one invalid expression.",
+        "vi": "Dùng trong bài “RPN và ngăn xếp” ở hoạt động “Quan sát toán hạng tạo thành biểu thức con”. Yêu cầu hoạt động: Trước mỗi toán tử, dự đoán phải, trái và đỉnh mới. Sau đó thử kết quả phân số và một biểu thức sai."
+      },
+      "learningFocus": {
+        "en": "Convert between bracketed infix and postfix while preserving precedence. Trace every push, ordered pop, operation and result push.",
+        "vi": "Đổi giữa infix có ngoặc và postfix mà giữ đúng độ ưu tiên. Trace từng lần đẩy, lấy đúng thứ tự, tính và đẩy kết quả."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: First pop is always the left operand. Require students to correct it with the rule: First pop is right; subtraction and division must use left operator right.",
+        "vi": "Kiểm tra hiểu sai này: Lần pop đầu luôn lấy bên trái. Yêu cầu học sinh sửa bằng quy tắc: Lần pop đầu lấy bên phải; trừ và chia phải tính trái toán tử phải."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-17.1-T01",
+      "sectionId": "17",
+      "slug": "confidentiality-and-key-choice",
+      "lessonTitle": {
+        "en": "Confidentiality and key choice",
+        "vi": "Tính bí mật và lựa chọn khóa"
+      },
+      "visualKind": "key-ownership",
+      "runtimeFamily": "section17-security-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Confidentiality and key choice” as the “Key ownership and security-goal explorer” activity. Activity direction: Complete both the private-message and verified-message scenarios, then explain why the near-miss key is wrong.",
+        "vi": "Dùng trong bài “Tính bí mật và lựa chọn khóa” ở hoạt động “Khám phá chủ khóa và mục tiêu bảo mật”. Yêu cầu hoạt động: Hoàn thành cả kịch bản thông điệp bí mật và thông điệp được xác minh, rồi giải thích vì sao khóa gần đúng lại sai."
+      },
+      "learningFocus": {
+        "en": "Distinguish plaintext, ciphertext, encryption and decryption. Compare symmetric and asymmetric key ownership.",
+        "vi": "Phân biệt bản rõ, bản mã, mã hóa và giải mã. So sánh quyền sở hữu khóa đối xứng và bất đối xứng."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A public key must be kept secret. Require students to correct it with the rule: It is designed for distribution; the matching private key is protected.",
+        "vi": "Kiểm tra hiểu sai này: Khóa công khai phải được giữ bí mật. Yêu cầu học sinh sửa bằng quy tắc: Nó được thiết kế để phân phối; khóa riêng tương ứng mới được bảo vệ."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-17.1-T02",
+      "sectionId": "17",
+      "slug": "quantum-cryptography",
+      "lessonTitle": {
+        "en": "Quantum cryptography",
+        "vi": "Mật mã lượng tử"
+      },
+      "visualKind": "quantum-key-distribution",
+      "runtimeFamily": "section17-security-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Quantum cryptography” as the “QKD eavesdrop explorer” activity. Activity direction: For each trace, identify kept positions, sample positions, observed error and the justified decision.",
+        "vi": "Dùng trong bài “Mật mã lượng tử” ở hoạt động “Khám phá nghe lén QKD”. Yêu cầu hoạt động: Với mỗi trace, xác định vị trí được giữ, vị trí mẫu, lỗi quan sát và quyết định có căn cứ."
+      },
+      "learningFocus": {
+        "en": "State the purpose of quantum key distribution. Trace sender, Eve and receiver choices through a deterministic teaching fixture.",
+        "vi": "Nêu mục đích của phân phối khóa lượng tử. Theo dõi lựa chọn của người gửi, Eve và người nhận qua một fixture dạy học xác định."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: One matching bit proves no eavesdropper exists. Require students to correct it with the rule: Detection is statistical; a sample provides evidence, not absolute proof from one bit.",
+        "vi": "Kiểm tra hiểu sai này: Một bit khớp chứng minh không có người nghe lén. Yêu cầu học sinh sửa bằng quy tắc: Phát hiện mang tính thống kê; mẫu cung cấp bằng chứng, không phải chứng minh tuyệt đối từ một bit."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-17.1-T03",
+      "sectionId": "17",
+      "slug": "ssl-tls-communication",
+      "lessonTitle": {
+        "en": "SSL/TLS communication",
+        "vi": "Truyền thông SSL/TLS"
+      },
+      "visualKind": "tls-session",
+      "runtimeFamily": "section17-security-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “SSL/TLS communication” as the “SSL/TLS client–server session journey” activity. Activity direction: Reach a protected login/payment transfer, then force a certificate failure and explain why application data must not be sent as protected.",
+        "vi": "Dùng trong bài “Truyền thông SSL/TLS” ở hoạt động “Hành trình phiên SSL/TLS client–server”. Yêu cầu hoạt động: Đạt đến truyền đăng nhập/thanh toán được bảo vệ, rồi tạo lỗi chứng chỉ và giải thích vì sao không được gửi dữ liệu ứng dụng như đã được bảo vệ."
+      },
+      "learningFocus": {
+        "en": "State the purpose of SSL/TLS in client–server communication. Trace a simplified certificate check and session setup.",
+        "vi": "Nêu mục đích SSL/TLS trong truyền thông client–server. Theo dõi kiểm tra chứng chỉ và thiết lập phiên giản lược."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: HTTPS proves a website is honest. Require students to correct it with the rule: It supports a protected connection and identity binding; it does not judge the site’s content or conduct.",
+        "vi": "Kiểm tra hiểu sai này: HTTPS chứng minh website trung thực. Yêu cầu học sinh sửa bằng quy tắc: Nó hỗ trợ kết nối được bảo vệ và liên kết danh tính; không đánh giá nội dung hay hành vi của trang."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-17.1-T04",
+      "sectionId": "17",
+      "slug": "certificates-and-signatures",
+      "lessonTitle": {
+        "en": "Certificates and signatures",
+        "vi": "Chứng chỉ số và chữ ký số"
+      },
+      "visualKind": "certificate-signature",
+      "runtimeFamily": "section17-security-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Certificates and signatures” as the “Certificate acquisition and signature verification lab” activity. Activity direction: Issue a certificate, verify a valid message, then test tampered-message and wrong-signer fixtures.",
+        "vi": "Dùng trong bài “Chứng chỉ số và chữ ký số” ở hoạt động “Phòng thực hành cấp chứng chỉ và kiểm chứng chữ ký”. Yêu cầu hoạt động: Cấp chứng chỉ, kiểm chứng thông điệp hợp lệ, rồi thử fixture thông điệp bị sửa và sai người ký."
+      },
+      "learningFocus": {
+        "en": "Trace certificate request, identity check and issuance. Distinguish a certificate from a digital signature.",
+        "vi": "Theo dõi yêu cầu chứng chỉ, kiểm tra danh tính và cấp chứng chỉ. Phân biệt chứng chỉ số với chữ ký số."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A certificate is a digital signature. Require students to correct it with the rule: A certificate is an issuer-signed identity/public-key document; a message signature is separate evidence.",
+        "vi": "Kiểm tra hiểu sai này: Chứng chỉ là chữ ký số. Yêu cầu học sinh sửa bằng quy tắc: Chứng chỉ là tài liệu danh tính/khóa công khai được bên cấp ký; chữ ký thông điệp là bằng chứng riêng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T01",
+      "sectionId": "18",
+      "slug": "graphs-and-dijkstra",
+      "lessonTitle": {
+        "en": "Graphs and Dijkstra",
+        "vi": "Đồ thị và Dijkstra"
+      },
+      "visualKind": "dijkstra-search",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Graphs and Dijkstra” as the “Dijkstra graph-search workbench” activity. Activity direction: Complete the primary trace, then use the tie and unreachable fixtures to explain the declared rules.",
+        "vi": "Dùng trong bài “Đồ thị và Dijkstra” ở hoạt động “Bàn trace tìm kiếm Dijkstra”. Yêu cầu hoạt động: Hoàn tất trace chính, rồi dùng fixture hòa và không tới được để giải thích các quy tắc đã công bố."
+      },
+      "learningFocus": {
+        "en": "Identify nodes, edges, weights and paths in an AI problem graph. Trace tentative distances, frontier, current node, settled nodes and predecessors.",
+        "vi": "Nhận diện nút, cạnh, trọng số và đường đi trong đồ thị bài toán AI. Trace khoảng cách tạm thời, frontier, nút hiện tại, nút đã chốt và predecessor."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Choose the smallest outgoing edge. Require students to correct it with the rule: Compare cumulative route costs, not isolated edges.",
+        "vi": "Kiểm tra hiểu sai này: Chọn cạnh đi ra nhỏ nhất. Yêu cầu học sinh sửa bằng quy tắc: So sánh chi phí tuyến tích lũy, không so riêng từng cạnh."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T02",
+      "sectionId": "18",
+      "slug": "a-star-and-heuristic-search",
+      "lessonTitle": {
+        "en": "A* and heuristic search",
+        "vi": "A* và tìm kiếm heuristic"
+      },
+      "visualKind": "astar-search",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “A* and heuristic search” as the “A* heuristic-search explorer” activity. Activity direction: Compare primary A* with Dijkstra, inspect the tie, then explain the inadmissible boundary result.",
+        "vi": "Dùng trong bài “A* và tìm kiếm heuristic” ở hoạt động “Bộ khám phá tìm kiếm heuristic A*”. Yêu cầu hoạt động: So sánh A* chính với Dijkstra, xem trường hợp hòa, rồi giải thích kết quả giới hạn inadmissible."
+      },
+      "learningFocus": {
+        "en": "Distinguish g(n), h(n) and f(n)=g(n)+h(n). Trace open, closed, predecessor and cost updates.",
+        "vi": "Phân biệt g(n), h(n) và f(n)=g(n)+h(n). Trace open, closed, predecessor và cập nhật chi phí."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: f is the heuristic. Require students to correct it with the rule: h is the heuristic; f=g+h.",
+        "vi": "Kiểm tra hiểu sai này: f là heuristic. Yêu cầu học sinh sửa bằng quy tắc: h là heuristic; f=g+h."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T03",
+      "sectionId": "18",
+      "slug": "learning-categories",
+      "lessonTitle": {
+        "en": "Learning categories",
+        "vi": "Các hình thức học máy"
+      },
+      "visualKind": "learning-categories",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Learning categories” as the “Learning-category scenario laboratory” activity. Activity direction: Classify all four scenarios and explain the robot-image near miss.",
+        "vi": "Dùng trong bài “Các hình thức học máy” ở hoạt động “Phòng thí nghiệm hình thức học”. Yêu cầu hoạt động: Phân loại cả bốn kịch bản và giải thích trường hợp dễ nhầm ảnh robot."
+      },
+      "learningFocus": {
+        "en": "Explain machine learning at syllabus level. Distinguish supervised, unsupervised and reinforcement learning from evidence.",
+        "vi": "Giải thích học máy ở mức syllabus. Phân biệt học có giám sát, không giám sát và tăng cường từ dữ kiện."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A predicted label means the training data was unlabelled. Require students to correct it with the rule: Separate known training targets from the model's prediction on a new input.",
+        "vi": "Kiểm tra hiểu sai này: Nhãn được dự đoán nghĩa là dữ liệu huấn luyện không nhãn. Yêu cầu học sinh sửa bằng quy tắc: Tách mục tiêu huấn luyện đã biết khỏi dự đoán trên đầu vào mới."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T04",
+      "sectionId": "18",
+      "slug": "neural-networks-and-deep-learning",
+      "lessonTitle": {
+        "en": "Neural networks and deep learning",
+        "vi": "Mạng nơ-ron và học sâu"
+      },
+      "visualKind": "neural-network",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Neural networks and deep learning” as the “Neural-network signal explorer” activity. Activity direction: Trace both input presets and explain why no weight changes.",
+        "vi": "Dùng trong bài “Mạng nơ-ron và học sâu” ở hoạt động “Bộ khám phá tín hiệu mạng nơ-ron”. Yêu cầu hoạt động: Trace cả hai bộ đầu vào và giải thích vì sao không có trọng số thay đổi."
+      },
+      "learningFocus": {
+        "en": "Identify input, hidden and output layers, nodes and weighted connections. Trace a forward prediction with a declared teaching rule.",
+        "vi": "Nhận diện lớp đầu vào, lớp ẩn, lớp đầu ra, nút và kết nối có trọng số. Trace dự đoán xuôi bằng quy tắc dạy học đã công bố."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Artificial nodes are biological neurons. Require students to correct it with the rule: They are computational abstractions inspired by connected processing.",
+        "vi": "Kiểm tra hiểu sai này: Nút nhân tạo là nơ-ron sinh học. Yêu cầu học sinh sửa bằng quy tắc: Chúng là trừu tượng tính toán lấy cảm hứng từ xử lý liên kết."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T05",
+      "sectionId": "18",
+      "slug": "backpropagation",
+      "lessonTitle": {
+        "en": "Backpropagation",
+        "vi": "Lan truyền ngược"
+      },
+      "visualKind": "backpropagation",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Backpropagation” as the “Backpropagation training-cycle visual” activity. Activity direction: Trace BP-01 and BP-02, then explain why the update happens only in training.",
+        "vi": "Dùng trong bài “Lan truyền ngược” ở hoạt động “Minh họa chu trình training lan truyền ngược”. Yêu cầu hoạt động: Trace BP-01 và BP-02, rồi giải thích vì sao cập nhật chỉ xảy ra trong training."
+      },
+      "learningFocus": {
+        "en": "Order the eight training-cycle stages. Distinguish prediction, target, error and squared error.",
+        "vi": "Sắp xếp tám giai đoạn chu trình training. Phân biệt dự đoán, mục tiêu, sai số và sai số bình phương."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Backpropagation runs on every inference request. Require students to correct it with the rule: It is a training process; normal inference holds weights fixed.",
+        "vi": "Kiểm tra hiểu sai này: Lan truyền ngược chạy trong mọi yêu cầu inference. Yêu cầu học sinh sửa bằng quy tắc: Đó là quá trình training; inference bình thường giữ trọng số cố định."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-18.1-T06",
+      "sectionId": "18",
+      "slug": "regression",
+      "lessonTitle": {
+        "en": "Regression",
+        "vi": "Hồi quy"
+      },
+      "visualKind": "regression",
+      "runtimeFamily": "section18-ai-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Regression” as the “Regression fit and prediction explorer” activity. Activity direction: Compare x=3.5 inside the observed range with extrapolation at x=6.",
+        "vi": "Dùng trong bài “Hồi quy” ở hoạt động “Bộ khám phá khớp và dự đoán hồi quy”. Yêu cầu hoạt động: So sánh x=3.5 trong miền quan sát với ngoại suy tại x=6."
+      },
+      "learningFocus": {
+        "en": "Identify input–continuous-target training pairs. Read a fitted line, prediction and residual.",
+        "vi": "Nhận diện cặp huấn luyện đầu vào–mục tiêu liên tục. Đọc đường khớp, dự đoán và residual."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: The fitted line must pass through every point. Require students to correct it with the rule: Regression summarizes the relationship and can have residuals.",
+        "vi": "Kiểm tra hiểu sai này: Đường khớp phải đi qua mọi điểm. Yêu cầu học sinh sửa bằng quy tắc: Hồi quy tóm tắt quan hệ và có thể có residual."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T01",
+      "sectionId": "19",
+      "slug": "linear-search",
+      "lessonTitle": {
+        "en": "Linear search",
+        "vi": "Tìm kiếm tuyến tính"
+      },
+      "visualKind": "linear-search",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Linear search” as the “Sequential search workbench” activity. Activity direction: Predict each next comparison, then test first, duplicate, missing and empty fixtures.",
+        "vi": "Dùng trong bài “Tìm kiếm tuyến tính” ở hoạt động “Bàn trace tìm kiếm tuần tự”. Yêu cầu hoạt động: Dự đoán phép so sánh tiếp theo, rồi thử fixture đầu, trùng, missing và empty."
+      },
+      "learningFocus": {
+        "en": "Trace a zero-based first-match scan. Write bounded Cambridge pseudocode.",
+        "vi": "Trace phép quét zero-based trả match đầu tiên. Viết giả mã Cambridge có giới hạn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Increment before saving the match. Require students to correct it with the rule: Return the current index before incrementing.",
+        "vi": "Kiểm tra hiểu sai này: Tăng trước khi lưu match. Yêu cầu học sinh sửa bằng quy tắc: Trả chỉ số hiện tại trước khi tăng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T02",
+      "sectionId": "19",
+      "slug": "binary-search",
+      "lessonTitle": {
+        "en": "Binary search",
+        "vi": "Tìm kiếm nhị phân"
+      },
+      "visualKind": "binary-search",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Binary search” as the “Halving-window workbench” activity. Activity direction: Predict the next window, then diagnose the unsorted near-miss.",
+        "vi": "Dùng trong bài “Tìm kiếm nhị phân” ở hoạt động “Bàn trace cửa sổ chia đôi”. Yêu cầu hoạt động: Dự đoán cửa sổ tiếp theo, rồi chẩn đoán near-miss unsorted."
+      },
+      "learningFocus": {
+        "en": "State and test the sorted precondition. Trace inclusive Low, High and Mid.",
+        "vi": "Nêu và kiểm tra điều kiện sorted. Trace Low, High, Mid tính cả hai đầu."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Run on unsorted data. Require students to correct it with the rule: Block the run until the sorted precondition holds.",
+        "vi": "Kiểm tra hiểu sai này: Chạy trên dữ liệu unsorted. Yêu cầu học sinh sửa bằng quy tắc: Chặn run tới khi điều kiện sorted đúng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T03",
+      "sectionId": "19",
+      "slug": "bubble-sort",
+      "lessonTitle": {
+        "en": "Bubble sort",
+        "vi": "Sắp xếp nổi bọt"
+      },
+      "visualKind": "bubble-sort",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Bubble sort” as the “Pass-and-swap workbench” activity. Activity direction: Predict each swap and identify when early exit is valid.",
+        "vi": "Dùng trong bài “Sắp xếp nổi bọt” ở hoạt động “Bàn trace pass và swap”. Yêu cầu hoạt động: Dự đoán từng swap và xác định khi nào early exit hợp lệ."
+      },
+      "learningFocus": {
+        "en": "Trace adjacent comparisons and swaps. Explain the completed upper region.",
+        "vi": "Trace so sánh và swap cặp kề. Giải thích vùng trên đã hoàn tất."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Reset Swapped before every comparison. Require students to correct it with the rule: Reset it once before the complete pass.",
+        "vi": "Kiểm tra hiểu sai này: Reset Swapped trước mọi comparison. Yêu cầu học sinh sửa bằng quy tắc: Reset một lần trước pass hoàn chỉnh."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T04",
+      "sectionId": "19",
+      "slug": "insertion-sort",
+      "lessonTitle": {
+        "en": "Insertion sort",
+        "vi": "Sắp xếp chèn"
+      },
+      "visualKind": "insertion-sort",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Insertion sort” as the “Key-and-gap workbench” activity. Activity direction: Predict each shift and verify that no value disappears.",
+        "vi": "Dùng trong bài “Sắp xếp chèn” ở hoạt động “Bàn trace key và gap”. Yêu cầu hoạt động: Dự đoán mỗi shift và kiểm tra không giá trị nào biến mất."
+      },
+      "learningFocus": {
+        "en": "Trace key, position and shifts. Maintain the sorted-prefix invariant.",
+        "vi": "Trace key, position và shifts. Duy trì invariant sorted-prefix."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Shift before saving Key. Require students to correct it with the rule: Copy Key before any overwrite.",
+        "vi": "Kiểm tra hiểu sai này: Shift trước khi lưu Key. Yêu cầu học sinh sửa bằng quy tắc: Copy Key trước mọi ghi đè."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T05",
+      "sectionId": "19",
+      "slug": "stack",
+      "lessonTitle": {
+        "en": "Stack ADT",
+        "vi": "ADT stack"
+      },
+      "visualKind": "stack-adt",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Stack ADT” as the “LIFO stack workbench” activity. Activity direction: Predict pointer order, then test underflow and overflow.",
+        "vi": "Dùng trong bài “ADT stack” ở hoạt động “Bàn trace stack LIFO”. Yêu cầu hoạt động: Dự đoán thứ tự pointer, rồi thử underflow và overflow."
+      },
+      "learningFocus": {
+        "en": "Describe LIFO and the stack interface. Trace PUSH, POP and PEEK.",
+        "vi": "Mô tả LIFO và interface stack. Trace PUSH, POP và PEEK."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Write before checking full. Require students to correct it with the rule: Guard overflow before changing Top or data.",
+        "vi": "Kiểm tra hiểu sai này: Ghi trước khi check full. Yêu cầu học sinh sửa bằng quy tắc: Guard overflow trước khi đổi Top hoặc dữ liệu."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T06",
+      "sectionId": "19",
+      "slug": "queue",
+      "lessonTitle": {
+        "en": "Queue ADT",
+        "vi": "ADT queue"
+      },
+      "visualKind": "queue-adt",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Queue ADT” as the “Circular FIFO workbench” activity. Activity direction: Create wrap-around, then distinguish full from empty when Front=Rear.",
+        "vi": "Dùng trong bài “ADT queue” ở hoạt động “Bàn trace FIFO vòng tròn”. Yêu cầu hoạt động: Tạo wrap-around, rồi phân biệt full với empty khi Front=Rear."
+      },
+      "learningFocus": {
+        "en": "Describe FIFO and the queue interface. Trace circular ENQUEUE and DEQUEUE.",
+        "vi": "Mô tả FIFO và interface queue. Trace ENQUEUE và DEQUEUE vòng tròn."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Rear is the last occupied cell. Require students to correct it with the rule: In this fixture Rear is the next insertion index.",
+        "vi": "Kiểm tra hiểu sai này: Rear là ô occupied cuối. Yêu cầu học sinh sửa bằng quy tắc: Trong fixture này Rear là index insert tiếp."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T07",
+      "sectionId": "19",
+      "slug": "linked-list",
+      "lessonTitle": {
+        "en": "Linked list",
+        "vi": "Danh sách liên kết"
+      },
+      "visualKind": "linked-list",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Linked list” as the “Pointer-and-reachability workbench” activity. Activity direction: Trace first-match find, then insert/delete while checking every live node remains reachable.",
+        "vi": "Dùng trong bài “Danh sách liên kết” ở hoạt động “Bàn trace pointer và reachability”. Yêu cầu hoạt động: Trace find match đầu, rồi insert/delete trong khi kiểm tra mọi node sống vẫn reachable."
+      },
+      "learningFocus": {
+        "en": "Trace an unordered record-array list. Find/delete the first reachable match.",
+        "vi": "Trace list record-array không ordered. Find/delete match reachable đầu tiên."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Increment Current as an array scan. Require students to correct it with the rule: Set Current←Node[Current].Next.",
+        "vi": "Kiểm tra hiểu sai này: Tăng Current như quét mảng. Yêu cầu học sinh sửa bằng quy tắc: Đặt Current←Node[Current].Next."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T08",
+      "sectionId": "19",
+      "slug": "binary-tree",
+      "lessonTitle": {
+        "en": "Binary tree",
+        "vi": "Cây nhị phân"
+      },
+      "visualKind": "binary-tree",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Binary tree” as the “BST path workbench” activity. Activity direction: Predict left/right choices, insert a leaf and test duplicate rejection.",
+        "vi": "Dùng trong bài “Cây nhị phân” ở hoạt động “Bàn trace path BST”. Yêu cầu hoạt động: Dự đoán chọn trái/phải, chèn leaf và thử duplicate rejection."
+      },
+      "learningFocus": {
+        "en": "Identify root, child and leaf. Trace BST find and insert paths.",
+        "vi": "Nhận diện root, child và leaf. Trace đường find và insert BST."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Every binary tree is ordered. Require students to correct it with the rule: Require an explicit BST ordering before directed search.",
+        "vi": "Kiểm tra hiểu sai này: Mọi binary tree đều ordered. Yêu cầu học sinh sửa bằng quy tắc: Cần ordering BST rõ trước directed search."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T09",
+      "sectionId": "19",
+      "slug": "dictionary",
+      "lessonTitle": {
+        "en": "Dictionary ADT",
+        "vi": "ADT dictionary"
+      },
+      "visualKind": "dictionary",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Dictionary ADT” as the “Key–value operation workbench” activity. Activity direction: Predict hit/missing behavior and test duplicate INSERT versus UPDATE.",
+        "vi": "Dùng trong bài “ADT dictionary” ở hoạt động “Bàn thao tác key–value”. Yêu cầu hoạt động: Dự đoán hit/missing và thử INSERT duplicate so với UPDATE."
+      },
+      "learningFocus": {
+        "en": "Describe unique key–value mappings. Trace LOOKUP, INSERT and UPDATE.",
+        "vi": "Mô tả mapping key–value unique. Trace LOOKUP, INSERT và UPDATE."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Keys and values must both be unique. Require students to correct it with the rule: Keys are unique; different keys may share a value.",
+        "vi": "Kiểm tra hiểu sai này: Key và value đều phải unique. Yêu cầu học sinh sửa bằng quy tắc: Key unique; key khác có thể cùng value."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T10",
+      "sectionId": "19",
+      "slug": "implementing-one-adt-with-another",
+      "lessonTitle": {
+        "en": "Implementing one ADT with another",
+        "vi": "Cài đặt một ADT bằng ADT khác"
+      },
+      "visualKind": "adt-implementation",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Implementing one ADT with another” as the “Interface-to-internals workbench” activity. Activity direction: Trace a queue built from two stacks, then compare array/list representations and inspect the graph scope card.",
+        "vi": "Dùng trong bài “Cài đặt một ADT bằng ADT khác” ở hoạt động “Bàn map interface tới internals”. Yêu cầu hoạt động: Trace queue tạo từ hai stack, rồi so representation array/list và xem scope card graph."
+      },
+      "learningFocus": {
+        "en": "Separate interface from representation. State a representation invariant.",
+        "vi": "Tách interface khỏi representation. Nêu representation invariant."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Representation is the ADT definition. Require students to correct it with the rule: Define observable operations separately.",
+        "vi": "Kiểm tra hiểu sai này: Representation là định nghĩa ADT. Yêu cầu học sinh sửa bằng quy tắc: Định nghĩa operation observable riêng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.1-T11",
+      "sectionId": "19",
+      "slug": "time-and-space-complexity",
+      "lessonTitle": {
+        "en": "Time and space complexity",
+        "vi": "Độ phức tạp thời gian và không gian"
+      },
+      "visualKind": "complexity-comparator",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Time and space complexity” as the “Growth-comparison workbench” activity. Activity direction: Compare linear/binary search, bubble/insertion order effects and recursive frame space.",
+        "vi": "Dùng trong bài “Độ phức tạp thời gian và không gian” ở hoạt động “Bàn so sánh tăng trưởng”. Yêu cầu hoạt động: So linear/binary search, ảnh hưởng order của bubble/insertion và space recursive frame."
+      },
+      "learningFocus": {
+        "en": "Define task, n, metric and assumptions. Separate time from extra space.",
+        "vi": "Định nghĩa task, n, metric và assumption. Tách time khỏi extra space."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Big O is seconds. Require students to correct it with the rule: Big O describes asymptotic operation/storage growth.",
+        "vi": "Kiểm tra hiểu sai này: Big O là giây. Yêu cầu học sinh sửa bằng quy tắc: Big O mô tả tăng trưởng operation/storage asymptotic."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.2-T01",
+      "sectionId": "19",
+      "slug": "designing-and-tracing-recursion",
+      "lessonTitle": {
+        "en": "Designing and tracing recursion",
+        "vi": "Thiết kế và trace đệ quy"
+      },
+      "visualKind": "recursion-trace",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Designing and tracing recursion” as the “Recursive call-and-return trace” activity. Activity direction: Trace factorial and list sum, then block no-progress and unreachable-base fixtures.",
+        "vi": "Dùng trong bài “Thiết kế và trace đệ quy” ở hoạt động “Trace call và return đệ quy”. Yêu cầu hoạt động: Trace factorial và list sum, rồi chặn fixture no-progress và unreachable-base."
+      },
+      "learningFocus": {
+        "en": "Identify base and recursive cases. Prove progress toward the base.",
+        "vi": "Nhận diện base case và recursive case. Chứng minh progress tới base."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A base-case line is enough even if unreachable. Require students to correct it with the rule: Prove the recursive argument can reach the base.",
+        "vi": "Kiểm tra hiểu sai này: Có dòng base case là đủ dù unreachable. Yêu cầu học sinh sửa bằng quy tắc: Chứng minh argument recursive có thể tới base."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-19.2-T02",
+      "sectionId": "19",
+      "slug": "call-stacks-and-unwinding",
+      "lessonTitle": {
+        "en": "Call stacks and unwinding",
+        "vi": "Call stack và unwinding"
+      },
+      "visualKind": "call-stack-unwinding",
+      "runtimeFamily": "section19-computational-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Call stacks and unwinding” as the “Frame-stack unwinding workbench” activity. Activity direction: Wind Factorial(4) through frame 0, then predict each LIFO return.",
+        "vi": "Dùng trong bài “Call stack và unwinding” ở hoạt động “Bàn unwinding frame-stack”. Yêu cầu hoạt động: Wind Factorial(4) tới frame 0, rồi dự đoán mỗi return LIFO."
+      },
+      "learningFocus": {
+        "en": "Model one frame per invocation. Trace push order to the zero base.",
+        "vi": "Mô hình một frame mỗi invocation. Trace push order tới base zero."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: All calls share one Number variable. Require students to correct it with the rule: Each invocation has its own argument/local frame.",
+        "vi": "Kiểm tra hiểu sai này: Mọi call dùng chung một variable Number. Yêu cầu học sinh sửa bằng quy tắc: Mỗi invocation có frame argument/local riêng."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T01",
+      "sectionId": "20",
+      "slug": "paradigms-and-procedural-design",
+      "lessonTitle": {
+        "en": "Paradigms and procedural design",
+        "vi": "Mô hình lập trình và thiết kế thủ tục"
+      },
+      "visualKind": "paradigm-procedural",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "recommended",
+      "usage": {
+        "en": "Used in “Paradigms and procedural design” as the “Paradigm and procedural-flow explorer” activity. Activity direction: Classify each solution description, then trace CalculateTotal calling DeliveryCost.",
+        "vi": "Dùng trong bài “Mô hình lập trình và thiết kế thủ tục” ở hoạt động “Trình khám phá paradigm và luồng thủ tục”. Yêu cầu hoạt động: Phân loại từng mô tả lời giải, rồi trace CalculateTotal gọi DeliveryCost."
+      },
+      "learningFocus": {
+        "en": "Identify four paradigms from evidence. Decompose a procedural solution.",
+        "vi": "Nhận diện bốn paradigm từ bằng chứng. Phân rã lời giải thủ tục."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Imperative means any high-level language. Require students to correct it with the rule: It means an ordered state-changing representation.",
+        "vi": "Kiểm tra hiểu sai này: Imperative nghĩa là mọi high-level language. Yêu cầu học sinh sửa bằng quy tắc: Nó là cách biểu diễn bằng lệnh có thứ tự làm đổi trạng thái."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T02",
+      "sectionId": "20",
+      "slug": "five-addressing-modes",
+      "lessonTitle": {
+        "en": "Five addressing modes",
+        "vi": "Năm chế độ địa chỉ"
+      },
+      "visualKind": "addressing-modes",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Five addressing modes” as the “Five-mode resolver” activity. Activity direction: Resolve five modes and test invalid addresses.",
+        "vi": "Dùng trong bài “Năm chế độ địa chỉ” ở hoạt động “Bộ phân giải năm mode”. Yêu cầu hoạt động: Phân giải năm mode và thử địa chỉ không hợp lệ."
+      },
+      "learningFocus": {
+        "en": "Explain five addressing modes accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác năm chế độ địa chỉ. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: The operand is always the value. Require students to correct it with the rule: Its interpretation depends on the mode.",
+        "vi": "Kiểm tra hiểu sai này: Operand luôn là value. Yêu cầu học sinh sửa bằng quy tắc: Cách hiểu phụ thuộc mode."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T03",
+      "sectionId": "20",
+      "slug": "assembly-execution-and-construction",
+      "lessonTitle": {
+        "en": "Assembly execution and construction",
+        "vi": "Thực thi và xây dựng assembly"
+      },
+      "visualKind": "assembly-workbench",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Assembly execution and construction” as the “Assembly trace workbench” activity. Activity direction: Trace supplied code or select the next legal instruction for a stated effect.",
+        "vi": "Dùng trong bài “Thực thi và xây dựng assembly” ở hoạt động “Bàn trace assembly”. Yêu cầu hoạt động: Trace code hoặc chọn lệnh hợp lệ tiếp theo cho effect đã nêu."
+      },
+      "learningFocus": {
+        "en": "Explain assembly execution and construction accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác thực thi và xây dựng assembly. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: CMP subtracts from ACC. Require students to correct it with the rule: This fixture records comparison only.",
+        "vi": "Kiểm tra hiểu sai này: CMP trừ ACC. Yêu cầu học sinh sửa bằng quy tắc: Fixture chỉ ghi comparison."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T04",
+      "sectionId": "20",
+      "slug": "class-object-design-and-encapsulation",
+      "lessonTitle": {
+        "en": "Class, object design and encapsulation",
+        "vi": "Thiết kế class, object và encapsulation"
+      },
+      "visualKind": "oop-encapsulation",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Class, object design and encapsulation” as the “Class and object laboratory” activity. Activity direction: Call getters and a validated deposit; test rejected direct access and invalid input.",
+        "vi": "Dùng trong bài “Thiết kế class, object và encapsulation” ở hoạt động “Phòng thí nghiệm class và object”. Yêu cầu hoạt động: Gọi getter và deposit có validation; thử direct access bị từ chối và input invalid."
+      },
+      "learningFocus": {
+        "en": "Explain class, object design and encapsulation accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác thiết kế class, object và encapsulation. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Class and object are synonyms. Require students to correct it with the rule: Class is the definition; object is an instance.",
+        "vi": "Kiểm tra hiểu sai này: Class và object là đồng nghĩa. Yêu cầu học sinh sửa bằng quy tắc: Class là định nghĩa; object là instance."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T05",
+      "sectionId": "20",
+      "slug": "inheritance-polymorphism-and-aggregation",
+      "lessonTitle": {
+        "en": "Inheritance, polymorphism and aggregation",
+        "vi": "Inheritance, polymorphism và aggregation"
+      },
+      "visualKind": "oop-relationships",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Inheritance, polymorphism and aggregation” as the “Relationship and dispatch explorer” activity. Activity direction: Classify is-a/has-a and trace Area() on Rectangle and Circle objects.",
+        "vi": "Dùng trong bài “Inheritance, polymorphism và aggregation” ở hoạt động “Trình khám phá relationship và dispatch”. Yêu cầu hoạt động: Phân loại is-a/has-a và trace Area() trên Rectangle/Circle."
+      },
+      "learningFocus": {
+        "en": "Explain inheritance, polymorphism and aggregation accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác inheritance, polymorphism và aggregation. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Has-a means inheritance. Require students to correct it with the rule: Has-a is aggregation/containment.",
+        "vi": "Kiểm tra hiểu sai này: Has-a nghĩa là inheritance. Yêu cầu học sinh sửa bằng quy tắc: Has-a là aggregation/containment."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.1-T06",
+      "sectionId": "20",
+      "slug": "declarative-facts-rules-and-goals",
+      "lessonTitle": {
+        "en": "Declarative facts, rules and goals",
+        "vi": "Facts, rules và goals trong declarative"
+      },
+      "visualKind": "declarative-inference",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Declarative facts, rules and goals” as the “Fact-rule-goal proof explorer” activity. Activity direction: Prove satisfied, multi-binding and unsatisfied goals in a finite fixture.",
+        "vi": "Dùng trong bài “Facts, rules và goals trong declarative” ở hoạt động “Trình khám phá proof fact-rule-goal”. Yêu cầu hoạt động: Chứng minh goal satisfied, nhiều binding và unsatisfied trong fixture hữu hạn."
+      },
+      "learningFocus": {
+        "en": "Explain declarative facts, rules and goals accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác facts, rules và goals trong declarative. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: A rule runs top to bottom like a procedure. Require students to correct it with the rule: It states a relationship whose conditions must be satisfied.",
+        "vi": "Kiểm tra hiểu sai này: Rule chạy top-down như procedure. Yêu cầu học sinh sửa bằng quy tắc: Nó nêu relationship có condition phải thỏa."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.2-T01",
+      "sectionId": "20",
+      "slug": "serial-sequential-text-file-workflows",
+      "lessonTitle": {
+        "en": "Serial and sequential text-file workflows",
+        "vi": "Workflow text file serial và sequential"
+      },
+      "visualKind": "sequential-files",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Serial and sequential text-file workflows” as the “Text-file mode and pointer simulator” activity. Activity direction: Trace READ, WRITE, APPEND, EOF, close and invalid closed-file paths.",
+        "vi": "Dùng trong bài “Workflow text file serial và sequential” ở hoạt động “Mô phỏng mode và pointer của text file”. Yêu cầu hoạt động: Trace READ, WRITE, APPEND, EOF, close và path file đóng."
+      },
+      "learningFocus": {
+        "en": "Explain serial and sequential text-file workflows accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác workflow text file serial và sequential. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: WRITE preserves old content. Require students to correct it with the rule: WRITE creates/truncates under Cambridge convention.",
+        "vi": "Kiểm tra hiểu sai này: WRITE giữ content cũ. Yêu cầu học sinh sửa bằng quy tắc: WRITE tạo/truncate theo Cambridge convention."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.2-T02",
+      "sectionId": "20",
+      "slug": "random-file-record-operations",
+      "lessonTitle": {
+        "en": "Random-file record operations",
+        "vi": "Operation record trong random file"
+      },
+      "visualKind": "random-files",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Random-file record operations” as the “Random record pointer workbench” activity. Activity direction: Read/update a target, reject out-of-range positions and compare with sequential scanning.",
+        "vi": "Dùng trong bài “Operation record trong random file” ở hoạt động “Bàn record pointer random”. Yêu cầu hoạt động: Read/update target, từ chối position ngoài range và so với scan tuần tự."
+      },
+      "learningFocus": {
+        "en": "Explain random-file record operations accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác operation record trong random file. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Record number always equals byte offset. Require students to correct it with the rule: Use the declared mapping and record size/base if supplied.",
+        "vi": "Kiểm tra hiểu sai này: Record number luôn bằng byte offset. Yêu cầu học sinh sửa bằng quy tắc: Dùng mapping và record size/base được cho."
+      },
+      "status": "implemented"
+    },
+    {
+      "topicId": "P3-20.2-T03",
+      "sectionId": "20",
+      "slug": "exceptions-and-controlled-recovery",
+      "lessonTitle": {
+        "en": "Exceptions and controlled recovery",
+        "vi": "Exception và phục hồi có kiểm soát"
+      },
+      "visualKind": "exception-flow",
+      "runtimeFamily": "section20-further-programming-workbench",
+      "priority": "required",
+      "usage": {
+        "en": "Used in “Exceptions and controlled recovery” as the “Exception control-flow simulator” activity. Activity direction: Trace normal, ValueError, FileNotFoundError and mismatched/unhandled scenarios.",
+        "vi": "Dùng trong bài “Exception và phục hồi có kiểm soát” ở hoạt động “Mô phỏng control flow exception”. Yêu cầu hoạt động: Trace normal, ValueError, FileNotFoundError và mismatched/unhandled."
+      },
+      "learningFocus": {
+        "en": "Explain exceptions and controlled recovery accurately. Trace every visible state change.",
+        "vi": "Giải thích chính xác exception và phục hồi có kiểm soát. Trace mọi thay đổi state nhìn thấy."
+      },
+      "teacherNote": {
+        "en": "Check this misconception: Every invalid input is an exception. Require students to correct it with the rule: A validation condition may return FALSE without raising.",
+        "vi": "Kiểm tra hiểu sai này: Mọi input invalid là exception. Yêu cầu học sinh sửa bằng quy tắc: Validation có thể trả FALSE mà không raise."
+      },
+      "status": "implemented"
+    }
+  ]
+}

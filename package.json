@@ -10,6 +10,7 @@
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "tsc --noEmit",
     "check:student-auth": "node scripts/check-student-auth.mjs",
+    "check:paper3:visual-catalog": "node scripts/check-paper3-visual-catalog.mjs",
     "lint:design:observe": "node scripts/check-design-lint-baseline.mjs",
     "lint:css-contract": "node scripts/check-css-contract.mjs",
     "check:ui:changed": "npm run check:ds2:freeze && npm run lint:design:observe && npm run lint:css-contract",

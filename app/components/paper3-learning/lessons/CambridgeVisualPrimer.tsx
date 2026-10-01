@@ -9,8 +9,9 @@ type Lane = {
 };
 
 type Guide = {
-  readonly section: "14" | "15" | "16" | "17" | "18" | "19" | "20";
+  readonly section: "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20";
   readonly reference: Localized;
+  readonly modelBoundary?: Localized;
   readonly lanes: readonly Lane[];
   readonly focus: readonly [Localized, Localized, Localized];
   readonly correction?: Localized;
@@ -23,6 +24,127 @@ const lane = (titleEn: string, titleVi: string, nodes: readonly [string, string]
 });
 
 const guides: Partial<Record<VisualKind, Guide>> = {
+  enumeration: {
+    section: "13",
+    reference: L("Syllabus 13.1, p.32; coursebook Chapter 13, printed pp.304-305; examples independently checked", "Syllabus 13.1, trang 32; sách Chương 13, trang in 304-305; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("A finite domain of named status constants. Definition, variable declaration and assignment are separate; an invalid assignment keeps the previous valid value. Displayed code follows Cambridge pseudocode conventions, not a Python interpreter.", "Miền hữu hạn gồm các hằng trạng thái có tên. Định nghĩa type, khai báo biến và phép gán là ba bước riêng; phép gán không hợp lệ giữ nguyên giá trị hợp lệ trước đó. Code hiển thị theo quy ước Cambridge pseudocode, không phải Python interpreter."),
+    lanes: [
+      lane("Build and use the type", "Tạo và dùng type", [["Define the named domain", "Định nghĩa miền tên"], ["Declare one typed variable", "Khai báo một biến có type"], ["Choose a declared member", "Chọn member đã khai báo"], ["Assign that one member", "Gán đúng một member"]]),
+      lane("Guard the boundary", "Bảo vệ ranh giới", [["Test candidate against the domain", "Đối chiếu giá trị với miền"], ["Accept a declared constant", "Chấp nhận hằng đã khai báo"], ["Reject any other value", "Từ chối giá trị ngoài miền"], ["Preserve the last valid state", "Giữ state hợp lệ gần nhất"]]),
+    ],
+    focus: [L("Separate type definition, variable declaration and assignment in the current frame.", "Tách type definition, variable declaration và assignment trong frame hiện tại."), L("Predict whether the candidate is one of the declared members before revealing the assignment.", "Dự đoán candidate có thuộc các member đã khai báo trước khi mở kết quả gán."), L("Check that the variable stores one enum member, not the whole list or a string with the same spelling.", "Kiểm tra biến lưu một enum member, không phải cả danh sách hoặc string trùng cách viết.")],
+    correction: L("An enum is a non-composite user-defined type in this syllabus model. The constant Active and the string \"Active\" have different types.", "Enum là user-defined type không composite trong mô hình syllabus này. Hằng Active và string \"Active\" có type khác nhau."),
+  },
+  pointers: {
+    section: "13",
+    reference: L("Syllabus 13.1, p.32; coursebook Chapter 13, printed pp.305-306; examples independently checked", "Syllabus 13.1, trang 32; sách Chương 13, trang in 305-306; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("P references INTEGER data; addresses 100 and 104 are illustrative. Pointer address and target value are separate state. Dereferencing no valid target is rejected rather than read as zero.", "P tham chiếu dữ liệu INTEGER; địa chỉ 100 và 104 chỉ để minh họa. Địa chỉ trong pointer và giá trị tại target là hai state riêng. Dereference khi không có target hợp lệ bị từ chối, không được đọc thành 0."),
+    lanes: [
+      lane("Follow a reference", "Lần theo tham chiếu", [["Read pointer P", "Đọc pointer P"], ["Locate its target address", "Tìm địa chỉ target"], ["Follow the reference", "Đi theo tham chiếu"], ["Read or update target data", "Đọc hoặc cập nhật dữ liệu target"]]),
+      lane("Check before dereferencing", "Kiểm tra trước khi dereference", [["Does P name a valid target?", "P có target hợp lệ không?"], ["Yes: access the typed cell", "Có: truy cập ô đúng type"], ["No: reject the access", "Không: từ chối truy cập"], ["Keep memory unchanged", "Giữ memory không đổi"]]),
+    ],
+    focus: [L("Track the pointer address and the target value in separate boxes.", "Theo dõi địa chỉ pointer và giá trị target trong hai ô riêng."), L("Predict which memory cell is reached before revealing the dereference.", "Dự đoán ô nhớ được truy cập trước khi mở bước dereference."), L("After a target update, verify that P still stores the address while only the referenced data changes.", "Sau khi cập nhật target, xác minh P vẫn giữ địa chỉ còn chỉ dữ liệu được tham chiếu thay đổi.")],
+    correction: L("P does not become 45 when its target contains 45. P keeps an address; dereferencing P obtains the value. No target is also different from a valid target containing zero.", "P không trở thành 45 khi target chứa 45. P vẫn giữ địa chỉ; dereference P mới lấy giá trị. Không có target cũng khác một target hợp lệ đang chứa 0."),
+  },
+  sets: {
+    section: "13",
+    reference: L("Syllabus 13.1, p.32; coursebook Chapter 13, printed pp.305 and 307; examples independently checked", "Syllabus 13.1, trang 32; sách Chương 13, trang in 305 và 307; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("The selectable universe is A, B, C, D and each element is a character. Alphabetical order is only a display convention. Empty sets and FALSE membership results are valid outcomes.", "Universe có thể chọn là A, B, C, D và mỗi phần tử là một character. Thứ tự alphabet chỉ là quy ước hiển thị. Empty set và kết quả membership FALSE đều hợp lệ."),
+    lanes: [
+      lane("Construct set results", "Tạo kết quả tập hợp", [["Read members of S and T", "Đọc member của S và T"], ["Test each distinct element", "Xét từng phần tử khác nhau"], ["Apply union or intersection rule", "Áp dụng quy tắc union hoặc intersection"], ["Build the result without duplicates", "Tạo kết quả không duplicate"]]),
+      lane("Test membership", "Kiểm tra membership", [["Choose one element", "Chọn một phần tử"], ["Inspect membership, not position", "Xét membership, không xét vị trí"], ["Return TRUE or FALSE", "Trả TRUE hoặc FALSE"]]),
+    ],
+    focus: [L("Read which operation is active: union, intersection or membership.", "Đọc đúng operation đang chạy: union, intersection hay membership."), L("Predict inclusion for one element before revealing the complete result.", "Dự đoán một phần tử có được lấy hay không trước khi mở toàn bộ kết quả."), L("Check membership only: display order and repeated input occurrences do not change the set.", "Chỉ kiểm tra membership: thứ tự hiển thị và phần tử lặp trong input không làm đổi set.")],
+    correction: L("A shared member appears once in a union. An empty intersection is the set ∅; FALSE is the Boolean result of a membership test.", "Member chung chỉ xuất hiện một lần trong union. Intersection rỗng là set ∅; FALSE là kết quả Boolean của membership test."),
+  },
+  records: {
+    section: "13",
+    reference: L("Syllabus 13.1, p.32; coursebook Chapter 13, printed p.307; examples independently checked", "Syllabus 13.1, trang 32; sách Chương 13, trang in 307; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("Students uses indices 1 and 2. StudentID and Score are INTEGER; Name is STRING. A valid update changes only the selected field in the selected record.", "Students dùng index 1 và 2. StudentID và Score là INTEGER; Name là STRING. Một cập nhật hợp lệ chỉ thay đổi field được chọn trong record được chọn."),
+    lanes: [
+      lane("From schema to one field", "Từ schema tới một field", [["Define the record fields and types", "Định nghĩa field và type của record"], ["Create separate record instances", "Tạo các record instance riêng"], ["Select one array index", "Chọn một array index"], ["Select one named field", "Chọn một field theo tên"]]),
+      lane("Apply a typed update", "Cập nhật đúng type", [["Check the field type", "Kiểm tra type của field"], ["Validate the new value", "Validate giá trị mới"], ["Update the selected field", "Cập nhật field đã chọn"], ["Verify all neighbours are unchanged", "Xác minh các phần còn lại không đổi"]]),
+    ],
+    focus: [L("Identify the record instance and field before looking at the new value.", "Xác định record instance và field trước khi xét giá trị mới."), L("Predict whether the value matches that field's declared type.", "Dự đoán giá trị có khớp type đã khai báo của field đó không."), L("Compare before and after views to prove that no other field or record changed.", "So sánh trước và sau để chứng minh không field hay record nào khác bị đổi.")],
+    correction: L("A record may combine fields of different types. Updating a field of one instance does not change the type definition or every other instance.", "Record có thể kết hợp field thuộc nhiều type. Cập nhật field của một instance không làm đổi type definition hoặc mọi instance khác."),
+  },
+  "file-organisation": {
+    section: "13",
+    reference: L("Syllabus 13.2, p.32; coursebook Chapter 13, printed pp.308-310; examples independently checked", "Syllabus 13.2, trang 32; sách Chương 13, trang in 308-310; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("Unique keys arrive as 25, 12, 31, 18. Sequential organisation keeps ascending key order. The random layout uses key MOD 7 with linear probing; slots 0..6 are logical locations, not byte addresses.", "Các key duy nhất đến theo thứ tự 25, 12, 31, 18. Sequential organisation giữ thứ tự key tăng dần. Random layout dùng key MOD 7 với linear probing; slot 0..6 là vị trí logic, không phải byte address."),
+    lanes: [
+      lane("Choose the organisation", "Chọn cách tổ chức", [["Arrival order: serial", "Thứ tự đến: serial"], ["Ascending key order: sequential", "Key tăng dần: sequential"], ["Calculated slot: random", "Slot được tính: random"]]),
+      lane("Choose an access path", "Chọn đường truy cập", [["Serial: scan every needed record", "Serial: quét các record cần thiết"], ["Sequential: scan or use an index", "Sequential: quét hoặc dùng index"], ["Random: calculate then resolve collision", "Random: tính vị trí rồi xử lý collision"], ["Compare the full key", "So sánh full key"]]),
+    ],
+    focus: [L("Name how records are physically organised before naming the access method.", "Gọi tên cách record được tổ chức trước khi gọi tên access method."), L("Trace the supplied key through the matching scan, index or calculation.", "Trace key đã cho qua phép quét, index hoặc phép tính tương ứng."), L("Justify the choice from ordering and lookup evidence instead of the word 'random'.", "Giải thích lựa chọn từ bằng chứng về thứ tự và lookup thay vì chỉ dựa vào từ 'random'.")],
+    correction: L("Random organisation uses a repeatable location rule; it is not a shuffle. Sequential organisation can still support direct access when an index supplies the location.", "Random organisation dùng quy tắc vị trí lặp lại được, không phải shuffle. Sequential organisation vẫn có thể hỗ trợ direct access khi index cung cấp vị trí."),
+  },
+  hashing: {
+    section: "13",
+    reference: L("Syllabus 13.2, p.32; coursebook Chapter 13, printed pp.310-311; examples independently checked", "Syllabus 13.2, trang 32; sách Chương 13, trang in 310-311; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("h(k) = k MOD 7 over nonnegative integer keys and logical slots 0..6. This visual does not convert slots into byte offsets. A matching hash is not proof of a matching record key.", "h(k) = k MOD 7 với key integer không âm và slot logic 0..6. Visual này không đổi slot thành byte offset. Hash trùng chưa chứng minh record key trùng."),
+    lanes: [
+      lane("Calculate the home slot", "Tính home slot", [["Read full key k", "Đọc full key k"], ["Divide k by 7", "Chia k cho 7"], ["Take the remainder", "Lấy remainder"], ["Use it as home slot h(k)", "Dùng làm home slot h(k)"]]),
+      lane("Verify a lookup", "Xác minh lookup", [["Inspect the home slot", "Xem home slot"], ["Read the stored full key", "Đọc full key đã lưu"], ["Compare keys", "So sánh key"], ["Match or invoke collision policy", "Match hoặc gọi collision policy"]]),
+    ],
+    focus: [L("Write the quotient and remainder so MOD cannot be confused with division.", "Ghi quotient và remainder để không nhầm MOD với phép chia."), L("Predict the home slot before revealing the table lookup.", "Dự đoán home slot trước khi mở table lookup."), L("Confirm identity with the full stored key, not with the slot number alone.", "Xác nhận identity bằng full key đã lưu, không chỉ bằng slot number.")],
+    correction: L("MOD returns the remainder. Different keys can have the same remainder, so equal hashes do not mean equal keys.", "MOD trả về remainder. Các key khác nhau có thể có cùng remainder, vì vậy hash bằng nhau không có nghĩa key bằng nhau."),
+  },
+  collisions: {
+    section: "13",
+    reference: L("Syllabus 13.2, p.32; coursebook Chapter 13, printed p.311; examples independently checked", "Syllabus 13.2, trang 32; sách Chương 13, trang in 311; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("Seven slots 0..6; h(k) = k MOD 7; next = (i + 1) MOD 7. There is no deletion. Duplicate insertion is rejected. A probe stops at a match, a never-used empty slot or after seven inspected slots.", "Có bảy slot 0..6; h(k) = k MOD 7; next = (i + 1) MOD 7. Không có deletion. Duplicate insertion bị từ chối. Probe dừng khi match, gặp slot trống chưa từng dùng hoặc sau khi xét đủ bảy slot."),
+    lanes: [
+      lane("Insert with linear probing", "Insert bằng linear probing", [["Calculate the home slot", "Tính home slot"], ["Inspect occupant's full key", "Xem full key đang chiếm chỗ"], ["Reject duplicate or probe next", "Từ chối duplicate hoặc probe tiếp"], ["Wrap with MOD 7 if needed", "Wrap bằng MOD 7 nếu cần"], ["Insert at first valid empty slot", "Insert vào slot trống hợp lệ đầu tiên"]]),
+      lane("Retrieve safely", "Retrieve an toàn", [["Start again at the home slot", "Bắt đầu lại tại home slot"], ["Compare the full key", "So sánh full key"], ["Continue the same probe sequence", "Tiếp tục đúng probe sequence"], ["Stop on match, never-used empty or full cycle", "Dừng khi match, empty chưa dùng hoặc đủ một vòng"]]),
+    ],
+    focus: [L("Keep the key's home slot separate from its final storage slot.", "Tách home slot của key khỏi final storage slot."), L("Predict the next inspected slot, including wrap-around, before stepping.", "Dự đoán slot được xét tiếp theo, kể cả wrap-around, trước khi chạy bước."), L("At every occupied slot compare the full key before deciding to stop or continue.", "Tại mỗi slot đã chiếm, so sánh full key trước khi quyết định dừng hay đi tiếp.")],
+    correction: L("A collision does not overwrite the existing record. A key stored after probing keeps its original home slot; the later slot is only its final storage location.", "Collision không ghi đè record hiện có. Key được lưu sau probing vẫn giữ home slot ban đầu; slot phía sau chỉ là final storage location."),
+  },
+  "floating-conversion": {
+    section: "13",
+    reference: L("Syllabus 13.3, p.33; coursebook Chapter 13.3, printed pp.313-320 (PDF pp.329-336); examples independently checked", "Syllabus 13.3, trang 33; sách Chương 13.3, trang in 313-320 (PDF trang 329-336); ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("M is an 8-bit two's-complement fraction with the point after the sign; E is a 4-bit two's-complement integer. Only the displayed exact examples are encoded; arbitrary decimal input is not silently rounded. Nonzero normalised M begins 01 or 10; zero is 00000000 / 0000.", "M là fraction two's-complement 8 bit với dấu chấm sau sign; E là integer two's-complement 4 bit. Chỉ các ví dụ exact đang hiển thị được encode; decimal input tùy ý không bị âm thầm làm tròn. M normalised khác 0 bắt đầu 01 hoặc 10; zero là 00000000 / 0000."),
+    lanes: [
+      lane("Encode an exact value", "Encode giá trị exact", [["Convert magnitude to binary", "Đổi magnitude sang binary"], ["Choose E to position the point", "Chọn E để đặt binary point"], ["Form M at the declared width", "Tạo M theo width đã cho"], ["For a negative M: invert and add one", "Nếu M âm: invert rồi add one"], ["Check 01 / 10 normalisation", "Kiểm tra normalisation 01 / 10"]]),
+      lane("Decode to verify", "Decode để xác minh", [["Evaluate signed M weights", "Tính các signed weight của M"], ["Decode signed exponent E", "Decode exponent E có dấu"], ["Calculate M × 2^E", "Tính M × 2^E"], ["Compare with the exact input", "So với exact input"]]),
+    ],
+    focus: [L("Lock the binary-point position and bit widths before assigning weights.", "Khóa vị trí binary point và bit width trước khi gán weight."), L("Predict the sign and exponent independently before revealing the bit patterns.", "Dự đoán sign và exponent riêng biệt trước khi mở bit pattern."), L("Decode the completed M and E; leading 01 or 10 checks normalisation, not the entire answer.", "Decode M và E hoàn chỉnh; leading 01 hoặc 10 chỉ kiểm tra normalisation, không chứng minh toàn bộ đáp án.")],
+    correction: L("The mantissa determines the sign; a negative value does not require a negative exponent. Negating M uses two's complement across all mantissa bits, not a sign-bit flip.", "Mantissa quyết định dấu; giá trị âm không bắt buộc exponent âm. Đổi dấu M dùng two's complement trên toàn bộ bit mantissa, không chỉ flip sign bit."),
+  },
+  normalisation: {
+    section: "13",
+    reference: L("Syllabus 13.3, p.33; coursebook Chapter 13, printed pp.321-323; examples independently checked", "Syllabus 13.3, trang 33; sách Chương 13, trang in 321-323; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("M8/E4, both two's complement, with M's point after the sign. For nonzero M, shift while the first two bits match only if E - 1 remains in -8..7. Zero is separate; a blocked shift preserves the original state.", "M8/E4, cả hai dùng two's complement, binary point của M nằm sau sign. Với M khác 0, shift khi hai bit đầu giống nhau chỉ khi E - 1 vẫn thuộc -8..7. Zero được xử lý riêng; shift bị chặn giữ nguyên state ban đầu."),
+    lanes: [
+      lane("Normalise without changing value", "Normalise mà không đổi giá trị", [["Exclude the zero case", "Tách trường hợp zero"], ["Inspect the first two M bits", "Xem hai bit đầu của M"], ["If equal, shift M left", "Nếu giống nhau, shift M sang trái"], ["Decrease E by one", "Giảm E một"], ["Repeat until M begins 01 or 10", "Lặp tới khi M bắt đầu 01 hoặc 10"]]),
+      lane("Verify the invariant", "Xác minh invariant", [["Decode value before", "Decode giá trị trước"], ["Check exponent remains in range", "Kiểm tra exponent còn trong range"], ["Decode value after", "Decode giá trị sau"], ["Confirm both values are equal", "Xác nhận hai giá trị bằng nhau"]]),
+    ],
+    focus: [L("Read the first two mantissa bits and identify positive 01, negative 10 or a shift candidate.", "Đọc hai bit đầu của mantissa và nhận diện positive 01, negative 10 hoặc trường hợp cần shift."), L("Predict the paired state change: M shifts left while E decreases by one.", "Dự đoán thay đổi state theo cặp: M shift trái còn E giảm một."), L("Decode before and after to prove the represented value is preserved.", "Decode trước và sau để chứng minh giá trị được biểu diễn không đổi.")],
+    correction: L("A left shift doubles M, so E must decrease to keep M × 2^E unchanged. Normalisation preserves the stored value; it cannot restore precision already lost.", "Shift trái làm M tăng gấp đôi nên E phải giảm để giữ M × 2^E không đổi. Normalisation giữ giá trị đã lưu; nó không thể khôi phục precision đã mất."),
+  },
+  "precision-range": {
+    section: "13",
+    reference: L("Syllabus 13.3, p.33; coursebook Chapter 13, printed pp.323-324; examples independently checked", "Syllabus 13.3, trang 33; sách Chương 13, trang in 323-324; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("Each compared allocation totals 12 bits and uses two's complement for M and E. Spacing is compared at E = 0 on a local zoomed number line. Limits use normalised nonzero M; zero is represented separately.", "Mỗi cách phân bổ được so sánh có tổng 12 bit và dùng two's complement cho M và E. Spacing được so tại E = 0 trên number line phóng to cục bộ. Các limit dùng M normalised khác 0; zero được biểu diễn riêng."),
+    lanes: [
+      lane("Read the bit allocation", "Đọc cách phân bổ bit", [["Fix the 12-bit total", "Cố định tổng 12 bit"], ["Count mantissa bits", "Đếm mantissa bit"], ["Derive local step size", "Suy ra local step size"], ["Judge precision at fixed E", "Đánh giá precision tại E cố định"]]),
+      lane("Read the limits", "Đọc các giới hạn", [["Count exponent bits", "Đếm exponent bit"], ["Derive signed E range", "Suy ra signed E range"], ["Combine normalised M endpoints with E", "Kết hợp endpoint M normalised với E"], ["Judge representable range", "Đánh giá representable range"]]),
+    ],
+    focus: [L("Keep mantissa width and exponent width in separate columns.", "Giữ mantissa width và exponent width ở hai cột riêng."), L("Predict which allocation gives finer spacing at the same exponent.", "Dự đoán cách phân bổ nào cho spacing mịn hơn tại cùng exponent."), L("Derive positive and negative limits separately because two's-complement endpoints are not symmetric.", "Suy ra positive và negative limit riêng vì endpoint two's-complement không đối xứng.")],
+    correction: L("More mantissa bits improve local precision; more exponent bits extend scale range. Zero is not the smallest positive value, and +1 is excluded where M includes -1.", "Nhiều mantissa bit cải thiện local precision; nhiều exponent bit mở rộng scale range. Zero không phải giá trị dương nhỏ nhất, và +1 bị loại trong khi M chứa -1."),
+  },
+  "rounding-errors": {
+    section: "13",
+    reference: L("Syllabus 13.3, p.33; coursebook Chapter 13, printed pp.320-321 and 324-325; examples independently checked", "Syllabus 13.3, trang 33; sách Chương 13, trang in 320-321 và 324-325; ví dụ được kiểm tra độc lập"),
+    modelBoundary: L("13.375 uses M6/E4; 0.1 and range examples use M8/E4. Truncation is toward zero; nearest ties go away from zero in this teaching model. Error = stored - exact. Range cases state mathematical limits rather than inventing a machine exception policy.", "13.375 dùng M6/E4; 0.1 và các ví dụ range dùng M8/E4. Truncation hướng về zero; tie khi chọn nearest đi xa zero trong mô hình dạy học này. Error = stored - exact. Các trường hợp range nêu mathematical limit thay vì tự đặt machine exception policy."),
+    lanes: [
+      lane("Approximate a value", "Xấp xỉ một giá trị", [["Write the exact binary value", "Viết exact binary value"], ["Locate neighbouring representable values", "Tìm hai giá trị biểu diễn được lân cận"], ["Apply truncation or nearest rule", "Áp dụng truncation hoặc nearest rule"], ["Store the selected value", "Lưu giá trị đã chọn"], ["Calculate stored - exact", "Tính stored - exact"]]),
+      lane("Classify a range failure", "Phân loại lỗi range", [["Derive maximum and least nonzero magnitudes", "Suy ra magnitude lớn nhất và nhỏ nhất khác 0"], ["Compare the exact magnitude", "So sánh exact magnitude"], ["Too large: overflow", "Quá lớn: overflow"], ["Too small and nonzero: underflow", "Quá nhỏ nhưng khác 0: underflow"]]),
+    ],
+    focus: [L("Mark the exact value and its representable neighbours before choosing a stored value.", "Đánh dấu exact value và các giá trị biểu diễn được lân cận trước khi chọn stored value."), L("Predict the result using the declared rounding rule, including its direction for negatives.", "Dự đoán kết quả theo rounding rule đã khai báo, kể cả hướng làm tròn với số âm."), L("Separate approximation error from overflow and underflow, then verify the signed error calculation.", "Tách approximation error khỏi overflow và underflow, rồi kiểm tra phép tính signed error.")],
+    correction: L("Formatting a decimal display does not remove the stored binary error. Underflow concerns a nonzero magnitude below the representable range; it does not mean a negative result.", "Định dạng decimal trên màn hình không loại bỏ binary error đã lưu. Underflow là magnitude khác 0 nhỏ hơn representable range; nó không có nghĩa kết quả âm."),
+  },
   "paradigm-procedural": {
     section: "20", reference: L("Syllabus 20.1 and coursebook printed pp.498-505", "Syllabus 20.1 và sách trang in 498-505"),
     lanes: [lane("Recognise the representation", "Nhận diện cách biểu đạt", [["Machine operations", "Thao tác máy"], ["Ordered state changes", "Thay đổi state có thứ tự"], ["Objects own state", "Object sở hữu state"], ["Facts, rules, goals", "Facts, rules, goals"]]), lane("Trace a routine", "Trace một routine", [["Bind parameters", "Gắn parameters"], ["Run construct", "Chạy construct"], ["Return or side effect", "Return hoặc side effect"], ["Resume caller", "Tiếp tục caller"]])],
@@ -495,6 +617,7 @@ export function CambridgeVisualPrimer({ kind, locale }: { readonly kind: VisualK
       </div>
       <span className={styles.sectionBadge}>Cambridge 9618 · Section {guide.section}</span>
       <p>{guide.reference[locale]} · {locale === "vi" ? "AlgoCore dựng lại theo khái niệm, không sao chép hình sách." : "Concept-aligned AlgoCore redraw; it is not a copy of the book artwork."}</p>
+      {guide.modelBoundary && <p><strong>{locale === "vi" ? "Giới hạn mô hình: " : "Model boundary: "}</strong>{guide.modelBoundary[locale]}</p>}
     </header>
 
     <figure className={styles.diagram} aria-label={locale === "vi" ? "Sơ đồ khái niệm cần đọc trước mô phỏng" : "Concept diagram to read before the simulation"}>

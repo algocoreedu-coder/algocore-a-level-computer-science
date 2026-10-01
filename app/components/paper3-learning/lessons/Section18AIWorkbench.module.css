@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 .controls button:nth-child(2),.choiceGroup button { border-color: var(--alg-action-primary); background: var(--alg-action-primary); color: var(--alg-action-primary-foreground); }
-.controls button:disabled,.choiceGroup button:disabled { cursor: not-allowed; opacity: .48; }
+.controls button:disabled,.choiceGroup button:disabled { border-color: var(--alg-border-default); background: var(--alg-surface-panel-muted); color: var(--alg-text-muted); cursor: not-allowed; opacity: 1; }
 .controls button:focus-visible,.choiceGroup button:focus-visible,.predictNext button:focus-visible,.field select:focus-visible,.field input:focus-visible,.check:has(input:focus-visible),.choiceGroup label:has(input:focus-visible),.predictNext label:has(input:focus-visible),.tableScroll:focus-visible,.readback summary:focus-visible { outline: 3px solid var(--alg-focus-ring); outline-offset: 2px; }
 
 .stateView { min-width: 0; }
