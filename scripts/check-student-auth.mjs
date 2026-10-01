@@ -171,7 +171,6 @@ async function runHttpChecks() {
   for (const [id, pathname] of [
     ["AUTH-H09", "/paper-4?lang=en"],
     ["AUTH-H10", "/paper-4/lessons/recursion?lang=vi"],
-    ["AUTH-H10D", "/docs"],
     ["AUTH-H10P", "/paper-3?lang=en"],
   ]) {
     const response = await request(pathname, { headers: { cookie: studentCookie } });
@@ -180,6 +179,28 @@ async function runHttpChecks() {
         status: response.status, cacheControl: response.headers.get("cache-control"),
       });
   }
+
+  const home = await request("/", {
+    headers: { cookie: studentCookie },
+  });
+  record(
+    "AUTH-H10R",
+    home.status === 307
+      && locationPath(home) === "/paper-3?lang=en",
+    "Authenticated site root redirects to the Paper 3 study map",
+    { status: home.status, location: locationPath(home) },
+  );
+
+  const legacyDocs = await request("/docs?lang=vi", {
+    headers: { cookie: studentCookie },
+  });
+  record(
+    "AUTH-H10D",
+    legacyDocs.status === 307
+      && locationPath(legacyDocs) === "/paper-3?lang=vi",
+    "Legacy docs route redirects authenticated students to the Paper 3 study map",
+    { status: legacyDocs.status, location: locationPath(legacyDocs) },
+  );
 
   const token = studentCookie.slice(studentCookie.indexOf("=") + 1);
   const tamperedToken = `${token.slice(0, -1)}${token.endsWith("A") ? "B" : "A"}`;

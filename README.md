@@ -63,6 +63,7 @@ Main routes:
 - `/login`
 - `/paper-3`
 - `/paper-4`
-- `/docs`
+
+Legacy `/docs` links redirect to the Paper 3 study map.
 
 The repository contains application source and generated learning data required at runtime. Local credentials, dependency folders, build output, preview artifacts and temporary agent files are excluded.
