@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.2-T02",
   "slug": "half-full-adders",
   "estimatedMinutes": 30,
@@ -653,6 +653,15 @@
         "en": "Check numerical weight and carry direction.",
         "vi": "Kiểm trọng số số học và chiều carry."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Half/full adders; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Bộ cộng bán phần và toàn phần; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -697,6 +706,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "1,1",
+            "vi": "1,1"
+          },
+          "feedback": {
+            "en": "That represents3, exceeding1+1.",
+            "vi": "Đó biểu diễn3, lớn hơn1+1."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "0,1",
@@ -716,17 +736,6 @@
           "feedback": {
             "en": "That represents1, not2.",
             "vi": "Đó biểu diễn1, không phải2."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "1,1",
-            "vi": "1,1"
-          },
-          "feedback": {
-            "en": "That represents3, exceeding1+1.",
-            "vi": "Đó biểu diễn3, lớn hơn1+1."
           }
         }
       ],
@@ -793,17 +802,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "C1=A AND B",
-            "vi": "C1=A AND B"
-          },
-          "feedback": {
-            "en": "B=0 makes C1=0.",
-            "vi": "B=0 làm C1=0."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "C2=P AND Cin",
@@ -824,6 +822,17 @@
             "en": "The total is2, so carry-out must be1.",
             "vi": "Tổng bằng2 nên carry-out phải1."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "C1=A AND B",
+            "vi": "C1=A AND B"
+          },
+          "feedback": {
+            "en": "B=0 makes C1=0.",
+            "vi": "B=0 làm C1=0."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -840,6 +849,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "It is discarded in every addition",
+            "vi": "Luôn bỏ nó trong mọi phép cộng"
+          },
+          "feedback": {
+            "en": "Discarding it loses numerical value.",
+            "vi": "Bỏ nó làm mất giá trị số."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -860,17 +880,6 @@
           "feedback": {
             "en": "That would count the same contribution again.",
             "vi": "Làm vậy tính lại cùng thành phần."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "It is discarded in every addition",
-            "vi": "Luôn bỏ nó trong mọi phép cộng"
-          },
-          "feedback": {
-            "en": "Discarding it loses numerical value.",
-            "vi": "Bỏ nó làm mất giá trị số."
           }
         }
       ],
@@ -988,5 +997,54 @@
       "locator": "Question6(a,b), page7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "half-full-adders-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Reconstruct a full adder from two half adders and explain its numerical check.",
+      "vi": "Dựng lại full adder từ hai half adder và giải thích phép kiểm số."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Half/full adders; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Bộ cộng bán phần và toàn phần; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Identify whether Cin exists.",
+        "vi": "Xác định có Cin không."
+      },
+      {
+        "en": "Label P,C1,C2,S,Cout for a two-half-adder construction.",
+        "vi": "Ghi nhãn P,C1,C2,S,Cout trong cấu trúc hai half adder."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "P=A XOR B,C1=A AND B.",
+        "vi": "P=A XOR B,C1=A AND B."
+      },
+      {
+        "en": "S=P XOR Cin,C2=P AND Cin,Cout=C1 OR C2.",
+        "vi": "S=P XOR Cin,C2=P AND Cin,Cout=C1 OR C2."
+      },
+      {
+        "en": "A+B+Cin=2Cout+S for every row.",
+        "vi": "A+B+Cin=2Cout+S ở mọi hàng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T04",
   "slug": "class-object-design-and-encapsulation",
   "estimatedMinutes": 40,
@@ -110,6 +110,10 @@
         {
           "en": "Private state is accessed through public methods in the fixture, allowing validation before change.",
           "vi": "Private state được truy cập qua public method, cho phép validation trước khi đổi."
+        },
+        {
+          "en": "Encapsulation is enforced at the class boundary: external code requests a change through Deposit instead of assigning Balance directly. A rejected amount returns FALSE and leaves the invariant Balance >= 0 unchanged.",
+          "vi": "Encapsulation được thực thi tại boundary của class: code bên ngoài yêu cầu thay đổi qua Deposit thay vì gán trực tiếp Balance. Amount bị từ chối trả FALSE và giữ invariant Balance >= 0 không đổi."
         }
       ],
       "sourceIds": [
@@ -146,6 +150,10 @@
         {
           "en": "Select cohesive attributes and behaviours, state access levels, then instantiate and test independent objects.",
           "vi": "Chọn attribute và behavior liên quan, nêu access level rồi instantiate và test object độc lập."
+        },
+        {
+          "en": "Code block: Cambridge pseudocode for examinations in 2026. NEW constructs each object, Deposit validates before mutating private state, and the final getter calls prove that A and B retain independent balances (60 and 20).",
+          "vi": "Khối code: giả mã Cambridge cho kỳ thi 2026. NEW tạo từng object, Deposit validate trước khi đổi private state, và các getter cuối chứng minh A và B giữ balance độc lập (60 và 20)."
         }
       ],
       "sourceIds": [
@@ -153,7 +161,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "CLASS Account\n   PRIVATE Balance : INTEGER\n   PUBLIC PROCEDURE NEW(Start : INTEGER)\n      Balance ← Start\n   ENDPROCEDURE\n   PUBLIC FUNCTION GetBalance() RETURNS INTEGER\n      RETURN Balance\n   ENDFUNCTION\nENDCLASS"
+      "code": "CLASS Account\n   PRIVATE Balance : INTEGER\n\n   PUBLIC PROCEDURE NEW(Start : INTEGER)\n      IF Start >= 0 THEN\n         Balance ← Start\n      ELSE\n         Balance ← 0\n      ENDIF\n   ENDPROCEDURE\n\n   PUBLIC FUNCTION GetBalance() RETURNS INTEGER\n      RETURN Balance\n   ENDFUNCTION\n\n   PUBLIC FUNCTION Deposit(Amount : INTEGER) RETURNS BOOLEAN\n      IF Amount > 0 THEN\n         Balance ← Balance + Amount\n         RETURN TRUE\n      ENDIF\n      RETURN FALSE\n   ENDFUNCTION\nENDCLASS\n\nA ← NEW Account(50)\nB ← NEW Account(20)\nOUTPUT A.Deposit(10)\nOUTPUT A.Deposit(-5)\nOUTPUT A.GetBalance()\nOUTPUT B.GetBalance()",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -182,6 +192,10 @@
       {
         "en": "Concept-aligned AlgoCore redraw.",
         "vi": "AlgoCore redraw theo khái niệm."
+      },
+      {
+        "en": "The visual ScoreCard is an AlgoCore concept fixture; the Account listing is the Cambridge-pseudocode exemplar.",
+        "vi": "ScoreCard trong visual là fixture khái niệm AlgoCore; listing Account là ví dụ giả mã Cambridge."
       }
     ],
     "sourceIds": [
@@ -530,17 +544,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -561,6 +564,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Use the supplied terms, state and required output.",
+            "vi": "Dùng term, state và output được cung cấp."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -577,6 +591,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -597,17 +622,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -674,17 +688,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -705,6 +708,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Declare one convention and keep all syntax consistent.",
+            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -721,6 +735,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -741,17 +766,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -840,5 +854,58 @@
       "locator": "Q10, PDF pp.13–14",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "class-object-design-and-encapsulation-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Design and trace an encapsulated class.",
+      "vi": "Thiết kế và trace class có encapsulation."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Class, object design and encapsulation; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Thiết kế class, object và encapsulation; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "List per-object state.",
+        "vi": "Liệt kê state của mỗi object."
+      },
+      {
+        "en": "Choose methods and access boundaries.",
+        "vi": "Chọn method và access boundary."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Separate class definition from instances.",
+        "vi": "Tách class definition khỏi instance."
+      },
+      {
+        "en": "State private attributes and public methods.",
+        "vi": "Nêu private attribute và public method."
+      },
+      {
+        "en": "Name receiver and validate before mutation.",
+        "vi": "Nêu receiver và validate trước mutation."
+      },
+      {
+        "en": "Compare every instance before and after.",
+        "vi": "So mọi instance before và after."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

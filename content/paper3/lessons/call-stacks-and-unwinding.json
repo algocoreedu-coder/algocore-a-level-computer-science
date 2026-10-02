@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.2-T02",
   "slug": "call-stacks-and-unwinding",
   "estimatedMinutes": 40,
@@ -149,7 +149,9 @@
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -472,6 +474,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Every program array",
+            "vi": "Mọi array chương trình"
+          },
+          "feedback": {
+            "en": "Every program array conflicts with the rule: each invocation needs separate suspended state",
+            "vi": "Mọi array chương trình trái với quy tắc: mỗi invocation cần state suspended riêng"
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Arguments, locals and resume point",
@@ -491,17 +504,6 @@
           "feedback": {
             "en": "Only final output conflicts with the rule: each invocation needs separate suspended state",
             "vi": "Chỉ final output trái với quy tắc: mỗi invocation cần state suspended riêng"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Every program array",
-            "vi": "Mọi array chương trình"
-          },
-          "feedback": {
-            "en": "Every program array conflicts with the rule: each invocation needs separate suspended state",
-            "vi": "Mọi array chương trình trái với quy tắc: mỗi invocation cần state suspended riêng"
           }
         }
       ],
@@ -568,17 +570,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "1",
-            "vi": "1"
-          },
-          "feedback": {
-            "en": "Correct: Number decreases from 2 to 1",
-            "vi": "Đúng: Number giảm từ 2 xuống 1"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "3",
@@ -599,6 +590,17 @@
             "en": "0 immediately conflicts with the rule: Number decreases from 2 to 1",
             "vi": "0 ngay trái với quy tắc: Number giảm từ 2 xuống 1"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "1",
+            "vi": "1"
+          },
+          "feedback": {
+            "en": "Correct: Number decreases from 2 to 1",
+            "vi": "Đúng: Number giảm từ 2 xuống 1"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -615,6 +617,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "24",
+            "vi": "24"
+          },
+          "feedback": {
+            "en": "24 conflicts with the rule: frames are 4,3,2,1,0",
+            "vi": "24 trái với quy tắc: frame là 4,3,2,1,0"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -635,17 +648,6 @@
           "feedback": {
             "en": "4 conflicts with the rule: frames are 4,3,2,1,0",
             "vi": "4 trái với quy tắc: frame là 4,3,2,1,0"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "24",
-            "vi": "24"
-          },
-          "feedback": {
-            "en": "24 conflicts with the rule: frames are 4,3,2,1,0",
-            "vi": "24 trái với quy tắc: frame là 4,3,2,1,0"
           }
         }
       ],
@@ -712,17 +714,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Stack overflow",
-            "vi": "Stack overflow"
-          },
-          "feedback": {
-            "en": "Correct: unbounded call depth exhausts stack capacity",
-            "vi": "Đúng: call depth không giới hạn làm cạn capacity stack"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Queue underflow",
@@ -742,6 +733,17 @@
           "feedback": {
             "en": "Dictionary duplicate conflicts with the rule: unbounded call depth exhausts stack capacity",
             "vi": "Dictionary duplicate trái với quy tắc: call depth không giới hạn làm cạn capacity stack"
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Stack overflow",
+            "vi": "Stack overflow"
+          },
+          "feedback": {
+            "en": "Correct: unbounded call depth exhausts stack capacity",
+            "vi": "Đúng: call depth không giới hạn làm cạn capacity stack"
           }
         }
       ],
@@ -839,5 +841,58 @@
       "locator": "Question 12(b), p17",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "call-stacks-and-unwinding-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain compiler/runtime support for Factorial(4).",
+      "vi": "Giải thích hỗ trợ compiler/runtime cho Factorial(4)."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Call stacks and unwinding; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Call stack và unwinding; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "List call arguments.",
+        "vi": "Liệt kê call argument."
+      },
+      {
+        "en": "Create one frame per invocation.",
+        "vi": "Tạo một frame mỗi invocation."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Push separate frames 4,3,2,1,0.",
+        "vi": "Push frame riêng 4,3,2,1,0."
+      },
+      {
+        "en": "Base F0 returns 1.",
+        "vi": "Base F0 trả 1."
+      },
+      {
+        "en": "Pop 0,1,2,3,4 and resume each multiplication.",
+        "vi": "Pop 0,1,2,3,4 và resume mỗi multiplication."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

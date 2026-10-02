@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-15.2-T01",
   "slug": "circuit-truth-table-and-expression",
   "title": {
@@ -487,6 +487,15 @@
         "en": "OR the products, construct the requested circuit, then compare every final output.",
         "vi": "OR các tích, dựng mạch yêu cầu rồi so mọi đầu ra cuối."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Circuit, truth table and expression; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Mạch logic, bảng chân trị và biểu thức; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -551,6 +560,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "10",
+            "vi": "10"
+          },
+          "feedback": {
+            "en": "A logic-gate output here is one bit; this is not a binary addition.",
+            "vi": "Đầu ra cổng ở đây một bit; đây không phải cộng nhị phân."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "1",
@@ -570,17 +590,6 @@
           "feedback": {
             "en": "Correct: the zero input makes the AND output0.",
             "vi": "Đúng: đầu vào0 khiến AND cho0."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "10",
-            "vi": "10"
-          },
-          "feedback": {
-            "en": "A logic-gate output here is one bit; this is not a binary addition.",
-            "vi": "Đầu ra cổng ở đây một bit; đây không phải cộng nhị phân."
           }
         }
       ],
@@ -647,17 +656,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "A AND B AND C",
-            "vi": "A AND B AND C"
-          },
-          "feedback": {
-            "en": "That product selects111, not011.",
-            "vi": "Tích đó chọn111, không phải011."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "NOT A AND B AND C",
@@ -678,6 +676,17 @@
             "en": "That covers both011 and111, so it is not the canonical product for one row.",
             "vi": "Tích này bao phủ011 và111 nên không phải tích chuẩn của một hàng."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "A AND B AND C",
+            "vi": "A AND B AND C"
+          },
+          "feedback": {
+            "en": "That product selects111, not011.",
+            "vi": "Tích đó chọn111, không phải011."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -694,6 +703,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "OR always gives a smaller circuit",
+            "vi": "OR luôn cho mạch nhỏ hơn"
+          },
+          "feedback": {
+            "en": "The reason is the function’s allowed cases, not a universal gate-count claim.",
+            "vi": "Lý do là các trường hợp hàm cho phép, không phải quy tắc phổ quát về số cổng."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -714,17 +734,6 @@
           "feedback": {
             "en": "One input cannot be both001 and011; ANDing those products would make that branch0.",
             "vi": "Một đầu vào không thể vừa001 vừa011; AND hai tích sẽ làm nhánh đó0."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "OR always gives a smaller circuit",
-            "vi": "OR luôn cho mạch nhỏ hơn"
-          },
-          "feedback": {
-            "en": "The reason is the function’s allowed cases, not a universal gate-count claim.",
-            "vi": "Lý do là các trường hợp hàm cho phép, không phải quy tắc phổ quát về số cổng."
           }
         }
       ],
@@ -791,17 +800,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "00",
-            "vi": "00"
-          },
-          "feedback": {
-            "en": "Correct: the original gives1 through NOT A, but A OR B gives0.",
-            "vi": "Đúng: mạch gốc cho1 qua NOT A, còn A OR B cho0."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "01",
@@ -821,6 +819,17 @@
           "feedback": {
             "en": "Both functions give1 here; try a row affected by NOT A.",
             "vi": "Cả hai cho1 ở đây; hãy thử hàng chịu ảnh hưởng của NOT A."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "00",
+            "vi": "00"
+          },
+          "feedback": {
+            "en": "Correct: the original gives1 through NOT A, but A OR B gives0.",
+            "vi": "Đúng: mạch gốc cho1 qua NOT A, còn A OR B cho0."
           }
         }
       ],
@@ -896,5 +905,54 @@
       "locator": "Question7(a–c), pages8–9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "circuit-truth-table-and-expression-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Describe a reliable circuit→truth-table→SOP→circuit method without using this example’s numbers.",
+      "vi": "Mô tả phương pháp mạch→bảng chân trị→SOP→mạch đáng tin cậy mà không dùng số của ví dụ."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Circuit, truth table and expression; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Mạch logic, bảng chân trị và biểu thức; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Copy input order and label each intermediate gate output.",
+        "vi": "Ghi thứ tự đầu vào và đặt tên từng đầu ra trung gian."
+      },
+      {
+        "en": "Enumerate2^n combinations; evaluate one gate only after its inputs are known.",
+        "vi": "Liệt kê2^n tổ hợp; chỉ tính cổng khi biết các đầu vào của nó."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Name intermediate wires and evaluate gates in dependency order for every input combination.",
+        "vi": "Đặt tên dây trung gian và tính cổng theo phụ thuộc cho mọi tổ hợp đầu vào."
+      },
+      {
+        "en": "For each output1 row, AND all inputs with the appropriate complements, then OR the products.",
+        "vi": "Với mỗi hàng đầu ra1, AND đủ đầu vào theo đúng phủ định rồi OR các tích."
+      },
+      {
+        "en": "Build gates following the expression and check every final output against the original.",
+        "vi": "Dựng cổng theo biểu thức và kiểm mọi đầu ra cuối với mạch gốc."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-logic"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

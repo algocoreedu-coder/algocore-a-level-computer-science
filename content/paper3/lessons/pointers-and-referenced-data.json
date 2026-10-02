@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.1-T02",
   "slug": "pointers-and-referenced-data",
   "title": {
@@ -112,7 +112,9 @@
         "book",
         "guide"
       ],
-      "code": "TYPE TIntPointer = ^INTEGER\nDECLARE A : INTEGER\nDECLARE B : INTEGER\nDECLARE P : TIntPointer\nA ← 25\nB ← 40\nP ← ^A\nOUTPUT P^"
+      "code": "TYPE TIntPointer = ^INTEGER\nDECLARE A : INTEGER\nDECLARE B : INTEGER\nDECLARE P : TIntPointer\nA ← 25\nB ← 40\nP ← ^A\nOUTPUT P^",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "two-different-updates",
@@ -218,7 +220,9 @@
           "en": "No integer cell was assigned in this step.",
           "vi": "Không có ô số nguyên nào được gán ở bước này."
         },
-        "code": "P ← ^B"
+        "code": "P ← ^B",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "read-target",
@@ -238,7 +242,9 @@
           "en": "Reading a value does not replace the pointer with that value.",
           "vi": "Đọc giá trị không thay con trỏ bằng giá trị đó."
         },
-        "code": "OUTPUT P^"
+        "code": "OUTPUT P^",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "edit-target",
@@ -258,7 +264,9 @@
           "en": "The only memory value changed is B.",
           "vi": "Giá trị bộ nhớ duy nhất đổi là B."
         },
-        "code": "B ← 45\nOUTPUT P^"
+        "code": "B ← 45\nOUTPUT P^",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       }
     ],
     "result": {
@@ -302,6 +310,15 @@
       {
         "en": "For P^, follow the current address and check that the target is valid.",
         "vi": "Với P^, lần theo địa chỉ hiện tại và kiểm đích hợp lệ."
+      }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Pointers and referenced data; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Con trỏ và dữ liệu được tham chiếu; đủ chi tiết để thấy điều gì thay đổi."
+        }
       }
     ]
   },
@@ -347,6 +364,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "3",
+          "label": {
+            "en": "Both data cells become 104.",
+            "vi": "Cả hai ô dữ liệu thành 104."
+          },
+          "feedback": {
+            "en": "The assignment writes the pointer, not both targets.",
+            "vi": "Phép gán ghi con trỏ, không ghi hai đích."
+          }
+        },
+        {
           "id": "1",
           "label": {
             "en": "Neither data cell; only P changes.",
@@ -366,17 +394,6 @@
           "feedback": {
             "en": "Retargeting changes a reference, not the physical data layout.",
             "vi": "Chuyển đích đổi tham chiếu, không chuyển bố trí dữ liệu."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "Both data cells become 104.",
-            "vi": "Cả hai ô dữ liệu thành 104."
-          },
-          "feedback": {
-            "en": "The assignment writes the pointer, not both targets.",
-            "vi": "Phép gán ghi con trỏ, không ghi hai đích."
           }
         }
       ],
@@ -443,17 +460,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "TYPE PType = ^CHAR",
-            "vi": "TYPE PType = ^CHAR"
-          },
-          "feedback": {
-            "en": "This promises a character destination, not an integer destination.",
-            "vi": "Kiểu này yêu cầu đích ký tự, không phải số nguyên."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "TYPE PType = (INTEGER)",
@@ -473,6 +479,17 @@
           "feedback": {
             "en": "Correct. The caret constructs a pointer type and INTEGER names its target type.",
             "vi": "Đúng. Dấu mũ tạo kiểu con trỏ; INTEGER là kiểu đích."
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "TYPE PType = ^CHAR",
+            "vi": "TYPE PType = ^CHAR"
+          },
+          "feedback": {
+            "en": "This promises a character destination, not an integer destination.",
+            "vi": "Kiểu này yêu cầu đích ký tự, không phải số nguyên."
           }
         }
       ],
@@ -543,5 +560,54 @@
       "kind": "guide",
       "url": "https://www.cambridgeinternational.org/Images/697401-2026-pseudocode-guide-for-teachers.pdf"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "pointers-and-referenced-data-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the difference between P, ^A and P^ without drawing arrows.",
+      "vi": "Giải thích sự khác nhau giữa P, ^A và P^ mà không dùng mũi tên."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Pointers and referenced data; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Con trỏ và dữ liệu được tham chiếu; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Label each cell with address, type and current data.",
+        "vi": "Gắn nhãn địa chỉ, kiểu và dữ liệu hiện tại cho mỗi ô."
+      },
+      {
+        "en": "Trace pointer assignments separately from writes to target data.",
+        "vi": "Trace phép gán con trỏ riêng với ghi dữ liệu đích."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "P is the pointer variable whose value is an address.",
+        "vi": "P là biến con trỏ có giá trị là địa chỉ."
+      },
+      {
+        "en": "^A obtains the address of A.",
+        "vi": "^A lấy địa chỉ của A."
+      },
+      {
+        "en": "P^ reads the data at the location P currently references.",
+        "vi": "P^ đọc dữ liệu ở vị trí P hiện tham chiếu."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

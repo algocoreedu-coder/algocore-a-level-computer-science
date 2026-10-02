@@ -67,7 +67,7 @@ check(catalog.schemaVersion === 1, "visual-catalog.json must use schemaVersion 1
 check(catalog.examYear === 2026, "visual-catalog.json must target examYear 2026");
 check(Array.isArray(catalog.visuals), "visual-catalog.json must contain a visuals array");
 check(catalog.visuals?.length === 66, `visual catalog must contain exactly 66 entries; found ${catalog.visuals?.length ?? 0}`);
-check(lessonStatus.schemaVersion === 1 && Array.isArray(lessonStatus.lessons), "lesson-status.json must use the expected lesson registry schema");
+check((lessonStatus.schemaVersion === 1 || lessonStatus.schemaVersion === 2) && Array.isArray(lessonStatus.lessons), "lesson-status.json must use a supported lesson registry schema");
 
 const visuals = Array.isArray(catalog.visuals) ? catalog.visuals : [];
 const statusRows = Array.isArray(lessonStatus.lessons) ? lessonStatus.lessons : [];

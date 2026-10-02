@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.2-T02",
   "slug": "hashing-to-locate-records",
   "title": {
@@ -128,6 +128,30 @@
           "vi": "Phân bố hash tốt có thể giảm va chạm lặp, nhưng công thức hash không đảm bảo truy cập chỉ một lần đọc hay không va chạm. Dùng hashing để định vị tệp không phải khẳng định bảo mật mật mã. Cần xét ánh xạ và chính sách lưu đã cho, không chỉ nhìn chữ “hash”."
         }
       ],
+      "sourceIds": [
+        "syllabus",
+        "book"
+      ]
+    },
+    {
+      "id": "hash-to-random-record",
+      "title": {
+        "en": "Carry the home slot through a random-file lookup",
+        "vi": "Dùng ô home để đọc bản ghi trong tệp random"
+      },
+      "paragraphs": [
+        {
+          "en": "A complete direct-access lookup keeps three values separate: the hash result is a logical slot, SEEK selects the corresponding zero-based record position, and the record key confirms whether the requested record was found. If the key differs, the declared collision policy must continue the search; an occupied slot is not proof of a match.",
+          "vi": "Một phép tìm kiếm truy cập trực tiếp hoàn chỉnh tách ba giá trị: kết quả hash là ô logic, SEEK chọn vị trí bản ghi đánh số từ 0 tương ứng, còn khóa trong bản ghi xác nhận có tìm đúng bản ghi hay không. Nếu khóa khác, phải tiếp tục theo chính sách xử lý va chạm đã công bố; ô đã có dữ liệu không chứng minh là đã khớp."
+        },
+        {
+          "en": "SEEK works with a record position in Cambridge-style pseudocode. A physical byte address would additionally require the file base and fixed record size. Do not silently treat a logical slot as a byte offset.",
+          "vi": "SEEK dùng vị trí bản ghi trong pseudocode theo phong cách Cambridge. Địa chỉ byte vật lý còn cần địa chỉ gốc của tệp và kích thước bản ghi cố định. Không được ngầm coi ô logic là độ lệch byte."
+        }
+      ],
+      "code": "DECLARE SearchKey : INTEGER\nDECLARE Slot : INTEGER\nDECLARE Candidate : AccountRecord\n\nSlot ← SearchKey MOD TableSize\nOPENFILE \"Accounts.dat\" FOR RANDOM\nSEEK \"Accounts.dat\", Slot\nGETRECORD \"Accounts.dat\", Candidate\nIF Candidate.AccountID = SearchKey THEN\n   OUTPUT Candidate\nELSE\n   // Continue using the declared collision policy\nENDIF\nCLOSEFILE \"Accounts.dat\"",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode",
       "sourceIds": [
         "syllabus",
         "book"
@@ -297,6 +321,15 @@
         "en": "State whether the result is a slot or byte address, then compare record keys.",
         "vi": "Nêu kết quả là ô hay địa chỉ byte rồi đối chiếu khóa bản ghi."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "calculate",
+        "guidance": {
+          "en": "Show each intermediate value for Hashing to locate records, keep the stated bit width or units, and state the final result.",
+          "vi": "Trình bày từng giá trị trung gian của Dùng hàm băm để định vị bản ghi, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -389,17 +422,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "They are the same record.",
-            "vi": "Chúng là cùng bản ghi."
-          },
-          "feedback": {
-            "en": "Their keys differ; equal remainders do not merge their identities.",
-            "vi": "Khóa khác nhau; số dư bằng không làm chúng cùng định danh."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "The second record may overwrite the first.",
@@ -420,6 +442,17 @@
             "en": "Correct. The home slot is shared by distinct keys.",
             "vi": "Đúng. Các khóa khác nhau cùng ô gốc."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "They are the same record.",
+            "vi": "Chúng là cùng bản ghi."
+          },
+          "feedback": {
+            "en": "Their keys differ; equal remainders do not merge their identities.",
+            "vi": "Khóa khác nhau; số dư bằng không làm chúng cùng định danh."
+          }
         }
       ],
       "correctChoiceId": "3",
@@ -436,6 +469,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "12",
+            "vi": "12"
+          },
+          "feedback": {
+            "en": "12 is the offset from the base, not the complete address.",
+            "vi": "12 là offset tính từ gốc, chưa phải địa chỉ đầy đủ."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -456,17 +500,6 @@
           "feedback": {
             "en": "Correct:1000+3×4=1012.",
             "vi": "Đúng:1000+3×4=1012."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "12",
-            "vi": "12"
-          },
-          "feedback": {
-            "en": "12 is the offset from the base, not the complete address.",
-            "vi": "12 là offset tính từ gốc, chưa phải địa chỉ đầy đủ."
           }
         }
       ],
@@ -525,5 +558,54 @@
       "locator": "Chapter 13, printed pp.310–311; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "hashing-to-locate-records-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "calculate",
+    "taskType": "calculation",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain key→hash→home slot→record check using a new key.",
+      "vi": "Giải thích khóa→hash→ô gốc→kiểm bản ghi với khóa mới."
+    },
+    "answerGuidance": [
+      {
+        "en": "Show each intermediate value for Hashing to locate records, keep the stated bit width or units, and state the final result.",
+        "vi": "Trình bày từng giá trị trung gian của Dùng hàm băm để định vị bản ghi, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+      },
+      {
+        "en": "Copy the exact function, table size and index base.",
+        "vi": "Ghi đúng hàm, kích thước bảng và gốc chỉ số."
+      },
+      {
+        "en": "Calculate the remainder and check its range.",
+        "vi": "Tính số dư và kiểm miền giá trị."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "MOD gives a remainder in the table range.",
+        "vi": "MOD cho số dư trong miền bảng."
+      },
+      {
+        "en": "Different keys can have the same home slot.",
+        "vi": "Khóa khác nhau có thể cùng ô gốc."
+      },
+      {
+        "en": "Stored keys and collision policy determine successful retrieval.",
+        "vi": "Khóa lưu và chính sách va chạm quyết định truy xuất thành công."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

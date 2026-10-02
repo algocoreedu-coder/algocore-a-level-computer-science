@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T03",
   "slug": "learning-categories",
   "estimatedMinutes": 30,
@@ -411,17 +411,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Agent actions receive reward or penalty from an environment",
-            "vi": "Hành động agent nhận thưởng hoặc phạt từ môi trường"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Every example has a class label",
@@ -442,6 +431,17 @@
             "en": "Learning still requires observations or state.",
             "vi": "Việc học vẫn cần quan sát hoặc trạng thái."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agent actions receive reward or penalty from an environment",
+            "vi": "Hành động agent nhận thưởng hoặc phạt từ môi trường"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -458,6 +458,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Reinforcement; action reward",
+            "vi": "Tăng cường; thưởng hành động"
+          },
+          "feedback": {
+            "en": "There is no agent interaction.",
+            "vi": "Không có tương tác agent."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -478,17 +489,6 @@
           "feedback": {
             "en": "Known targets contradict unsupervised learning.",
             "vi": "Mục tiêu đã biết mâu thuẫn học không giám sát."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Reinforcement; action reward",
-            "vi": "Tăng cường; thưởng hành động"
-          },
-          "feedback": {
-            "en": "There is no agent interaction.",
-            "vi": "Không có tương tác agent."
           }
         }
       ],
@@ -555,17 +555,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "labels: none; interaction: no; feedback: pattern; category: unsupervised",
-            "vi": "nhãn: không; tương tác: không; phản hồi: mẫu; hình thức: không giám sát"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "labels: known; reward: yes; category: reinforcement",
@@ -586,6 +575,17 @@
             "en": "No continuous target is supplied.",
             "vi": "Không có mục tiêu liên tục được cung cấp."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "labels: none; interaction: no; feedback: pattern; category: unsupervised",
+            "vi": "nhãn: không; tương tác: không; phản hồi: mẫu; hình thức: không giám sát"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -602,6 +602,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "It is unsupervised because images are pixels",
+            "vi": "Đó là không giám sát vì ảnh là pixel"
+          },
+          "feedback": {
+            "en": "The supplied class targets determine supervised learning.",
+            "vi": "Mục tiêu lớp được cung cấp xác định học có giám sát."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -622,17 +633,6 @@
           "feedback": {
             "en": "Category follows feedback, not the noun.",
             "vi": "Hình thức theo phản hồi, không theo danh từ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "It is unsupervised because images are pixels",
-            "vi": "Đó là không giám sát vì ảnh là pixel"
-          },
-          "feedback": {
-            "en": "The supplied class targets determine supervised learning.",
-            "vi": "Mục tiêu lớp được cung cấp xác định học có giám sát."
           }
         }
       ],
@@ -718,5 +718,54 @@
       "locator": "Question 11, p14",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "learning-categories-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Complete three evidence chains for the learning categories.",
+      "vi": "Hoàn thành ba chuỗi dữ kiện cho các hình thức học."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Learning categories; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Các hình thức học máy; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Mark whether each training example has a target.",
+        "vi": "Đánh dấu mỗi ví dụ huấn luyện có mục tiêu hay không."
+      },
+      {
+        "en": "Check for agent interaction with an environment.",
+        "vi": "Kiểm tra tương tác agent với môi trường."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Known per-example target → supervised.",
+        "vi": "Mục tiêu từng ví dụ đã biết → có giám sát."
+      },
+      {
+        "en": "No target; discover structure → unsupervised.",
+        "vi": "Không mục tiêu; khám phá cấu trúc → không giám sát."
+      },
+      {
+        "en": "Agent action plus reward/penalty → reinforcement.",
+        "vi": "Hành động agent cộng thưởng/phạt → tăng cường."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

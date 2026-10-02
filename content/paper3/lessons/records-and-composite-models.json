@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.1-T04",
   "slug": "records-and-composite-models",
   "title": {
@@ -98,7 +98,9 @@
         "book",
         "guide"
       ],
-      "code": "TYPE TStudent\n   DECLARE StudentID : INTEGER\n   DECLARE Name : STRING\n   DECLARE Score : INTEGER\nENDTYPE"
+      "code": "TYPE TStudent\n   DECLARE StudentID : INTEGER\n   DECLARE Name : STRING\n   DECLARE Score : INTEGER\nENDTYPE",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "type-instance-array",
@@ -121,7 +123,9 @@
         "book",
         "guide"
       ],
-      "code": "DECLARE Students : ARRAY[1:2] OF TStudent\nStudents[1].StudentID ← 101\nStudents[1].Name ← \"An\"\nStudents[1].Score ← 72\nStudents[2].StudentID ← 102\nStudents[2].Name ← \"Binh\"\nStudents[2].Score ← 81\nStudents[2].Score ← 85"
+      "code": "DECLARE Students : ARRAY[1:2] OF TStudent\nStudents[1].StudentID ← 101\nStudents[1].Name ← \"An\"\nStudents[1].Score ← 72\nStudents[2].StudentID ← 102\nStudents[2].Name ← \"Binh\"\nStudents[2].Score ← 81\nStudents[2].Score ← 85",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "validate-the-update",
@@ -165,7 +169,9 @@
         "book",
         "guide"
       ],
-      "code": "CLASS TCounter\n   PRIVATE Value : INTEGER\n   PUBLIC PROCEDURE NEW(StartValue : INTEGER)\n      Value ← StartValue\n   ENDPROCEDURE\n   PUBLIC FUNCTION GetValue() RETURNS INTEGER\n      RETURN Value\n   ENDFUNCTION\nENDCLASS\nMyCounter ← NEW TCounter(5)\nOUTPUT MyCounter.GetValue()"
+      "code": "CLASS TCounter\n   PRIVATE Value : INTEGER\n   PUBLIC PROCEDURE NEW(StartValue : INTEGER)\n      Value ← StartValue\n   ENDPROCEDURE\n   PUBLIC FUNCTION GetValue() RETURNS INTEGER\n      RETURN Value\n   ENDFUNCTION\nENDCLASS\nMyCounter ← NEW TCounter(5)\nOUTPUT MyCounter.GetValue()",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -250,7 +256,9 @@
           "en": "Its declared type is INTEGER.",
           "vi": "Kiểu đã khai báo là INTEGER."
         },
-        "code": "OUTPUT Students[2].Score"
+        "code": "OUTPUT Students[2].Score",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "validate",
@@ -289,7 +297,9 @@
           "en": "Both IDs and names are unchanged, and the array still has two records.",
           "vi": "Hai ID, hai tên không đổi và mảng vẫn có hai bản ghi."
         },
-        "code": "Students[2].Score ← 85"
+        "code": "Students[2].Score ← 85",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       }
     ],
     "result": {
@@ -333,6 +343,15 @@
       {
         "en": "Define the record, declare instances and trace each index/field access precisely.",
         "vi": "Định nghĩa record, khai báo bản ghi cụ thể và trace chính xác chỉ số/trường."
+      }
+    ],
+    "commandWords": [
+      {
+        "command": "trace",
+        "guidance": {
+          "en": "Follow Records and composite models one operation at a time; record every changed variable, pointer or structure after each step.",
+          "vi": "Theo dõi Bản ghi và mô hình dữ liệu phức hợp từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+        }
       }
     ]
   },
@@ -378,17 +397,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "Students[2].Name",
-            "vi": "Students[2].Name"
-          },
-          "feedback": {
-            "en": "Correct: index chooses the record and dot notation chooses the named field.",
-            "vi": "Đúng: chỉ số chọn bản ghi; dấu chấm chọn trường có tên."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Students.Name[2]",
@@ -409,6 +417,17 @@
             "en": "TStudent names the type, not the second stored instance.",
             "vi": "TStudent là tên kiểu, không phải bản ghi thứ hai."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Students[2].Name",
+            "vi": "Students[2].Name"
+          },
+          "feedback": {
+            "en": "Correct: index chooses the record and dot notation chooses the named field.",
+            "vi": "Đúng: chỉ số chọn bản ghi; dấu chấm chọn trường có tên."
+          }
         }
       ],
       "correctChoiceId": "1",
@@ -425,6 +444,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "BOOLEAN",
+            "vi": "BOOLEAN"
+          },
+          "feedback": {
+            "en": "Two truth values cannot represent this range of identifiers.",
+            "vi": "Hai giá trị đúng/sai không thể biểu diễn các định danh này."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -445,17 +475,6 @@
           "feedback": {
             "en": "Correct. The ID is a sequence of identifying characters, not a quantity to calculate with.",
             "vi": "Đúng. ID là chuỗi ký tự định danh, không phải đại lượng dùng tính toán."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "BOOLEAN",
-            "vi": "BOOLEAN"
-          },
-          "feedback": {
-            "en": "Two truth values cannot represent this range of identifiers.",
-            "vi": "Hai giá trị đúng/sai không thể biểu diễn các định danh này."
           }
         }
       ],
@@ -522,17 +541,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "9 and9",
-            "vi": "9 và9"
-          },
-          "feedback": {
-            "en": "Constructing B does not overwrite A’s instance attribute.",
-            "vi": "Tạo B không ghi đè thuộc tính của đối tượng A."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "5 and9",
@@ -552,6 +560,17 @@
           "feedback": {
             "en": "The method explicitly returns the stored INTEGER Value, not the type name.",
             "vi": "Phương thức trả rõ INTEGER Value được lưu, không phải tên kiểu."
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "9 and9",
+            "vi": "9 và9"
+          },
+          "feedback": {
+            "en": "Constructing B does not overwrite A’s instance attribute.",
+            "vi": "Tạo B không ghi đè thuộc tính của đối tượng A."
           }
         }
       ],
@@ -622,5 +641,54 @@
       "kind": "guide",
       "url": "https://www.cambridgeinternational.org/Images/697401-2026-pseudocode-guide-for-teachers.pdf"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "records-and-composite-models-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "trace",
+    "taskType": "trace",
+    "marks": 3,
+    "prompt": {
+      "en": "Describe the difference between TStudent, Students[2] and Students[2].Score, then name the role of a class constructor.",
+      "vi": "Phân biệt TStudent, Students[2], Students[2].Score rồi nêu vai trò hàm tạo của lớp."
+    },
+    "answerGuidance": [
+      {
+        "en": "Follow Records and composite models one operation at a time; record every changed variable, pointer or structure after each step.",
+        "vi": "Theo dõi Bản ghi và mô hình dữ liệu phức hợp từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+      },
+      {
+        "en": "Identify the entity and required attributes.",
+        "vi": "Xác định thực thể và thuộc tính cần có."
+      },
+      {
+        "en": "Choose types from the values and operations, including any existing user-defined type.",
+        "vi": "Chọn kiểu theo giá trị và thao tác, gồm kiểu tự định nghĩa có sẵn nếu phù hợp."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "TStudent is a type; Students[2] is one record instance; .Score is one field value.",
+        "vi": "TStudent là kiểu; Students[2] là một bản ghi; .Score là giá trị của một trường."
+      },
+      {
+        "en": "Updating a field does not alter every instance.",
+        "vi": "Cập nhật trường không đổi mọi bản ghi."
+      },
+      {
+        "en": "A constructor NEW initialises a new object’s state.",
+        "vi": "Hàm tạo NEW khởi tạo trạng thái đối tượng mới."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T01",
   "slug": "graphs-and-dijkstra",
   "estimatedMinutes": 35,
@@ -486,17 +486,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Nodes are states; edges are allowed moves; weights are declared costs",
-            "vi": "Nút là trạng thái; cạnh là bước đi; trọng số là chi phí đã công bố"
-          },
-          "feedback": {
-            "en": "Correct: each graph part has a distinct role.",
-            "vi": "Đúng: mỗi phần đồ thị có vai trò riêng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Every node is a total path cost",
@@ -517,6 +506,17 @@
             "en": "Weights carry the problem's numeric cost.",
             "vi": "Trọng số mang chi phí số của bài toán."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Nodes are states; edges are allowed moves; weights are declared costs",
+            "vi": "Nút là trạng thái; cạnh là bước đi; trọng số là chi phí đã công bố"
+          },
+          "feedback": {
+            "en": "Correct: each graph part has a distinct role.",
+            "vi": "Đúng: mỗi phần đồ thị có vai trò riêng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -533,6 +533,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Unsupervised learning",
+            "vi": "Học không giám sát"
+          },
+          "feedback": {
+            "en": "This is graph search, not learning-category selection.",
+            "vi": "Đây là tìm kiếm đồ thị, không phải chọn hình thức học."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -553,17 +564,6 @@
           "feedback": {
             "en": "A* needs a declared heuristic and still keeps g.",
             "vi": "A* cần heuristic đã công bố và vẫn giữ g."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Unsupervised learning",
-            "vi": "Học không giám sát"
-          },
-          "feedback": {
-            "en": "This is graph search, not learning-category selection.",
-            "vi": "Đây là tìm kiếm đồ thị, không phải chọn hình thức học."
           }
         }
       ],
@@ -630,17 +630,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "4 with predecessor B",
-            "vi": "4 với predecessor B"
-          },
-          "feedback": {
-            "en": "Correct: 2+2 improves the old 7.",
-            "vi": "Đúng: 2+2 cải thiện giá trị 7 cũ."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "7 with predecessor A",
@@ -661,6 +650,17 @@
             "en": "There is no direct S–D edge.",
             "vi": "Không có cạnh trực tiếp S–D."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "4 with predecessor B",
+            "vi": "4 với predecessor B"
+          },
+          "feedback": {
+            "en": "Correct: 2+2 improves the old 7.",
+            "vi": "Đúng: 2+2 cải thiện giá trị 7 cũ."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -677,6 +677,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "They tie",
+            "vi": "Hai tuyến hòa"
+          },
+          "feedback": {
+            "en": "12 and 9 are different cumulative costs.",
+            "vi": "12 và 9 là hai chi phí tích lũy khác nhau."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -697,17 +708,6 @@
           "feedback": {
             "en": "Fewest edges is not the stated cost rule.",
             "vi": "Ít cạnh nhất không phải quy tắc chi phí đã nêu."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "They tie",
-            "vi": "Hai tuyến hòa"
-          },
-          "feedback": {
-            "en": "12 and 9 are different cumulative costs.",
-            "vi": "12 và 9 là hai chi phí tích lũy khác nhau."
           }
         }
       ],
@@ -781,5 +781,54 @@
       "locator": "Question 5(a)–(b), pp6–7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "graphs-and-dijkstra-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "pseudocode",
+    "marks": 3,
+    "prompt": {
+      "en": "Write the Dijkstra trace rule in one causal chain.",
+      "vi": "Viết quy tắc trace Dijkstra thành một chuỗi nhân quả."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Graphs and Dijkstra; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Đồ thị và Dijkstra; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Write 0 at the start and unset elsewhere.",
+        "vi": "Ghi 0 tại nút đầu và chưa xác định ở nơi khác."
+      },
+      {
+        "en": "Declare the tie rule.",
+        "vi": "Công bố quy tắc phá hòa."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Initialise start 0; others unset.",
+        "vi": "Khởi tạo nút đầu 0; nút khác chưa xác định."
+      },
+      {
+        "en": "Select smallest cumulative distance; relax strictly lower candidates and store predecessors.",
+        "vi": "Chọn khoảng cách tích lũy nhỏ nhất; cập nhật ứng viên thấp hơn nghiêm ngặt và lưu predecessor."
+      },
+      {
+        "en": "Settle, repeat, then reconstruct and sum the path.",
+        "vi": "Chốt, lặp, rồi dựng lại và cộng chi phí đường."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

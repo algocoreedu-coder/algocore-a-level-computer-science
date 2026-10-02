@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.3-T01",
   "slug": "signed-floating-point-conversion",
   "title": {
@@ -467,6 +467,15 @@
         "en": "Reverse the conversion and compare with the original value; treat any required approximation explicitly.",
         "vi": "Chuyển đổi ngược và đối chiếu giá trị ban đầu; nếu cần xấp xỉ phải nêu rõ."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "calculate",
+        "guidance": {
+          "en": "Show each intermediate value for Signed floating-point conversion, keep the stated bit width or units, and state the final result.",
+          "vi": "Trình bày từng giá trị trung gian của Chuyển đổi số dấu phẩy động có dấu, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -531,17 +540,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "Take two’s complement of M; keep E=0100.",
-            "vi": "Lấy bù hai của M; giữ E=0100."
-          },
-          "feedback": {
-            "en": "Correct. Changing the signed fraction changes the sign; the factor 2^4 is still the required scale.",
-            "vi": "Đúng. Đổi phân số có dấu làm đổi dấu của số; hệ số 2^4 vẫn là thang độ lớn cần dùng."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Take two’s complement of both M and E.",
@@ -562,6 +560,17 @@
             "en": "A power of two is positive even when its exponent is negative. The value would remain positive.",
             "vi": "Lũy thừa hai vẫn dương dù số mũ âm. Giá trị sẽ vẫn dương."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Take two’s complement of M; keep E=0100.",
+            "vi": "Lấy bù hai của M; giữ E=0100."
+          },
+          "feedback": {
+            "en": "Correct. Changing the signed fraction changes the sign; the factor 2^4 is still the required scale.",
+            "vi": "Đúng. Đổi phân số có dấu làm đổi dấu của số; hệ số 2^4 vẫn là thang độ lớn cần dùng."
+          }
         }
       ],
       "correctChoiceId": "1",
@@ -578,6 +587,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "24 576",
+            "vi": "24 576"
+          },
+          "feedback": {
+            "en": "That treats 1111 as unsigned 15. Here E is two’s complement, so its value is −1.",
+            "vi": "Đáp án này đọc 1111 như số không dấu 15. Ở đây E dùng bù hai nên bằng −1."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -598,17 +618,6 @@
           "feedback": {
             "en": "Correct: M=96/128=0.75 and E=−1, so 0.75 × 1/2 = 0.375.",
             "vi": "Đúng: M=96/128=0.75 và E=−1 nên 0.75 × 1/2 = 0.375."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "24 576",
-            "vi": "24 576"
-          },
-          "feedback": {
-            "en": "That treats 1111 as unsigned 15. Here E is two’s complement, so its value is −1.",
-            "vi": "Đáp án này đọc 1111 như số không dấu 15. Ở đây E dùng bù hai nên bằng −1."
           }
         }
       ],
@@ -675,17 +684,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "Nothing: any correct value is normalised.",
-            "vi": "Không cần: mọi dạng có giá trị đúng đều chuẩn hóa."
-          },
-          "feedback": {
-            "en": "Value equality alone is insufficient. The mantissa begins 11, so it contains a redundant sign bit.",
-            "vi": "Chỉ bằng nhau về giá trị là chưa đủ. Định trị bắt đầu bằng 11 nên có bit dấu dư."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Shift M left once and reduce E to 3.",
@@ -705,6 +703,17 @@
           "feedback": {
             "en": "Doubling M requires halving the power-of-two factor, so E must decrease, not increase.",
             "vi": "Nhân M với hai cần chia hệ số lũy thừa hai cho hai, nên E phải giảm thay vì tăng."
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Nothing: any correct value is normalised.",
+            "vi": "Không cần: mọi dạng có giá trị đúng đều chuẩn hóa."
+          },
+          "feedback": {
+            "en": "Value equality alone is insufficient. The mantissa begins 11, so it contains a redundant sign bit.",
+            "vi": "Chỉ bằng nhau về giá trị là chưa đủ. Định trị bắt đầu bằng 11 nên có bit dấu dư."
           }
         }
       ],
@@ -784,5 +793,58 @@
       "locator": "Q2(b), p.7: working and representation checked against this exact question",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "signed-floating-point-conversion-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "calculate",
+    "taskType": "calculation",
+    "marks": 4,
+    "prompt": {
+      "en": "Without the example open, explain how you would encode a negative value, and how you would prove the bits are correct.",
+      "vi": "Không mở ví dụ, hãy giải thích cách mã hóa số âm và cách chứng minh các bit đúng."
+    },
+    "answerGuidance": [
+      {
+        "en": "Show each intermediate value for Signed floating-point conversion, keep the stated bit width or units, and state the final result.",
+        "vi": "Trình bày từng giá trị trung gian của Chuyển đổi số dấu phẩy động có dấu, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+      },
+      {
+        "en": "Write the format and the required direction: encode or decode.",
+        "vi": "Ghi định dạng và chiều chuyển đổi: mã hóa hay giải mã."
+      },
+      {
+        "en": "Use the mantissa’s fractional weights and the exponent’s integer weights.",
+        "vi": "Dùng trọng số phân số của định trị và trọng số nguyên của số mũ."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State both widths, two’s-complement signedness and the mantissa point position.",
+        "vi": "Nêu số bit hai trường, quy ước bù hai và vị trí dấu chấm định trị."
+      },
+      {
+        "en": "Choose M and E with the same value; handle the mantissa sign and check normalisation.",
+        "vi": "Chọn M và E giữ cùng giá trị; xử lý dấu định trị rồi kiểm chuẩn hóa."
+      },
+      {
+        "en": "Decode the mantissa as fractional weights or signed integer divided by 2^(Mbits−1); decode E separately.",
+        "vi": "Giải mã định trị bằng trọng số phân số hoặc số nguyên có dấu chia 2^(số bit M−1); giải mã E riêng."
+      },
+      {
+        "en": "Multiply by 2^E and compare with the original; acknowledge zero and any unsupported approximation explicitly.",
+        "vi": "Nhân với 2^E rồi so giá trị ban đầu; nêu rõ trường hợp số không và xấp xỉ chưa được mô hình hỗ trợ."
+      }
+    ],
+    "sourceIds": [
+      "syllabus13-3",
+      "book13-3"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

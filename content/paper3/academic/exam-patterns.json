@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 1,
+  "qualification": "Cambridge International AS & A Level Computer Science 9618",
+  "examYear": 2026,
+  "paper": 3,
+  "evidencePolicy": {
+    "officialEvidence": "Pattern is directly supported by the named official syllabus, question-paper, mark-scheme, pseudocode-guide or examiner-report corpus.",
+    "algocoreInference": "Pattern is an AlgoCore teaching inference across official evidence; it is not an official Cambridge rule, weighting or prediction."
+  },
+  "sourceRegistry": [
+    {
+      "id": "syllabus-2026-assessment",
+      "authority": "official",
+      "title": "Cambridge 9618 syllabus for examinations in 2026, Version 2",
+      "locator": "pp.11, 13 and 40: Paper 3 format and AO weighting"
+    },
+    {
+      "id": "syllabus-2026-content",
+      "authority": "official",
+      "title": "Cambridge 9618 syllabus for examinations in 2026, Version 2",
+      "locator": "pp.32–38: Sections 13–20"
+    },
+    {
+      "id": "pseudocode-guide-2026",
+      "authority": "official",
+      "title": "Cambridge 9618 Pseudocode Guide for Teachers for examinations in 2026, Version 1",
+      "locator": "Complete guide; conventions applicable to written pseudocode responses"
+    },
+    {
+      "id": "paper3-qp-ms-local-corpus",
+      "authority": "official-corpus",
+      "title": "Local Cambridge 9618 Paper 3 question-paper and mark-scheme corpus",
+      "locator": "29 question papers and 29 mark schemes, 2021–2025"
+    },
+    {
+      "id": "examiner-report-w23-paper32",
+      "authority": "official",
+      "title": "Cambridge 9618 November 2023 Principal Examiner Report for Teachers",
+      "locator": "Paper 9618/32 Advanced Theory, key messages and comments on specific questions"
+    },
+    {
+      "id": "examiner-report-w23-paper33",
+      "authority": "official",
+      "title": "Cambridge 9618 November 2023 Principal Examiner Report for Teachers",
+      "locator": "Paper 9618/33 Advanced Theory, key messages and comments on specific questions"
+    },
+    {
+      "id": "paper3-academic-audit-2026-10-02",
+      "authority": "algocore-authored",
+      "title": "AlgoCore Paper 3 academic audit",
+      "locator": "Repository audit dated 2026-10-02"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "P3-PAT-001",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "exam-contract",
+      "title": {
+        "en": "Written short and longer responses across Sections 13–20",
+        "vi": "Câu trả lời viết ngắn và dài trên Sections 13–20"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "short-response",
+        "extended-response"
+      ],
+      "sourceIds": [
+        "syllabus-2026-assessment"
+      ]
+    },
+    {
+      "id": "P3-PAT-002",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "assessment-objective",
+      "title": {
+        "en": "Demonstrate knowledge and apply it to computational problems",
+        "vi": "Thể hiện kiến thức và vận dụng vào bài toán tính toán"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "AO1-knowledge",
+        "AO2-application"
+      ],
+      "sourceIds": [
+        "syllabus-2026-assessment"
+      ]
+    },
+    {
+      "id": "P3-PAT-003",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "command-word",
+      "title": {
+        "en": "State, give, identify or name precise facts",
+        "vi": "State, give, identify hoặc name các ý chính xác"
+      },
+      "commandWords": [
+        "state",
+        "give",
+        "identify",
+        "name"
+      ],
+      "taskForms": [
+        "short-response"
+      ],
+      "sourceIds": [
+        "paper3-qp-ms-local-corpus",
+        "examiner-report-w23-paper32"
+      ]
+    },
+    {
+      "id": "P3-PAT-004",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "command-word",
+      "title": {
+        "en": "Describe or outline a process with ordered relevant points",
+        "vi": "Describe hoặc outline quy trình bằng các ý liên quan theo thứ tự"
+      },
+      "commandWords": [
+        "describe",
+        "outline"
+      ],
+      "taskForms": [
+        "process-description"
+      ],
+      "sourceIds": [
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-005",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "command-word",
+      "title": {
+        "en": "Explain by linking cause, mechanism and consequence",
+        "vi": "Explain bằng cách nối nguyên nhân, cơ chế và hệ quả"
+      },
+      "commandWords": [
+        "explain"
+      ],
+      "taskForms": [
+        "causal-explanation"
+      ],
+      "sourceIds": [
+        "examiner-report-w23-paper32",
+        "examiner-report-w23-paper33"
+      ]
+    },
+    {
+      "id": "P3-PAT-006",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "command-word",
+      "title": {
+        "en": "Compare both alternatives using common criteria",
+        "vi": "Compare hai phương án bằng tiêu chí chung"
+      },
+      "commandWords": [
+        "compare"
+      ],
+      "taskForms": [
+        "paired-comparison"
+      ],
+      "sourceIds": [
+        "paper3-qp-ms-local-corpus",
+        "examiner-report-w23-paper33"
+      ]
+    },
+    {
+      "id": "P3-PAT-007",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "command-word",
+      "title": {
+        "en": "Justify a choice in the supplied scenario",
+        "vi": "Justify lựa chọn trong tình huống đã cho"
+      },
+      "commandWords": [
+        "justify"
+      ],
+      "taskForms": [
+        "scenario-justification"
+      ],
+      "sourceIds": [
+        "examiner-report-w23-paper32"
+      ]
+    },
+    {
+      "id": "P3-PAT-008",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "working",
+      "title": {
+        "en": "Show calculations, trace state or intermediate working when requested",
+        "vi": "Trình bày phép tính, trạng thái trace hoặc bước trung gian khi được yêu cầu"
+      },
+      "commandWords": [
+        "calculate",
+        "show",
+        "trace"
+      ],
+      "taskForms": [
+        "calculation",
+        "trace-table",
+        "annotated-working"
+      ],
+      "sourceIds": [
+        "examiner-report-w23-paper32",
+        "examiner-report-w23-paper33"
+      ]
+    },
+    {
+      "id": "P3-PAT-009",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "pseudocode",
+      "title": {
+        "en": "Write or complete algorithms using the published pseudocode conventions",
+        "vi": "Viết hoặc hoàn thành thuật toán theo quy ước pseudocode đã công bố"
+      },
+      "commandWords": [
+        "write",
+        "complete"
+      ],
+      "taskForms": [
+        "pseudocode-construction",
+        "pseudocode-completion"
+      ],
+      "sourceIds": [
+        "pseudocode-guide-2026",
+        "examiner-report-w23-paper32",
+        "examiner-report-w23-paper33"
+      ]
+    },
+    {
+      "id": "P3-PAT-010",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "scenario",
+      "title": {
+        "en": "Apply technical terminology to the actual scenario",
+        "vi": "Áp dụng thuật ngữ kỹ thuật vào đúng tình huống"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "contextual-response"
+      ],
+      "sourceIds": [
+        "examiner-report-w23-paper32",
+        "examiner-report-w23-paper33"
+      ]
+    },
+    {
+      "id": "P3-PAT-011",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Convert, normalise and explain binary floating-point values",
+        "vi": "Chuyển đổi, chuẩn hóa và giải thích số dấu phẩy động nhị phân"
+      },
+      "commandWords": [
+        "convert",
+        "normalise",
+        "explain"
+      ],
+      "taskForms": [
+        "calculation",
+        "working"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-012",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Trace protocols, packet journeys and switching decisions",
+        "vi": "Trace giao thức, hành trình packet và quyết định switching"
+      },
+      "commandWords": [
+        "describe",
+        "explain",
+        "compare"
+      ],
+      "taskForms": [
+        "process-trace",
+        "comparison"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-013",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Complete truth tables and simplify Boolean logic",
+        "vi": "Hoàn thành truth table và rút gọn Boolean logic"
+      },
+      "commandWords": [
+        "complete",
+        "simplify",
+        "draw"
+      ],
+      "taskForms": [
+        "truth-table",
+        "logic-derivation",
+        "circuit"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-014",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Trace operating-system scheduling, memory and state changes",
+        "vi": "Trace scheduling, bộ nhớ và thay đổi trạng thái của hệ điều hành"
+      },
+      "commandWords": [
+        "trace",
+        "explain"
+      ],
+      "taskForms": [
+        "timeline",
+        "state-transition",
+        "address-calculation"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-015",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Trace graph-search costs and reconstruct a path",
+        "vi": "Trace chi phí tìm kiếm đồ thị và dựng lại đường đi"
+      },
+      "commandWords": [
+        "show",
+        "trace"
+      ],
+      "taskForms": [
+        "annotated-graph",
+        "cost-table"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-016",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Find, insert or delete using ADT algorithms and trace recursion",
+        "vi": "Find, insert hoặc delete bằng thuật toán ADT và trace recursion"
+      },
+      "commandWords": [
+        "write",
+        "complete",
+        "trace"
+      ],
+      "taskForms": [
+        "pseudocode",
+        "pointer-trace",
+        "call-stack"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "pseudocode-guide-2026",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-017",
+      "evidenceClass": "official-evidence-synthesis",
+      "category": "task-family",
+      "title": {
+        "en": "Write paradigm, file-processing and exception-handling code",
+        "vi": "Viết code về paradigm, file processing và exception handling"
+      },
+      "commandWords": [
+        "write",
+        "complete"
+      ],
+      "taskForms": [
+        "assembly",
+        "oop-code",
+        "declarative-clause",
+        "file-pseudocode",
+        "exception-code"
+      ],
+      "sourceIds": [
+        "syllabus-2026-content",
+        "pseudocode-guide-2026",
+        "paper3-qp-ms-local-corpus"
+      ]
+    },
+    {
+      "id": "P3-PAT-018",
+      "evidenceClass": "algocore-authored-inference",
+      "category": "revision-design",
+      "title": {
+        "en": "Pair recognition practice with an independent written response",
+        "vi": "Ghép bài nhận diện với một câu tự viết độc lập"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "mcq-diagnosis",
+        "constructed-response"
+      ],
+      "sourceIds": [
+        "paper3-academic-audit-2026-10-02"
+      ]
+    },
+    {
+      "id": "P3-PAT-019",
+      "evidenceClass": "algocore-authored-inference",
+      "category": "revision-design",
+      "title": {
+        "en": "Use one normal, one boundary and one failure case for algorithms",
+        "vi": "Dùng một ca thường, một ca biên và một ca lỗi cho thuật toán"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "boundary-testing",
+        "failure-trace"
+      ],
+      "sourceIds": [
+        "paper3-academic-audit-2026-10-02"
+      ]
+    },
+    {
+      "id": "P3-PAT-020",
+      "evidenceClass": "algocore-authored-inference",
+      "category": "revision-design",
+      "title": {
+        "en": "Rehearse full papers under the official time and mark totals",
+        "vi": "Luyện đề đầy đủ theo thời gian và tổng điểm chính thức"
+      },
+      "commandWords": [],
+      "taskForms": [
+        "timed-mock"
+      ],
+      "sourceIds": [
+        "syllabus-2026-assessment",
+        "paper3-academic-audit-2026-10-02"
+      ]
+    }
+  ]
+}

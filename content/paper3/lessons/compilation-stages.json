@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.2-T02",
   "slug": "compilation-stages",
   "estimatedMinutes": 45,
@@ -350,6 +350,15 @@
         "en": "For optimisation, show before/after code and what required behaviour remains equal.",
         "vi": "Với tối ưu, trình bày mã trước/sau và hành vi cần thiết nào vẫn bằng nhau."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Compilation stages; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Các giai đoạn biên dịch; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -394,6 +403,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Running OUTPUT.",
+            "vi": "Chạy OUTPUT."
+          },
+          "feedback": {
+            "en": "This diagnostic is detected before program execution.",
+            "vi": "Chẩn đoán này được phát hiện trước thực thi."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Lexical analysis: @ is not a recognised token.",
@@ -413,17 +433,6 @@
           "feedback": {
             "en": "The source cannot legitimately reach successful target generation.",
             "vi": "Nguồn không thể đi hợp lệ đến sinh mã thành công."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Running OUTPUT.",
-            "vi": "Chạy OUTPUT."
-          },
-          "feedback": {
-            "en": "This diagnostic is detected before program execution.",
-            "vi": "Chẩn đoán này được phát hiện trước thực thi."
           }
         }
       ],
@@ -490,17 +499,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "STRING.",
-            "vi": "STRING."
-          },
-          "feedback": {
-            "en": "Correct: preserve the actual declaration.",
-            "vi": "Đúng: giữ đúng khai báo thực."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "INTEGER because tables use numeric addresses.",
@@ -521,6 +519,17 @@
             "en": "Each declaration has its own attributes.",
             "vi": "Mỗi khai báo có thuộc tính riêng."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "STRING.",
+            "vi": "STRING."
+          },
+          "feedback": {
+            "en": "Correct: preserve the actual declaration.",
+            "vi": "Đúng: giữ đúng khai báo thực."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -537,6 +546,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Yes; the compiler already printed 5.",
+            "vi": "Có; trình biên dịch đã in 5."
+          },
+          "feedback": {
+            "en": "Compilation did not run the program’s OUTPUT.",
+            "vi": "Biên dịch không chạy OUTPUT của chương trình."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -557,17 +577,6 @@
           "feedback": {
             "en": "Equivalence concerns behaviour, not length alone.",
             "vi": "Tương đương liên quan hành vi, không chỉ độ dài."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Yes; the compiler already printed 5.",
-            "vi": "Có; trình biên dịch đã in 5."
-          },
-          "feedback": {
-            "en": "Compilation did not run the program’s OUTPUT.",
-            "vi": "Biên dịch không chạy OUTPUT của chương trình."
           }
         }
       ],
@@ -701,5 +710,54 @@
       "locator": "PDF p9 Q8",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "compilation-stages-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the four stages using the representations they produce.",
+      "vi": "Giải thích bốn giai đoạn qua dạng biểu diễn chúng tạo ra."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Compilation stages; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Các giai đoạn biên dịch; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Name the stage and describe its input, action and output.",
+        "vi": "Nêu giai đoạn, đầu vào, thao tác và đầu ra."
+      },
+      {
+        "en": "For a diagnostic, point to the offending character or missing grammatical component.",
+        "vi": "Với chẩn đoán, chỉ ký tự sai hoặc thành phần văn phạm thiếu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Lexical analysis recognises tokens; syntax analysis checks grammar and structure.",
+        "vi": "Từ vựng nhận token; cú pháp kiểm văn phạm và cấu trúc."
+      },
+      {
+        "en": "Symbol information supports name/type checks; code generation emits target instructions.",
+        "vi": "Thông tin ký hiệu hỗ trợ kiểm tên/kiểu; sinh mã tạo lệnh đích."
+      },
+      {
+        "en": "Optimisation preserves required behaviour while improving code; runtime output follows execution.",
+        "vi": "Tối ưu giữ hành vi cần thiết khi cải thiện mã; đầu ra khi chạy theo sau thực thi."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

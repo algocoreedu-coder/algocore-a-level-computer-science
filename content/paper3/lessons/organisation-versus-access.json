@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.2-T01",
   "slug": "organisation-versus-access",
   "title": {
@@ -308,6 +308,15 @@
         "en": "Trace the actual comparisons, then justify success or the stopping condition.",
         "vi": "Trace so sánh thực tế rồi giải thích tìm thấy hoặc điều kiện dừng."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "compare",
+        "guidance": {
+          "en": "Make paired points about Organisation versus access; name both sides in each point and state a meaningful difference or similarity.",
+          "vi": "Viết các ý đối chiếu theo cặp về Tổ chức tệp và cách truy cập; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -400,17 +409,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "At the end, after 31.",
-            "vi": "Ở cuối, sau 31."
-          },
-          "feedback": {
-            "en": "That would break ascending key order.",
-            "vi": "Vị trí đó phá thứ tự khóa tăng."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Between 18 and 25.",
@@ -431,6 +429,17 @@
             "en": "Sequential organisation is defined by key order, not arbitrary placement.",
             "vi": "Tổ chức sequential dựa vào thứ tự khóa, không phải vị trí tùy ý."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "At the end, after 31.",
+            "vi": "Ở cuối, sau 31."
+          },
+          "feedback": {
+            "en": "That would break ascending key order.",
+            "vi": "Vị trí đó phá thứ tự khóa tăng."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -447,6 +456,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "Sorting records automatically reveals every byte address.",
+            "vi": "Sắp bản ghi tự tiết lộ mọi địa chỉ byte."
+          },
+          "feedback": {
+            "en": "Order alone is not a key-to-address mapping.",
+            "vi": "Chỉ có thứ tự chưa tạo ánh xạ khóa-địa chỉ."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -467,17 +487,6 @@
           "feedback": {
             "en": "Collisions and supporting structures can require additional work.",
             "vi": "Va chạm và cấu trúc hỗ trợ có thể đòi thêm công việc."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "Sorting records automatically reveals every byte address.",
-            "vi": "Sắp bản ghi tự tiết lộ mọi địa chỉ byte."
-          },
-          "feedback": {
-            "en": "Order alone is not a key-to-address mapping.",
-            "vi": "Chỉ có thứ tự chưa tạo ánh xạ khóa-địa chỉ."
           }
         }
       ],
@@ -537,5 +546,54 @@
       "locator": "Chapter 13, printed pp.308–310; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "organisation-versus-access-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "compare",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain serial, sequential and random organisation, then distinguish sequential and direct access.",
+      "vi": "Giải thích tổ chức serial, sequential, random rồi phân biệt truy cập tuần tự và trực tiếp."
+    },
+    "answerGuidance": [
+      {
+        "en": "Make paired points about Organisation versus access; name both sides in each point and state a meaningful difference or similarity.",
+        "vi": "Viết các ý đối chiếu theo cặp về Tổ chức tệp và cách truy cập; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+      },
+      {
+        "en": "Identify the key and storage-order guarantee.",
+        "vi": "Xác định khóa và đảm bảo thứ tự lưu."
+      },
+      {
+        "en": "Name the access method and any supporting index or hash.",
+        "vi": "Nêu cách truy cập và chỉ mục hay hash hỗ trợ."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Organisation describes placement; access describes how records are reached.",
+        "vi": "Tổ chức mô tả vị trí; truy cập mô tả cách đến bản ghi."
+      },
+      {
+        "en": "Sorted scans may stop beyond the target; serial scans cannot use that rule.",
+        "vi": "Quét đã sắp có thể dừng khi vượt khóa; quét serial không được dùng quy tắc đó."
+      },
+      {
+        "en": "Direct access needs an address mechanism such as an index or hash.",
+        "vi": "Truy cập trực tiếp cần cơ chế địa chỉ như chỉ mục hoặc hash."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-006",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

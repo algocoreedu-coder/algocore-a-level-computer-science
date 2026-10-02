@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.17.1",
+  "version": "2026.2",
   "topicId": "P3-17.1-T01",
   "slug": "confidentiality-and-key-choice",
   "estimatedMinutes": 45,
@@ -369,6 +369,15 @@
         "en": "State who can read or verify and why.",
         "vi": "Nêu ai có thể đọc hoặc kiểm chứng và vì sao."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Confidentiality and key choice; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Tính bí mật và lựa chọn khóa; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -471,17 +480,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Priya signs with Priya’s private key",
-            "vi": "Priya ký bằng khóa riêng của Priya"
-          },
-          "feedback": {
-            "en": "Correct: verifiers use Priya’s public key.",
-            "vi": "Đúng: người kiểm chứng dùng khóa công khai của Priya."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Priya encrypts with every reader’s private key",
@@ -502,6 +500,17 @@
             "en": "A public key must be available to verifiers.",
             "vi": "Khóa công khai phải sẵn có cho người kiểm chứng."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Priya signs with Priya’s private key",
+            "vi": "Priya ký bằng khóa riêng của Priya"
+          },
+          "feedback": {
+            "en": "Correct: verifiers use Priya’s public key.",
+            "vi": "Đúng: người kiểm chứng dùng khóa công khai của Priya."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -518,6 +527,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "No key is used",
+            "vi": "Không dùng khóa"
+          },
+          "feedback": {
+            "en": "Symmetric cryptography uses a key for both directions.",
+            "vi": "Mật mã đối xứng dùng khóa cho cả hai chiều."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -538,17 +558,6 @@
           "feedback": {
             "en": "Then it is not a protected shared secret.",
             "vi": "Khi đó nó không còn là bí mật dùng chung được bảo vệ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "No key is used",
-            "vi": "Không dùng khóa"
-          },
-          "feedback": {
-            "en": "Symmetric cryptography uses a key for both directions.",
-            "vi": "Mật mã đối xứng dùng khóa cho cả hai chiều."
           }
         }
       ],
@@ -615,17 +624,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Sender uses Omar’s public key → ciphertext travels → Omar uses Omar’s private key",
-            "vi": "Người gửi dùng khóa công khai Omar → truyền bản mã → Omar dùng khóa riêng Omar"
-          },
-          "feedback": {
-            "en": "Correct: owner and operation are correct at both ends.",
-            "vi": "Đúng: chủ khóa và thao tác đúng ở cả hai đầu."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Omar publishes his private key → sender decrypts → plaintext travels",
@@ -645,6 +643,17 @@
           "feedback": {
             "en": "Public verification does not create confidentiality.",
             "vi": "Kiểm chứng công khai không tạo tính bí mật."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Sender uses Omar’s public key → ciphertext travels → Omar uses Omar’s private key",
+            "vi": "Người gửi dùng khóa công khai Omar → truyền bản mã → Omar dùng khóa riêng Omar"
+          },
+          "feedback": {
+            "en": "Correct: owner and operation are correct at both ends.",
+            "vi": "Đúng: chủ khóa và thao tác đúng ở cả hai đầu."
           }
         }
       ],
@@ -718,5 +727,53 @@
       "locator": "Question 4, p5",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "confidentiality-and-key-choice-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Complete two chains: confidential to B; verified from A.",
+      "vi": "Hoàn thành hai chuỗi: bí mật gửi B; được xác minh từ A."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Confidentiality and key choice; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Tính bí mật và lựa chọn khóa; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Underline the required security goal.",
+        "vi": "Gạch dưới mục tiêu bảo mật cần có."
+      },
+      {
+        "en": "Name every actor and key owner.",
+        "vi": "Ghi mọi tác nhân và chủ khóa."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Confidential: A encrypts with B’s public key; B decrypts with B’s private key.",
+        "vi": "Bí mật: A mã hóa bằng khóa công khai của B; B giải mã bằng khóa riêng của B."
+      },
+      {
+        "en": "Verified: A signs with A’s private key; the public verifies with A’s public key.",
+        "vi": "Xác minh: A ký bằng khóa riêng của A; công chúng kiểm chứng bằng khóa công khai của A."
+      },
+      {
+        "en": "A signature does not itself provide confidentiality.",
+        "vi": "Chữ ký tự nó không tạo tính bí mật."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

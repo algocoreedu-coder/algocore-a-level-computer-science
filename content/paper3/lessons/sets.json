@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.1-T03",
   "slug": "sets",
   "title": {
@@ -119,7 +119,9 @@
         "book",
         "guide"
       ],
-      "code": "TYPE LetterSet = SET OF CHAR\nDEFINE X ('A', 'C') : LetterSet\nDEFINE Y ('B', 'C') : LetterSet"
+      "code": "TYPE LetterSet = SET OF CHAR\nDEFINE X ('A', 'C') : LetterSet\nDEFINE Y ('B', 'C') : LetterSet",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "select-the-rule",
@@ -421,6 +423,15 @@
         "en": "Collect each qualifying element once and check the output type.",
         "vi": "Lấy mỗi phần tử đạt điều kiện đúng một lần rồi kiểm kiểu đầu ra."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Sets; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Tập hợp; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -513,17 +524,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "{A,B,D}",
-            "vi": "{A,B,D}"
-          },
-          "feedback": {
-            "en": "This includes members from either set; it is the union.",
-            "vi": "Đây lấy phần tử thuộc ít nhất một tập; đó là hợp."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "{A,D}",
@@ -544,6 +544,17 @@
             "en": "Correct. B is the only element satisfying membership in both inputs.",
             "vi": "Đúng. Chỉ B thuộc cả hai đầu vào."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "{A,B,D}",
+            "vi": "{A,B,D}"
+          },
+          "feedback": {
+            "en": "This includes members from either set; it is the union.",
+            "vi": "Đây lấy phần tử thuộc ít nhất một tập; đó là hợp."
+          }
         }
       ],
       "correctChoiceId": "3",
@@ -560,6 +571,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "{A,D} and TRUE",
+            "vi": "{A,D} và TRUE"
+          },
+          "feedback": {
+            "en": "The elements are not shared, and A is not in Y.",
+            "vi": "Các phần tử không chung; A không thuộc Y."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -580,17 +602,6 @@
           "feedback": {
             "en": "This swaps the required output types.",
             "vi": "Đáp án đảo kiểu đầu ra cần có."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "{A,D} and TRUE",
-            "vi": "{A,D} và TRUE"
-          },
-          "feedback": {
-            "en": "The elements are not shared, and A is not in Y.",
-            "vi": "Các phần tử không chung; A không thuộc Y."
           }
         }
       ],
@@ -660,5 +671,54 @@
       "kind": "guide",
       "url": "https://www.cambridgeinternational.org/Images/697401-2026-pseudocode-guide-for-teachers.pdf"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "sets-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain union and intersection without using a diagram, and give a case with an empty intersection.",
+      "vi": "Giải thích hợp và giao không dùng sơ đồ, rồi cho trường hợp giao rỗng."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Sets; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Tập hợp; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "State the element type and identify both input sets.",
+        "vi": "Nêu kiểu phần tử và xác định hai tập đầu vào."
+      },
+      {
+        "en": "Write the membership rule for the requested operation.",
+        "vi": "Viết quy tắc thuộc tập của phép toán được yêu cầu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Union includes elements in either input or both.",
+        "vi": "Hợp lấy phần tử thuộc ít nhất một đầu vào."
+      },
+      {
+        "en": "Intersection includes only elements in both inputs.",
+        "vi": "Giao chỉ lấy phần tử thuộc cả hai đầu vào."
+      },
+      {
+        "en": "{A}∩{B}=∅; set order and duplicate additions do not change membership.",
+        "vi": "{A}∩{B}=∅; thứ tự và thêm trùng không đổi việc thuộc tập."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

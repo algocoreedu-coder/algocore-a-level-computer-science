@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.17.1",
+  "version": "2026.2",
   "topicId": "P3-17.1-T04",
   "slug": "certificates-and-signatures",
   "estimatedMinutes": 45,
@@ -315,6 +315,15 @@
         "en": "Conclude authenticity/integrity or failure; mention confidentiality only if separately encrypted.",
         "vi": "Kết luận xác thực/toàn vẹn hoặc thất bại; chỉ nêu bí mật nếu có mã hóa riêng."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Certificates and signatures; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Chứng chỉ số và chữ ký số; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -417,17 +426,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Mina, the key owner",
-            "vi": "Mina, chủ khóa"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Every verifier",
@@ -448,6 +446,17 @@
             "en": "The signer owns and uses the signing private key.",
             "vi": "Người ký sở hữu và dùng khóa riêng để ký."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Mina, the key owner",
+            "vi": "Mina, chủ khóa"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -464,6 +473,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "The public key becomes private",
+            "vi": "Khóa công khai trở thành riêng tư"
+          },
+          "feedback": {
+            "en": "Key visibility does not change.",
+            "vi": "Tính công khai của khóa không đổi."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -484,17 +504,6 @@
           "feedback": {
             "en": "Certificates do not perform that action.",
             "vi": "Chứng chỉ không thực hiện thao tác đó."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "The public key becomes private",
-            "vi": "Khóa công khai trở thành riêng tư"
-          },
-          "feedback": {
-            "en": "Key visibility does not change.",
-            "vi": "Tính công khai của khóa không đổi."
           }
         }
       ],
@@ -561,17 +570,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Receive message/signature/certificate → validate certificate → use certified public key → hash current message → decide",
-            "vi": "Nhận thông điệp/chữ ký/chứng thư → xác thực chứng thư → dùng khóa công khai đã chứng nhận → băm thông điệp hiện tại → quyết định"
-          },
-          "feedback": {
-            "en": "Correct: trust the key binding before signature verification and compare against current content.",
-            "vi": "Đúng: tin liên kết khóa trước kiểm chứng chữ ký và so với nội dung hiện tại."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Publish private key → delete message → trust any certificate",
@@ -591,6 +589,17 @@
           "feedback": {
             "en": "Certificate validation and message confidentiality are different operations.",
             "vi": "Xác thực chứng thư và bí mật thông điệp là thao tác khác nhau."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Receive message/signature/certificate → validate certificate → use certified public key → hash current message → decide",
+            "vi": "Nhận thông điệp/chữ ký/chứng thư → xác thực chứng thư → dùng khóa công khai đã chứng nhận → băm thông điệp hiện tại → quyết định"
+          },
+          "feedback": {
+            "en": "Correct: trust the key binding before signature verification and compare against current content.",
+            "vi": "Đúng: tin liên kết khóa trước kiểm chứng chữ ký và so với nội dung hiện tại."
           }
         }
       ],
@@ -664,5 +673,53 @@
       "locator": "Question 9, p12",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "certificates-and-signatures-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Draw the acquisition chain and the sign/verify chain.",
+      "vi": "Vẽ chuỗi cấp chứng chỉ và chuỗi ký/kiểm chứng."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Certificates and signatures; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Chứng chỉ số và chữ ký số; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Identify whether the question is about certificate acquisition or message signing.",
+        "vi": "Xác định câu hỏi về cấp chứng chỉ hay ký thông điệp."
+      },
+      {
+        "en": "Name the issuer, subject/signer and key owner.",
+        "vi": "Ghi bên cấp, chủ thể/người ký và chủ khóa."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Subject request + identity/ownership check → CA issues signed identity–public-key certificate.",
+        "vi": "Yêu cầu chủ thể + kiểm tra danh tính/quyền sở hữu → CA cấp chứng chỉ danh tính–khóa công khai đã ký."
+      },
+      {
+        "en": "Message → digest → signer private-key operation → signature.",
+        "vi": "Thông điệp → bản tóm lược → thao tác khóa riêng người ký → chữ ký."
+      },
+      {
+        "en": "Verifier uses certified signer public key and current-message digest; match supports authenticity/integrity, not confidentiality.",
+        "vi": "Người kiểm chứng dùng khóa công khai đã chứng nhận của người ký và bản tóm lược thông điệp hiện tại; khớp hỗ trợ xác thực/toàn vẹn, không phải bí mật."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

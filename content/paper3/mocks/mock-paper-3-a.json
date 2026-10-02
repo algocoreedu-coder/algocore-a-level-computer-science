@@ -1,0 +1,1012 @@
+{
+  "schemaVersion": 1,
+  "id": "P3-MOCK-A",
+  "qualification": "Cambridge International AS & A Level Computer Science 9618",
+  "examYear": 2026,
+  "paper": 3,
+  "title": {
+    "en": "Paper 3 Mock A — Core coverage",
+    "vi": "Đề luyện Paper 3 A — Bao quát kiến thức cốt lõi"
+  },
+  "emphasis": {
+    "en": "Balanced recall and direct application across Sections 13–20.",
+    "vi": "Cân bằng ghi nhớ và vận dụng trực tiếp trên Sections 13–20."
+  },
+  "authorship": {
+    "origin": "algocore-authored",
+    "officialCambridgePaper": false,
+    "notice": {
+      "en": "Original AlgoCore practice material. This is not a Cambridge International past paper or specimen paper.",
+      "vi": "Học liệu luyện tập nguyên bản do AlgoCore biên soạn. Đây không phải đề thi quá khứ hay đề mẫu chính thức của Cambridge International."
+    }
+  },
+  "durationMinutes": 90,
+  "totalMarks": 75,
+  "aoTargets": {
+    "AO1": 45,
+    "AO2": 30
+  },
+  "sectionIds": [
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "instructions": {
+    "en": "Answer all questions. Show working for calculations and traces. Pseudocode may use the published 9618 conventions.",
+    "vi": "Trả lời tất cả câu hỏi. Trình bày bước làm cho phép tính và trace. Có thể dùng quy ước pseudocode 9618 đã công bố."
+  },
+  "questions": [
+    {
+      "id": "A-Q1a",
+      "number": "1(a)",
+      "sectionIds": [
+        "13"
+      ],
+      "commandWords": [
+        "state"
+      ],
+      "ao": "AO1",
+      "marks": 6,
+      "prompt": {
+        "en": "State one accurate feature of each of: enumerated type, pointer, record, serial file organisation, sequential file organisation and random file access.",
+        "vi": "Nêu một đặc điểm chính xác của mỗi khái niệm: kiểu liệt kê, con trỏ, record, tổ chức tệp serial, tổ chức tệp sequential và truy cập tệp random."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q1a-M1",
+          "mark": 1,
+          "en": "An enumerated type defines a finite named set of allowed values.",
+          "vi": "Kiểu liệt kê định nghĩa một tập hữu hạn các giá trị được đặt tên."
+        },
+        {
+          "id": "A-Q1a-M2",
+          "mark": 1,
+          "en": "A pointer stores an address or reference to another data item.",
+          "vi": "Con trỏ lưu địa chỉ hoặc tham chiếu tới một mục dữ liệu khác."
+        },
+        {
+          "id": "A-Q1a-M3",
+          "mark": 1,
+          "en": "A record groups related fields, possibly of different data types.",
+          "vi": "Record nhóm các trường liên quan, có thể thuộc các kiểu dữ liệu khác nhau."
+        },
+        {
+          "id": "A-Q1a-M4",
+          "mark": 1,
+          "en": "A serial file stores records in the order in which they arrive.",
+          "vi": "Tệp serial lưu record theo thứ tự chúng được thêm vào."
+        },
+        {
+          "id": "A-Q1a-M5",
+          "mark": 1,
+          "en": "A sequential file stores records in a defined key order.",
+          "vi": "Tệp sequential lưu record theo thứ tự khóa đã xác định."
+        },
+        {
+          "id": "A-Q1a-M6",
+          "mark": 1,
+          "en": "Random access locates a record directly from a calculated or known position.",
+          "vi": "Truy cập random định vị record trực tiếp từ vị trí đã biết hoặc được tính."
+        }
+      ],
+      "workedSolution": {
+        "en": "Award one mark for each precise distinction above; do not treat serial and sequential as synonyms.",
+        "vi": "Cho một điểm cho mỗi phân biệt chính xác ở trên; không coi serial và sequential là đồng nghĩa."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-010"
+      ]
+    },
+    {
+      "id": "A-Q1b",
+      "number": "1(b)",
+      "sectionIds": [
+        "13"
+      ],
+      "commandWords": [
+        "convert",
+        "normalise",
+        "show"
+      ],
+      "ao": "AO2",
+      "marks": 4,
+      "prompt": {
+        "en": "Decode the floating-point number. Show the signed mantissa, signed exponent, denary value, and state whether the mantissa is normalised.",
+        "vi": "Giải mã số dấu phẩy động. Trình bày mantissa có dấu, exponent có dấu, giá trị thập phân và cho biết mantissa đã chuẩn hóa chưa."
+      },
+      "scenario": {
+        "en": "Use an 8-bit two’s-complement mantissa with the binary point after the sign bit and a 4-bit two’s-complement exponent.",
+        "vi": "Dùng mantissa bù hai 8 bit với dấu chấm nhị phân ngay sau bit dấu và exponent bù hai 4 bit."
+      },
+      "data": {
+        "mantissa": "01010000",
+        "exponent": "0011"
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q1b-M1",
+          "mark": 1,
+          "en": "The mantissa is +0.1010000₂ = 0.625₁₀.",
+          "vi": "Mantissa là +0.1010000₂ = 0.625₁₀."
+        },
+        {
+          "id": "A-Q1b-M2",
+          "mark": 1,
+          "en": "The exponent 0011₂ is +3.",
+          "vi": "Exponent 0011₂ là +3."
+        },
+        {
+          "id": "A-Q1b-M3",
+          "mark": 1,
+          "en": "The value is 0.625 × 2³ = 5.",
+          "vi": "Giá trị là 0.625 × 2³ = 5."
+        },
+        {
+          "id": "A-Q1b-M4",
+          "mark": 1,
+          "en": "The positive mantissa is normalised because it begins 01.",
+          "vi": "Mantissa dương đã chuẩn hóa vì bắt đầu bằng 01."
+        }
+      ],
+      "workedSolution": {
+        "en": "0.1010000₂ × 2³ = 101.0000₂ = 5₁₀; the leading bits 01 confirm normalisation.",
+        "vi": "0.1010000₂ × 2³ = 101.0000₂ = 5₁₀; hai bit đầu 01 xác nhận đã chuẩn hóa."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-011"
+      ]
+    },
+    {
+      "id": "A-Q2a",
+      "number": "2(a)",
+      "sectionIds": [
+        "14"
+      ],
+      "commandWords": [
+        "state",
+        "identify"
+      ],
+      "ao": "AO1",
+      "marks": 6,
+      "prompt": {
+        "en": "State why protocols are needed, give the TCP/IP layers from highest to lowest, and identify the usual application protocol for web pages, file transfer, sending email and retrieving email.",
+        "vi": "Nêu vì sao cần giao thức, cho các tầng TCP/IP từ cao xuống thấp và xác định giao thức ứng dụng thường dùng cho trang web, truyền tệp, gửi email và nhận email."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q2a-M1",
+          "mark": 1,
+          "en": "Protocols define agreed rules and formats so devices can communicate.",
+          "vi": "Giao thức định nghĩa quy tắc và định dạng thống nhất để thiết bị giao tiếp."
+        },
+        {
+          "id": "A-Q2a-M2",
+          "mark": 1,
+          "en": "The order is Application, Transport, Internet, Link.",
+          "vi": "Thứ tự là Application, Transport, Internet, Link."
+        },
+        {
+          "id": "A-Q2a-M3",
+          "mark": 1,
+          "en": "HTTP or HTTPS is used for web pages.",
+          "vi": "HTTP hoặc HTTPS dùng cho trang web."
+        },
+        {
+          "id": "A-Q2a-M4",
+          "mark": 1,
+          "en": "FTP is used for file transfer.",
+          "vi": "FTP dùng để truyền tệp."
+        },
+        {
+          "id": "A-Q2a-M5",
+          "mark": 1,
+          "en": "SMTP is used to send email.",
+          "vi": "SMTP dùng để gửi email."
+        },
+        {
+          "id": "A-Q2a-M6",
+          "mark": 1,
+          "en": "IMAP is used to retrieve and synchronise email.",
+          "vi": "IMAP dùng để nhận và đồng bộ email."
+        }
+      ],
+      "workedSolution": {
+        "en": "Give the layer order exactly and match each named service to its protocol.",
+        "vi": "Cho đúng thứ tự các tầng và ghép từng dịch vụ với giao thức tương ứng."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-012"
+      ]
+    },
+    {
+      "id": "A-Q2b",
+      "number": "2(b)",
+      "sectionIds": [
+        "14"
+      ],
+      "commandWords": [
+        "justify"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "Justify the use of packet switching for the backup and give one relevant limitation.",
+        "vi": "Biện minh việc dùng packet switching cho bản sao lưu và nêu một hạn chế liên quan."
+      },
+      "scenario": {
+        "en": "A school sends a large backup over a shared network whose traffic changes during the day.",
+        "vi": "Một trường gửi bản sao lưu lớn qua mạng dùng chung có lưu lượng thay đổi trong ngày."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q2b-M1",
+          "mark": 1,
+          "en": "Links are shared dynamically, so unused capacity can carry backup packets.",
+          "vi": "Các đường truyền được chia sẻ linh hoạt nên dung lượng rỗi có thể chở packet sao lưu."
+        },
+        {
+          "id": "A-Q2b-M2",
+          "mark": 1,
+          "en": "Packets can be routed by alternative paths when a route is busy or fails.",
+          "vi": "Packet có thể đi đường thay thế khi một tuyến bận hoặc hỏng."
+        },
+        {
+          "id": "A-Q2b-M3",
+          "mark": 1,
+          "en": "Variable routes and congestion can cause delay, jitter or out-of-order arrival.",
+          "vi": "Tuyến thay đổi và tắc nghẽn có thể gây trễ, jitter hoặc đến sai thứ tự."
+        }
+      ],
+      "workedSolution": {
+        "en": "Packet switching suits bursty shared traffic and is resilient, but delivery time is not fixed.",
+        "vi": "Packet switching phù hợp lưu lượng dùng chung theo đợt và có khả năng chịu lỗi, nhưng thời gian giao không cố định."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-007",
+        "P3-PAT-010",
+        "P3-PAT-012"
+      ]
+    },
+    {
+      "id": "A-Q3a",
+      "number": "3(a)",
+      "sectionIds": [
+        "15"
+      ],
+      "commandWords": [
+        "compare",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 6,
+      "prompt": {
+        "en": "Give two contrasting features of RISC and CISC, explain one benefit of pipelining, state the defining feature of SIMD, and give one benefit and one cost of a virtual machine.",
+        "vi": "Nêu hai đặc điểm tương phản của RISC và CISC, giải thích một lợi ích của pipelining, nêu đặc trưng của SIMD và cho một lợi ích cùng một chi phí của máy ảo."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q3a-M1",
+          "mark": 1,
+          "en": "RISC uses a small set of simple, often fixed-length instructions.",
+          "vi": "RISC dùng tập nhỏ các lệnh đơn giản, thường có độ dài cố định."
+        },
+        {
+          "id": "A-Q3a-M2",
+          "mark": 1,
+          "en": "CISC provides more complex instructions and addressing modes.",
+          "vi": "CISC cung cấp các lệnh và chế độ địa chỉ phức tạp hơn."
+        },
+        {
+          "id": "A-Q3a-M3",
+          "mark": 1,
+          "en": "RISC commonly uses load/store operation with many registers.",
+          "vi": "RISC thường dùng kiến trúc load/store với nhiều thanh ghi."
+        },
+        {
+          "id": "A-Q3a-M4",
+          "mark": 1,
+          "en": "Pipelining overlaps instruction stages to increase throughput.",
+          "vi": "Pipelining chồng lấp các giai đoạn lệnh để tăng thông lượng."
+        },
+        {
+          "id": "A-Q3a-M5",
+          "mark": 1,
+          "en": "SIMD applies one instruction to multiple data items at the same time.",
+          "vi": "SIMD áp dụng một lệnh cho nhiều mục dữ liệu cùng lúc."
+        },
+        {
+          "id": "A-Q3a-M6",
+          "mark": 1,
+          "en": "A virtual machine provides isolation or portability but adds processing or memory overhead.",
+          "vi": "Máy ảo cung cấp cô lập hoặc tính di động nhưng thêm chi phí xử lý hoặc bộ nhớ."
+        }
+      ],
+      "workedSolution": {
+        "en": "The comparison must use shared architectural criteria; the VM point needs both a benefit and its overhead.",
+        "vi": "Phần so sánh phải dùng tiêu chí kiến trúc chung; ý máy ảo cần cả lợi ích và chi phí."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-005",
+        "P3-PAT-006"
+      ]
+    },
+    {
+      "id": "A-Q3b",
+      "number": "3(b)",
+      "sectionIds": [
+        "15"
+      ],
+      "commandWords": [
+        "complete"
+      ],
+      "ao": "AO2",
+      "marks": 4,
+      "prompt": {
+        "en": "Complete the output column for X = (A XOR B) AND C.",
+        "vi": "Hoàn thành cột kết quả cho X = (A XOR B) AND C."
+      },
+      "data": {
+        "columns": [
+          "A",
+          "B",
+          "C",
+          "X"
+        ],
+        "rows": [
+          [
+            0,
+            0,
+            0,
+            null
+          ],
+          [
+            0,
+            1,
+            1,
+            null
+          ],
+          [
+            1,
+            0,
+            1,
+            null
+          ],
+          [
+            1,
+            1,
+            1,
+            null
+          ]
+        ]
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q3b-M1",
+          "mark": 1,
+          "en": "For 000, X = 0.",
+          "vi": "Với 000, X = 0."
+        },
+        {
+          "id": "A-Q3b-M2",
+          "mark": 1,
+          "en": "For 011, X = 1.",
+          "vi": "Với 011, X = 1."
+        },
+        {
+          "id": "A-Q3b-M3",
+          "mark": 1,
+          "en": "For 101, X = 1.",
+          "vi": "Với 101, X = 1."
+        },
+        {
+          "id": "A-Q3b-M4",
+          "mark": 1,
+          "en": "For 111, X = 0.",
+          "vi": "Với 111, X = 0."
+        }
+      ],
+      "workedSolution": {
+        "en": "Evaluate XOR first, then AND with C: the outputs are 0, 1, 1, 0.",
+        "vi": "Tính XOR trước rồi AND với C: các kết quả là 0, 1, 1, 0."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-013"
+      ]
+    },
+    {
+      "id": "A-Q4a",
+      "number": "4(a)",
+      "sectionIds": [
+        "16"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 6,
+      "prompt": {
+        "en": "State one purpose of a user interface, distinguish running, ready and blocked process states, state why scheduling is needed, and name two distinct compilation stages.",
+        "vi": "Nêu một mục đích của giao diện người dùng, phân biệt trạng thái running, ready và blocked, nêu vì sao cần scheduling và gọi tên hai giai đoạn biên dịch khác nhau."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q4a-M1",
+          "mark": 1,
+          "en": "A user interface lets a user interact with the system while hiding hardware detail.",
+          "vi": "Giao diện người dùng cho phép tương tác với hệ thống và che giấu chi tiết phần cứng."
+        },
+        {
+          "id": "A-Q4a-M2",
+          "mark": 1,
+          "en": "Running means the process is currently using the CPU.",
+          "vi": "Running nghĩa là tiến trình đang dùng CPU."
+        },
+        {
+          "id": "A-Q4a-M3",
+          "mark": 1,
+          "en": "Ready means the process can run but is waiting for CPU time.",
+          "vi": "Ready nghĩa là tiến trình có thể chạy nhưng đang chờ CPU."
+        },
+        {
+          "id": "A-Q4a-M4",
+          "mark": 1,
+          "en": "Blocked means the process is waiting for an event or resource.",
+          "vi": "Blocked nghĩa là tiến trình đang chờ sự kiện hoặc tài nguyên."
+        },
+        {
+          "id": "A-Q4a-M5",
+          "mark": 1,
+          "en": "Scheduling selects a ready process and shares CPU time according to a policy.",
+          "vi": "Scheduling chọn tiến trình ready và chia thời gian CPU theo chính sách."
+        },
+        {
+          "id": "A-Q4a-M6",
+          "mark": 1,
+          "en": "Two valid stages include lexical analysis, syntax analysis, semantic analysis, code generation or optimisation.",
+          "vi": "Hai giai đoạn hợp lệ gồm lexical analysis, syntax analysis, semantic analysis, code generation hoặc optimisation."
+        }
+      ],
+      "workedSolution": {
+        "en": "Use state conditions, not merely state names; any two distinct valid compiler stages earn the final point.",
+        "vi": "Dùng điều kiện của trạng thái, không chỉ tên; hai giai đoạn compiler hợp lệ khác nhau được điểm cuối."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005",
+        "P3-PAT-014"
+      ]
+    },
+    {
+      "id": "A-Q4b",
+      "number": "4(b)",
+      "sectionIds": [
+        "16"
+      ],
+      "commandWords": [
+        "calculate",
+        "show"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "Calculate the page number, offset and physical address. Show working.",
+        "vi": "Tính số trang, offset và địa chỉ vật lý. Trình bày bước làm."
+      },
+      "scenario": {
+        "en": "Page size is 16 addressable units. Logical address 45 is requested. Page 2 is held in frame 6.",
+        "vi": "Kích thước trang là 16 đơn vị địa chỉ. Địa chỉ logic 45 được yêu cầu. Trang 2 nằm ở frame 6."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q4b-M1",
+          "mark": 1,
+          "en": "45 DIV 16 = page 2.",
+          "vi": "45 DIV 16 = trang 2."
+        },
+        {
+          "id": "A-Q4b-M2",
+          "mark": 1,
+          "en": "45 MOD 16 = offset 13.",
+          "vi": "45 MOD 16 = offset 13."
+        },
+        {
+          "id": "A-Q4b-M3",
+          "mark": 1,
+          "en": "Physical address = 6 × 16 + 13 = 109.",
+          "vi": "Địa chỉ vật lý = 6 × 16 + 13 = 109."
+        }
+      ],
+      "workedSolution": {
+        "en": "Split 45 into page 2 and offset 13, replace the page by frame 6, then calculate 6 × 16 + 13 = 109.",
+        "vi": "Tách 45 thành trang 2 và offset 13, thay trang bằng frame 6, rồi tính 6 × 16 + 13 = 109."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-014"
+      ]
+    },
+    {
+      "id": "A-Q5a",
+      "number": "5(a)",
+      "sectionIds": [
+        "17"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "Distinguish symmetric and asymmetric encryption, state which key protects a confidential message to a recipient, state what evidence supports sender verification, and explain the purpose of a digital certificate.",
+        "vi": "Phân biệt mã hóa đối xứng và bất đối xứng, nêu khóa bảo vệ thông điệp bí mật gửi người nhận, nêu bằng chứng hỗ trợ xác minh người gửi và giải thích mục đích của chứng thư số."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q5a-M1",
+          "mark": 1,
+          "en": "Symmetric encryption uses the same shared secret key for encryption and decryption.",
+          "vi": "Mã hóa đối xứng dùng cùng khóa bí mật dùng chung để mã hóa và giải mã."
+        },
+        {
+          "id": "A-Q5a-M2",
+          "mark": 1,
+          "en": "Asymmetric encryption uses a mathematically related public/private key pair.",
+          "vi": "Mã hóa bất đối xứng dùng cặp khóa công khai/bí mật liên hệ toán học."
+        },
+        {
+          "id": "A-Q5a-M3",
+          "mark": 1,
+          "en": "Confidential data for a recipient is encrypted using the recipient’s public key.",
+          "vi": "Dữ liệu bí mật cho người nhận được mã hóa bằng khóa công khai của người nhận."
+        },
+        {
+          "id": "A-Q5a-M4",
+          "mark": 1,
+          "en": "A valid signature checked with the claimed sender’s public key supports origin and integrity.",
+          "vi": "Chữ ký hợp lệ được kiểm tra bằng khóa công khai của người gửi hỗ trợ xác minh nguồn gốc và toàn vẹn."
+        },
+        {
+          "id": "A-Q5a-M5",
+          "mark": 1,
+          "en": "A certificate binds an identity to a public key through a trusted issuer’s signature.",
+          "vi": "Chứng thư gắn danh tính với khóa công khai qua chữ ký của tổ chức tin cậy."
+        }
+      ],
+      "workedSolution": {
+        "en": "Keep confidentiality and authentication roles separate; the certificate authenticates a public-key binding.",
+        "vi": "Tách vai trò bảo mật và xác thực; chứng thư xác thực liên kết danh tính với khóa công khai."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005"
+      ]
+    },
+    {
+      "id": "A-Q5b",
+      "number": "5(b)",
+      "sectionIds": [
+        "17"
+      ],
+      "commandWords": [
+        "explain"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "Explain how HTTPS helps this login and state one limitation.",
+        "vi": "Giải thích cách HTTPS hỗ trợ đăng nhập này và nêu một hạn chế."
+      },
+      "scenario": {
+        "en": "A student enters a password into the school portal using HTTPS.",
+        "vi": "Một học sinh nhập mật khẩu vào cổng trường dùng HTTPS."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q5b-M1",
+          "mark": 1,
+          "en": "The browser checks the server certificate and hostname through a trusted chain.",
+          "vi": "Trình duyệt kiểm tra chứng thư máy chủ và hostname qua chuỗi tin cậy."
+        },
+        {
+          "id": "A-Q5b-M2",
+          "mark": 1,
+          "en": "The negotiated session protects confidentiality and detects in-transit alteration.",
+          "vi": "Phiên được thương lượng bảo vệ tính bí mật và phát hiện sửa đổi trên đường truyền."
+        },
+        {
+          "id": "A-Q5b-M3",
+          "mark": 1,
+          "en": "HTTPS does not prove the application is harmless or protect a password after a compromised server receives it.",
+          "vi": "HTTPS không chứng minh ứng dụng vô hại hoặc bảo vệ mật khẩu sau khi máy chủ bị xâm nhập nhận được nó."
+        }
+      ],
+      "workedSolution": {
+        "en": "Certificate validation authenticates the endpoint; session keys protect transport. Server security remains a separate risk.",
+        "vi": "Kiểm tra chứng thư xác thực đầu cuối; khóa phiên bảo vệ đường truyền. Bảo mật máy chủ vẫn là rủi ro riêng."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-005",
+        "P3-PAT-010"
+      ]
+    },
+    {
+      "id": "A-Q6a",
+      "number": "6(a)",
+      "sectionIds": [
+        "18"
+      ],
+      "commandWords": [
+        "state",
+        "describe"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "State what a weighted graph represents, name the purpose of Dijkstra and A* search, and distinguish supervised, unsupervised and reinforcement learning.",
+        "vi": "Nêu ý nghĩa của đồ thị có trọng số, mục đích của Dijkstra và A*, đồng thời phân biệt học có giám sát, không giám sát và tăng cường."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q6a-M1",
+          "mark": 1,
+          "en": "A weighted graph has vertices joined by edges carrying costs, distances or similar values.",
+          "vi": "Đồ thị có trọng số có các đỉnh nối bằng cạnh mang chi phí, khoảng cách hoặc giá trị tương tự."
+        },
+        {
+          "id": "A-Q6a-M2",
+          "mark": 1,
+          "en": "Dijkstra finds minimum-cost paths when edge weights are non-negative.",
+          "vi": "Dijkstra tìm đường chi phí nhỏ nhất khi trọng số cạnh không âm."
+        },
+        {
+          "id": "A-Q6a-M3",
+          "mark": 1,
+          "en": "A* combines cost so far with a heuristic estimate to the goal.",
+          "vi": "A* kết hợp chi phí đã đi với ước lượng heuristic tới đích."
+        },
+        {
+          "id": "A-Q6a-M4",
+          "mark": 1,
+          "en": "Supervised learning trains from labelled input-output examples.",
+          "vi": "Học có giám sát huấn luyện từ ví dụ input-output có nhãn."
+        },
+        {
+          "id": "A-Q6a-M5",
+          "mark": 1,
+          "en": "Unsupervised learning finds structure without labels; reinforcement learning learns actions from rewards or penalties.",
+          "vi": "Học không giám sát tìm cấu trúc không có nhãn; học tăng cường học hành động từ thưởng hoặc phạt."
+        }
+      ],
+      "workedSolution": {
+        "en": "The search descriptions identify their objective; the learning categories are distinguished by the feedback available.",
+        "vi": "Mô tả tìm kiếm xác định mục tiêu; các loại học được phân biệt bằng phản hồi sẵn có."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-004",
+        "P3-PAT-015"
+      ]
+    },
+    {
+      "id": "A-Q6b",
+      "number": "6(b)",
+      "sectionIds": [
+        "18"
+      ],
+      "commandWords": [
+        "show"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "Use Dijkstra’s algorithm to give the shortest route from S to G and its total cost. Show the decisive tentative-cost updates.",
+        "vi": "Dùng thuật toán Dijkstra để cho đường ngắn nhất từ S tới G và tổng chi phí. Trình bày các cập nhật chi phí tạm thời quyết định."
+      },
+      "data": {
+        "undirectedEdges": [
+          [
+            "S",
+            "A",
+            4
+          ],
+          [
+            "S",
+            "B",
+            1
+          ],
+          [
+            "B",
+            "A",
+            2
+          ],
+          [
+            "A",
+            "G",
+            3
+          ],
+          [
+            "B",
+            "G",
+            7
+          ]
+        ]
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q6b-M1",
+          "mark": 1,
+          "en": "From S, set A = 4 and B = 1; settle B first.",
+          "vi": "Từ S, đặt A = 4 và B = 1; chốt B trước."
+        },
+        {
+          "id": "A-Q6b-M2",
+          "mark": 1,
+          "en": "Via B, update A to 3 and G to 8; via A, update G to 6.",
+          "vi": "Qua B, cập nhật A thành 3 và G thành 8; qua A, cập nhật G thành 6."
+        },
+        {
+          "id": "A-Q6b-M3",
+          "mark": 1,
+          "en": "The shortest route is S–B–A–G with cost 6.",
+          "vi": "Đường ngắn nhất là S–B–A–G với chi phí 6."
+        }
+      ],
+      "workedSolution": {
+        "en": "The settled costs are S=0, B=1, A=3 and G=6; predecessor links reconstruct S–B–A–G.",
+        "vi": "Các chi phí đã chốt là S=0, B=1, A=3 và G=6; liên kết predecessor dựng lại S–B–A–G."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-015"
+      ]
+    },
+    {
+      "id": "A-Q7a",
+      "number": "7(a)",
+      "sectionIds": [
+        "19"
+      ],
+      "commandWords": [
+        "state",
+        "describe"
+      ],
+      "ao": "AO1",
+      "marks": 7,
+      "prompt": {
+        "en": "Give one defining feature of linear search, binary search, bubble sort, insertion sort, stack, queue and a correct recursive algorithm.",
+        "vi": "Nêu một đặc điểm định nghĩa của linear search, binary search, bubble sort, insertion sort, stack, queue và một thuật toán đệ quy đúng."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q7a-M1",
+          "mark": 1,
+          "en": "Linear search checks items in sequence until found or exhausted.",
+          "vi": "Linear search kiểm tra tuần tự cho tới khi tìm thấy hoặc hết dữ liệu."
+        },
+        {
+          "id": "A-Q7a-M2",
+          "mark": 1,
+          "en": "Binary search requires ordered data and repeatedly discards half the search interval.",
+          "vi": "Binary search cần dữ liệu đã sắp xếp và liên tục loại bỏ một nửa khoảng tìm kiếm."
+        },
+        {
+          "id": "A-Q7a-M3",
+          "mark": 1,
+          "en": "Bubble sort repeatedly compares adjacent items and swaps those in the wrong order.",
+          "vi": "Bubble sort liên tục so sánh phần tử kề nhau và đổi chỗ nếu sai thứ tự."
+        },
+        {
+          "id": "A-Q7a-M4",
+          "mark": 1,
+          "en": "Insertion sort inserts each new item into its correct place in a sorted prefix.",
+          "vi": "Insertion sort chèn từng phần tử mới vào đúng vị trí trong phần đầu đã sắp xếp."
+        },
+        {
+          "id": "A-Q7a-M5",
+          "mark": 1,
+          "en": "A stack is last-in, first-out.",
+          "vi": "Stack là vào sau, ra trước."
+        },
+        {
+          "id": "A-Q7a-M6",
+          "mark": 1,
+          "en": "A queue is first-in, first-out.",
+          "vi": "Queue là vào trước, ra trước."
+        },
+        {
+          "id": "A-Q7a-M7",
+          "mark": 1,
+          "en": "Recursion needs a reachable base case and each recursive call must progress toward it.",
+          "vi": "Đệ quy cần base case có thể đạt tới và mỗi lời gọi phải tiến gần nó."
+        }
+      ],
+      "workedSolution": {
+        "en": "Each mark requires the defining behaviour or precondition, not only the term.",
+        "vi": "Mỗi điểm cần hành vi hoặc điều kiện định nghĩa, không chỉ tên thuật ngữ."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-004",
+        "P3-PAT-016"
+      ]
+    },
+    {
+      "id": "A-Q7b",
+      "number": "7(b)",
+      "sectionIds": [
+        "19"
+      ],
+      "commandWords": [
+        "trace"
+      ],
+      "ao": "AO2",
+      "marks": 5,
+      "prompt": {
+        "en": "Trace ENQUEUE(D) and give the new Rear, Count, physical array and logical queue order. State the required guard condition.",
+        "vi": "Trace ENQUEUE(D) và cho Rear, Count, mảng vật lý cùng thứ tự logic mới. Nêu điều kiện guard cần thiết."
+      },
+      "scenario": {
+        "en": "A circular queue uses Queue[0:3]. Initially Front=0, Rear=2, Count=3 and Queue=[A,B,C,–].",
+        "vi": "Một circular queue dùng Queue[0:3]. Ban đầu Front=0, Rear=2, Count=3 và Queue=[A,B,C,–]."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q7b-M1",
+          "mark": 1,
+          "en": "Check Count < 4 before inserting.",
+          "vi": "Kiểm tra Count < 4 trước khi chèn."
+        },
+        {
+          "id": "A-Q7b-M2",
+          "mark": 1,
+          "en": "Set Rear = (2 + 1) MOD 4 = 3.",
+          "vi": "Đặt Rear = (2 + 1) MOD 4 = 3."
+        },
+        {
+          "id": "A-Q7b-M3",
+          "mark": 1,
+          "en": "Store D at Queue[3].",
+          "vi": "Lưu D tại Queue[3]."
+        },
+        {
+          "id": "A-Q7b-M4",
+          "mark": 1,
+          "en": "Increment Count to 4.",
+          "vi": "Tăng Count thành 4."
+        },
+        {
+          "id": "A-Q7b-M5",
+          "mark": 1,
+          "en": "The array is [A,B,C,D], logical order A,B,C,D, and the queue is full.",
+          "vi": "Mảng là [A,B,C,D], thứ tự logic A,B,C,D và queue đã đầy."
+        }
+      ],
+      "workedSolution": {
+        "en": "The full guard prevents overflow. Advancing Rear modulo 4 selects index 3; insertion makes Count=4.",
+        "vi": "Guard đầy ngăn overflow. Tăng Rear theo modulo 4 chọn index 3; chèn xong Count=4."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-016",
+        "P3-PAT-019"
+      ]
+    },
+    {
+      "id": "A-Q8a",
+      "number": "8(a)",
+      "sectionIds": [
+        "20"
+      ],
+      "commandWords": [
+        "state"
+      ],
+      "ao": "AO1",
+      "marks": 4,
+      "prompt": {
+        "en": "State one defining feature of low-level, imperative, object-oriented and declarative programming.",
+        "vi": "Nêu một đặc điểm định nghĩa của lập trình low-level, imperative, hướng đối tượng và declarative."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q8a-M1",
+          "mark": 1,
+          "en": "Low-level code has close correspondence with processor instructions or hardware.",
+          "vi": "Mã low-level tương ứng gần với lệnh bộ xử lý hoặc phần cứng."
+        },
+        {
+          "id": "A-Q8a-M2",
+          "mark": 1,
+          "en": "Imperative code specifies a sequence of commands that change program state.",
+          "vi": "Mã imperative chỉ định chuỗi lệnh làm thay đổi trạng thái chương trình."
+        },
+        {
+          "id": "A-Q8a-M3",
+          "mark": 1,
+          "en": "Object-oriented programming organises state and behaviour in classes and objects.",
+          "vi": "Lập trình hướng đối tượng tổ chức trạng thái và hành vi trong class và object."
+        },
+        {
+          "id": "A-Q8a-M4",
+          "mark": 1,
+          "en": "Declarative programming states facts, rules or desired results rather than an execution sequence.",
+          "vi": "Lập trình declarative nêu facts, rules hoặc kết quả mong muốn thay vì chuỗi thực thi."
+        }
+      ],
+      "workedSolution": {
+        "en": "The four statements distinguish machine closeness, command sequence, objects, and rules/results.",
+        "vi": "Bốn phát biểu phân biệt mức gần máy, chuỗi lệnh, đối tượng và luật/kết quả."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-017"
+      ]
+    },
+    {
+      "id": "A-Q8b",
+      "number": "8(b)",
+      "sectionIds": [
+        "20"
+      ],
+      "commandWords": [
+        "write"
+      ],
+      "ao": "AO2",
+      "marks": 5,
+      "prompt": {
+        "en": "Write pseudocode to total all valid integers in Numbers.txt. A non-integer line raises ConversionError; skip it and continue. Close the file and output the total.",
+        "vi": "Viết pseudocode tính tổng mọi số nguyên hợp lệ trong Numbers.txt. Một dòng không phải số nguyên gây ConversionError; bỏ qua và tiếp tục. Đóng tệp và output tổng."
+      },
+      "markingPoints": [
+        {
+          "id": "A-Q8b-M1",
+          "mark": 1,
+          "en": "Open Numbers.txt for reading and initialise Total to 0.",
+          "vi": "Mở Numbers.txt để đọc và khởi tạo Total bằng 0."
+        },
+        {
+          "id": "A-Q8b-M2",
+          "mark": 1,
+          "en": "Loop until end of file and read one line each iteration.",
+          "vi": "Lặp tới cuối tệp và đọc một dòng mỗi vòng."
+        },
+        {
+          "id": "A-Q8b-M3",
+          "mark": 1,
+          "en": "Inside TRY, convert the line to integer and add it to Total.",
+          "vi": "Trong TRY, chuyển dòng thành số nguyên và cộng vào Total."
+        },
+        {
+          "id": "A-Q8b-M4",
+          "mark": 1,
+          "en": "Catch ConversionError and continue without changing Total.",
+          "vi": "Bắt ConversionError và tiếp tục mà không đổi Total."
+        },
+        {
+          "id": "A-Q8b-M5",
+          "mark": 1,
+          "en": "Close the file and output Total.",
+          "vi": "Đóng tệp và output Total."
+        }
+      ],
+      "workedSolution": {
+        "en": "OPENFILE Numbers.txt FOR READ; Total ← 0; WHILE NOT EOF: READFILE line; TRY Total ← Total + STRING_TO_NUM(line) EXCEPT ConversionError: skip; ENDWHILE; CLOSEFILE; OUTPUT Total.",
+        "vi": "OPENFILE Numbers.txt FOR READ; Total ← 0; WHILE NOT EOF: READFILE line; TRY Total ← Total + STRING_TO_NUM(line) EXCEPT ConversionError: bỏ qua; ENDWHILE; CLOSEFILE; OUTPUT Total."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-009",
+        "P3-PAT-017",
+        "P3-PAT-019"
+      ]
+    }
+  ]
+}

@@ -72,7 +72,7 @@ export interface LessonSource {
   readonly id: string;
   readonly title: string;
   readonly locator: string;
-  readonly kind: "syllabus" | "book" | "guide" | "question-paper" | "mark-scheme";
+  readonly kind: "syllabus" | "book" | "guide" | "question-paper" | "mark-scheme" | "examiner-report";
   readonly url?: string;
 }
 
@@ -82,6 +82,8 @@ export interface TheoryBlock {
   readonly paragraphs: readonly Localized[];
   readonly bullets?: readonly Localized[];
   readonly code?: string;
+  readonly codeLanguage?: "pseudocode" | "python" | "assembly" | "declarative" | "model";
+  readonly codeDialect?: string;
   readonly table?: { readonly headers: readonly Localized[]; readonly rows: readonly (readonly Localized[])[] };
   readonly sourceIds: readonly string[];
 }
@@ -93,6 +95,38 @@ export interface WorkedStep {
   readonly result: Localized;
   readonly check?: Localized;
   readonly code?: string;
+  readonly codeLanguage?: "pseudocode" | "python" | "assembly" | "declarative" | "model";
+  readonly codeDialect?: string;
+}
+
+export type ExamCommandWord =
+  | "calculate"
+  | "compare"
+  | "complete"
+  | "define"
+  | "describe"
+  | "draw"
+  | "explain"
+  | "give"
+  | "identify"
+  | "justify"
+  | "show"
+  | "state"
+  | "trace"
+  | "write";
+
+export interface ExamPractice {
+  readonly id: string;
+  readonly origin: "algocore-authored";
+  readonly commandWord: ExamCommandWord;
+  readonly taskType: "constructed-response" | "calculation" | "trace" | "diagram" | "pseudocode";
+  readonly marks: number;
+  readonly prompt: Localized;
+  readonly answerGuidance: readonly Localized[];
+  readonly markingPoints: readonly Localized[];
+  readonly sourceIds: readonly string[];
+  /** References evidence-backed patterns in content/paper3/academic/exam-patterns.json. */
+  readonly examPatternIds: readonly string[];
 }
 
 export interface Checkpoint {
@@ -143,12 +177,13 @@ export interface Paper3Lesson {
     readonly method: readonly Localized[];
     /** Cambridge command words with topic-specific answer guidance. */
     readonly commandWords?: readonly {
-      readonly command: "describe" | "write" | "explain" | "trace" | "compare" | "justify";
+      readonly command: ExamCommandWord;
       readonly guidance: Localized;
     }[];
   };
   readonly misconceptions: readonly { readonly mistake: Localized; readonly correction: Localized; readonly selfCheck?: Localized }[];
   readonly checkpoints: readonly Checkpoint[];
+  readonly examPractice?: ExamPractice;
   readonly recall: { readonly prompt: Localized; readonly answerPoints: readonly Localized[] };
   readonly takeaways: readonly Localized[];
   readonly relatedSlugs: readonly string[];

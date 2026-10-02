@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.2-T03",
   "slug": "sr-and-jk-flip-flops",
   "estimatedMinutes": 35,
@@ -476,6 +476,15 @@
         "en": "Check complement validity and handle unknown states explicitly.",
         "vi": "Kiểm tính bù hợp lệ và nêu rõ trạng thái chưa xác định."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for SR and JK flip-flops; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Flip-flop SR và JK; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -530,6 +539,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Always indeterminate",
+            "vi": "Luôn chưa xác định"
+          },
+          "feedback": {
+            "en": "The starting state is explicitly valid and known.",
+            "vi": "Trạng thái đầu được nêu rõ hợp lệ và đã biết."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "1",
@@ -549,17 +569,6 @@
           "feedback": {
             "en": "00 is hold, not reset, for this convention.",
             "vi": "00 là hold, không phải reset trong quy ước này."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Always indeterminate",
-            "vi": "Luôn chưa xác định"
-          },
-          "feedback": {
-            "en": "The starting state is explicitly valid and known.",
-            "vi": "Trạng thái đầu được nêu rõ hợp lệ và đã biết."
           }
         }
       ],
@@ -626,17 +635,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "0",
-            "vi": "0"
-          },
-          "feedback": {
-            "en": "That is the result after the first edge only.",
-            "vi": "Đó là kết quả sau cạnh thứ nhất."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "1",
@@ -657,6 +655,17 @@
             "en": "The declared JK transition uses toggle for11.",
             "vi": "Chuyển trạng thái JK đã nêu dùng toggle cho11."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "0",
+            "vi": "0"
+          },
+          "feedback": {
+            "en": "That is the result after the first edge only.",
+            "vi": "Đó là kết quả sau cạnh thứ nhất."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -673,6 +682,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "The host OS decides Q",
+            "vi": "Host OS quyết định Q"
+          },
+          "feedback": {
+            "en": "This is a logic-storage transition, unrelated to an OS decision.",
+            "vi": "Đây là chuyển trạng thái lưu logic, không liên quan quyết định OS."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -693,17 +713,6 @@
           "feedback": {
             "en": "Correct: no active event means no stored-state update.",
             "vi": "Đúng: không có sự kiện kích hoạt thì trạng thái lưu không cập nhật."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "The host OS decides Q",
-            "vi": "Host OS quyết định Q"
-          },
-          "feedback": {
-            "en": "This is a logic-storage transition, unrelated to an OS decision.",
-            "vi": "Đây là chuyển trạng thái lưu logic, không liên quan quyết định OS."
           }
         }
       ],
@@ -821,5 +830,54 @@
       "locator": "Question8(a,b), pages10–11",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "sr-and-jk-flip-flops-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain how feedback stores one bit and how JK toggle differs from invalid SR11.",
+      "vi": "Giải thích feedback lưu một bit và toggle JK khác SR11 invalid ra sao."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for SR and JK flip-flops; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Flip-flop SR và JK; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Name the gate/input/clock convention.",
+        "vi": "Nêu quy ước cổng/đầu vào/clock."
+      },
+      {
+        "en": "Record previous Q before each event.",
+        "vi": "Ghi Q trước mỗi sự kiện."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "SR behaviour follows the declared gate and active-input convention.",
+        "vi": "Hành vi SR theo loại cổng và mức kích hoạt đã nêu."
+      },
+      {
+        "en": "Hold depends on a previous state; invalid release may not determine it.",
+        "vi": "Hold phụ thuộc trạng thái trước; nhả invalid có thể chưa xác định được nó."
+      },
+      {
+        "en": "JK11 toggles at the active edge, while no edge holds Q.",
+        "vi": "JK11 toggle tại cạnh kích hoạt; không cạnh thì giữ Q."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

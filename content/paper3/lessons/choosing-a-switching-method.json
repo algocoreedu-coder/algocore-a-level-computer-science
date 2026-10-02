@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-14.2-T02",
   "slug": "choosing-a-switching-method",
   "title": {
@@ -578,6 +578,15 @@
         "en": "Include a drawback and remove unsupported always/never claims.",
         "vi": "Nêu hạn chế và bỏ khẳng định luôn/không bao giờ thiếu căn cứ."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "compare",
+        "guidance": {
+          "en": "Make paired points about Choose a switching method; name both sides in each point and state a meaningful difference or similarity.",
+          "vi": "Viết các ý đối chiếu theo cặp về Chọn phương pháp chuyển mạch; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -642,17 +651,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Yes, because no useful data is present",
-            "vi": "Có, vì không có dữ liệu hữu ích"
-          },
-          "feedback": {
-            "en": "Idle and unallocated are not the same state.",
-            "vi": "Nhàn rỗi và chưa cấp không phải cùng trạng thái."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "No, it remains reserved until released",
@@ -673,6 +671,17 @@
             "en": "Renaming does not change resource allocation.",
             "vi": "Đổi tên không thay đổi cấp tài nguyên."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Yes, because no useful data is present",
+            "vi": "Có, vì không có dữ liệu hữu ích"
+          },
+          "feedback": {
+            "en": "Idle and unallocated are not the same state.",
+            "vi": "Nhàn rỗi và chưa cấp không phải cùng trạng thái."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -689,6 +698,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Split → invent a random route → discard every packet",
+            "vi": "Chia → tự tạo tuyến ngẫu nhiên → loại mọi packet"
+          },
+          "feedback": {
+            "en": "This describes neither valid mechanism.",
+            "vi": "Đây không phải cơ chế hợp lệ nào."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -709,17 +729,6 @@
           "feedback": {
             "en": "The data phase requires establishment first.",
             "vi": "Giai đoạn dữ liệu cần thiết lập trước."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Split → invent a random route → discard every packet",
-            "vi": "Chia → tự tạo tuyến ngẫu nhiên → loại mọi packet"
-          },
-          "feedback": {
-            "en": "This describes neither valid mechanism.",
-            "vi": "Đây không phải cơ chế hợp lệ nào."
           }
         }
       ],
@@ -786,17 +795,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Circuit fits those priorities, with setup and idle-reservation costs",
-            "vi": "Circuit phù hợp ưu tiên đó, kèm chi phí thiết lập và giữ phần nhàn rỗi"
-          },
-          "feedback": {
-            "en": "Correct: benefit and limitation are linked to stated priorities.",
-            "vi": "Đúng: lợi ích và hạn chế gắn với ưu tiên đã nêu."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Circuit is mandatory for every real-time service",
@@ -817,6 +815,17 @@
             "en": "Continuous application data can be packetised.",
             "vi": "Dữ liệu ứng dụng liên tục có thể chia thành packet."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Circuit fits those priorities, with setup and idle-reservation costs",
+            "vi": "Circuit phù hợp ưu tiên đó, kèm chi phí thiết lập và giữ phần nhàn rỗi"
+          },
+          "feedback": {
+            "en": "Correct: benefit and limitation are linked to stated priorities.",
+            "vi": "Đúng: lợi ích và hạn chế gắn với ưu tiên đã nêu."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -833,6 +842,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Circuit is better; packet is worse",
+            "vi": "Circuit tốt hơn; packet kém hơn"
+          },
+          "feedback": {
+            "en": "No mechanism, criterion or scenario is specified.",
+            "vi": "Không có cơ chế, tiêu chí hay tình huống cụ thể."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -853,17 +873,6 @@
           "feedback": {
             "en": "The criteria differ and the security claim is unsupported.",
             "vi": "Tiêu chí khác nhau và khẳng định bảo mật thiếu căn cứ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Circuit is better; packet is worse",
-            "vi": "Circuit tốt hơn; packet kém hơn"
-          },
-          "feedback": {
-            "en": "No mechanism, criterion or scenario is specified.",
-            "vi": "Không có cơ chế, tiêu chí hay tình huống cụ thể."
           }
         }
       ],
@@ -930,17 +939,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Whenever any line is drawn elsewhere on a diagram",
-            "vi": "Bất cứ khi nào hình còn đường vẽ ở chỗ khác"
-          },
-          "feedback": {
-            "en": "A drawn link alone does not prove a usable route to the destination.",
-            "vi": "Chỉ đường vẽ không chứng minh tuyến tới đích dùng được."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "When forwarding information provides a usable alternative path",
@@ -960,6 +958,17 @@
           "feedback": {
             "en": "Packet networks can also lack a route or lose data.",
             "vi": "Mạng packet cũng có thể thiếu tuyến hoặc mất dữ liệu."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Whenever any line is drawn elsewhere on a diagram",
+            "vi": "Bất cứ khi nào hình còn đường vẽ ở chỗ khác"
+          },
+          "feedback": {
+            "en": "A drawn link alone does not prove a usable route to the destination.",
+            "vi": "Chỉ đường vẽ không chứng minh tuyến tới đích dùng được."
           }
         }
       ],
@@ -1059,5 +1068,63 @@
       "locator": "Question 4(a)–(b), page 9–10",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "choosing-a-switching-method-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "compare",
+    "taskType": "constructed-response",
+    "marks": 5,
+    "prompt": {
+      "en": "Explain both mechanisms, then give one distinct benefit and drawback for each and a conditional use case.",
+      "vi": "Giải thích hai cơ chế, rồi nêu một ưu/hạn chế riêng biệt cho mỗi loại và tình huống dùng có điều kiện."
+    },
+    "answerGuidance": [
+      {
+        "en": "Make paired points about Choose a switching method; name both sides in each point and state a meaningful difference or similarity.",
+        "vi": "Viết các ý đối chiếu theo cặp về Chọn phương pháp chuyển mạch; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+      },
+      {
+        "en": "Extract the priority: predictability, efficient sharing, setup tolerance or resilience.",
+        "vi": "Rút ra ưu tiên: dễ dự đoán, dùng chung hiệu quả, chấp nhận thiết lập hay khả năng ứng phó sự cố."
+      },
+      {
+        "en": "Describe each mechanism before claiming an advantage.",
+        "vi": "Mô tả cơ chế trước khi nêu ưu điểm."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Circuit: establish a reserved channel, transfer on that route, release it.",
+        "vi": "Circuit: lập kênh dành riêng, truyền trên tuyến đó, giải phóng."
+      },
+      {
+        "en": "Circuit can offer predictable allocated service; setup and unused reserved capacity are costs.",
+        "vi": "Circuit có thể cho dịch vụ được cấp dễ dự đoán; thiết lập và phần dành riêng chưa dùng là chi phí."
+      },
+      {
+        "en": "Packet: split/address, share links, forward, collect and reconstruct.",
+        "vi": "Packet: chia/đánh địa chỉ, dùng chung liên kết, chuyển tiếp, thu nhận và khôi phục."
+      },
+      {
+        "en": "Packet sharing suits intermittent demand; queueing, control overhead and ordering can add work/delay.",
+        "vi": "Dùng chung packet phù hợp nhu cầu gián đoạn; hàng đợi, thông tin phụ và sắp thứ tự có thể thêm xử lý/độ trễ."
+      },
+      {
+        "en": "Choose by stated priorities; neither mechanism alone guarantees speed, secrecy or successful delivery.",
+        "vi": "Chọn theo ưu tiên đã nêu; riêng cơ chế nào cũng không bảo đảm tốc độ, bí mật hay giao thành công."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-circuit",
+      "book-packets"
+    ],
+    "examPatternIds": [
+      "P3-PAT-006",
+      "P3-PAT-012",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.3-T02",
   "slug": "normalisation",
   "title": {
@@ -318,6 +318,15 @@
         "en": "Decrease E per shift, respect its limit, then verify the value.",
         "vi": "Giảm E mỗi lần dịch, giữ giới hạn và kiểm lại giá trị."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "calculate",
+        "guidance": {
+          "en": "Show each intermediate value for Normalisation, keep the stated bit width or units, and state the final result.",
+          "vi": "Trình bày từng giá trị trung gian của Chuẩn hóa, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -362,6 +371,17 @@
       "transfer": true,
       "choices": [
         {
+          "id": "3",
+          "label": {
+            "en": "M00110000/E0010",
+            "vi": "M00110000/E0010"
+          },
+          "feedback": {
+            "en": "Only reducing E halves the value and leaves M unnormalised.",
+            "vi": "Chỉ giảm E làm giá trị còn nửa và M vẫn chưa chuẩn hóa."
+          }
+        },
+        {
           "id": "1",
           "label": {
             "en": "M01100000/E0010",
@@ -381,17 +401,6 @@
           "feedback": {
             "en": "Increasing E while doubling M makes the value 12, not 3.",
             "vi": "Tăng E khi nhân đôi M làm giá trị thành 12, không phải 3."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "M00110000/E0010",
-            "vi": "M00110000/E0010"
-          },
-          "feedback": {
-            "en": "Only reducing E halves the value and leaves M unnormalised.",
-            "vi": "Chỉ giảm E làm giá trị còn nửa và M vẫn chưa chuẩn hóa."
           }
         }
       ],
@@ -458,17 +467,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "Wrap E to+7 and continue.",
-            "vi": "Quay E về+7 rồi tiếp tục."
-          },
-          "feedback": {
-            "en": "That changes the scale drastically instead of preserving the value.",
-            "vi": "Làm vậy đổi mạnh thang độ lớn thay vì giữ giá trị."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Claim successful normalisation without changing anything.",
@@ -488,6 +486,17 @@
           "feedback": {
             "en": "Correct.−9 does not fit the four-bit signed exponent.",
             "vi": "Đúng.−9 không vừa số mũ có dấu bốn bit."
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Wrap E to+7 and continue.",
+            "vi": "Quay E về+7 rồi tiếp tục."
+          },
+          "feedback": {
+            "en": "That changes the scale drastically instead of preserving the value.",
+            "vi": "Làm vậy đổi mạnh thang độ lớn thay vì giữ giá trị."
           }
         }
       ],
@@ -547,5 +556,54 @@
       "locator": "Chapter 13, printed pp.321–323; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "normalisation-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "calculate",
+    "taskType": "calculation",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the invariant, the positive/negative prefix test, and the two stopping exceptions.",
+      "vi": "Giải thích bất biến, mẫu đầu dương/âm và hai ngoại lệ dừng."
+    },
+    "answerGuidance": [
+      {
+        "en": "Show each intermediate value for Normalisation, keep the stated bit width or units, and state the final result.",
+        "vi": "Trình bày từng giá trị trung gian của Chuẩn hóa, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+      },
+      {
+        "en": "Identify zero separately and decode signed E.",
+        "vi": "Nhận diện số không riêng và giải mã E có dấu."
+      },
+      {
+        "en": "Check the first two M bits; count required left shifts.",
+        "vi": "Kiểm hai bit đầu M; đếm số lần dịch trái cần có."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "M doubles while E decreases 1; value stays the same.",
+        "vi": "M nhân đôi trong khi E giảm 1; giá trị giữ nguyên."
+      },
+      {
+        "en": "Nonzero normalised M starts 01 or 10.",
+        "vi": "M khác không chuẩn hóa bắt đầu 01 hoặc 10."
+      },
+      {
+        "en": "Zero is separate; exponent underflow prevents a required shift.",
+        "vi": "Số không xử lý riêng; chạm giới hạn dưới số mũ ngăn phép dịch cần có."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

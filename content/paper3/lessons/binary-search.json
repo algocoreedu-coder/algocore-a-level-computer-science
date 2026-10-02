@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T02",
   "slug": "binary-search",
   "estimatedMinutes": 35,
@@ -149,7 +149,9 @@
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -253,7 +255,9 @@
           "en": "Check that low←4; high remains 6.",
           "vi": "Kiểm tra rằng low←4; high vẫn là 6."
         },
-        "code": "Low ← Mid + 1"
+        "code": "Low ← Mid + 1",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "mid-5",
@@ -273,7 +277,9 @@
           "en": "Check that data[5]=31 matches.",
           "vi": "Kiểm tra rằng data[5]=31 khớp."
         },
-        "code": "Mid ← (Low + High) DIV 2"
+        "code": "Mid ← (Low + High) DIV 2",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "return",
@@ -293,7 +299,9 @@
           "en": "Check that result=5 after two comparisons.",
           "vi": "Kiểm tra rằng result=5 sau hai phép so sánh."
         },
-        "code": "RETURN Mid"
+        "code": "RETURN Mid",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "verify",
@@ -475,6 +483,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Array length is even",
+            "vi": "Độ dài mảng là số chẵn"
+          },
+          "feedback": {
+            "en": "Binary search works for odd, even and singleton sizes.",
+            "vi": "Binary search chạy với size lẻ, chẵn và singleton."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Values sorted by the same comparison rule",
@@ -494,17 +513,6 @@
           "feedback": {
             "en": "Duplicates are allowed under the declared result policy.",
             "vi": "Duplicate được phép theo result policy đã nêu."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Array length is even",
-            "vi": "Độ dài mảng là số chẵn"
-          },
-          "feedback": {
-            "en": "Binary search works for odd, even and singleton sizes.",
-            "vi": "Binary search chạy với size lẻ, chẵn và singleton."
           }
         }
       ],
@@ -571,17 +579,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "4",
-            "vi": "4"
-          },
-          "feedback": {
-            "en": "Correct: Mid 3 and the lower half are excluded.",
-            "vi": "Đúng: Mid 3 và nửa dưới bị loại."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "3",
@@ -602,6 +599,17 @@
             "en": "Leaving Low unchanged discards nothing.",
             "vi": "Không đổi Low thì không loại gì."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "4",
+            "vi": "4"
+          },
+          "feedback": {
+            "en": "Correct: Mid 3 and the lower half are excluded.",
+            "vi": "Đúng: Mid 3 và nửa dưới bị loại."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -618,6 +626,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "4",
+            "vi": "4"
+          },
+          "feedback": {
+            "en": "The window halves; indices 0,1,2 are not scanned.",
+            "vi": "Cửa sổ chia đôi; không quét index 0,1,2."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -638,17 +657,6 @@
           "feedback": {
             "en": "The first midpoint contains 19, not 31.",
             "vi": "Midpoint đầu chứa 19, không phải 31."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "4",
-            "vi": "4"
-          },
-          "feedback": {
-            "en": "The window halves; indices 0,1,2 are not scanned.",
-            "vi": "Cửa sổ chia đôi; không quét index 0,1,2."
           }
         }
       ],
@@ -715,17 +723,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Report precondition failure without search mutation",
-            "vi": "Báo precondition failure mà không mutate search"
-          },
-          "feedback": {
-            "en": "Correct: the values are not sorted.",
-            "vi": "Đúng: các giá trị chưa sorted."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Return −1 as a valid binary result",
@@ -745,6 +742,17 @@
           "feedback": {
             "en": "Silently changing the question data violates the contract.",
             "vi": "Âm thầm đổi dữ liệu đề bài vi phạm contract."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Report precondition failure without search mutation",
+            "vi": "Báo precondition failure mà không mutate search"
+          },
+          "feedback": {
+            "en": "Correct: the values are not sorted.",
+            "vi": "Đúng: các giá trị chưa sorted."
           }
         }
       ],
@@ -842,5 +850,58 @@
       "locator": "Question 10, pp12–13",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "binary-search-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "State the binary-search invariant and progress rule.",
+      "vi": "Nêu invariant và quy tắc tiến triển của binary search."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Binary search; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Tìm kiếm nhị phân; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Confirm sorted order.",
+        "vi": "Xác nhận thứ tự sorted."
+      },
+      {
+        "en": "Write inclusive bounds.",
+        "vi": "Ghi cận inclusive."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "If present, Target remains in inclusive Low..High.",
+        "vi": "Nếu tồn tại, Target còn trong Low..High inclusive."
+      },
+      {
+        "en": "Mid uses DIV 2.",
+        "vi": "Mid dùng DIV 2."
+      },
+      {
+        "en": "Inequality sets Low=Mid+1 or High=Mid−1.",
+        "vi": "Bất đẳng thức đặt Low=Mid+1 hoặc High=Mid−1."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,0 +1,972 @@
+{
+  "schemaVersion": 1,
+  "id": "P3-MOCK-B",
+  "qualification": "Cambridge International AS & A Level Computer Science 9618",
+  "examYear": 2026,
+  "paper": 3,
+  "title": {
+    "en": "Paper 3 Mock B — Transfer and tracing",
+    "vi": "Đề luyện Paper 3 B — Vận dụng và trace"
+  },
+  "emphasis": {
+    "en": "Scenario transfer, calculation and explicit state tracing across Sections 13–20.",
+    "vi": "Vận dụng tình huống, tính toán và trace trạng thái rõ ràng trên Sections 13–20."
+  },
+  "authorship": {
+    "origin": "algocore-authored",
+    "officialCambridgePaper": false,
+    "notice": {
+      "en": "Original AlgoCore practice material. This is not a Cambridge International past paper or specimen paper.",
+      "vi": "Học liệu luyện tập nguyên bản do AlgoCore biên soạn. Đây không phải đề thi quá khứ hay đề mẫu chính thức của Cambridge International."
+    }
+  },
+  "durationMinutes": 90,
+  "totalMarks": 75,
+  "aoTargets": {
+    "AO1": 45,
+    "AO2": 30
+  },
+  "sectionIds": [
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "instructions": {
+    "en": "Answer all questions. Show working for calculations and traces. Pseudocode may use the published 9618 conventions.",
+    "vi": "Trả lời tất cả câu hỏi. Trình bày bước làm cho phép tính và trace. Có thể dùng quy ước pseudocode 9618 đã công bố."
+  },
+  "questions": [
+    {
+      "id": "B-Q1a",
+      "number": "1(a)",
+      "sectionIds": [
+        "13"
+      ],
+      "commandWords": [
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "Explain five design points for storing fixed-length patient records so that a record can be retrieved directly by PatientID.",
+        "vi": "Giải thích năm điểm thiết kế để lưu record bệnh nhân độ dài cố định sao cho có thể truy xuất trực tiếp bằng PatientID."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q1a-M1",
+          "mark": 1,
+          "en": "Use random/direct file access rather than reading every earlier record.",
+          "vi": "Dùng truy cập tệp random/direct thay vì đọc mọi record trước đó."
+        },
+        {
+          "id": "B-Q1a-M2",
+          "mark": 1,
+          "en": "Calculate a home location from PatientID using a hashing function.",
+          "vi": "Tính vị trí ban đầu từ PatientID bằng hàm băm."
+        },
+        {
+          "id": "B-Q1a-M3",
+          "mark": 1,
+          "en": "Fixed-length records allow a byte offset to be calculated from a record number.",
+          "vi": "Record độ dài cố định cho phép tính byte offset từ số thứ tự record."
+        },
+        {
+          "id": "B-Q1a-M4",
+          "mark": 1,
+          "en": "Use a collision strategy because two IDs can hash to the same location.",
+          "vi": "Dùng chiến lược xử lý collision vì hai ID có thể băm tới cùng vị trí."
+        },
+        {
+          "id": "B-Q1a-M5",
+          "mark": 1,
+          "en": "After reading a candidate record, compare its stored PatientID with the requested key.",
+          "vi": "Sau khi đọc record ứng viên, so sánh PatientID được lưu với khóa yêu cầu."
+        }
+      ],
+      "workedSolution": {
+        "en": "Hash the key, resolve collisions, calculate the fixed-record offset, read the candidate, and verify its key.",
+        "vi": "Băm khóa, xử lý collision, tính offset record cố định, đọc ứng viên và xác minh khóa."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-005",
+        "P3-PAT-010"
+      ]
+    },
+    {
+      "id": "B-Q1b",
+      "number": "1(b)",
+      "sectionIds": [
+        "13"
+      ],
+      "commandWords": [
+        "trace"
+      ],
+      "ao": "AO2",
+      "marks": 5,
+      "prompt": {
+        "en": "Insert keys 18, 25, 11 and 32 in that order using h(key)=key MOD 7 and linear probing. Give each final slot and trace retrieval of 32.",
+        "vi": "Chèn các khóa 18, 25, 11 và 32 theo thứ tự bằng h(key)=key MOD 7 và linear probing. Cho slot cuối của mỗi khóa và trace việc lấy 32."
+      },
+      "data": {
+        "slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "initial": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "hash": "key MOD 7",
+        "collision": "linear probing"
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q1b-M1",
+          "mark": 1,
+          "en": "18 hashes to slot 4 and is stored there.",
+          "vi": "18 băm tới slot 4 và được lưu tại đó."
+        },
+        {
+          "id": "B-Q1b-M2",
+          "mark": 1,
+          "en": "25 hashes to 4, collides, and is stored at 5.",
+          "vi": "25 băm tới 4, collision và được lưu tại 5."
+        },
+        {
+          "id": "B-Q1b-M3",
+          "mark": 1,
+          "en": "11 hashes to 4, probes 5, and is stored at 6.",
+          "vi": "11 băm tới 4, dò 5 và được lưu tại 6."
+        },
+        {
+          "id": "B-Q1b-M4",
+          "mark": 1,
+          "en": "32 hashes to 4, probes 5 and 6, wraps, and is stored at 0.",
+          "vi": "32 băm tới 4, dò 5 và 6, quay vòng và được lưu tại 0."
+        },
+        {
+          "id": "B-Q1b-M5",
+          "mark": 1,
+          "en": "Retrieval of 32 checks slots 4, 5, 6, then 0 and confirms the key.",
+          "vi": "Truy xuất 32 kiểm tra slot 4, 5, 6 rồi 0 và xác nhận khóa."
+        }
+      ],
+      "workedSolution": {
+        "en": "The final table is [32,–,–,–,18,25,11]. Searching 32 follows the same probe sequence 4→5→6→0.",
+        "vi": "Bảng cuối là [32,–,–,–,18,25,11]. Tìm 32 theo cùng chuỗi dò 4→5→6→0."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-019"
+      ]
+    },
+    {
+      "id": "B-Q2a",
+      "number": "2(a)",
+      "sectionIds": [
+        "14"
+      ],
+      "commandWords": [
+        "describe"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "Describe a five-point end-to-end journey of application data through the four-layer TCP/IP model.",
+        "vi": "Mô tả hành trình end-to-end gồm năm ý của dữ liệu ứng dụng qua mô hình TCP/IP bốn tầng."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q2a-M1",
+          "mark": 1,
+          "en": "The Application layer supplies data using an application protocol.",
+          "vi": "Tầng Application cung cấp dữ liệu bằng giao thức ứng dụng."
+        },
+        {
+          "id": "B-Q2a-M2",
+          "mark": 1,
+          "en": "Transport adds end-to-end control such as ports, sequencing or reliability.",
+          "vi": "Transport thêm kiểm soát end-to-end như port, sequence hoặc độ tin cậy."
+        },
+        {
+          "id": "B-Q2a-M3",
+          "mark": 1,
+          "en": "Internet adds logical addressing and supports routing between networks.",
+          "vi": "Internet thêm địa chỉ logic và hỗ trợ định tuyến giữa các mạng."
+        },
+        {
+          "id": "B-Q2a-M4",
+          "mark": 1,
+          "en": "Link frames the packet for the current link and transmits it to the next device.",
+          "vi": "Link đóng frame packet cho đường truyền hiện tại và gửi tới thiết bị kế tiếp."
+        },
+        {
+          "id": "B-Q2a-M5",
+          "mark": 1,
+          "en": "At the receiver, the data moves up Link→Internet→Transport→Application and each layer processes its control information.",
+          "vi": "Ở bên nhận, dữ liệu đi lên Link→Internet→Transport→Application và mỗi tầng xử lý thông tin điều khiển của mình."
+        }
+      ],
+      "workedSolution": {
+        "en": "The sender moves down adjacent layers, routers forward at the relevant lower layers, and the receiver moves up adjacent layers.",
+        "vi": "Bên gửi đi xuống các tầng kề nhau, router chuyển tiếp ở các tầng thấp liên quan và bên nhận đi lên các tầng kề nhau."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-004",
+        "P3-PAT-012"
+      ]
+    },
+    {
+      "id": "B-Q2b",
+      "number": "2(b)",
+      "sectionIds": [
+        "14"
+      ],
+      "commandWords": [
+        "trace",
+        "explain"
+      ],
+      "ao": "AO2",
+      "marks": 4,
+      "prompt": {
+        "en": "Trace what happens after the R1–R2 link fails while packets are being sent from A to B. Include routing, arrival order and recovery of missing data.",
+        "vi": "Trace điều xảy ra sau khi đường R1–R2 hỏng trong lúc packet được gửi từ A tới B. Gồm định tuyến, thứ tự đến và phục hồi dữ liệu thiếu."
+      },
+      "scenario": {
+        "en": "The original route is A–R1–R2–B. An available alternate route is R1–R3–R2.",
+        "vi": "Tuyến ban đầu là A–R1–R2–B. Tuyến thay thế sẵn có là R1–R3–R2."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q2b-M1",
+          "mark": 1,
+          "en": "Routing information is updated or a router selects the available alternate next hop.",
+          "vi": "Thông tin định tuyến được cập nhật hoặc router chọn next hop thay thế đang hoạt động."
+        },
+        {
+          "id": "B-Q2b-M2",
+          "mark": 1,
+          "en": "Later packets can follow A–R1–R3–R2–B instead of the failed link.",
+          "vi": "Các packet sau có thể đi A–R1–R3–R2–B thay cho đường hỏng."
+        },
+        {
+          "id": "B-Q2b-M3",
+          "mark": 1,
+          "en": "Different delay can make packets late or out of order at B.",
+          "vi": "Độ trễ khác nhau có thể làm packet đến muộn hoặc sai thứ tự tại B."
+        },
+        {
+          "id": "B-Q2b-M4",
+          "mark": 1,
+          "en": "TCP at Transport can detect missing sequence data, request/retransmit it and restore order; IP routing alone does not guarantee this.",
+          "vi": "TCP ở Transport có thể phát hiện dữ liệu sequence bị thiếu, yêu cầu/gửi lại và khôi phục thứ tự; IP routing riêng không bảo đảm điều này."
+        }
+      ],
+      "workedSolution": {
+        "en": "Routers divert subsequent packets through R3. TCP end-point mechanisms handle loss and ordering caused by the route change.",
+        "vi": "Router chuyển các packet sau qua R3. Cơ chế TCP ở đầu cuối xử lý mất dữ liệu và sai thứ tự do đổi tuyến."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-005",
+        "P3-PAT-008",
+        "P3-PAT-012"
+      ]
+    },
+    {
+      "id": "B-Q3a",
+      "number": "3(a)",
+      "sectionIds": [
+        "15"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "Distinguish SISD, SIMD and MIMD; explain one challenge of massively parallel processing; and state what a flip-flop stores.",
+        "vi": "Phân biệt SISD, SIMD và MIMD; giải thích một thách thức của xử lý song song quy mô lớn; và nêu flip-flop lưu gì."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q3a-M1",
+          "mark": 1,
+          "en": "SISD uses one instruction stream on one data stream.",
+          "vi": "SISD dùng một luồng lệnh trên một luồng dữ liệu."
+        },
+        {
+          "id": "B-Q3a-M2",
+          "mark": 1,
+          "en": "SIMD uses one instruction stream on multiple data items.",
+          "vi": "SIMD dùng một luồng lệnh trên nhiều mục dữ liệu."
+        },
+        {
+          "id": "B-Q3a-M3",
+          "mark": 1,
+          "en": "MIMD uses multiple instruction streams on multiple data streams.",
+          "vi": "MIMD dùng nhiều luồng lệnh trên nhiều luồng dữ liệu."
+        },
+        {
+          "id": "B-Q3a-M4",
+          "mark": 1,
+          "en": "Massive parallelism requires coordination and communication, which can limit speed-up.",
+          "vi": "Song song quy mô lớn cần phối hợp và giao tiếp, có thể giới hạn tăng tốc."
+        },
+        {
+          "id": "B-Q3a-M5",
+          "mark": 1,
+          "en": "A flip-flop stores one binary state or bit.",
+          "vi": "Flip-flop lưu một trạng thái nhị phân hoặc một bit."
+        }
+      ],
+      "workedSolution": {
+        "en": "Classify by instruction and data streams; then identify coordination overhead and the flip-flop’s one-bit state.",
+        "vi": "Phân loại theo luồng lệnh và dữ liệu; sau đó xác định chi phí phối hợp và trạng thái một bit của flip-flop."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005"
+      ]
+    },
+    {
+      "id": "B-Q3b",
+      "number": "3(b)",
+      "sectionIds": [
+        "15"
+      ],
+      "commandWords": [
+        "trace",
+        "calculate"
+      ],
+      "ao": "AO2",
+      "marks": 5,
+      "prompt": {
+        "en": "Three instructions enter a five-stage pipeline IF–ID–OF–IE–WB, one new instruction per clock and no hazards. State the stage of each instruction at the end of clock 4, the completion clock of instruction 3, and compare with non-pipelined execution.",
+        "vi": "Ba lệnh vào pipeline năm giai đoạn IF–ID–OF–IE–WB, mỗi clock có một lệnh mới và không có hazard. Nêu giai đoạn của mỗi lệnh cuối clock 4, clock hoàn thành của lệnh 3 và so sánh với thực thi không pipeline."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q3b-M1",
+          "mark": 1,
+          "en": "At clock 4, instruction 1 is in IE.",
+          "vi": "Ở clock 4, lệnh 1 ở IE."
+        },
+        {
+          "id": "B-Q3b-M2",
+          "mark": 1,
+          "en": "At clock 4, instruction 2 is in OF.",
+          "vi": "Ở clock 4, lệnh 2 ở OF."
+        },
+        {
+          "id": "B-Q3b-M3",
+          "mark": 1,
+          "en": "At clock 4, instruction 3 is in ID.",
+          "vi": "Ở clock 4, lệnh 3 ở ID."
+        },
+        {
+          "id": "B-Q3b-M4",
+          "mark": 1,
+          "en": "Instruction 3 completes WB at clock 7.",
+          "vi": "Lệnh 3 hoàn thành WB ở clock 7."
+        },
+        {
+          "id": "B-Q3b-M5",
+          "mark": 1,
+          "en": "Without overlap, three five-stage instructions take 15 stage-clocks; pipelining improves throughput after filling.",
+          "vi": "Không chồng lấp, ba lệnh năm giai đoạn mất 15 stage-clock; pipeline tăng thông lượng sau khi được lấp đầy."
+        }
+      ],
+      "workedSolution": {
+        "en": "I1 occupies clocks 1–5, I2 clocks 2–6 and I3 clocks 3–7. Thus the clock-4 states are IE, OF and ID, and I3 completes at 7.",
+        "vi": "I1 chiếm clock 1–5, I2 clock 2–6 và I3 clock 3–7. Vì vậy trạng thái clock 4 là IE, OF, ID và I3 hoàn thành ở 7."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008"
+      ]
+    },
+    {
+      "id": "B-Q4a",
+      "number": "4(a)",
+      "sectionIds": [
+        "16"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "State the selection rule for round robin, SJF and SRT scheduling; explain virtual memory; and explain thrashing.",
+        "vi": "Nêu quy tắc chọn của round robin, SJF và SRT; giải thích virtual memory; và giải thích thrashing."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q4a-M1",
+          "mark": 1,
+          "en": "Round robin gives ready processes time slices in cyclic order.",
+          "vi": "Round robin cấp time slice cho các tiến trình ready theo vòng."
+        },
+        {
+          "id": "B-Q4a-M2",
+          "mark": 1,
+          "en": "SJF selects the ready job with the shortest estimated total processing time.",
+          "vi": "SJF chọn job ready có tổng thời gian xử lý ước tính ngắn nhất."
+        },
+        {
+          "id": "B-Q4a-M3",
+          "mark": 1,
+          "en": "SRT selects the ready process with the shortest remaining time and may pre-empt.",
+          "vi": "SRT chọn tiến trình ready có thời gian còn lại ngắn nhất và có thể pre-empt."
+        },
+        {
+          "id": "B-Q4a-M4",
+          "mark": 1,
+          "en": "Virtual memory uses secondary storage to provide pages or segments not currently in RAM.",
+          "vi": "Virtual memory dùng bộ nhớ thứ cấp cho page hoặc segment chưa ở RAM."
+        },
+        {
+          "id": "B-Q4a-M5",
+          "mark": 1,
+          "en": "Thrashing is excessive page movement caused by too few useful pages in RAM, leaving little time for execution.",
+          "vi": "Thrashing là chuyển page quá mức do quá ít page hữu ích trong RAM, làm còn ít thời gian thực thi."
+        }
+      ],
+      "workedSolution": {
+        "en": "Each scheduler needs its selection rule; virtual memory describes backing storage, while thrashing states both repeated paging and its performance effect.",
+        "vi": "Mỗi scheduler cần quy tắc chọn; virtual memory mô tả backing storage, còn thrashing nêu cả paging lặp lại và ảnh hưởng hiệu năng."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005",
+        "P3-PAT-014"
+      ]
+    },
+    {
+      "id": "B-Q4b",
+      "number": "4(b)",
+      "sectionIds": [
+        "16"
+      ],
+      "commandWords": [
+        "trace"
+      ],
+      "ao": "AO2",
+      "marks": 4,
+      "prompt": {
+        "en": "Trace evaluation of the reverse Polish expression 8 2 / 3 4 + *. Show the stack after each operator and state the validity condition at the end.",
+        "vi": "Trace việc tính biểu thức reverse Polish 8 2 / 3 4 + *. Trình bày stack sau mỗi operator và nêu điều kiện hợp lệ ở cuối."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q4b-M1",
+          "mark": 1,
+          "en": "After pushing 8 and 2, division leaves stack [4].",
+          "vi": "Sau khi push 8 và 2, phép chia để lại stack [4]."
+        },
+        {
+          "id": "B-Q4b-M2",
+          "mark": 1,
+          "en": "After pushing 3 and 4, addition changes [4,3,4] to [4,7].",
+          "vi": "Sau khi push 3 và 4, phép cộng đổi [4,3,4] thành [4,7]."
+        },
+        {
+          "id": "B-Q4b-M3",
+          "mark": 1,
+          "en": "Multiplication changes [4,7] to [28].",
+          "vi": "Phép nhân đổi [4,7] thành [28]."
+        },
+        {
+          "id": "B-Q4b-M4",
+          "mark": 1,
+          "en": "The expression is valid because exactly one final result remains and every operator had two operands.",
+          "vi": "Biểu thức hợp lệ vì còn đúng một kết quả cuối và mỗi operator đều có hai operand."
+        }
+      ],
+      "workedSolution": {
+        "en": "Stack trace: []→[8]→[8,2]→[4]→[4,3]→[4,3,4]→[4,7]→[28].",
+        "vi": "Trace stack: []→[8]→[8,2]→[4]→[4,3]→[4,3,4]→[4,7]→[28]."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-014"
+      ]
+    },
+    {
+      "id": "B-Q5a",
+      "number": "5(a)",
+      "sectionIds": [
+        "17"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "State the key choice for confidentiality, the evidence used to verify a sender, the purpose of TLS, the role of a certificate, and the security property offered by quantum key distribution.",
+        "vi": "Nêu lựa chọn khóa cho tính bí mật, bằng chứng dùng xác minh người gửi, mục đích của TLS, vai trò của chứng thư và thuộc tính bảo mật của phân phối khóa lượng tử."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q5a-M1",
+          "mark": 1,
+          "en": "Encrypt for a recipient using that recipient’s public key.",
+          "vi": "Mã hóa cho người nhận bằng khóa công khai của chính người nhận."
+        },
+        {
+          "id": "B-Q5a-M2",
+          "mark": 1,
+          "en": "Verify a digital signature using the claimed sender’s public key and a trusted binding to that identity.",
+          "vi": "Xác minh chữ ký số bằng khóa công khai của người gửi cùng liên kết tin cậy với danh tính đó."
+        },
+        {
+          "id": "B-Q5a-M3",
+          "mark": 1,
+          "en": "TLS authenticates an endpoint and protects session data in transit.",
+          "vi": "TLS xác thực đầu cuối và bảo vệ dữ liệu phiên trên đường truyền."
+        },
+        {
+          "id": "B-Q5a-M4",
+          "mark": 1,
+          "en": "A certificate binds an identity to a public key under a trusted issuer’s signature.",
+          "vi": "Chứng thư gắn danh tính với khóa công khai dưới chữ ký của tổ chức tin cậy."
+        },
+        {
+          "id": "B-Q5a-M5",
+          "mark": 1,
+          "en": "Quantum key distribution can reveal interception because measuring quantum states disturbs them.",
+          "vi": "Phân phối khóa lượng tử có thể phát hiện nghe lén vì đo trạng thái lượng tử làm nhiễu chúng."
+        }
+      ],
+      "workedSolution": {
+        "en": "The answer separates confidentiality, authenticity, protected transport, trust binding and eavesdropping detection.",
+        "vi": "Đáp án tách tính bí mật, xác thực, bảo vệ đường truyền, liên kết tin cậy và phát hiện nghe lén."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005"
+      ]
+    },
+    {
+      "id": "B-Q5b",
+      "number": "5(b)",
+      "sectionIds": [
+        "17"
+      ],
+      "commandWords": [
+        "explain"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "Explain how a device verifies a digitally signed update and what happens if one byte of the downloaded update changes.",
+        "vi": "Giải thích cách thiết bị xác minh bản cập nhật có chữ ký số và điều xảy ra nếu một byte của bản tải về thay đổi."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q5b-M1",
+          "mark": 1,
+          "en": "The device hashes the downloaded update using the specified hash algorithm.",
+          "vi": "Thiết bị băm bản cập nhật đã tải bằng thuật toán hash quy định."
+        },
+        {
+          "id": "B-Q5b-M2",
+          "mark": 1,
+          "en": "It verifies the signature with the publisher’s certified public key and compares the authenticated digest with the calculated hash.",
+          "vi": "Nó xác minh chữ ký bằng khóa công khai có chứng thư của nhà phát hành và so sánh digest đã xác thực với hash vừa tính."
+        },
+        {
+          "id": "B-Q5b-M3",
+          "mark": 1,
+          "en": "Changing one byte changes the hash, so the comparison fails and the update should be rejected.",
+          "vi": "Thay đổi một byte làm đổi hash, nên so sánh thất bại và bản cập nhật phải bị từ chối."
+        }
+      ],
+      "workedSolution": {
+        "en": "Hash locally, authenticate the signed digest, compare, and reject on mismatch. A valid signature supports origin and integrity, not secrecy.",
+        "vi": "Băm cục bộ, xác thực digest có chữ ký, so sánh và từ chối khi khác. Chữ ký hợp lệ hỗ trợ nguồn gốc và toàn vẹn, không tạo bí mật."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-005",
+        "P3-PAT-010"
+      ]
+    },
+    {
+      "id": "B-Q6a",
+      "number": "6(a)",
+      "sectionIds": [
+        "18"
+      ],
+      "commandWords": [
+        "describe",
+        "distinguish"
+      ],
+      "ao": "AO1",
+      "marks": 5,
+      "prompt": {
+        "en": "Describe the roles of layers and weights in an artificial neural network, distinguish training from inference, explain backpropagation, and state what regression predicts.",
+        "vi": "Mô tả vai trò của layer và weight trong mạng neural nhân tạo, phân biệt training với inference, giải thích backpropagation và nêu regression dự đoán gì."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q6a-M1",
+          "mark": 1,
+          "en": "Connected layers transform input values through weighted connections and activation functions.",
+          "vi": "Các layer kết nối biến đổi input qua connection có weight và activation function."
+        },
+        {
+          "id": "B-Q6a-M2",
+          "mark": 1,
+          "en": "A deep network has multiple hidden layers.",
+          "vi": "Mạng deep có nhiều hidden layer."
+        },
+        {
+          "id": "B-Q6a-M3",
+          "mark": 1,
+          "en": "Training adjusts parameters from examples; inference applies fixed learned parameters to new input.",
+          "vi": "Training điều chỉnh tham số từ ví dụ; inference áp dụng tham số đã học cố định lên input mới."
+        },
+        {
+          "id": "B-Q6a-M4",
+          "mark": 1,
+          "en": "Backpropagation sends error information backward to calculate weight updates.",
+          "vi": "Backpropagation truyền thông tin lỗi ngược lại để tính cập nhật weight."
+        },
+        {
+          "id": "B-Q6a-M5",
+          "mark": 1,
+          "en": "Regression predicts a continuous numerical value or trend.",
+          "vi": "Regression dự đoán giá trị số liên tục hoặc xu hướng."
+        }
+      ],
+      "workedSolution": {
+        "en": "The complete model connects weighted computation, learning by error-driven updates, later inference, and continuous prediction.",
+        "vi": "Mô hình đầy đủ nối tính toán có trọng số, học bằng cập nhật dựa trên lỗi, inference sau đó và dự đoán liên tục."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-004",
+        "P3-PAT-005"
+      ]
+    },
+    {
+      "id": "B-Q6b",
+      "number": "6(b)",
+      "sectionIds": [
+        "18"
+      ],
+      "commandWords": [
+        "calculate",
+        "show"
+      ],
+      "ao": "AO2",
+      "marks": 3,
+      "prompt": {
+        "en": "For A* calculate f=g+h for A, B and C, select the next node, then calculate the goal cost if the edge from that node to G costs 2.",
+        "vi": "Với A*, tính f=g+h cho A, B và C, chọn node tiếp theo, rồi tính chi phí tới goal nếu edge từ node đó tới G có chi phí 2."
+      },
+      "data": {
+        "frontier": {
+          "A": {
+            "g": 4,
+            "h": 3
+          },
+          "B": {
+            "g": 2,
+            "h": 6
+          },
+          "C": {
+            "g": 5,
+            "h": 1
+          }
+        },
+        "edgeToGoal": {
+          "from": "C",
+          "to": "G",
+          "cost": 2
+        }
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q6b-M1",
+          "mark": 1,
+          "en": "f(A)=4+3=7, f(B)=2+6=8, f(C)=5+1=6.",
+          "vi": "f(A)=4+3=7, f(B)=2+6=8, f(C)=5+1=6."
+        },
+        {
+          "id": "B-Q6b-M2",
+          "mark": 1,
+          "en": "Select C because it has the smallest f value.",
+          "vi": "Chọn C vì có giá trị f nhỏ nhất."
+        },
+        {
+          "id": "B-Q6b-M3",
+          "mark": 1,
+          "en": "Reaching G through C gives g(G)=5+2=7 and f(G)=7 when h(G)=0.",
+          "vi": "Tới G qua C cho g(G)=5+2=7 và f(G)=7 khi h(G)=0."
+        }
+      ],
+      "workedSolution": {
+        "en": "The frontier priorities are C:6, A:7, B:8, so C expands next and generates G with path cost 7.",
+        "vi": "Ưu tiên frontier là C:6, A:7, B:8, nên C được mở rộng tiếp và tạo G với chi phí đường đi 7."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-015"
+      ]
+    },
+    {
+      "id": "B-Q7a",
+      "number": "7(a)",
+      "sectionIds": [
+        "19"
+      ],
+      "commandWords": [
+        "state",
+        "describe"
+      ],
+      "ao": "AO1",
+      "marks": 8,
+      "prompt": {
+        "en": "State one defining feature or condition for each of: linear search, binary search, bubble sort, insertion sort, linked list, binary search tree, dictionary and Big-O notation.",
+        "vi": "Nêu một đặc điểm hoặc điều kiện định nghĩa cho mỗi khái niệm: linear search, binary search, bubble sort, insertion sort, linked list, binary search tree, dictionary và ký hiệu Big-O."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q7a-M1",
+          "mark": 1,
+          "en": "Linear search examines items sequentially and does not require sorted data.",
+          "vi": "Linear search kiểm tra tuần tự và không cần dữ liệu đã sắp xếp."
+        },
+        {
+          "id": "B-Q7a-M2",
+          "mark": 1,
+          "en": "Binary search requires sorted data and halves the search interval.",
+          "vi": "Binary search cần dữ liệu đã sắp xếp và chia đôi khoảng tìm kiếm."
+        },
+        {
+          "id": "B-Q7a-M3",
+          "mark": 1,
+          "en": "Bubble sort swaps adjacent out-of-order items over repeated passes.",
+          "vi": "Bubble sort đổi chỗ phần tử kề sai thứ tự qua nhiều pass."
+        },
+        {
+          "id": "B-Q7a-M4",
+          "mark": 1,
+          "en": "Insertion sort grows a sorted prefix by inserting the next item.",
+          "vi": "Insertion sort mở rộng phần đầu đã sắp xếp bằng cách chèn phần tử tiếp theo."
+        },
+        {
+          "id": "B-Q7a-M5",
+          "mark": 1,
+          "en": "A linked list stores links or pointers between nodes rather than requiring contiguous locations.",
+          "vi": "Linked list lưu link hoặc pointer giữa các node thay vì cần vị trí liên tiếp."
+        },
+        {
+          "id": "B-Q7a-M6",
+          "mark": 1,
+          "en": "A binary search tree orders smaller keys to one side and larger keys to the other according to its rule.",
+          "vi": "Binary search tree đặt khóa nhỏ hơn về một phía và lớn hơn về phía kia theo quy tắc."
+        },
+        {
+          "id": "B-Q7a-M7",
+          "mark": 1,
+          "en": "A dictionary associates unique keys with values.",
+          "vi": "Dictionary liên kết key duy nhất với value."
+        },
+        {
+          "id": "B-Q7a-M8",
+          "mark": 1,
+          "en": "Big-O describes how time or space grows with input size, ignoring constant factors and lower-order terms.",
+          "vi": "Big-O mô tả thời gian hoặc bộ nhớ tăng theo kích thước input, bỏ qua hằng số và bậc thấp."
+        }
+      ],
+      "workedSolution": {
+        "en": "Each point gives the behaviour, invariant or precondition that separates the structure or algorithm from nearby alternatives.",
+        "vi": "Mỗi ý cho hành vi, invariant hoặc precondition phân biệt cấu trúc hay thuật toán với lựa chọn gần nó."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-004",
+        "P3-PAT-016"
+      ]
+    },
+    {
+      "id": "B-Q7b",
+      "number": "7(b)",
+      "sectionIds": [
+        "19"
+      ],
+      "commandWords": [
+        "trace"
+      ],
+      "ao": "AO2",
+      "marks": 4,
+      "prompt": {
+        "en": "Trace the recursive function Sum(n), where Sum(0)=0 and Sum(n)=n+Sum(n−1), for Sum(3). Show calls, the base case, unwinding and final result.",
+        "vi": "Trace hàm đệ quy Sum(n), với Sum(0)=0 và Sum(n)=n+Sum(n−1), cho Sum(3). Trình bày lời gọi, base case, unwinding và kết quả cuối."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q7b-M1",
+          "mark": 1,
+          "en": "Calls descend Sum(3)→Sum(2)→Sum(1)→Sum(0).",
+          "vi": "Các lời gọi đi xuống Sum(3)→Sum(2)→Sum(1)→Sum(0)."
+        },
+        {
+          "id": "B-Q7b-M2",
+          "mark": 1,
+          "en": "The base case returns 0 at Sum(0).",
+          "vi": "Base case trả 0 tại Sum(0)."
+        },
+        {
+          "id": "B-Q7b-M3",
+          "mark": 1,
+          "en": "Unwinding returns Sum(1)=1 and Sum(2)=3 in last-in-first-out order.",
+          "vi": "Unwinding trả Sum(1)=1 và Sum(2)=3 theo thứ tự vào sau ra trước."
+        },
+        {
+          "id": "B-Q7b-M4",
+          "mark": 1,
+          "en": "Sum(3)=3+3=6.",
+          "vi": "Sum(3)=3+3=6."
+        }
+      ],
+      "workedSolution": {
+        "en": "The call stack grows through 3,2,1,0; returning gives 0, then 1, then 3, then 6.",
+        "vi": "Call stack tăng qua 3,2,1,0; khi trả về cho 0, rồi 1, rồi 3, rồi 6."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-016"
+      ]
+    },
+    {
+      "id": "B-Q8a",
+      "number": "8(a)",
+      "sectionIds": [
+        "20"
+      ],
+      "commandWords": [
+        "state",
+        "explain"
+      ],
+      "ao": "AO1",
+      "marks": 7,
+      "prompt": {
+        "en": "State or explain inheritance, polymorphism, aggregation, encapsulation, indirect addressing, a declarative rule, and exception handling.",
+        "vi": "Nêu hoặc giải thích inheritance, polymorphism, aggregation, encapsulation, indirect addressing, một declarative rule và exception handling."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q8a-M1",
+          "mark": 1,
+          "en": "Inheritance creates a class from an existing class and reuses or extends its members.",
+          "vi": "Inheritance tạo class từ class có sẵn và tái sử dụng hoặc mở rộng member."
+        },
+        {
+          "id": "B-Q8a-M2",
+          "mark": 1,
+          "en": "Polymorphism allows the same interface or method call to produce type-appropriate behaviour.",
+          "vi": "Polymorphism cho cùng interface hoặc lời gọi method tạo hành vi phù hợp từng type."
+        },
+        {
+          "id": "B-Q8a-M3",
+          "mark": 1,
+          "en": "Aggregation models a has-a relationship in which one object contains or refers to others.",
+          "vi": "Aggregation mô hình hóa quan hệ has-a khi một object chứa hoặc tham chiếu object khác."
+        },
+        {
+          "id": "B-Q8a-M4",
+          "mark": 1,
+          "en": "Encapsulation keeps data and operations together and controls direct access to internal state.",
+          "vi": "Encapsulation giữ dữ liệu và thao tác cùng nhau và kiểm soát truy cập trực tiếp trạng thái bên trong."
+        },
+        {
+          "id": "B-Q8a-M5",
+          "mark": 1,
+          "en": "Indirect addressing uses an address or register whose contents identify the effective operand address.",
+          "vi": "Indirect addressing dùng địa chỉ hoặc register có nội dung xác định địa chỉ operand hiệu dụng."
+        },
+        {
+          "id": "B-Q8a-M6",
+          "mark": 1,
+          "en": "A declarative rule states a relationship or conclusion that holds when its conditions are true.",
+          "vi": "Declarative rule nêu quan hệ hoặc kết luận đúng khi các điều kiện đúng."
+        },
+        {
+          "id": "B-Q8a-M7",
+          "mark": 1,
+          "en": "Exception handling transfers control to a handler so an abnormal event can be managed without uncontrolled termination.",
+          "vi": "Exception handling chuyển điều khiển tới handler để xử lý sự kiện bất thường mà không kết thúc mất kiểm soát."
+        }
+      ],
+      "workedSolution": {
+        "en": "The seven points cover OOP relationships, an addressing mechanism, rule-based expression and controlled recovery.",
+        "vi": "Bảy ý bao quát quan hệ OOP, cơ chế địa chỉ, biểu diễn dựa trên luật và phục hồi có kiểm soát."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-003",
+        "P3-PAT-005",
+        "P3-PAT-017"
+      ]
+    },
+    {
+      "id": "B-Q8b",
+      "number": "8(b)",
+      "sectionIds": [
+        "20"
+      ],
+      "commandWords": [
+        "calculate",
+        "explain"
+      ],
+      "ao": "AO2",
+      "marks": 2,
+      "prompt": {
+        "en": "A random file has fixed records of 32 bytes and zero-based record numbers. Calculate the byte offset for record 5 and explain how overwriting at that offset preserves the other records.",
+        "vi": "Một tệp random có record cố định 32 byte và số record bắt đầu từ 0. Tính byte offset cho record 5 và giải thích vì sao ghi đè tại offset đó giữ nguyên các record khác."
+      },
+      "markingPoints": [
+        {
+          "id": "B-Q8b-M1",
+          "mark": 1,
+          "en": "Offset = 5 × 32 = 160 bytes from the start of the file.",
+          "vi": "Offset = 5 × 32 = 160 byte từ đầu tệp."
+        },
+        {
+          "id": "B-Q8b-M2",
+          "mark": 1,
+          "en": "Seek to byte 160 and write exactly one 32-byte record, so bytes belonging to other fixed record slots are not changed.",
+          "vi": "Seek tới byte 160 và ghi đúng một record 32 byte, nên byte thuộc các slot record khác không đổi."
+        }
+      ],
+      "workedSolution": {
+        "en": "With zero-based fixed slots, record n begins at n×recordSize. Record 5 therefore occupies bytes 160–191 only.",
+        "vi": "Với slot cố định bắt đầu từ 0, record n bắt đầu tại n×recordSize. Vì vậy record 5 chỉ chiếm byte 160–191."
+      },
+      "sourcePatternIds": [
+        "P3-PAT-008",
+        "P3-PAT-010",
+        "P3-PAT-017"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.2-T01",
   "slug": "designing-and-tracing-recursion",
   "estimatedMinutes": 45,
@@ -149,7 +149,9 @@
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -272,7 +274,9 @@
           "en": "Check that factorial(0)=1 starts unwinding.",
           "vi": "Kiểm tra rằng factorial(0)=1 bắt đầu unwinding."
         },
-        "code": "RETURN 1"
+        "code": "RETURN 1",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "unwind-1-2",
@@ -473,6 +477,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Only a self-call",
+            "vi": "Chỉ một self-call"
+          },
+          "feedback": {
+            "en": "Only a self-call conflicts with the rule: safe recursion must stop and reduce the problem",
+            "vi": "Chỉ một self-call trái với quy tắc: recursion an toàn phải dừng và giảm bài toán"
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Base, recursive case and progress",
@@ -492,17 +507,6 @@
           "feedback": {
             "en": "Loop, queue and key conflicts with the rule: safe recursion must stop and reduce the problem",
             "vi": "Loop, queue và key trái với quy tắc: recursion an toàn phải dừng và giảm bài toán"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Only a self-call",
-            "vi": "Chỉ một self-call"
-          },
-          "feedback": {
-            "en": "Only a self-call conflicts with the rule: safe recursion must stop and reduce the problem",
-            "vi": "Chỉ một self-call trái với quy tắc: recursion an toàn phải dừng và giảm bài toán"
           }
         }
       ],
@@ -569,17 +573,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Factorial(0)",
-            "vi": "Factorial(0)"
-          },
-          "feedback": {
-            "en": "Correct: Number−1 reaches the zero base",
-            "vi": "Đúng: Number−1 tới base zero"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Factorial(2)",
@@ -600,6 +593,17 @@
             "en": "Factorial(−1) conflicts with the rule: Number−1 reaches the zero base",
             "vi": "Factorial(−1) trái với quy tắc: Number−1 tới base zero"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Factorial(0)",
+            "vi": "Factorial(0)"
+          },
+          "feedback": {
+            "en": "Correct: Number−1 reaches the zero base",
+            "vi": "Đúng: Number−1 tới base zero"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -616,6 +620,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "6",
+            "vi": "6"
+          },
+          "feedback": {
+            "en": "6 conflicts with the rule: frames exist for 4,3,2,1,0",
+            "vi": "6 trái với quy tắc: có frame cho 4,3,2,1,0"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -636,17 +651,6 @@
           "feedback": {
             "en": "4 conflicts with the rule: frames exist for 4,3,2,1,0",
             "vi": "4 trái với quy tắc: có frame cho 4,3,2,1,0"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "6",
-            "vi": "6"
-          },
-          "feedback": {
-            "en": "6 conflicts with the rule: frames exist for 4,3,2,1,0",
-            "vi": "6 trái với quy tắc: có frame cho 4,3,2,1,0"
           }
         }
       ],
@@ -713,17 +717,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Block: no progress toward base",
-            "vi": "Chặn: không progress tới base"
-          },
-          "feedback": {
-            "en": "Correct: known no-progress recursion is unsafe",
-            "vi": "Đúng: recursion no-progress đã biết là unsafe"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Run indefinitely as valid",
@@ -743,6 +736,17 @@
           "feedback": {
             "en": "Treat as iteration conflicts with the rule: known no-progress recursion is unsafe",
             "vi": "Coi là iteration trái với quy tắc: recursion no-progress đã biết là unsafe"
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Block: no progress toward base",
+            "vi": "Chặn: không progress tới base"
+          },
+          "feedback": {
+            "en": "Correct: known no-progress recursion is unsafe",
+            "vi": "Đúng: recursion no-progress đã biết là unsafe"
           }
         }
       ],
@@ -840,5 +844,58 @@
       "locator": "Question 11, p13",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "designing-and-tracing-recursion-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain Factorial(4) from design through trace.",
+      "vi": "Giải thích Factorial(4) từ design tới trace."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Designing and tracing recursion; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Thiết kế và trace đệ quy; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "State domain and base result.",
+        "vi": "Nêu domain và base result."
+      },
+      {
+        "en": "Name the progress measure.",
+        "vi": "Nêu progress measure."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Base Number=0 returns 1.",
+        "vi": "Base Number=0 trả 1."
+      },
+      {
+        "en": "Recursive case decreases by one.",
+        "vi": "Recursive case giảm một."
+      },
+      {
+        "en": "Calls 4→0; returns 0→4; result 24.",
+        "vi": "Calls 4→0; returns 0→4; result 24."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.1-T03",
   "slug": "kernel-interrupts-and-scheduling",
   "estimatedMinutes": 35,
@@ -319,6 +319,15 @@
         "en": "Name the selected process and restore its values; explain whether CPU ownership changed.",
         "vi": "Nêu tiến trình được chọn và khôi phục giá trị của nó; giải thích quyền CPU có đổi không."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Kernel, interrupts and scheduling; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Kernel, ngắt và lập lịch; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -411,17 +420,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "PC=240,R1=3.",
-            "vi": "PC=240,R1=3."
-          },
-          "feedback": {
-            "en": "Correct: these belong to P2’s saved context.",
-            "vi": "Đúng: chúng thuộc ngữ cảnh P2 đã lưu."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "PC=120,R1=7.",
@@ -442,6 +440,17 @@
             "en": "That mixes contexts from two processes.",
             "vi": "Đó là trộn ngữ cảnh hai tiến trình."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "PC=240,R1=3.",
+            "vi": "PC=240,R1=3."
+          },
+          "feedback": {
+            "en": "Correct: these belong to P2’s saved context.",
+            "vi": "Đúng: chúng thuộc ngữ cảnh P2 đã lưu."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -458,6 +467,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Terminated.",
+            "vi": "Đã kết thúc."
+          },
+          "feedback": {
+            "en": "Quantum expiry does not mean its work is complete.",
+            "vi": "Hết quantum không có nghĩa công việc đã xong."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -478,17 +498,6 @@
           "feedback": {
             "en": "No I/O or external-event dependency was introduced.",
             "vi": "Không có phụ thuộc I/O hay sự kiện ngoài nào được tạo."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Terminated.",
-            "vi": "Đã kết thúc."
-          },
-          "feedback": {
-            "en": "Quantum expiry does not mean its work is complete.",
-            "vi": "Hết quantum không có nghĩa công việc đã xong."
           }
         }
       ],
@@ -555,17 +564,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "P2 no longer waits for that I/O and can enter ready.",
-            "vi": "P2 không còn chờ I/O đó và có thể vào Ready."
-          },
-          "feedback": {
-            "en": "Correct: the completed dependency changes eligibility.",
-            "vi": "Đúng: phụ thuộc đã hoàn tất làm đổi khả năng chạy."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "P1’s data must be copied into P2’s registers.",
@@ -585,6 +583,17 @@
           "feedback": {
             "en": "The model still has one running application process.",
             "vi": "Mô hình vẫn chỉ có một tiến trình ứng dụng Running."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "P2 no longer waits for that I/O and can enter ready.",
+            "vi": "P2 không còn chờ I/O đó và có thể vào Ready."
+          },
+          "feedback": {
+            "en": "Correct: the completed dependency changes eligibility.",
+            "vi": "Đúng: phụ thuộc đã hoàn tất làm đổi khả năng chạy."
           }
         }
       ],
@@ -658,5 +667,54 @@
       "locator": "PDF p11 Q9(a–b)",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "kernel-interrupts-and-scheduling-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Describe the save→service→schedule→restore chain without assuming a compulsory process switch.",
+      "vi": "Mô tả chuỗi lưu→phục vụ→lập lịch→khôi phục mà không giả định bắt buộc đổi tiến trình."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Kernel, interrupts and scheduling; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Kernel, ngắt và lập lịch; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Identify the interrupt source and the current process.",
+        "vi": "Xác định nguồn ngắt và tiến trình hiện tại."
+      },
+      {
+        "en": "Record saved context before tracing state/queue changes.",
+        "vi": "Ghi ngữ cảnh đã lưu trước khi trace thay đổi trạng thái/hàng đợi."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Preserve interrupted context, identify/service the event and update management state.",
+        "vi": "Giữ ngữ cảnh bị ngắt, xác định/phục vụ sự kiện và cập nhật trạng thái quản lý."
+      },
+      {
+        "en": "Choose an eligible process and restore that process’s values.",
+        "vi": "Chọn tiến trình đủ điều kiện và khôi phục giá trị của tiến trình đó."
+      },
+      {
+        "en": "The same process may resume; I/O completion normally changes blocked to ready first.",
+        "vi": "Có thể tiếp tục cùng tiến trình; I/O hoàn tất trước hết thường đổi Blocked sang Ready."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

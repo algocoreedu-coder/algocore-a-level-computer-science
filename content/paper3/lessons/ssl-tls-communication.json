@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.17.1",
+  "version": "2026.2",
   "topicId": "P3-17.1-T03",
   "slug": "ssl-tls-communication",
   "estimatedMinutes": 40,
@@ -314,6 +314,15 @@
         "en": "Give the protected property and one non-guarantee.",
         "vi": "Nêu thuộc tính được bảo vệ và một điều không được bảo đảm."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of SSL/TLS communication; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Truyền thông SSL/TLS; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -416,17 +425,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Stop before protected application data",
-            "vi": "Dừng trước dữ liệu ứng dụng được bảo vệ"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Mark the session trusted anyway",
@@ -447,6 +445,17 @@
             "en": "Sensitive data must wait for establishment.",
             "vi": "Dữ liệu nhạy cảm phải chờ thiết lập."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Stop before protected application data",
+            "vi": "Dừng trước dữ liệu ứng dụng được bảo vệ"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -463,6 +472,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Certificates are no longer relevant to identity",
+            "vi": "Chứng chỉ không còn liên quan danh tính"
+          },
+          "feedback": {
+            "en": "The certificate check supported the establishment decision.",
+            "vi": "Kiểm tra chứng chỉ hỗ trợ quyết định thiết lập."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -483,17 +503,6 @@
           "feedback": {
             "en": "Private keys remain protected.",
             "vi": "Khóa riêng vẫn được bảo vệ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Certificates are no longer relevant to identity",
-            "vi": "Chứng chỉ không còn liên quan danh tính"
-          },
-          "feedback": {
-            "en": "The certificate check supported the establishment decision.",
-            "vi": "Kiểm tra chứng chỉ hỗ trợ quyết định thiết lập."
           }
         }
       ],
@@ -560,17 +569,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Request → server certificate/setup → validate → establish session → protected password",
-            "vi": "Yêu cầu → chứng thư/thiết lập server → xác thực → lập phiên → mật khẩu được bảo vệ"
-          },
-          "feedback": {
-            "en": "Correct: application data waits until establishment.",
-            "vi": "Đúng: dữ liệu ứng dụng chờ đến khi thiết lập."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Send password → inspect certificate → request TLS",
@@ -590,6 +588,17 @@
           "feedback": {
             "en": "This skips required checks and confuses transport with application authorisation.",
             "vi": "Cách này bỏ kiểm tra và nhầm truyền tải với phân quyền ứng dụng."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Request → server certificate/setup → validate → establish session → protected password",
+            "vi": "Yêu cầu → chứng thư/thiết lập server → xác thực → lập phiên → mật khẩu được bảo vệ"
+          },
+          "feedback": {
+            "en": "Correct: application data waits until establishment.",
+            "vi": "Đúng: dữ liệu ứng dụng chờ đến khi thiết lập."
           }
         }
       ],
@@ -663,5 +672,53 @@
       "locator": "Question 9(a–b), p13",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "ssl-tls-communication-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Write the five-state simplified TLS journey.",
+      "vi": "Viết hành trình TLS giản lược gồm năm trạng thái."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of SSL/TLS communication; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Truyền thông SSL/TLS; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Name the sensitive data and client/server actors.",
+        "vi": "Ghi dữ liệu nhạy cảm và tác nhân client/server."
+      },
+      {
+        "en": "Trace certificate validation before session establishment.",
+        "vi": "Theo dõi xác thực chứng chỉ trước thiết lập phiên."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Client request → server certificate/setup information.",
+        "vi": "Yêu cầu client → thông tin chứng chỉ/thiết lập server."
+      },
+      {
+        "en": "Client validates issuer, domain and validity → parties establish session protection.",
+        "vi": "Client xác thực bên cấp, tên miền và hiệu lực → các bên thiết lập bảo vệ phiên."
+      },
+      {
+        "en": "Only then send protected application data; TLS does not guarantee site honesty or application authorisation.",
+        "vi": "Chỉ sau đó mới gửi dữ liệu ứng dụng được bảo vệ; TLS không bảo đảm trang trung thực hay phân quyền ứng dụng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

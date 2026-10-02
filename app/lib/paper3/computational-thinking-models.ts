@@ -213,9 +213,42 @@ export function stackTrace(scenarioInput: string): ComputationalTrace<StackState
     const before = state; state = { ...state, operation: "CHECK EMPTY", committed: false };
     steps.push(step("empty-terminal", L("Confirm the empty terminal state", "Xác nhận trạng thái kết thúc rỗng"), L("top = -1 is checked before any array access.", "top = -1 được kiểm tra trước mọi truy cập mảng."), L("No operation is scheduled, so the stack remains safely empty.", "Không có thao tác được lên lịch nên stack giữ nguyên trạng thái rỗng an toàn."), "IF Top = -1 THEN Empty", before, state, "terminal", "STK-04"));
   }
-  fixture.operations.forEach((operation, index) => { const before = state; state = applyStackOperation(state, operation.op, operation.value); steps.push(step(`op-${index}`, L(operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`, operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`), operation.op === "PUSH" ? L("Guard first; increment top; then store the value.", "Kiểm tra điều kiện trước; tăng top; rồi lưu giá trị.") : L("Guard before access; POP clears the cell then decrements top.", "Kiểm tra trước khi truy cập; POP xóa ô rồi giảm top."), state.error ? L(`Safe ${state.error}: the complete state is preserved.`, `${state.error} an toàn: toàn bộ trạng thái được giữ nguyên.`) : state.returned !== null ? L(`Returned ${state.returned}.`, `Trả về ${state.returned}.`) : L("Stack state updated.", "Trạng thái stack đã cập nhật."), operation.op === "PUSH" ? "Top ← Top + 1; Stack[Top] ← Value" : operation.op === "POP" ? "Value ← Stack[Top]; Stack[Top] ← NULL; Top ← Top - 1" : "Value ← Stack[Top]", before, state, operation.op.toLowerCase(), state.error ? operation.op === "PUSH" ? "STK-01" : operation.op === "POP" ? "STK-04" : "STK-08" : operation.op === "PUSH" ? "STK-03" : operation.op === "POP" ? "STK-06" : "STK-09")); });
-  return finishTrace(scenario, L(`Fixed array capacity ${fixture.capacity}; bottom index 0; top = -1 when empty; LIFO.`, `Mảng cố định sức chứa ${fixture.capacity}; đáy tại chỉ số 0; top = -1 khi rỗng; LIFO.`), ["PROCEDURE PUSH(Value)", "  IF Top = Capacity - 1 THEN OUTPUT \"Overflow\"", "  ELSE Top ← Top + 1; Stack[Top] ← Value", "  ENDIF", "ENDPROCEDURE", "FUNCTION POP RETURNS INTEGER", "  IF Top = -1 THEN RETURN -1", "  Value ← Stack[Top]; Stack[Top] ← NULL; Top ← Top - 1", "  RETURN Value", "ENDFUNCTION"], steps);
+  fixture.operations.forEach((operation, index) => { const before = state; state = applyStackOperation(state, operation.op, operation.value); steps.push(step(`op-${index}`, L(operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`, operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`), operation.op === "PUSH" ? L("Guard first; increment top; then store the value.", "Kiểm tra điều kiện trước; tăng top; rồi lưu giá trị.") : L("Guard before access; POP clears the cell then decrements top.", "Kiểm tra trước khi truy cập; POP xóa ô rồi giảm top."), state.error ? L(`Safe ${state.error}: the complete state is preserved.`, `${state.error} an toàn: toàn bộ trạng thái được giữ nguyên.`) : state.returned !== null ? L(`Returned ${state.returned}.`, `Trả về ${state.returned}.`) : L("Stack state updated.", "Trạng thái stack đã cập nhật."), operation.op === "PUSH" ? "Top ← Top + 1\nStack[Top] ← NewValue" : operation.op === "POP" ? "Removed ← Stack[Top]\nStack[Top] ← EmptyValue\nTop ← Top - 1" : "Removed ← Stack[Top]", before, state, operation.op.toLowerCase(), state.error ? operation.op === "PUSH" ? "STK-01" : operation.op === "POP" ? "STK-04" : "STK-08" : operation.op === "PUSH" ? "STK-03" : operation.op === "POP" ? "STK-06" : "STK-09")); });
+  return finishTrace(scenario, L(`Fixed array capacity ${fixture.capacity}; bottom index 0; top = -1 when empty; LIFO.`, `Mảng cố định sức chứa ${fixture.capacity}; đáy tại chỉ số 0; top = -1 khi rỗng; LIFO.`), stackPseudocode(fixture.capacity), steps);
 }
+const stackPseudocode = (capacity: number): string[] => [
+  `CONSTANT Capacity = ${capacity}`,
+  "CONSTANT EmptyValue = 0",
+  `DECLARE Stack : ARRAY[0:${capacity - 1}] OF INTEGER`,
+  "DECLARE Top : INTEGER",
+  "Top ← -1",
+  "FUNCTION Push(NewValue : INTEGER) RETURNS BOOLEAN",
+  "  IF Top = Capacity - 1 THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  Top ← Top + 1",
+  "  Stack[Top] ← NewValue",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+  "PROCEDURE Pop(BYREF Removed : INTEGER, BYREF Success : BOOLEAN)",
+  "  IF Top = -1 THEN",
+  "    Success ← FALSE",
+  "  ELSE",
+  "    Removed ← Stack[Top]",
+  "    Stack[Top] ← EmptyValue",
+  "    Top ← Top - 1",
+  "    Success ← TRUE",
+  "  ENDIF",
+  "ENDPROCEDURE",
+  "PROCEDURE Peek(BYREF TopValue : INTEGER, BYREF Success : BOOLEAN)",
+  "  IF Top = -1 THEN",
+  "    Success ← FALSE",
+  "  ELSE",
+  "    TopValue ← Stack[Top]",
+  "    Success ← TRUE",
+  "  ENDIF",
+  "ENDPROCEDURE",
+];
 
 export type QueueScenario = "fifo" | "wrap-around" | "underflow" | "overflow" | "empty";
 type QueueValue = number | string;
@@ -234,14 +267,45 @@ export function applyQueueOperation(input: QueueState, op: "ENQUEUE" | "DEQUEUE"
 }
 export function queueTrace(scenarioInput: string): ComputationalTrace<QueueState> {
   const scenario = requireScenario(scenarioInput, queueFixtures), fixture = queueFixtures[scenario]; let state: QueueState = { cells: Array(fixture.capacity).fill(null), capacity: fixture.capacity, front: 0, rear: 0, count: 0, logicalOrder: [], operation: "—", returned: null, error: null, committed: null, wrapped: false };
-  const steps = [step("ready", L("Declare the circular-queue convention", "Khai báo quy ước queue vòng"), L("front is the next removal; rear is the next insertion; count distinguishes empty from full.", "front là vị trí lấy ra tiếp theo; rear là vị trí chèn tiếp theo; count phân biệt rỗng với đầy."), L("The queue is empty when count = 0.", "Queue rỗng khi count = 0."), "Front ← 0; Rear ← 0; Count ← 0", state, state)];
+  const steps = [step("ready", L("Declare the circular-queue convention", "Khai báo quy ước queue vòng"), L("front is the next removal; rear is the next insertion; count distinguishes empty from full.", "front là vị trí lấy ra tiếp theo; rear là vị trí chèn tiếp theo; count phân biệt rỗng với đầy."), L("The queue is empty when count = 0.", "Queue rỗng khi count = 0."), "Front ← 0\nRear ← 0\nCount ← 0", state, state)];
   if (fixture.operations.length === 0) {
     const before = state; state = { ...state, operation: "CHECK EMPTY", committed: false };
     steps.push(step("empty-terminal", L("Confirm the empty terminal state", "Xác nhận trạng thái kết thúc rỗng"), L("count = 0 is checked before reading Queue[front].", "count = 0 được kiểm tra trước khi đọc Queue[front]."), L("No operation is scheduled, so every pointer and cell remains unchanged.", "Không có thao tác được lên lịch nên mọi pointer và ô giữ nguyên."), "IF Count = 0 THEN Empty", before, state, "terminal", "QUE-06"));
   }
-  fixture.operations.forEach((operation, index) => { const before = state; state = applyQueueOperation(state, operation.op, operation.value); steps.push(step(`op-${index}`, L(operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`, operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`), operation.op === "ENQUEUE" ? L("Guard; write at rear; advance rear modulo capacity; increment count.", "Kiểm tra; ghi tại rear; tăng rear theo modulo sức chứa; tăng count.") : L("Guard; read and clear front; advance modulo capacity; decrement count.", "Kiểm tra; đọc và xóa front; tăng theo modulo sức chứa; giảm count."), state.error ? L(`Safe ${state.error}: every field is unchanged.`, `${state.error} an toàn: mọi trường đều không đổi.`) : state.returned !== null ? L(`Returned ${state.returned}, the oldest queued item.`, `Trả về ${state.returned}, phần tử cũ nhất trong queue.`) : L("FIFO state updated.", "Trạng thái FIFO đã cập nhật."), operation.op === "ENQUEUE" ? "Queue[Rear] ← Value; Rear ← (Rear + 1) MOD Capacity" : "Value ← Queue[Front]; Queue[Front] ← NULL; Front ← (Front + 1) MOD Capacity", before, state, operation.op.toLowerCase(), state.error ? operation.op === "ENQUEUE" ? "QUE-01" : "QUE-06" : operation.op === "ENQUEUE" ? "QUE-05" : "QUE-10")); });
-  return finishTrace(scenario, L(`Circular array capacity ${fixture.capacity}; front=next removal; rear=next insertion; count defines empty/full.`, `Mảng vòng sức chứa ${fixture.capacity}; front=vị trí lấy tiếp theo; rear=vị trí chèn tiếp theo; count xác định rỗng/đầy.`), ["PROCEDURE ENQUEUE(Value)", "  IF Count = Capacity THEN RETURN FALSE", "  Queue[Rear] ← Value", "  Rear ← (Rear + 1) MOD Capacity", "  Count ← Count + 1", "ENDPROCEDURE", "FUNCTION DEQUEUE RETURNS STRING", "  IF Count = 0 THEN RETURN ErrorValue", "  Removed ← Queue[Front]; Queue[Front] ← EmptyValue", "  Front ← (Front + 1) MOD Capacity", "  Count ← Count - 1", "  RETURN Removed", "ENDFUNCTION"], steps);
+  fixture.operations.forEach((operation, index) => { const before = state; state = applyQueueOperation(state, operation.op, operation.value); steps.push(step(`op-${index}`, L(operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`, operation.value === undefined ? operation.op : `${operation.op} ${operation.value}`), operation.op === "ENQUEUE" ? L("Guard; write at rear; advance rear modulo capacity; increment count.", "Kiểm tra; ghi tại rear; tăng rear theo modulo sức chứa; tăng count.") : L("Guard; read and clear front; advance modulo capacity; decrement count.", "Kiểm tra; đọc và xóa front; tăng theo modulo sức chứa; giảm count."), state.error ? L(`Safe ${state.error}: every field is unchanged.`, `${state.error} an toàn: mọi trường đều không đổi.`) : state.returned !== null ? L(`Returned ${state.returned}, the oldest queued item.`, `Trả về ${state.returned}, phần tử cũ nhất trong queue.`) : L("FIFO state updated.", "Trạng thái FIFO đã cập nhật."), operation.op === "ENQUEUE" ? "Queue[Rear] ← NewValue\nRear ← (Rear + 1) MOD Capacity\nCount ← Count + 1" : "Removed ← Queue[Front]\nQueue[Front] ← EmptyValue\nFront ← (Front + 1) MOD Capacity\nCount ← Count - 1", before, state, operation.op.toLowerCase(), state.error ? operation.op === "ENQUEUE" ? "QUE-01" : "QUE-06" : operation.op === "ENQUEUE" ? "QUE-05" : "QUE-10")); });
+  return finishTrace(scenario, L(`Circular array capacity ${fixture.capacity}; front=next removal; rear=next insertion; count defines empty/full.`, `Mảng vòng sức chứa ${fixture.capacity}; front=vị trí lấy tiếp theo; rear=vị trí chèn tiếp theo; count xác định rỗng/đầy.`), queuePseudocode(fixture.capacity), steps);
 }
+const queuePseudocode = (capacity: number): string[] => [
+  `CONSTANT Capacity = ${capacity}`,
+  "CONSTANT EmptyValue = \"\"",
+  `DECLARE Queue : ARRAY[0:${capacity - 1}] OF STRING`,
+  "DECLARE Front : INTEGER",
+  "DECLARE Rear : INTEGER",
+  "DECLARE Count : INTEGER",
+  "Front ← 0",
+  "Rear ← 0",
+  "Count ← 0",
+  "FUNCTION Enqueue(NewValue : STRING) RETURNS BOOLEAN",
+  "  IF Count = Capacity THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  Queue[Rear] ← NewValue",
+  "  Rear ← (Rear + 1) MOD Capacity",
+  "  Count ← Count + 1",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+  "PROCEDURE Dequeue(BYREF Removed : STRING, BYREF Success : BOOLEAN)",
+  "  IF Count = 0 THEN",
+  "    Success ← FALSE",
+  "  ELSE",
+  "    Removed ← Queue[Front]",
+  "    Queue[Front] ← EmptyValue",
+  "    Front ← (Front + 1) MOD Capacity",
+  "    Count ← Count - 1",
+  "    Success ← TRUE",
+  "  ENDIF",
+  "ENDPROCEDURE",
+];
 
 export interface ListNodeRecord { address: number; data: number | null; next: number; allocated: boolean; }
 export interface LinkedListState { head: number; nodes: ListNodeRecord[]; current: number; previous: number; path: number[]; reachable: number[]; operation: string; status: "ready" | "traversing" | "found" | "missing" | "updating" | "inserted" | "deleted"; savedSuccessor: number | null; returned: number | null; error: string | null; }
@@ -277,17 +341,17 @@ function traverseList(state: LinkedListState, target: number, steps: Computation
     previous = current; current = node.next;
   }
   const before = state; state = { ...state, current: -1, previous, status: "missing" };
-  steps.push(step("missing", L("Reach NULL", "Tới NULL"), L("A missing target is reported only after traversal reaches -1.", "Chỉ báo thiếu sau khi traversal tới -1."), L("No reachable node matches the target.", "Không có node reachable nào khớp mục tiêu."), "RETURN -1", before, state, "not-found", "LL-F04"));
+  steps.push(step("missing", L("Reach NULL", "Tới NULL"), L("A missing target is reported only after traversal reaches NullPointer.", "Chỉ báo thiếu sau khi traversal tới NullPointer."), L("No reachable node matches the target.", "Không có node reachable nào khớp mục tiêu."), "RETURN NullPointer", before, state, "not-found", "LL-F04"));
   return { state, found: -1, previous };
 }
 export function linkedListTrace(scenarioInput: string): ComputationalTrace<LinkedListState> {
   const scenario = requireScenario(scenarioInput, linkedScenarios), fixture = linkedScenarios[scenario], empty = scenario === "empty-find";
   const initialNodes = empty ? listBaseNodes().map(node => ({ address: node.address, data: null, next: -1, allocated: false })) : scenario === "duplicate-first-match" ? listDuplicateNodes() : listBaseNodes();
   let state: LinkedListState = { head: empty ? -1 : 0, nodes: initialNodes, current: empty ? -1 : 0, previous: -1, path: [], reachable: empty ? [] : validateLinkedListState(0, initialNodes), operation: fixture.operation, status: "ready", savedSuccessor: null, returned: null, error: null };
-  const steps = [step("ready", L("Read head and pointer convention", "Đọc head và quy ước pointer"), L("Addresses are zero-based; NULL is -1; the list is unordered.", "Địa chỉ bắt đầu từ 0; NULL là -1; list không có thứ tự."), empty ? L("head = -1, so the list is empty.", "head = -1 nên list rỗng.") : L("Traversal begins at head = 0.", "Traversal bắt đầu tại head = 0."), "Current ← Head; Previous ← -1", state, state)];
+  const steps = [step("ready", L("Read head and pointer convention", "Đọc head và quy ước pointer"), L("Addresses are zero-based; NullPointer is -1; the list is unordered.", "Địa chỉ bắt đầu từ 0; NullPointer là -1; list không có thứ tự."), empty ? L("head = NullPointer, so the list is empty.", "head = NullPointer nên list rỗng.") : L("Traversal begins at head = 0.", "Traversal bắt đầu tại head = 0."), "Current ← Head\nPrevious ← NullPointer", state, state)];
   if (empty) {
     const before = state; state = { ...state, status: "missing" };
-    steps.push(step("empty-return", L("Stop at the NULL head", "Dừng tại head NULL"), L("The traversal guard fails before any node is read.", "Điều kiện traversal sai trước khi đọc node nào."), L("Return -1 with an empty path.", "Trả về -1 với path rỗng."), "RETURN -1", before, state, "terminal", "LL-F04"));
+    steps.push(step("empty-return", L("Stop at the NULL head", "Dừng tại head NULL"), L("The traversal guard fails before any node is read.", "Điều kiện traversal sai trước khi đọc node nào."), L("Return NullPointer with an empty path.", "Trả về NullPointer với path rỗng."), "RETURN NullPointer", before, state, "terminal", "LL-F04"));
     return finishTrace(scenario, L("Record array; head/next NULL = -1; allocator chooses the lowest free address.", "Mảng record; NULL của head/next = -1; bộ cấp phát chọn địa chỉ trống nhỏ nhất."), listPseudocode, steps);
   }
   if (fixture.operation === "find" || fixture.operation === "delete" || fixture.operation === "insert-middle") {
@@ -320,7 +384,83 @@ export function linkedListTrace(scenarioInput: string): ComputationalTrace<Linke
   steps.push(step("move-head", L("Move head last", "Chuyển head sau cùng"), L("Publish the new node only after its link is valid.", "Chỉ công bố node mới sau khi link của nó hợp lệ."), L("The new value is now first.", "Giá trị mới giờ đứng đầu."), "Head ← New", before, state, "relink"));
   return finishTrace(scenario, L("Insert at head using the lowest free address; write next before head.", "Chèn đầu bằng địa chỉ trống nhỏ nhất; ghi next trước head."), listPseudocode, steps);
 }
-const listPseudocode = ["Current ← Head", "Previous ← -1", "WHILE Current <> -1 AND Nodes[Current].Data <> Target", "  Previous ← Current", "  Current ← Nodes[Current].Next", "ENDWHILE"];
+const listPseudocode = [
+  "TYPE TListNode",
+  "  DECLARE Data : INTEGER",
+  "  DECLARE Next : INTEGER",
+  "  DECLARE InUse : BOOLEAN",
+  "ENDTYPE",
+  "CONSTANT LowerBound = 0",
+  "CONSTANT UpperBound = 5",
+  "CONSTANT NullPointer = -1",
+  "DECLARE Nodes : ARRAY[0:5] OF TListNode",
+  "DECLARE Head : INTEGER",
+  "FUNCTION Find(Target : INTEGER) RETURNS INTEGER",
+  "  DECLARE Current : INTEGER",
+  "  Current ← Head",
+  "  WHILE Current <> NullPointer",
+  "    IF Nodes[Current].Data = Target THEN",
+  "      RETURN Current",
+  "    ENDIF",
+  "    Current ← Nodes[Current].Next",
+  "  ENDWHILE",
+  "  RETURN NullPointer",
+  "ENDFUNCTION",
+  "FUNCTION AllocateNode(NewValue : INTEGER) RETURNS INTEGER",
+  "  DECLARE Index : INTEGER",
+  "  FOR Index ← LowerBound TO UpperBound",
+  "    IF Nodes[Index].InUse = FALSE THEN",
+  "      Nodes[Index].Data ← NewValue",
+  "      Nodes[Index].Next ← NullPointer",
+  "      Nodes[Index].InUse ← TRUE",
+  "      RETURN Index",
+  "    ENDIF",
+  "  NEXT Index",
+  "  RETURN NullPointer",
+  "ENDFUNCTION",
+  "FUNCTION InsertAfter(PreviousAddress : INTEGER, NewValue : INTEGER) RETURNS BOOLEAN",
+  "  DECLARE NewAddress : INTEGER",
+  "  IF PreviousAddress <> NullPointer THEN",
+  "    IF (PreviousAddress < LowerBound) OR (PreviousAddress > UpperBound) OR (Nodes[PreviousAddress].InUse = FALSE) THEN",
+  "      RETURN FALSE",
+  "    ENDIF",
+  "  ENDIF",
+  "  NewAddress ← AllocateNode(NewValue)",
+  "  IF NewAddress = NullPointer THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  IF PreviousAddress = NullPointer THEN",
+  "    Nodes[NewAddress].Next ← Head",
+  "    Head ← NewAddress",
+  "  ELSE",
+  "    Nodes[NewAddress].Next ← Nodes[PreviousAddress].Next",
+  "    Nodes[PreviousAddress].Next ← NewAddress",
+  "  ENDIF",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+  "FUNCTION Delete(Target : INTEGER) RETURNS BOOLEAN",
+  "  DECLARE Current : INTEGER",
+  "  DECLARE Previous : INTEGER",
+  "  Current ← Head",
+  "  Previous ← NullPointer",
+  "  WHILE (Current <> NullPointer) AND (Nodes[Current].Data <> Target)",
+  "    Previous ← Current",
+  "    Current ← Nodes[Current].Next",
+  "  ENDWHILE",
+  "  IF Current = NullPointer THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  IF Previous = NullPointer THEN",
+  "    Head ← Nodes[Current].Next",
+  "  ELSE",
+  "    Nodes[Previous].Next ← Nodes[Current].Next",
+  "  ENDIF",
+  "  Nodes[Current].Data ← 0",
+  "  Nodes[Current].Next ← NullPointer",
+  "  Nodes[Current].InUse ← FALSE",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+];
 
 export interface TreeNodeRecord { id: string; value: number; left: string | null; right: string | null; }
 export interface BinaryTreeState { root: string | null; nodes: TreeNodeRecord[]; target: number; operation: "find" | "insert"; currentId: string | null; path: string[]; comparisons: number; decision: "ready" | "left" | "right" | "equal" | "attach" | "null"; status: "ready" | "searching" | "found" | "missing" | "inserted" | "duplicate-rejected"; insertedId: string | null; parentId: string | null; side: "left" | "right" | "root" | null; }
@@ -346,12 +486,84 @@ export function binaryTreeTrace(scenarioInput: string): ComputationalTrace<Binar
     if (decision === "equal") return finishTrace(scenario, L("BST: left < node < right; duplicates reject; deletion is outside scope.", "BST: trái < node < phải; duplicate bị từ chối; deletion ngoài phạm vi."), treePseudocode, steps);
     currentId = node[decision];
   }
-  if (fixture.operation === "find") { const before = state; state = { ...state, currentId: null, status: "missing", decision: "null", parentId }; steps.push(step("missing", L("Reach a NULL child", "Tới child NULL"), L("The BST ordering path has no remaining candidate.", "Đường đi theo thứ tự BST không còn ứng viên."), L("The value is missing.", "Không có giá trị."), "RETURN NULL", before, state, "not-found", side === "left" ? "BST-F04" : "BST-F05")); return finishTrace(scenario, L("BST: left < node < right; duplicates reject; deletion is outside scope.", "BST: trái < node < phải; duplicate bị từ chối; deletion ngoài phạm vi."), treePseudocode, steps); }
+  if (fixture.operation === "find") { const before = state; state = { ...state, currentId: null, status: "missing", decision: "null", parentId }; steps.push(step("missing", L("Reach a NULL child", "Tới child NULL"), L("The BST ordering path has no remaining candidate.", "Đường đi theo thứ tự BST không còn ứng viên."), L("The value is missing.", "Không có giá trị."), "RETURN NullPointer", before, state, "not-found", side === "left" ? "BST-F04" : "BST-F05")); return finishTrace(scenario, L("BST: left < node < right; duplicates reject; deletion is outside scope.", "BST: trái < node < phải; duplicate bị từ chối; deletion ngoài phạm vi."), treePseudocode, steps); }
   const newNode: TreeNodeRecord = { id: `n${fixture.value}`, value: fixture.value, left: null, right: null }, before = state; const nodes = state.nodes.map(node => node.id === parentId ? { ...node, [side!]: newNode.id } : node).concat(newNode); validateBinaryTree(state.root, nodes); state = { ...state, nodes, currentId: newNode.id, status: "inserted", decision: "attach", insertedId: newNode.id, parentId, side };
   steps.push(step("attach-leaf", L(`Attach ${newNode.id}`, `Gắn ${newNode.id}`), L("Attach a new leaf at the first NULL link on the comparison path.", "Gắn leaf mới tại link NULL đầu tiên trên đường so sánh."), L(`${newNode.id} is the ${side} child of ${parentId}.`, `${newNode.id} là child ${side} của ${parentId}.`), `Nodes[Parent].${side === "left" ? "Left" : "Right"} ← NewNode`, before, state, "insert", "BST-I06"));
   return finishTrace(scenario, L("BST: left < node < right; duplicates reject; deletion is outside scope.", "BST: trái < node < phải; duplicate bị từ chối; deletion ngoài phạm vi."), treePseudocode, steps);
 }
-const treePseudocode = ["Current ← Root", "WHILE Current <> NULL", "  IF Target = Nodes[Current].Value THEN RETURN Current", "  IF Target < Nodes[Current].Value THEN Current ← Nodes[Current].Left", "  ELSE Current ← Nodes[Current].Right", "ENDWHILE"];
+const treePseudocode = [
+  "TYPE TTreeNode",
+  "  DECLARE Value : INTEGER",
+  "  DECLARE Left : INTEGER",
+  "  DECLARE Right : INTEGER",
+  "  DECLARE InUse : BOOLEAN",
+  "ENDTYPE",
+  "CONSTANT LowerBound = 0",
+  "CONSTANT UpperBound = 7",
+  "CONSTANT NullPointer = -1",
+  "DECLARE Nodes : ARRAY[0:7] OF TTreeNode",
+  "DECLARE Root : INTEGER",
+  "FUNCTION Find(Target : INTEGER) RETURNS INTEGER",
+  "  DECLARE Current : INTEGER",
+  "  Current ← Root",
+  "  WHILE Current <> NullPointer",
+  "    IF Target = Nodes[Current].Value THEN",
+  "      RETURN Current",
+  "    ENDIF",
+  "    IF Target < Nodes[Current].Value THEN",
+  "      Current ← Nodes[Current].Left",
+  "    ELSE",
+  "      Current ← Nodes[Current].Right",
+  "    ENDIF",
+  "  ENDWHILE",
+  "  RETURN NullPointer",
+  "ENDFUNCTION",
+  "FUNCTION AllocateTreeNode(NewValue : INTEGER) RETURNS INTEGER",
+  "  DECLARE Index : INTEGER",
+  "  FOR Index ← LowerBound TO UpperBound",
+  "    IF Nodes[Index].InUse = FALSE THEN",
+  "      Nodes[Index].Value ← NewValue",
+  "      Nodes[Index].Left ← NullPointer",
+  "      Nodes[Index].Right ← NullPointer",
+  "      Nodes[Index].InUse ← TRUE",
+  "      RETURN Index",
+  "    ENDIF",
+  "  NEXT Index",
+  "  RETURN NullPointer",
+  "ENDFUNCTION",
+  "FUNCTION Insert(NewValue : INTEGER) RETURNS BOOLEAN",
+  "  DECLARE Current : INTEGER",
+  "  DECLARE Parent : INTEGER",
+  "  DECLARE NewAddress : INTEGER",
+  "  Current ← Root",
+  "  Parent ← NullPointer",
+  "  WHILE Current <> NullPointer",
+  "    IF NewValue = Nodes[Current].Value THEN",
+  "      RETURN FALSE",
+  "    ENDIF",
+  "    Parent ← Current",
+  "    IF NewValue < Nodes[Current].Value THEN",
+  "      Current ← Nodes[Current].Left",
+  "    ELSE",
+  "      Current ← Nodes[Current].Right",
+  "    ENDIF",
+  "  ENDWHILE",
+  "  NewAddress ← AllocateTreeNode(NewValue)",
+  "  IF NewAddress = NullPointer THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  IF Parent = NullPointer THEN",
+  "    Root ← NewAddress",
+  "  ELSE",
+  "    IF NewValue < Nodes[Parent].Value THEN",
+  "      Nodes[Parent].Left ← NewAddress",
+  "    ELSE",
+  "      Nodes[Parent].Right ← NewAddress",
+  "    ENDIF",
+  "  ENDIF",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+];
 
 export interface DictionaryEntry { key: string; value: string; }
 export interface DictionaryState { entries: DictionaryEntry[]; operation: "lookup" | "insert" | "update"; key: string; argument: string | null; scannedKeys: string[]; returned: string | null; status: "ready" | "scanning" | "found" | "missing" | "inserted" | "updated" | "duplicate-key-rejected"; committed: boolean | null; }
@@ -373,9 +585,60 @@ export function dictionaryTrace(scenarioInput: string): ComputationalTrace<Dicti
   else if (fixture.operation === "insert") state = foundIndex >= 0 ? { ...state, status: "duplicate-key-rejected", committed: false } : { ...state, entries: [...state.entries, { key: fixture.key, value: fixture.argument! }], status: "inserted", committed: true };
   else state = foundIndex < 0 ? { ...state, status: "missing", committed: false } : { ...state, entries: state.entries.map((entry, index) => index === foundIndex ? { ...entry, value: fixture.argument! } : entry), status: "updated", committed: true };
   validateDictionaryEntries(state.entries);
-  steps.push(step("resolve", L("Resolve the external operation", "Giải quyết thao tác ngoài"), fixture.operation === "insert" ? L("INSERT requires an unused key; an existing key is rejected.", "INSERT yêu cầu key chưa dùng; key đã tồn tại bị từ chối.") : fixture.operation === "update" ? L("UPDATE changes only an existing key.", "UPDATE chỉ đổi key đã tồn tại.") : L("LOOKUP returns the matched value without changing entries.", "LOOKUP trả về value khớp mà không đổi entries."), state.status === "found" ? L(`Return ${state.returned}.`, `Trả về ${state.returned}.`) : state.status === "missing" ? L("Report missing without mutation.", "Báo missing mà không thay đổi.") : state.status === "duplicate-key-rejected" ? L("Reject duplicate INSERT without mutation.", "Từ chối INSERT trùng mà không thay đổi.") : L(`Dictionary ${state.status}.`, `Dictionary đã ${state.status}.`), fixture.operation === "lookup" ? "RETURN Entries[Index].Value" : fixture.operation === "insert" ? "APPEND (Key, Value)" : "Entries[Index].Value ← Value", before, state, "resolve"));
-  return finishTrace(scenario, L("Unique string keys; INSERT existing rejects; UPDATE missing reports missing; entry position is internal.", "Key chuỗi duy nhất; INSERT key đã có bị từ chối; UPDATE key thiếu báo missing; vị trí entry là nội bộ."), ["Index ← 0", "WHILE Index < LENGTH(Entries) AND Entries[Index].Key <> Key", "  Index ← Index + 1", "ENDWHILE", "// resolve LOOKUP, INSERT or UPDATE using the declared policy"], steps);
+  steps.push(step("resolve", L("Resolve the external operation", "Giải quyết thao tác ngoài"), fixture.operation === "insert" ? L("INSERT requires an unused key; an existing key is rejected.", "INSERT yêu cầu key chưa dùng; key đã tồn tại bị từ chối.") : fixture.operation === "update" ? L("UPDATE changes only an existing key.", "UPDATE chỉ đổi key đã tồn tại.") : L("LOOKUP returns the matched value without changing entries.", "LOOKUP trả về value khớp mà không đổi entries."), state.status === "found" ? L(`Return ${state.returned}.`, `Trả về ${state.returned}.`) : state.status === "missing" ? L("Report missing without mutation.", "Báo missing mà không thay đổi.") : state.status === "duplicate-key-rejected" ? L("Reject duplicate INSERT without mutation.", "Từ chối INSERT trùng mà không thay đổi.") : L(`Dictionary ${state.status}.`, `Dictionary đã ${state.status}.`), fixture.operation === "lookup" ? "FoundValue ← Entries[Index].Value\nFound ← TRUE" : fixture.operation === "insert" ? "Entries[Count].Key ← NewKey\nEntries[Count].Value ← NewValue\nCount ← Count + 1" : "Entries[Index].Value ← NewValue", before, state, "resolve"));
+  return finishTrace(scenario, L("Unique string keys; INSERT existing rejects; UPDATE missing reports missing; entry position is internal.", "Key chuỗi duy nhất; INSERT key đã có bị từ chối; UPDATE key thiếu báo missing; vị trí entry là nội bộ."), dictionaryPseudocode, steps);
 }
+const dictionaryPseudocode = [
+  "TYPE TDictionaryEntry",
+  "  DECLARE Key : STRING",
+  "  DECLARE Value : STRING",
+  "ENDTYPE",
+  "CONSTANT Capacity = 5",
+  "DECLARE Entries : ARRAY[0:4] OF TDictionaryEntry",
+  "DECLARE Count : INTEGER",
+  "FUNCTION FindIndex(SearchKey : STRING) RETURNS INTEGER",
+  "  DECLARE Index : INTEGER",
+  "  Index ← 0",
+  "  WHILE Index < Count",
+  "    IF Entries[Index].Key = SearchKey THEN",
+  "      RETURN Index",
+  "    ENDIF",
+  "    Index ← Index + 1",
+  "  ENDWHILE",
+  "  RETURN -1",
+  "ENDFUNCTION",
+  "PROCEDURE Lookup(SearchKey : STRING, BYREF FoundValue : STRING, BYREF Found : BOOLEAN)",
+  "  DECLARE Index : INTEGER",
+  "  Index ← FindIndex(SearchKey)",
+  "  IF Index = -1 THEN",
+  "    Found ← FALSE",
+  "  ELSE",
+  "    FoundValue ← Entries[Index].Value",
+  "    Found ← TRUE",
+  "  ENDIF",
+  "ENDPROCEDURE",
+  "FUNCTION Insert(NewKey : STRING, NewValue : STRING) RETURNS BOOLEAN",
+  "  IF FindIndex(NewKey) <> -1 THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  IF Count = Capacity THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  Entries[Count].Key ← NewKey",
+  "  Entries[Count].Value ← NewValue",
+  "  Count ← Count + 1",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+  "FUNCTION Update(SearchKey : STRING, NewValue : STRING) RETURNS BOOLEAN",
+  "  DECLARE Index : INTEGER",
+  "  Index ← FindIndex(SearchKey)",
+  "  IF Index = -1 THEN",
+  "    RETURN FALSE",
+  "  ENDIF",
+  "  Entries[Index].Value ← NewValue",
+  "  RETURN TRUE",
+  "ENDFUNCTION",
+];
 
 export type ADTImplementationScenario = "stack-array" | "queue-circular-array" | "queue-two-stacks" | "linked-list-record-array" | "dictionary-entry-list" | "dictionary-linked-list" | "binary-tree-linked-records" | "graph-adt-scope-card";
 export interface ADTImplementationState { externalADT: string; externalOperation: string; observableResult: string; representation: string; internalSteps: string[]; revealedSteps: string[]; invariant: string; edgeCase: string; costNote: string; graphBoundary: { nodes: number; edges: number; vocabulary: string; suitability: string; excluded: string }; status: "ready" | "mapping" | "complete"; }
@@ -386,7 +649,7 @@ const adtImplementations: Record<ADTImplementationScenario, Omit<ADTImplementati
   "dictionary-entry-list": { externalADT: "Dictionary", externalOperation: "UPDATE('blue', '#1010FF')", representation: "entry list", internalSteps: ["scan entries for key", "replace matching value only"], observableResult: "LOOKUP('blue') returns '#1010FF' and key remains unique", invariant: "at most one entry per key", edgeCase: "missing UPDATE does not insert", costNote: "linear entry-list lookup grows with entries" },
   "dictionary-linked-list": { externalADT: "Dictionary", externalOperation: "LOOKUP('blue')", representation: "linked records at addresses 0 and 2", internalSteps: ["read record 0 key 'red'", "follow next = 2", "read record 2 key 'blue'", "return '#0000FF'"], observableResult: "#0000FF", invariant: "each reachable record has a unique key and traversal ends at NULL", edgeCase: "the key is separate from the record address", costNote: "lookup follows links until a matching key or NULL" },
   "binary-tree-linked-records": { externalADT: "Binary search tree", externalOperation: "INSERT(65)", representation: "linked node records", internalSteps: ["compare at 50 and move right", "compare at 70 and move left", "compare at 60 and move right", "attach new leaf at null child"], observableResult: "FIND(65) succeeds along 50,70,60,65", invariant: "all left descendants are smaller and all right descendants are larger", edgeCase: "duplicate insertion rejects", costNote: "work depends on tree height" },
-  "queue-two-stacks": { externalADT: "Queue", externalOperation: "ENQUEUE(A), ENQUEUE(B), DEQUEUE()", representation: "two internal LIFO stacks", internalSteps: ["PUSH A onto inStack", "PUSH B onto inStack", "outStack empty: POP B from inStack; PUSH B onto outStack", "continue transfer: POP A from inStack; PUSH A onto outStack", "POP A from outStack"], observableResult: "DEQUEUE returns A and B remains next, preserving FIFO although each internal structure is LIFO", invariant: "logical queue equals outStack read top-to-bottom followed by inStack read bottom-to-top", edgeCase: "transfer only when outStack is empty", costNote: "one DEQUEUE may transfer several values; the external result remains FIFO" },
+  "queue-two-stacks": { externalADT: "Queue", externalOperation: "ENQUEUE(A), ENQUEUE(B), DEQUEUE()", representation: "two internal LIFO stacks", internalSteps: ["PUSH A onto inStack", "PUSH B onto inStack", "outStack empty: POP B from inStack; PUSH B onto outStack", "continue transfer: POP A from inStack; PUSH A onto outStack", "POP A from outStack"], observableResult: "DEQUEUE returns A and B remains next, preserving FIFO although each internal structure is LIFO", invariant: "logical queue equals outStack read top-to-bottom followed by inStack read bottom-to-top", edgeCase: "if both stacks are empty, report underflow; otherwise transfer only when outStack is empty", costNote: "one DEQUEUE may transfer several values; the external result remains FIFO" },
   "graph-adt-scope-card": { externalADT: "Graph", externalOperation: "JUSTIFY graph for campus links", representation: "nodes A/B/C and weighted undirected edges A-B/B-C", internalSteps: ["identify nodes as places", "identify edges as direct links", "identify weight as route length", "justify many-to-many relationships"], observableResult: "graph is suitable for a network of many-to-many relationships", invariant: "every edge endpoint names an existing node", edgeCase: "describe/use/justify only; no graph implementation code", costNote: "Dijkstra and A* search state are outside this Section 19 ADT card" },
 };
 const graphBoundary = { nodes: 3, edges: 2, vocabulary: "nodes/vertices, edges/arcs, weight/cost, connected path", suitability: "Places can connect to zero, one or many other places without a linear hierarchy.", excluded: "No graph implementation code, Dijkstra state or A* state." };

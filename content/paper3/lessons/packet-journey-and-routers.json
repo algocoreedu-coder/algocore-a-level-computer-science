@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-14.2-T01",
   "slug": "packet-journey-and-routers",
   "title": {
@@ -472,6 +472,15 @@
         "en": "Stop on an unsupported route or incomplete required packet set.",
         "vi": "Dừng khi tuyến không có căn cứ hoặc tập packet bắt buộc chưa đủ."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Packet journey and routers; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Hành trình packet và router; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -526,17 +535,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "The payload happens to contain the letters R2",
-            "vi": "Payload tình cờ chứa chữ R2"
-          },
-          "feedback": {
-            "en": "Router forwarding uses destination/routing information, not arbitrary payload text.",
-            "vi": "Router dùng thông tin đích/định tuyến, không dùng chữ tùy ý trong payload."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "A matching usable table entry selects that next hop",
@@ -557,6 +555,17 @@
             "en": "Diagram geometry is not a declared routing metric.",
             "vi": "Vị trí hình học không phải thước đo định tuyến đã khai báo."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "The payload happens to contain the letters R2",
+            "vi": "Payload tình cờ chứa chữ R2"
+          },
+          "feedback": {
+            "en": "Router forwarding uses destination/routing information, not arbitrary payload text.",
+            "vi": "Router dùng thông tin đích/định tuyến, không dùng chữ tùy ý trong payload."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -573,6 +582,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "NETRK",
+            "vi": "NETRK"
+          },
+          "feedback": {
+            "en": "This omits p2 instead of including all required data.",
+            "vi": "Đáp án bỏ p2 thay vì dùng đủ dữ liệu bắt buộc."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -593,17 +613,6 @@
           "feedback": {
             "en": "Correct: reorder by p1,p2,p3, then join the payloads.",
             "vi": "Đúng: sắp theo p1,p2,p3 rồi ghép payload."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "NETRK",
-            "vi": "NETRK"
-          },
-          "feedback": {
-            "en": "This omits p2 instead of including all required data.",
-            "vi": "Đáp án bỏ p2 thay vì dùng đủ dữ liệu bắt buộc."
           }
         }
       ],
@@ -670,17 +679,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "p1 must return to Source",
-            "vi": "p1 bắt buộc quay về Source"
-          },
-          "feedback": {
-            "en": "No stated rule requires returning over the failed link.",
-            "vi": "Không quy tắc đã nêu nào yêu cầu quay lại liên kết hỏng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "p1 can continue using R2’s usable direct route",
@@ -701,6 +699,17 @@
             "en": "One usable hop is not an unlimited delivery guarantee.",
             "vi": "Một hop dùng được không phải bảo đảm đến đích vô hạn."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "p1 must return to Source",
+            "vi": "p1 bắt buộc quay về Source"
+          },
+          "feedback": {
+            "en": "No stated rule requires returning over the failed link.",
+            "vi": "Không quy tắc đã nêu nào yêu cầu quay lại liên kết hỏng."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -717,6 +726,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Remove the destination address",
+            "vi": "Xóa địa chỉ đích"
+          },
+          "feedback": {
+            "en": "Removing addressing does not create a route.",
+            "vi": "Bỏ địa chỉ không tạo ra tuyến."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -737,17 +757,6 @@
           "feedback": {
             "en": "Correct: the visual must expose its evidence limit.",
             "vi": "Đúng: visual cần thể hiện giới hạn căn cứ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Remove the destination address",
-            "vi": "Xóa địa chỉ đích"
-          },
-          "feedback": {
-            "en": "Removing addressing does not create a route.",
-            "vi": "Bỏ địa chỉ không tạo ra tuyến."
           }
         }
       ],
@@ -899,5 +908,59 @@
       "kind": "guide",
       "url": "https://www.rfc-editor.org/rfc/rfc9293.html#section-2.2"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "packet-journey-and-routers-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 4,
+    "prompt": {
+      "en": "Describe both a single router decision and the complete packet-switched message journey.",
+      "vi": "Mô tả cả quyết định của một router và hành trình thông điệp packet switching đầy đủ."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Packet journey and routers; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Hành trình packet và router; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Keep source, final destination, packet identity and payload visible.",
+        "vi": "Giữ rõ nguồn, đích cuối, định danh packet và payload."
+      },
+      {
+        "en": "Read destination, match the supplied table, check availability, then forward one hop.",
+        "vi": "Đọc đích, khớp bảng đã cho, kiểm tra khả dụng rồi chuyển một hop."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Split data, attach destination/control information and send packets.",
+        "vi": "Chia dữ liệu, gắn thông tin đích/điều khiển và gửi packet."
+      },
+      {
+        "en": "At each router, inspect destination, use routing information, check the next link and forward.",
+        "vi": "Tại mỗi router, đọc đích, dùng thông tin định tuyến, kiểm tra liên kết tiếp rồi chuyển tiếp."
+      },
+      {
+        "en": "Packets can follow different routes and arrive out of order; suitable receiver handling reconstructs complete data.",
+        "vi": "Packet có thể đi khác tuyến và đến sai thứ tự; xử lý bên nhận phù hợp khôi phục dữ liệu đầy đủ."
+      },
+      {
+        "en": "An unavailable route, missing data or exhausted hop allowance needs explicit handling, not an assumed success.",
+        "vi": "Không có tuyến, thiếu dữ liệu hoặc hết giới hạn hop cần xử lý rõ, không giả định thành công."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-packets",
+      "book-routing"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-012",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

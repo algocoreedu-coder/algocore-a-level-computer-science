@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-15.1-T02",
   "slug": "pipelines-registers-and-interrupts",
   "title": {
@@ -585,6 +585,15 @@
         "en": "State the final values/count and explain the assumptions that make it valid.",
         "vi": "Nêu giá trị/số lượng cuối và giải thích điều kiện khiến kết quả đúng."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Pipelines, registers and interrupts; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Đường ống lệnh, thanh ghi và ngắt; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -639,17 +648,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "I5",
-            "vi": "I5"
-          },
-          "feedback": {
-            "en": "Correct: I1 reaches WB while I5 is in IF.",
-            "vi": "Đúng: I1 đến WB khi I5 ở IF."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "I6",
@@ -670,6 +668,17 @@
             "en": "I1 was fetched at clock1 and is now writing back.",
             "vi": "I1 được nạp ở nhịp1 và giờ ghi kết quả."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "I5",
+            "vi": "I5"
+          },
+          "feedback": {
+            "en": "Correct: I1 reaches WB while I5 is in IF.",
+            "vi": "Đúng: I1 đến WB khi I5 ở IF."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -686,6 +695,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "I2 must return to IF without an interrupt",
+            "vi": "I2 phải về IF dù không có ngắt"
+          },
+          "feedback": {
+            "en": "Normal progression is into WB, not a restart.",
+            "vi": "Tiến trình bình thường đi vào WB, không chạy lại."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -706,17 +726,6 @@
           "feedback": {
             "en": "Correct: the register retains the value across the stage boundary.",
             "vi": "Đúng: thanh ghi giữ giá trị qua ranh giới giai đoạn."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "I2 must return to IF without an interrupt",
-            "vi": "I2 phải về IF dù không có ngắt"
-          },
-          "feedback": {
-            "en": "Normal progression is into WB, not a restart.",
-            "vi": "Tiến trình bình thường đi vào WB, không chạy lại."
           }
         }
       ],
@@ -783,17 +792,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "I1",
-            "vi": "I1"
-          },
-          "feedback": {
-            "en": "I1 already committed; repeating it could duplicate an effect.",
-            "vi": "I1 đã hoàn tất; làm lại có thể lặp hiệu ứng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "I6",
@@ -814,6 +812,17 @@
             "en": "Correct: it is the first instruction after the committed boundary.",
             "vi": "Đúng: đó là lệnh đầu tiên sau ranh giới đã hoàn tất."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "I1",
+            "vi": "I1"
+          },
+          "feedback": {
+            "en": "I1 already committed; repeating it could duplicate an effect.",
+            "vi": "I1 đã hoàn tất; làm lại có thể lặp hiệu ứng."
+          }
         }
       ],
       "correctChoiceId": "c",
@@ -830,6 +839,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "50",
+            "vi": "50"
+          },
+          "feedback": {
+            "en": "That assumes each instruction waits for the previous one to finish.",
+            "vi": "Đó là giả sử mỗi lệnh chờ lệnh trước hoàn tất."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -850,17 +870,6 @@
           "feedback": {
             "en": "Correct:10+5−1=14; sequential execution would use50.",
             "vi": "Đúng:10+5−1=14; tuần tự sẽ dùng50."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "50",
-            "vi": "50"
-          },
-          "feedback": {
-            "en": "That assumes each instruction waits for the previous one to finish.",
-            "vi": "Đó là giả sử mỗi lệnh chờ lệnh trước hoàn tất."
           }
         }
       ],
@@ -983,5 +992,54 @@
       "locator": "Question11(a–c), page14",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "pipelines-registers-and-interrupts-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Without looking at the grid, explain why a pipeline needs registers and why an interrupt needs a restart policy.",
+      "vi": "Không nhìn lưới, giải thích vì sao pipeline cần thanh ghi và ngắt cần chính sách chạy lại."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Pipelines, registers and interrupts; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Đường ống lệnh, thanh ghi và ngắt; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Write the stage order, stage cost, instruction issue rule and interrupt boundary.",
+        "vi": "Ghi thứ tự giai đoạn, chi phí, quy tắc đưa lệnh vào và ranh giới ngắt."
+      },
+      {
+        "en": "Fill one clock column at a time; retain earlier results and distinguish active from completed work.",
+        "vi": "Điền từng cột nhịp; giữ kết quả trước và phân biệt đang xử lý với đã xong."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Boundary registers preserve stage outputs while other stages work on different instructions.",
+        "vi": "Thanh ghi ranh giới giữ đầu ra giai đoạn trong khi các giai đoạn khác xử lý lệnh khác."
+      },
+      {
+        "en": "Architectural results and unfinished pipeline work must be distinguished at the interrupt boundary.",
+        "vi": "Phải phân biệt kết quả kiến trúc với công việc pipeline dở dang tại ranh giới ngắt."
+      },
+      {
+        "en": "Saved registers/status and a correct restart address let the program resume without lost or repeated effects.",
+        "vi": "Thanh ghi/trạng thái đã lưu và địa chỉ chạy lại đúng giúp tiếp tục mà không mất hoặc lặp hiệu ứng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-pipeline"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

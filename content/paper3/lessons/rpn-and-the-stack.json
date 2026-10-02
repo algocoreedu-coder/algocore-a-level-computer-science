@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.2-T04",
   "slug": "rpn-and-the-stack",
   "estimatedMinutes": 40,
@@ -331,6 +331,15 @@
         "en": "Check first-failure conditions and final depth exactly one; reconstruct brackets to verify meaning.",
         "vi": "Kiểm điều kiện lỗi đầu tiên và độ sâu cuối đúng một; dựng lại ngoặc để kiểm ý nghĩa."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "trace",
+        "guidance": {
+          "en": "Follow RPN and the stack one operation at a time; record every changed variable, pointer or structure after each step.",
+          "vi": "Theo dõi RPN và ngăn xếp từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -423,17 +432,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "5/2",
-            "vi": "5/2"
-          },
-          "feedback": {
-            "en": "Correct: / is real division.",
-            "vi": "Đúng: / là chia thực."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "2",
@@ -454,6 +452,17 @@
             "en": "This swaps the numerator and denominator.",
             "vi": "Đây là đổi tử với mẫu."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "5/2",
+            "vi": "5/2"
+          },
+          "feedback": {
+            "en": "Correct: / is real division.",
+            "vi": "Đúng: / là chia thực."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -470,6 +479,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Return 4 as the final answer.",
+            "vi": "Trả 4 làm đáp án cuối."
+          },
+          "feedback": {
+            "en": "The remaining operator has not been validly applied.",
+            "vi": "Toán tử còn lại chưa được áp dụng hợp lệ."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -490,17 +510,6 @@
           "feedback": {
             "en": "The expression did not supply 0; inventing it changes the problem.",
             "vi": "Biểu thức không cho 0; tự thêm sẽ đổi bài toán."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Return 4 as the final answer.",
-            "vi": "Trả 4 làm đáp án cuối."
-          },
-          "feedback": {
-            "en": "The remaining operator has not been validly applied.",
-            "vi": "Toán tử còn lại chưa được áp dụng hợp lệ."
           }
         }
       ],
@@ -567,17 +576,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Division-by-zero error; before-stack [8,0] remains visible.",
-            "vi": "Lỗi chia cho 0; vẫn thấy ngăn xếp trước [8,0]."
-          },
-          "feedback": {
-            "en": "Correct: there is no defined finite quotient to push.",
-            "vi": "Đúng: không có thương hữu hạn xác định để đẩy."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Push zero.",
@@ -597,6 +595,17 @@
           "feedback": {
             "en": "Changing operand order changes the expression rather than handling the error.",
             "vi": "Đổi thứ tự toán hạng làm đổi biểu thức, không phải xử lý lỗi."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Division-by-zero error; before-stack [8,0] remains visible.",
+            "vi": "Lỗi chia cho 0; vẫn thấy ngăn xếp trước [8,0]."
+          },
+          "feedback": {
+            "en": "Correct: there is no defined finite quotient to push.",
+            "vi": "Đúng: không có thương hữu hạn xác định để đẩy."
           }
         }
       ],
@@ -676,5 +685,54 @@
       "locator": "PDF p7 Q5(a–b), p8 Q5(c)",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "rpn-and-the-stack-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "trace",
+    "taskType": "trace",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain RPN evaluation and reconstruct 8 3 − 2 × as infix.",
+      "vi": "Giải thích cách tính RPN và dựng infix của 8 3 − 2 ×."
+    },
+    "answerGuidance": [
+      {
+        "en": "Follow RPN and the stack one operation at a time; record every changed variable, pointer or structure after each step.",
+        "vi": "Theo dõi RPN và ngăn xếp từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+      },
+      {
+        "en": "Identify tokens and operator arity; mark stack top.",
+        "vi": "Xác định token và số toán hạng của toán tử; đánh dấu đỉnh."
+      },
+      {
+        "en": "For each operator record right, left, calculation and the resulting stack.",
+        "vi": "Với mỗi toán tử, ghi phải, trái, phép tính và ngăn xếp kết quả."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Push operands; for an operator pop right then left and push left operator right.",
+        "vi": "Đẩy toán hạng; gặp toán tử lấy phải rồi trái và đẩy kết quả trái toán tử phải."
+      },
+      {
+        "en": "The expression is (8−3)×2; brackets preserve the completed first sub-expression.",
+        "vi": "Biểu thức là (8−3)×2; ngoặc giữ biểu thức con đầu đã hoàn tất."
+      },
+      {
+        "en": "A valid final stack has exactly one value; invalid tokens or arithmetic stop the trace.",
+        "vi": "Ngăn xếp cuối hợp lệ có đúng một giá trị; token hoặc số học sai làm trace dừng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

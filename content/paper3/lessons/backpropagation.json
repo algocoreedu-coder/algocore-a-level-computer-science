@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T05",
   "slug": "backpropagation",
   "estimatedMinutes": 30,
@@ -475,17 +475,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Error/correction information used to adjust weights",
-            "vi": "Thông tin sai số/hiệu chỉnh dùng để điều chỉnh trọng số"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "The normal input as a backward prediction",
@@ -506,6 +495,17 @@
             "en": "That belongs to A*.",
             "vi": "Điều đó thuộc A*."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Error/correction information used to adjust weights",
+            "vi": "Thông tin sai số/hiệu chỉnh dùng để điều chỉnh trọng số"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -522,6 +522,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Unlabelled points form clusters",
+            "vi": "Điểm không nhãn tạo cụm"
+          },
+          "feedback": {
+            "en": "That is unsupervised learning.",
+            "vi": "Đó là học không giám sát."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -542,17 +553,6 @@
           "feedback": {
             "en": "That is A*.",
             "vi": "Đó là A*."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Unlabelled points form clusters",
-            "vi": "Điểm không nhãn tạo cụm"
-          },
-          "feedback": {
-            "en": "That is unsupervised learning.",
-            "vi": "Đó là học không giám sát."
           }
         }
       ],
@@ -619,17 +619,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "0.32",
-            "vi": "0.32"
-          },
-          "feedback": {
-            "en": "Correct: Δw=0.12.",
-            "vi": "Đúng: Δw=0.12."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "0.20",
@@ -650,6 +639,17 @@
             "en": "This omits the learning rate and input relationship.",
             "vi": "Cách này bỏ learning rate và quan hệ đầu vào."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "0.32",
+            "vi": "0.32"
+          },
+          "feedback": {
+            "en": "Correct: Δw=0.12.",
+            "vi": "Đúng: Δw=0.12."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -666,6 +666,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Inference must now run backpropagation forever",
+            "vi": "Inference giờ phải chạy lan truyền ngược mãi"
+          },
+          "feedback": {
+            "en": "Inference and training remain separate modes.",
+            "vi": "Inference và training vẫn là hai chế độ riêng."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -686,17 +697,6 @@
           "feedback": {
             "en": "The fixture does not support that generalisation.",
             "vi": "Fixture không hỗ trợ khái quát đó."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Inference must now run backpropagation forever",
-            "vi": "Inference giờ phải chạy lan truyền ngược mãi"
-          },
-          "feedback": {
-            "en": "Inference and training remain separate modes.",
-            "vi": "Inference và training vẫn là hai chế độ riêng."
           }
         }
       ],
@@ -770,5 +770,54 @@
       "locator": "Question 9(b), p15",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "backpropagation-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "State the backpropagation cycle and its mode boundary.",
+      "vi": "Nêu chu trình lan truyền ngược và giới hạn chế độ."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Backpropagation; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Lan truyền ngược; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Write the forward prediction.",
+        "vi": "Ghi dự đoán xuôi."
+      },
+      {
+        "en": "State target and error convention.",
+        "vi": "Nêu mục tiêu và quy ước sai số."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Forward prediction precedes target comparison.",
+        "vi": "Dự đoán xuôi đi trước so mục tiêu."
+      },
+      {
+        "en": "Error/correction information moves backwards to adjust weights.",
+        "vi": "Thông tin sai số/hiệu chỉnh đi ngược để điều chỉnh trọng số."
+      },
+      {
+        "en": "Repeat during training; normal inference keeps weights fixed.",
+        "vi": "Lặp trong training; inference bình thường giữ trọng số cố định."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

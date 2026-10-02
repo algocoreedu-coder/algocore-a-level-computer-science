@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T11",
   "slug": "time-and-space-complexity",
   "estimatedMinutes": 40,
@@ -519,17 +519,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Compare time and memory as n grows",
-            "vi": "So time và memory khi n tăng"
-          },
-          "feedback": {
-            "en": "Correct: growth with input size is the key clue",
-            "vi": "Đúng: tăng trưởng theo input size là dấu hiệu chính"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Name the current array value",
@@ -550,6 +539,17 @@
             "en": "Draw one pointer only conflicts with the rule: growth with input size is the key clue",
             "vi": "Vẽ một pointer trái với quy tắc: tăng trưởng theo input size là dấu hiệu chính"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Compare time and memory as n grows",
+            "vi": "So time và memory khi n tăng"
+          },
+          "feedback": {
+            "en": "Correct: growth with input size is the key clue",
+            "vi": "Đúng: tăng trưởng theo input size là dấu hiệu chính"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -566,6 +566,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Square-root",
+            "vi": "Căn bậc hai"
+          },
+          "feedback": {
+            "en": "Square-root conflicts with the rule: linear work is proportional to n",
+            "vi": "Căn bậc hai trái với quy tắc: work tuyến tính tỷ lệ với n"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -586,17 +597,6 @@
           "feedback": {
             "en": "Stay fixed conflicts with the rule: linear work is proportional to n",
             "vi": "Giữ cố định trái với quy tắc: work tuyến tính tỷ lệ với n"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Square-root",
-            "vi": "Căn bậc hai"
-          },
-          "feedback": {
-            "en": "Square-root conflicts with the rule: linear work is proportional to n",
-            "vi": "Căn bậc hai trái với quy tắc: work tuyến tính tỷ lệ với n"
           }
         }
       ],
@@ -663,17 +663,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Same task, n, metric and assumptions",
-            "vi": "Cùng task, n, metric và assumption"
-          },
-          "feedback": {
-            "en": "Correct: the comparison frame controls meaning",
-            "vi": "Đúng: khung so sánh quyết định ý nghĩa"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Only algorithm names",
@@ -694,6 +683,17 @@
             "en": "Only one stopwatch result conflicts with the rule: the comparison frame controls meaning",
             "vi": "Chỉ một kết quả stopwatch trái với quy tắc: khung so sánh quyết định ý nghĩa"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Same task, n, metric and assumptions",
+            "vi": "Cùng task, n, metric và assumption"
+          },
+          "feedback": {
+            "en": "Correct: the comparison frame controls meaning",
+            "vi": "Đúng: khung so sánh quyết định ý nghĩa"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -710,6 +710,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "O(log n)",
+            "vi": "O(log n)"
+          },
+          "feedback": {
+            "en": "O(log n) conflicts with the rule: call depth grows linearly to the base case",
+            "vi": "O(log n) trái với quy tắc: độ sâu call tăng tuyến tính tới base case"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -730,17 +741,6 @@
           "feedback": {
             "en": "O(1) conflicts with the rule: call depth grows linearly to the base case",
             "vi": "O(1) trái với quy tắc: độ sâu call tăng tuyến tính tới base case"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "O(log n)",
-            "vi": "O(log n)"
-          },
-          "feedback": {
-            "en": "O(log n) conflicts with the rule: call depth grows linearly to the base case",
-            "vi": "O(log n) trái với quy tắc: độ sâu call tăng tuyến tính tới base case"
           }
         }
       ],
@@ -839,5 +839,58 @@
       "locator": "Question 10(c), p13",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "time-and-space-complexity-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Give the five-part method for a complexity comparison.",
+      "vi": "Nêu phương pháp năm phần để so complexity."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Time and space complexity; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Độ phức tạp thời gian và không gian; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "State task and n.",
+        "vi": "Nêu task và n."
+      },
+      {
+        "en": "Choose time or extra-space metric.",
+        "vi": "Chọn metric time hoặc extra-space."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Same task and representation assumptions.",
+        "vi": "Cùng task và assumption representation."
+      },
+      {
+        "en": "Define n, case and metric.",
+        "vi": "Định nghĩa n, case và metric."
+      },
+      {
+        "en": "State growth class and a scoped conclusion.",
+        "vi": "Nêu growth class và kết luận scoped."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, type ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { Root } from "fumadocs-core/page-tree";
-import { Map, Compass } from "lucide-react";
+import { Map, Compass, FileCheck2 } from "lucide-react";
 import { localeChangeEvent, useLearningLocale } from "@/app/AppProviders";
 import { Button, SegmentedControl } from "@/app/components/algocore-ui";
 import type { Locale, StudyMapCatalog } from "@/app/lib/paper3/catalog";
@@ -29,6 +29,7 @@ export function Paper3Shell({ catalog, children }: { readonly catalog: StudyMapC
   const tree = useMemo<Root>(() => ({
     $id: `paper3-root-${locale}`, name: "Cambridge 9618", children: [
       { $id: "paper3-map", type: "page", name: locale === "vi" ? "Bản đồ học tập" : "Study map", url: paper3Href("/paper-3", locale), icon: <Map /> },
+      { $id: "paper3-mocks", type: "page", name: locale === "vi" ? "Đề luyện 90 phút" : "90-minute mock papers", url: paper3Href("/paper-3/mocks", locale), icon: <FileCheck2 /> },
       { $id: "paper3-sections", type: "separator", name: locale === "vi" ? "KHÁM PHÁ KIẾN THỨC" : "EXPLORE THE SYLLABUS" },
       ...catalog.sections.map((section) => ({ $id: `paper3-section-${section.id}`, type: "page" as const, name: `${section.id} · ${section.title[locale]}`, url: paper3Href(`/paper-3/sections/${section.id}`, locale), icon: <SectionIcon id={section.id} size={18} /> })),
     ],

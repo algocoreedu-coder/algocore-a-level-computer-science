@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T08",
   "slug": "binary-tree",
   "estimatedMinutes": 40,
@@ -136,20 +136,22 @@
     {
       "id": "insert",
       "title": {
-        "en": "Attach at first Null child",
-        "vi": "Gắn tại child Null đầu tiên"
+        "en": "Complete FIND and INSERT",
+        "vi": "FIND và INSERT đầy đủ"
       },
       "paragraphs": [
         {
-          "en": "INSERT follows the same comparisons, records Parent, rejects equality and attaches one new leaf. Deletion is outside core.",
-          "vi": "INSERT theo cùng comparison, ghi Parent, từ chối equality và gắn một leaf mới. Deletion ngoài core."
+          "en": "FIND follows one comparison path and reports NullPointer when missing. INSERT records Parent, rejects a duplicate before allocation, handles an empty root and attaches one leaf. If the bounded node store is full, it returns FALSE without changing the tree.",
+          "vi": "FIND đi theo một đường so sánh và trả NullPointer khi không thấy. INSERT ghi Parent, từ chối duplicate trước khi cấp phát, xử lý root rỗng và gắn một leaf. Nếu node store có cận đã đầy, hàm trả FALSE mà không đổi cây."
         }
       ],
-      "code": "Current ← Root\nWHILE Current <> -1\n  IF Tree[Current].Data = Target THEN RETURN Current\n  IF Target < Tree[Current].Data THEN\n    Current ← Tree[Current].Left\n  ELSE\n    Current ← Tree[Current].Right\n  ENDIF\nENDWHILE\nRETURN -1",
+      "code": "TYPE TTreeNode\n   DECLARE Value : INTEGER\n   DECLARE Left : INTEGER\n   DECLARE Right : INTEGER\n   DECLARE InUse : BOOLEAN\nENDTYPE\n\nCONSTANT LowerBound = 0\nCONSTANT UpperBound = 7\nCONSTANT NullPointer = -1\nDECLARE Nodes : ARRAY[0:7] OF TTreeNode\nDECLARE Root : INTEGER\n\nFUNCTION Find(Target : INTEGER) RETURNS INTEGER\n   DECLARE Current : INTEGER\n   Current ← Root\n   WHILE Current <> NullPointer\n      IF Target = Nodes[Current].Value THEN\n         RETURN Current\n      ENDIF\n      IF Target < Nodes[Current].Value THEN\n         Current ← Nodes[Current].Left\n      ELSE\n         Current ← Nodes[Current].Right\n      ENDIF\n   ENDWHILE\n   RETURN NullPointer\nENDFUNCTION\n\nFUNCTION AllocateTreeNode(NewValue : INTEGER) RETURNS INTEGER\n   DECLARE Index : INTEGER\n   FOR Index ← LowerBound TO UpperBound\n      IF Nodes[Index].InUse = FALSE THEN\n         Nodes[Index].Value ← NewValue\n         Nodes[Index].Left ← NullPointer\n         Nodes[Index].Right ← NullPointer\n         Nodes[Index].InUse ← TRUE\n         RETURN Index\n      ENDIF\n   NEXT Index\n   RETURN NullPointer\nENDFUNCTION\n\nFUNCTION Insert(NewValue : INTEGER) RETURNS BOOLEAN\n   DECLARE Current : INTEGER\n   DECLARE Parent : INTEGER\n   DECLARE NewAddress : INTEGER\n   Current ← Root\n   Parent ← NullPointer\n   WHILE Current <> NullPointer\n      IF NewValue = Nodes[Current].Value THEN\n         RETURN FALSE\n      ENDIF\n      Parent ← Current\n      IF NewValue < Nodes[Current].Value THEN\n         Current ← Nodes[Current].Left\n      ELSE\n         Current ← Nodes[Current].Right\n      ENDIF\n   ENDWHILE\n   NewAddress ← AllocateTreeNode(NewValue)\n   IF NewAddress = NullPointer THEN\n      RETURN FALSE\n   ENDIF\n   IF Parent = NullPointer THEN\n      Root ← NewAddress\n   ELSE\n      IF NewValue < Nodes[Parent].Value THEN\n         Nodes[Parent].Left ← NewAddress\n      ELSE\n         Nodes[Parent].Right ← NewAddress\n      ENDIF\n   ENDIF\n   RETURN TRUE\nENDFUNCTION",
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -520,17 +522,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Compare then follow left or right",
-            "vi": "So rồi theo trái hoặc phải"
-          },
-          "feedback": {
-            "en": "Correct: one comparison selects one ordered child",
-            "vi": "Đúng: một comparison chọn một child có order"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Scan every array cell",
@@ -551,6 +542,17 @@
             "en": "Use Front and Rear conflicts with the rule: one comparison selects one ordered child",
             "vi": "Dùng Front và Rear trái với quy tắc: một comparison chọn một child có order"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Compare then follow left or right",
+            "vi": "So rồi theo trái hoặc phải"
+          },
+          "feedback": {
+            "en": "Correct: one comparison selects one ordered child",
+            "vi": "Đúng: một comparison chọn một child có order"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -567,6 +569,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Stop missing",
+            "vi": "Dừng missing"
+          },
+          "feedback": {
+            "en": "Stop missing conflicts with the rule: 35<50 follows Left",
+            "vi": "Dừng missing trái với quy tắc: 35<50 theo Left"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -587,17 +600,6 @@
           "feedback": {
             "en": "Right conflicts with the rule: 35<50 follows Left",
             "vi": "Phải trái với quy tắc: 35<50 theo Left"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Stop missing",
-            "vi": "Dừng missing"
-          },
-          "feedback": {
-            "en": "Stop missing conflicts with the rule: 35<50 follows Left",
-            "vi": "Dừng missing trái với quy tắc: 35<50 theo Left"
           }
         }
       ],
@@ -664,17 +666,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Return failure; no mutation",
-            "vi": "Trả failure; không mutation"
-          },
-          "feedback": {
-            "en": "Correct: the fixture rejects duplicate keys",
-            "vi": "Đúng: fixture từ chối key duplicate"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Create a left duplicate",
@@ -695,6 +686,17 @@
             "en": "Delete the node conflicts with the rule: the fixture rejects duplicate keys",
             "vi": "Delete node trái với quy tắc: fixture từ chối key duplicate"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Return failure; no mutation",
+            "vi": "Trả failure; không mutation"
+          },
+          "feedback": {
+            "en": "Correct: the fixture rejects duplicate keys",
+            "vi": "Đúng: fixture từ chối key duplicate"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -711,6 +713,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Follow Left from −1",
+            "vi": "Theo Left từ −1"
+          },
+          "feedback": {
+            "en": "Follow Left from −1 conflicts with the rule: empty insert creates the root",
+            "vi": "Theo Left từ −1 trái với quy tắc: insert vào empty tạo root"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -731,17 +744,6 @@
           "feedback": {
             "en": "Report missing only conflicts with the rule: empty insert creates the root",
             "vi": "Chỉ báo missing trái với quy tắc: insert vào empty tạo root"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Follow Left from −1",
-            "vi": "Theo Left từ −1"
-          },
-          "feedback": {
-            "en": "Follow Left from −1 conflicts with the rule: empty insert creates the root",
-            "vi": "Theo Left từ −1 trái với quy tắc: insert vào empty tạo root"
           }
         }
       ],
@@ -839,5 +841,58 @@
       "locator": "Question 4, pp9–10",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "binary-tree-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "State the BST find/insert method and boundary.",
+      "vi": "Nêu phương pháp find/insert BST và boundary."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Binary tree; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Cây nhị phân; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Write ordering and Null.",
+        "vi": "Ghi ordering và Null."
+      },
+      {
+        "en": "Start at Root.",
+        "vi": "Bắt đầu tại Root."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Compare values from Root.",
+        "vi": "So value từ Root."
+      },
+      {
+        "en": "Follow one ordered child until equality/Null.",
+        "vi": "Theo một child ordered tới equality/Null."
+      },
+      {
+        "en": "Attach at Null; reject duplicates; no deletion in core.",
+        "vi": "Attach tại Null; từ chối duplicate; không deletion trong core."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

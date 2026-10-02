@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T02",
   "slug": "a-star-and-heuristic-search",
   "estimatedMinutes": 35,
@@ -500,17 +500,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Supplied heuristic h and open/closed g/h/f table",
-            "vi": "Heuristic h được cho và bảng g/h/f open/closed"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Only positive edge weights",
@@ -531,6 +520,17 @@
             "en": "That is a regression clue.",
             "vi": "Đó là dấu hiệu hồi quy."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Supplied heuristic h and open/closed g/h/f table",
+            "vi": "Heuristic h được cho và bảng g/h/f open/closed"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -547,6 +547,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "close goal before discovering it",
+            "vi": "đóng đích trước khi phát hiện"
+          },
+          "feedback": {
+            "en": "A node must enter open before selection.",
+            "vi": "Nút phải vào open trước khi được chọn."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -567,17 +578,6 @@
           "feedback": {
             "en": "This loses the path cost already paid.",
             "vi": "Cách này làm mất chi phí đường đã đi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "close goal before discovering it",
-            "vi": "đóng đích trước khi phát hiện"
-          },
-          "feedback": {
-            "en": "A node must enter open before selection.",
-            "vi": "Nút phải vào open trước khi được chọn."
           }
         }
       ],
@@ -644,17 +644,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "The supplied overestimating heuristic does not support an optimality claim",
-            "vi": "Heuristic ước lượng quá cao được cho không hỗ trợ tuyên bố tối ưu"
-          },
-          "feedback": {
-            "en": "Correct: this is the intended limitation.",
-            "vi": "Đúng: đây là giới hạn chủ đích."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "A* is always wrong",
@@ -674,6 +663,17 @@
           "feedback": {
             "en": "Edge sums show 10 is greater than 6.",
             "vi": "Tổng trọng số cho thấy 10 lớn hơn 6."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "The supplied overestimating heuristic does not support an optimality claim",
+            "vi": "Heuristic ước lượng quá cao được cho không hỗ trợ tuyên bố tối ưu"
+          },
+          "feedback": {
+            "en": "Correct: this is the intended limitation.",
+            "vi": "Đúng: đây là giới hạn chủ đích."
           }
         }
       ],
@@ -747,5 +747,54 @@
       "locator": "Question 9(b), p9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "a-star-and-heuristic-search-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "pseudocode",
+    "marks": 3,
+    "prompt": {
+      "en": "Compare Dijkstra and A* in two sentences.",
+      "vi": "So sánh Dijkstra và A* trong hai câu."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of A* and heuristic search; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của A* và tìm kiếm heuristic; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Write meanings of g, h and f.",
+        "vi": "Ghi ý nghĩa g, h và f."
+      },
+      {
+        "en": "Declare tie and stop rules.",
+        "vi": "Công bố quy tắc hòa và dừng."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Dijkstra selects the lowest cumulative distance and uses no heuristic.",
+        "vi": "Dijkstra chọn khoảng cách tích lũy thấp nhất và không dùng heuristic."
+      },
+      {
+        "en": "A* selects the lowest g+h and needs a stated heuristic.",
+        "vi": "A* chọn g+h thấp nhất và cần heuristic đã nêu."
+      },
+      {
+        "en": "Both reconstruct a route from predecessors; optimality depends on stated assumptions.",
+        "vi": "Cả hai dựng tuyến từ predecessor; tính tối ưu phụ thuộc giả định đã nêu."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

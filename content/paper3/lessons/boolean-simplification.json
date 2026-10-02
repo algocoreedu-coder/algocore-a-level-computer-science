@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.2-T04",
   "slug": "boolean-simplification",
   "estimatedMinutes": 35,
@@ -334,6 +334,15 @@
         "en": "Verify every input and respect the requested final form.",
         "vi": "Kiểm mọi đầu vào và đúng dạng cuối đề yêu cầu."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Boolean simplification; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Rút gọn biểu thức Boolean; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -426,17 +435,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Distributive law in reverse",
-            "vi": "Phân phối theo chiều ngược"
-          },
-          "feedback": {
-            "en": "Correct: the common A is factored.",
-            "vi": "Đúng: đặt A chung."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Null law",
@@ -457,6 +455,17 @@
             "en": "There is no complement over a compound expression here.",
             "vi": "Ở đây không có phủ định bao biểu thức hợp."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Distributive law in reverse",
+            "vi": "Phân phối theo chiều ngược"
+          },
+          "feedback": {
+            "en": "Correct: the common A is factored.",
+            "vi": "Đúng: đặt A chung."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -473,6 +482,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "A AND B",
+            "vi": "A AND B"
+          },
+          "feedback": {
+            "en": "That loses cases with A=1,B=0.",
+            "vi": "Dạng đó mất trường hợp A=1,B=0."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -493,17 +513,6 @@
           "feedback": {
             "en": "Correct: when A=1 the result is1; when A=0 both terms are0.",
             "vi": "Đúng: A=1 thì kết quả1; A=0 thì hai hạng0."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "A AND B",
-            "vi": "A AND B"
-          },
-          "feedback": {
-            "en": "That loses cases with A=1,B=0.",
-            "vi": "Dạng đó mất trường hợp A=1,B=0."
           }
         }
       ],
@@ -570,17 +579,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "3",
-            "vi": "3"
-          },
-          "feedback": {
-            "en": "Each input has two choices; it is not one row per variable.",
-            "vi": "Mỗi đầu vào có hai lựa chọn; không phải một hàng mỗi biến."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "4",
@@ -600,6 +598,17 @@
           "feedback": {
             "en": "Correct:2^3=8.",
             "vi": "Đúng:2^3=8."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "3",
+            "vi": "3"
+          },
+          "feedback": {
+            "en": "Each input has two choices; it is not one row per variable.",
+            "vi": "Mỗi đầu vào có hai lựa chọn; không phải một hàng mỗi biến."
           }
         }
       ],
@@ -681,5 +690,54 @@
       "locator": "Question7(c), page9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "boolean-simplification-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "State both De Morgan laws and explain how to audit a simplification chain.",
+      "vi": "Nêu hai luật De Morgan và cách kiểm chuỗi rút gọn."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Boolean simplification; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Rút gọn biểu thức Boolean; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Rewrite unclear overbars using explicit NOT and parentheses.",
+        "vi": "Viết lại gạch phủ định không rõ bằng NOT/ngoặc."
+      },
+      {
+        "en": "Select one matching law and show the changed expression.",
+        "vi": "Chọn một luật phù hợp và viết biểu thức sau đổi."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Complement every operand and exchange AND/OR.",
+        "vi": "Phủ định mọi toán hạng và đổi AND/OR."
+      },
+      {
+        "en": "Name one law per transformation and preserve untouched terms.",
+        "vi": "Mỗi biến đổi gọi một luật, giữ các hạng không đổi."
+      },
+      {
+        "en": "Compare the final output for every input; use a mismatch as a counterexample.",
+        "vi": "So đầu ra cuối với mọi đầu vào; dùng hàng khác làm phản ví dụ."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.2-T03",
   "slug": "collisions-and-retrieval",
   "title": {
@@ -318,6 +318,15 @@
         "en": "Record every probe and apply the declared stopping bound.",
         "vi": "Ghi từng lần dò và áp dụng giới hạn dừng đã công bố."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "trace",
+        "guidance": {
+          "en": "Follow Collisions and retrieval one operation at a time; record every changed variable, pointer or structure after each step.",
+          "vi": "Theo dõi Va chạm băm và truy xuất từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -362,17 +371,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "7",
-            "vi": "7"
-          },
-          "feedback": {
-            "en": "7 is outside the allowed indices;7 MOD 7 is 0.",
-            "vi": "7 nằm ngoài chỉ số cho phép;7 MOD 7 bằng 0."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "0",
@@ -393,6 +391,17 @@
             "en": "That would repeat one slot rather than examine the next candidate.",
             "vi": "Như vậy lặp lại một ô thay vì xét ứng viên tiếp."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "7",
+            "vi": "7"
+          },
+          "feedback": {
+            "en": "7 is outside the allowed indices;7 MOD 7 is 0.",
+            "vi": "7 nằm ngoài chỉ số cho phép;7 MOD 7 bằng 0."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -409,6 +418,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "4",
+            "vi": "4"
+          },
+          "feedback": {
+            "en": "Correct. Probe 2 and 3, then use empty 4.",
+            "vi": "Đúng. Dò 2 và 3 rồi dùng ô 4 trống."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -429,17 +449,6 @@
           "feedback": {
             "en": "3 is occupied by 9 after its collision.",
             "vi": "3 đã chứa 9 sau va chạm của nó."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "4",
-            "vi": "4"
-          },
-          "feedback": {
-            "en": "Correct. Probe 2 and 3, then use empty 4.",
-            "vi": "Đúng. Dò 2 và 3 rồi dùng ô 4 trống."
           }
         }
       ],
@@ -546,5 +555,54 @@
       "locator": "Chapter 13, printed pp.311; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "collisions-and-retrieval-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "trace",
+    "taskType": "trace",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain insertion, successful lookup and unsuccessful lookup under this complete probing policy.",
+      "vi": "Giải thích chèn, tìm thấy và không tìm thấy theo đầy đủ chính sách dò này."
+    },
+    "answerGuidance": [
+      {
+        "en": "Follow Collisions and retrieval one operation at a time; record every changed variable, pointer or structure after each step.",
+        "vi": "Theo dõi Va chạm băm và truy xuất từng thao tác; ghi mọi biến, con trỏ hoặc cấu trúc thay đổi sau từng bước."
+      },
+      {
+        "en": "Write table size, hash, probe rule and operation.",
+        "vi": "Ghi kích thước, hash, quy tắc dò và thao tác."
+      },
+      {
+        "en": "At each slot compare full keys, or identify an empty slot.",
+        "vi": "Tại mỗi ô so sánh khóa đầy đủ hoặc xác định ô trống."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Use the same hash and next-slot rule for writing and reading.",
+        "vi": "Dùng cùng hash và quy tắc ô tiếp cho ghi và đọc."
+      },
+      {
+        "en": "Compare keys; a collision does not permit overwriting.",
+        "vi": "So sánh khóa; va chạm không cho phép ghi đè."
+      },
+      {
+        "en": "No deletion justifies stopping at empty; a full-table search has a seven-probe bound.",
+        "vi": "Không xóa cho phép dừng ở ô trống; tìm trên bảng đầy có giới hạn bảy lần dò."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

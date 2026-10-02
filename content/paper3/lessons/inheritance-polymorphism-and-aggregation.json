@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T05",
   "slug": "inheritance-polymorphism-and-aggregation",
   "estimatedMinutes": 40,
@@ -92,6 +92,10 @@
         {
           "en": "A subclass is a specialised superclass and receives inherited members unless overridden.",
           "vi": "Subclass là superclass chuyên biệt và nhận member kế thừa nếu không override."
+        },
+        {
+          "en": "Each subclass constructor calls SUPER.NEW before setting its own private attributes. This establishes the inherited Shape state as well as the specialised state.",
+          "vi": "Constructor của mỗi subclass gọi SUPER.NEW trước khi gán private attribute riêng. Điều này thiết lập cả state kế thừa từ Shape và state chuyên biệt."
         }
       ],
       "sourceIds": [
@@ -110,6 +114,10 @@
         {
           "en": "A common operation can invoke different override behaviour according to the actual object type.",
           "vi": "Cùng operation có thể gọi behavior override khác theo actual object type."
+        },
+        {
+          "en": "Polymorphism occurs when a Shape reference receives a Rectangle or Circle object and Area() is selected from the actual object type. A client can call the common operation without an IF chain that tests the type.",
+          "vi": "Polymorphism xảy ra khi reference kiểu Shape nhận object Rectangle hoặc Circle và Area() được chọn theo actual object type. Client gọi common operation mà không cần chuỗi IF kiểm tra type."
         }
       ],
       "sourceIds": [
@@ -128,6 +136,10 @@
         {
           "en": "A container object holds references to component objects whose identities can remain separate.",
           "vi": "Container object giữ reference tới component object có identity riêng."
+        },
+        {
+          "en": "Drawing aggregates two Shape references. The Rectangle and Circle remain separate objects and may also exist outside the Drawing, which is the has-a boundary used in this example.",
+          "vi": "Drawing aggregate hai reference kiểu Shape. Rectangle và Circle vẫn là object riêng và có thể tồn tại bên ngoài Drawing; đây là boundary has-a của ví dụ."
         }
       ],
       "sourceIds": [
@@ -146,6 +158,10 @@
         {
           "en": "Record reference, actual type, chosen declaration, receiver state and returned result.",
           "vi": "Ghi reference, actual type, declaration được chọn, receiver state và kết quả."
+        },
+        {
+          "en": "Code block: Cambridge pseudocode for examinations in 2026. NEW and SUPER.NEW initialise the inheritance chain; Drawing demonstrates aggregation; the two Area() calls demonstrate polymorphic dispatch and output 24.56.",
+          "vi": "Khối code: giả mã Cambridge cho kỳ thi 2026. NEW và SUPER.NEW khởi tạo inheritance chain; Drawing minh họa aggregation; hai lời gọi Area() minh họa polymorphic dispatch và output 24.56."
         }
       ],
       "sourceIds": [
@@ -153,7 +169,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "CLASS Circle INHERITS Shape\n   PUBLIC FUNCTION Area() RETURNS REAL\n      RETURN 3.14 * Radius * Radius\n   ENDFUNCTION\nENDCLASS"
+      "code": "CLASS Shape\n   PRIVATE Label : STRING\n\n   PUBLIC PROCEDURE NEW(GivenLabel : STRING)\n      Label ← GivenLabel\n   ENDPROCEDURE\n\n   PUBLIC FUNCTION Area() RETURNS REAL\n      RETURN 0.0\n   ENDFUNCTION\nENDCLASS\n\nCLASS Rectangle INHERITS Shape\n   PRIVATE Width : REAL\n   PRIVATE Height : REAL\n\n   PUBLIC PROCEDURE NEW(GivenWidth : REAL, GivenHeight : REAL)\n      SUPER.NEW(\"Rectangle\")\n      Width ← GivenWidth\n      Height ← GivenHeight\n   ENDPROCEDURE\n\n   PUBLIC FUNCTION Area() RETURNS REAL\n      RETURN Width * Height\n   ENDFUNCTION\nENDCLASS\n\nCLASS Circle INHERITS Shape\n   PRIVATE Radius : REAL\n\n   PUBLIC PROCEDURE NEW(GivenRadius : REAL)\n      SUPER.NEW(\"Circle\")\n      Radius ← GivenRadius\n   ENDPROCEDURE\n\n   PUBLIC FUNCTION Area() RETURNS REAL\n      RETURN 3.14 * Radius * Radius\n   ENDFUNCTION\nENDCLASS\n\nCLASS Drawing\n   PRIVATE FirstShape : Shape\n   PRIVATE SecondShape : Shape\n\n   PUBLIC PROCEDURE NEW(GivenFirst : Shape, GivenSecond : Shape)\n      FirstShape ← GivenFirst\n      SecondShape ← GivenSecond\n   ENDPROCEDURE\n\n   PUBLIC FUNCTION TotalArea() RETURNS REAL\n      RETURN FirstShape.Area() + SecondShape.Area()\n   ENDFUNCTION\nENDCLASS\n\nRectangleOne ← NEW Rectangle(3.0, 4.0)\nCircleOne ← NEW Circle(2.0)\nPicture ← NEW Drawing(RectangleOne, CircleOne)\nOUTPUT Picture.TotalArea()",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -182,6 +200,10 @@
       {
         "en": "AlgoCore object fixture; no official marks.",
         "vi": "Object fixture AlgoCore; không có điểm chính thức."
+      },
+      {
+        "en": "The visual Account/Portfolio graph and the static Shape/Drawing listing are separate AlgoCore examples of the same is-a, has-a and dispatch concepts.",
+        "vi": "Object graph Account/Portfolio trong visual và listing Shape/Drawing là hai ví dụ AlgoCore riêng cho cùng khái niệm is-a, has-a và dispatch."
       }
     ],
     "sourceIds": [
@@ -482,6 +504,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "State the meaning and declared convention for inheritance, polymorphism and aggregation.",
@@ -501,17 +534,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -578,17 +600,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -609,6 +620,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Read the current state and exact operation rule.",
+            "vi": "Đọc current state và operation rule chính xác."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -625,6 +647,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -645,17 +678,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -722,17 +744,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -752,6 +763,17 @@
           "feedback": {
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Restate the new convention and recompute from that state.",
+            "vi": "Nêu lại convention mới và tính lại từ state đó."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
           }
         }
       ],
@@ -840,5 +862,58 @@
       "locator": "Q7, PDF pp.9–10",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "inheritance-polymorphism-and-aggregation-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Design relationships and trace method dispatch.",
+      "vi": "Thiết kế relationship và trace method dispatch."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Inheritance, polymorphism and aggregation; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Inheritance, polymorphism và aggregation; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Name both classes.",
+        "vi": "Nêu cả hai class."
+      },
+      {
+        "en": "Test the sentence 'subclass is a superclass'.",
+        "vi": "Thử câu 'subclass là một superclass'."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Justify is-a or has-a.",
+        "vi": "Giải thích is-a hoặc has-a."
+      },
+      {
+        "en": "State inherited and overridden members.",
+        "vi": "Nêu member kế thừa và override."
+      },
+      {
+        "en": "Name reference and actual type.",
+        "vi": "Nêu reference và actual type."
+      },
+      {
+        "en": "Show chosen method and result/state.",
+        "vi": "Cho method được chọn và result/state."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

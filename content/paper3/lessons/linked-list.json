@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T07",
   "slug": "linked-list",
   "estimatedMinutes": 45,
@@ -136,20 +136,22 @@
     {
       "id": "delete",
       "title": {
-        "en": "Bypass before clearing",
-        "vi": "Bypass trước khi clear"
+        "en": "Complete FIND, INSERT and DELETE",
+        "vi": "FIND, INSERT và DELETE đầy đủ"
       },
       "paragraphs": [
         {
-          "en": "DELETE saves Current.Next, relinks Head or Previous.Next, then clears the removed record. Missing leaves state unchanged.",
-          "vi": "DELETE lưu Current.Next, relink Head hoặc Previous.Next, rồi clear record đã loại. Missing giữ state không đổi."
+          "en": "FIND follows links and returns the first match. INSERT_AFTER handles an empty list, head, middle and tail by using NullPointer as the previous address; a full store or invalid previous address returns FALSE without mutation. DELETE handles head, middle, tail and missing targets, and relinks before clearing the removed record.",
+          "vi": "FIND đi theo link và trả kết quả khớp đầu tiên. INSERT_AFTER xử lý list rỗng, head, giữa và tail bằng cách dùng NullPointer làm địa chỉ trước; store đầy hoặc địa chỉ trước không hợp lệ trả FALSE mà không đổi state. DELETE xử lý head, giữa, tail và target không có, đồng thời relink trước khi clear record bị loại."
         }
       ],
-      "code": "Current ← Head\nPrevious ← -1\nWHILE Current <> -1\n  IF Node[Current].Data = Target THEN\n    RETURN Current\n  ENDIF\n  Previous ← Current\n  Current ← Node[Current].Next\nENDWHILE\nRETURN -1",
+      "code": "TYPE TListNode\n   DECLARE Data : INTEGER\n   DECLARE Next : INTEGER\n   DECLARE InUse : BOOLEAN\nENDTYPE\n\nCONSTANT LowerBound = 0\nCONSTANT UpperBound = 5\nCONSTANT NullPointer = -1\nDECLARE Nodes : ARRAY[0:5] OF TListNode\nDECLARE Head : INTEGER\n\nFUNCTION Find(Target : INTEGER) RETURNS INTEGER\n   DECLARE Current : INTEGER\n   Current ← Head\n   WHILE Current <> NullPointer\n      IF Nodes[Current].Data = Target THEN\n         RETURN Current\n      ENDIF\n      Current ← Nodes[Current].Next\n   ENDWHILE\n   RETURN NullPointer\nENDFUNCTION\n\nFUNCTION AllocateNode(NewValue : INTEGER) RETURNS INTEGER\n   DECLARE Index : INTEGER\n   FOR Index ← LowerBound TO UpperBound\n      IF Nodes[Index].InUse = FALSE THEN\n         Nodes[Index].Data ← NewValue\n         Nodes[Index].Next ← NullPointer\n         Nodes[Index].InUse ← TRUE\n         RETURN Index\n      ENDIF\n   NEXT Index\n   RETURN NullPointer\nENDFUNCTION\n\nFUNCTION InsertAfter(PreviousAddress : INTEGER, NewValue : INTEGER) RETURNS BOOLEAN\n   DECLARE NewAddress : INTEGER\n   IF PreviousAddress <> NullPointer THEN\n      IF (PreviousAddress < LowerBound) OR (PreviousAddress > UpperBound) OR (Nodes[PreviousAddress].InUse = FALSE) THEN\n         RETURN FALSE\n      ENDIF\n   ENDIF\n   NewAddress ← AllocateNode(NewValue)\n   IF NewAddress = NullPointer THEN\n      RETURN FALSE\n   ENDIF\n   IF PreviousAddress = NullPointer THEN\n      Nodes[NewAddress].Next ← Head\n      Head ← NewAddress\n   ELSE\n      Nodes[NewAddress].Next ← Nodes[PreviousAddress].Next\n      Nodes[PreviousAddress].Next ← NewAddress\n   ENDIF\n   RETURN TRUE\nENDFUNCTION\n\nFUNCTION Delete(Target : INTEGER) RETURNS BOOLEAN\n   DECLARE Current : INTEGER\n   DECLARE Previous : INTEGER\n   Current ← Head\n   Previous ← NullPointer\n   WHILE (Current <> NullPointer) AND (Nodes[Current].Data <> Target)\n      Previous ← Current\n      Current ← Nodes[Current].Next\n   ENDWHILE\n   IF Current = NullPointer THEN\n      RETURN FALSE\n   ENDIF\n   IF Previous = NullPointer THEN\n      Head ← Nodes[Current].Next\n   ELSE\n      Nodes[Previous].Next ← Nodes[Current].Next\n   ENDIF\n   Nodes[Current].Data ← 0\n   Nodes[Current].Next ← NullPointer\n   Nodes[Current].InUse ← FALSE\n   RETURN TRUE\nENDFUNCTION",
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -520,17 +522,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Head and Next fields",
-            "vi": "Field Head và Next"
-          },
-          "feedback": {
-            "en": "Correct: linked traversal follows Next from Head",
-            "vi": "Đúng: linked traversal theo Next từ Head"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Low/High/Mid",
@@ -551,6 +542,17 @@
             "en": "Front/Rear/Count conflicts with the rule: linked traversal follows Next from Head",
             "vi": "Front/Rear/Count trái với quy tắc: linked traversal theo Next từ Head"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Head and Next fields",
+            "vi": "Field Head và Next"
+          },
+          "feedback": {
+            "en": "Correct: linked traversal follows Next from Head",
+            "vi": "Đúng: linked traversal theo Next từ Head"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -567,6 +569,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "−1",
+            "vi": "−1"
+          },
+          "feedback": {
+            "en": "−1 conflicts with the rule: traversal follows the stored Next address",
+            "vi": "−1 trái với quy tắc: traversal theo address Next đã lưu"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -587,17 +600,6 @@
           "feedback": {
             "en": "6 conflicts with the rule: traversal follows the stored Next address",
             "vi": "6 trái với quy tắc: traversal theo address Next đã lưu"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "−1",
-            "vi": "−1"
-          },
-          "feedback": {
-            "en": "−1 conflicts with the rule: traversal follows the stored Next address",
-            "vi": "−1 trái với quy tắc: traversal theo address Next đã lưu"
           }
         }
       ],
@@ -664,17 +666,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "save successor → write new.Next → redirect anchor",
-            "vi": "lưu successor → ghi new.Next → đổi anchor"
-          },
-          "feedback": {
-            "en": "Correct: save the old link before overwriting it",
-            "vi": "Đúng: lưu link cũ trước khi ghi đè"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "redirect anchor → guess successor",
@@ -695,6 +686,17 @@
             "en": "clear anchor → allocate conflicts with the rule: save the old link before overwriting it",
             "vi": "clear anchor → allocate trái với quy tắc: lưu link cũ trước khi ghi đè"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "save successor → write new.Next → redirect anchor",
+            "vi": "lưu successor → ghi new.Next → đổi anchor"
+          },
+          "feedback": {
+            "en": "Correct: save the old link before overwriting it",
+            "vi": "Đúng: lưu link cũ trước khi ghi đè"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -711,6 +713,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Allocate a node",
+            "vi": "Allocate node"
+          },
+          "feedback": {
+            "en": "Allocate a node conflicts with the rule: a failed delete/find preserves valid state",
+            "vi": "Allocate node trái với quy tắc: delete/find thất bại giữ state hợp lệ"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -731,17 +744,6 @@
           "feedback": {
             "en": "Clear Head conflicts with the rule: a failed delete/find preserves valid state",
             "vi": "Clear Head trái với quy tắc: delete/find thất bại giữ state hợp lệ"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Allocate a node",
-            "vi": "Allocate node"
-          },
-          "feedback": {
-            "en": "Allocate a node conflicts with the rule: a failed delete/find preserves valid state",
-            "vi": "Allocate node trái với quy tắc: delete/find thất bại giữ state hợp lệ"
           }
         }
       ],
@@ -827,5 +829,58 @@
       "locator": "Question 11, pp15–16",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "linked-list-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Give the safe pointer-update rules for linked-list insertion and deletion.",
+      "vi": "Nêu quy tắc pointer update an toàn cho insertion và deletion linked list."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Linked list; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Danh sách liên kết; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Record Head and Null.",
+        "vi": "Ghi Head và Null."
+      },
+      {
+        "en": "Draw address-labelled links.",
+        "vi": "Vẽ link có nhãn address."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Traverse by Next from Head.",
+        "vi": "Traverse bằng Next từ Head."
+      },
+      {
+        "en": "Save successor before insertion relink.",
+        "vi": "Lưu successor trước insertion relink."
+      },
+      {
+        "en": "Bypass before clearing deletion record.",
+        "vi": "Bypass trước khi clear record deletion."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

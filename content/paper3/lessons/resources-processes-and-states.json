@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.1-T01",
   "slug": "resources-processes-and-states",
   "estimatedMinutes": 35,
@@ -340,6 +340,15 @@
         "en": "Label every transition and link resource management to a concrete benefit.",
         "vi": "Gắn nhãn mỗi chuyển trạng thái và liên hệ quản lý tài nguyên với lợi ích cụ thể."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Resources, processes and states; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Tài nguyên, tiến trình và trạng thái; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -384,17 +393,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Ready",
-            "vi": "Ready"
-          },
-          "feedback": {
-            "en": "Correct: only CPU allocation is missing.",
-            "vi": "Đúng: chỉ còn thiếu cấp CPU."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Blocked",
@@ -415,6 +413,17 @@
             "en": "P1 does not currently own the CPU.",
             "vi": "P1 hiện không giữ CPU."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Ready",
+            "vi": "Ready"
+          },
+          "feedback": {
+            "en": "Correct: only CPU allocation is missing.",
+            "vi": "Đúng: chỉ còn thiếu cấp CPU."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -431,6 +440,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "P2 running→blocked because P1 is ready.",
+            "vi": "P2 Running→Blocked vì P1 Ready."
+          },
+          "feedback": {
+            "en": "Another ready process does not create an I/O dependency for P2.",
+            "vi": "Một tiến trình khác Ready không tạo phụ thuộc I/O cho P2."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -451,17 +471,6 @@
           "feedback": {
             "en": "This skips dispatch and could assign one CPU to two processes.",
             "vi": "Đi tắt này bỏ qua cấp CPU và có thể gán một CPU cho hai tiến trình."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "P2 running→blocked because P1 is ready.",
-            "vi": "P2 Running→Blocked vì P1 Ready."
-          },
-          "feedback": {
-            "en": "Another ready process does not create an I/O dependency for P2.",
-            "vi": "Một tiến trình khác Ready không tạo phụ thuộc I/O cho P2."
           }
         }
       ],
@@ -528,17 +537,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "The user need not calculate physical storage locations or issue controller commands.",
-            "vi": "Người dùng không cần tính vị trí lưu vật lý hay gửi lệnh bộ điều khiển."
-          },
-          "feedback": {
-            "en": "Correct: a meaningful file operation hides hardware detail.",
-            "vi": "Đúng: thao tác tệp có ý nghĩa che chi tiết phần cứng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "The file is no longer stored on hardware.",
@@ -559,6 +557,17 @@
             "en": "That is unrelated to the interface’s storage abstraction.",
             "vi": "Điều đó không liên quan đến trừu tượng lưu trữ của giao diện."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "The user need not calculate physical storage locations or issue controller commands.",
+            "vi": "Người dùng không cần tính vị trí lưu vật lý hay gửi lệnh bộ điều khiển."
+          },
+          "feedback": {
+            "en": "Correct: a meaningful file operation hides hardware detail.",
+            "vi": "Đúng: thao tác tệp có ý nghĩa che chi tiết phần cứng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -575,6 +584,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "P1 should lose its saved context.",
+            "vi": "P1 nên mất ngữ cảnh đã lưu."
+          },
+          "feedback": {
+            "en": "P1 needs that context to resume after its event.",
+            "vi": "P1 cần ngữ cảnh đó để tiếp tục sau sự kiện."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -595,17 +615,6 @@
           "feedback": {
             "en": "It improves CPU use, not the device’s inherent transfer rate.",
             "vi": "Nó cải thiện sử dụng CPU, không đổi tốc độ truyền vốn có của thiết bị."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "P1 should lose its saved context.",
-            "vi": "P1 nên mất ngữ cảnh đã lưu."
-          },
-          "feedback": {
-            "en": "P1 needs that context to resume after its event.",
-            "vi": "P1 cần ngữ cảnh đó để tiếp tục sau sự kiện."
           }
         }
       ],
@@ -679,5 +688,54 @@
       "locator": "PDF p11 Q9(b)",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "resources-processes-and-states-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Draw the four main state-transition arrows and label their causes.",
+      "vi": "Vẽ bốn mũi tên chuyển trạng thái chính và ghi nguyên nhân."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Resources, processes and states; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Tài nguyên, tiến trình và trạng thái; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Name the resource and the competing requests.",
+        "vi": "Nêu tài nguyên và các yêu cầu cạnh tranh."
+      },
+      {
+        "en": "For each event, ask whether the process can execute if given CPU now.",
+        "vi": "Với mỗi sự kiện, hỏi tiến trình có chạy được ngay nếu nhận CPU không."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Ready→running: dispatch; running→ready: preemption.",
+        "vi": "Ready→Running: cấp CPU; Running→Ready: cưỡng đoạt."
+      },
+      {
+        "en": "Running→blocked: waiting for an event; blocked→ready: event completion.",
+        "vi": "Running→Blocked: chờ sự kiện; Blocked→Ready: sự kiện hoàn tất."
+      },
+      {
+        "en": "CPU, memory and I/O management coordinate shared resources; the interface abstracts hardware work.",
+        "vi": "Quản lý CPU, bộ nhớ và I/O phối hợp tài nguyên dùng chung; giao diện che công việc phần cứng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

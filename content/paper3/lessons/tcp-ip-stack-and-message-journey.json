@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-14.1-T01",
   "slug": "tcp-ip-stack-and-message-journey",
   "title": {
@@ -614,6 +614,15 @@
         "en": "Check that the receiver recovers the same application data and that the answer respects any instruction to omit individual functions.",
         "vi": "Kiểm tra bên nhận khôi phục cùng dữ liệu ứng dụng và câu trả lời tuân thủ yêu cầu nếu đề dặn không mô tả chức năng riêng từng tầng."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of TCP/IP stack and message journey; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Mô hình TCP/IP và hành trình thông điệp; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -678,6 +687,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "extra",
+          "label": {
+            "en": "An extra TCP/IP layer between every pair of layers.",
+            "vi": "Một tầng TCP/IP bổ sung giữa mọi cặp tầng."
+          },
+          "feedback": {
+            "en": "The missing agreement is not repaired by inventing layers.",
+            "vi": "Thiếu thống nhất không được khắc phục bằng cách tạo thêm tầng."
+          }
+        },
+        {
           "id": "rules",
           "label": {
             "en": "An agreed protocol for interpreting the exchange.",
@@ -697,17 +717,6 @@
           "feedback": {
             "en": "Hardware brands can differ while both hosts implement the same protocol.",
             "vi": "Hãng phần cứng có thể khác nhau trong khi hai host cùng thực hiện một giao thức."
-          }
-        },
-        {
-          "id": "extra",
-          "label": {
-            "en": "An extra TCP/IP layer between every pair of layers.",
-            "vi": "Một tầng TCP/IP bổ sung giữa mọi cặp tầng."
-          },
-          "feedback": {
-            "en": "The missing agreement is not repaired by inventing layers.",
-            "vi": "Thiếu thống nhất không được khắc phục bằng cách tạo thêm tầng."
           }
         }
       ],
@@ -774,17 +783,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "transport",
-          "label": {
-            "en": "Transport",
-            "vi": "Transport"
-          },
-          "feedback": {
-            "en": "Correct. TCP uses sequence information to support ordered delivery to the application.",
-            "vi": "Đúng. TCP dùng thông tin thứ tự để hỗ trợ giao dữ liệu đúng trật tự cho ứng dụng."
-          }
-        },
-        {
           "id": "internet",
           "label": {
             "en": "Internet",
@@ -805,6 +803,17 @@
             "en": "Link serves local transmission; this is an end-to-end ordering responsibility.",
             "vi": "Link phục vụ truyền cục bộ; đây là trách nhiệm sắp thứ tự giữa hai đầu cuối."
           }
+        },
+        {
+          "id": "transport",
+          "label": {
+            "en": "Transport",
+            "vi": "Transport"
+          },
+          "feedback": {
+            "en": "Correct. TCP uses sequence information to support ordered delivery to the application.",
+            "vi": "Đúng. TCP dùng thông tin thứ tự để hỗ trợ giao dữ liệu đúng trật tự cho ứng dụng."
+          }
         }
       ],
       "correctChoiceId": "transport",
@@ -821,6 +830,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "direct",
+          "label": {
+            "en": "Directly from B’s Application to A’s Application, skipping the lower layers.",
+            "vi": "Trực tiếp từ Application của B đến Application của A, bỏ qua tầng dưới."
+          },
+          "feedback": {
+            "en": "Applications cooperate logically but their data still uses the lower-layer services.",
+            "vi": "Ứng dụng phối hợp về logic nhưng dữ liệu vẫn sử dụng dịch vụ của các tầng dưới."
+          }
+        },
         {
           "id": "down-up",
           "label": {
@@ -841,17 +861,6 @@
           "feedback": {
             "en": "That reverses the sending and receiving directions incorrectly.",
             "vi": "Cách này đảo sai chiều gửi và nhận."
-          }
-        },
-        {
-          "id": "direct",
-          "label": {
-            "en": "Directly from B’s Application to A’s Application, skipping the lower layers.",
-            "vi": "Trực tiếp từ Application của B đến Application của A, bỏ qua tầng dưới."
-          },
-          "feedback": {
-            "en": "Applications cooperate logically but their data still uses the lower-layer services.",
-            "vi": "Ứng dụng phối hợp về logic nhưng dữ liệu vẫn sử dụng dịch vụ của các tầng dưới."
           }
         }
       ],
@@ -918,17 +927,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "adjacent",
-          "label": {
-            "en": "It passes down adjacent sender layers to Link, across the network, then up adjacent receiver layers.",
-            "vi": "Nó đi xuống qua các tầng kề nhau bên gửi đến Link, qua mạng, rồi đi lên qua các tầng kề nhau bên nhận."
-          },
-          "feedback": {
-            "en": "Correct. This describes the path and interaction that the question requests.",
-            "vi": "Đúng. Ý này mô tả đường đi và sự tương tác mà câu hỏi yêu cầu."
-          }
-        },
-        {
           "id": "http",
           "label": {
             "en": "HTTP transfers web resources.",
@@ -948,6 +946,17 @@
           "feedback": {
             "en": "This is an individual layer function; the stated task asks for the whole application of the stack.",
             "vi": "Đây là chức năng riêng một tầng; yêu cầu đã nêu hỏi cách áp dụng toàn bộ stack."
+          }
+        },
+        {
+          "id": "adjacent",
+          "label": {
+            "en": "It passes down adjacent sender layers to Link, across the network, then up adjacent receiver layers.",
+            "vi": "Nó đi xuống qua các tầng kề nhau bên gửi đến Link, qua mạng, rồi đi lên qua các tầng kề nhau bên nhận."
+          },
+          "feedback": {
+            "en": "Correct. This describes the path and interaction that the question requests.",
+            "vi": "Đúng. Ý này mô tả đường đi và sự tương tác mà câu hỏi yêu cầu."
           }
         }
       ],
@@ -1071,5 +1080,63 @@
       "kind": "guide",
       "url": "https://www.rfc-editor.org/rfc/rfc9293.html#section-2.2"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "tcp-ip-stack-and-message-journey-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 5,
+    "prompt": {
+      "en": "Without the diagram, sketch two four-layer hosts and trace a small message. Then explain why compatible protocols are necessary and distinguish one Transport job from one Internet job.",
+      "vi": "Không nhìn sơ đồ, vẽ hai host có bốn tầng và theo dõi một thông điệp nhỏ. Sau đó giải thích vì sao cần giao thức tương thích và phân biệt một công việc của Transport với một công việc của Internet."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of TCP/IP stack and message journey; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Mô hình TCP/IP và hành trình thông điệp; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Identify whether the task asks for names, one responsibility or the whole journey.",
+        "vi": "Xác định đề hỏi tên, một trách nhiệm hay cả hành trình."
+      },
+      {
+        "en": "For a journey, label sender and receiver, then write down → network → up using adjacent layers.",
+        "vi": "Với hành trình, ghi bên gửi và bên nhận, rồi viết xuống → mạng → lên qua các tầng kề nhau."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Top to bottom on both hosts: Application, Transport, Internet, Link.",
+        "vi": "Từ trên xuống trên cả hai host: Application, Transport, Internet, Link."
+      },
+      {
+        "en": "Sender down, network between Link interfaces, receiver up; adjacent-layer handoffs.",
+        "vi": "Bên gửi đi xuống, mạng nối giữa các giao diện Link, bên nhận đi lên; bàn giao qua các tầng kề nhau."
+      },
+      {
+        "en": "Protocols provide agreed formats and behaviour so the receiver can interpret the exchange.",
+        "vi": "Giao thức cung cấp định dạng và hành vi thống nhất để bên nhận diễn giải việc trao đổi."
+      },
+      {
+        "en": "TCP at Transport supports ordered, reliable end-to-end delivery; IP at Internet provides addressing and delivery across networks.",
+        "vi": "TCP ở Transport hỗ trợ giao dữ liệu giữa hai đầu cuối tin cậy, đúng thứ tự; IP ở Internet cung cấp địa chỉ và việc truyền qua các mạng."
+      },
+      {
+        "en": "Control information is added and later processed at the appropriate receiving layers; the application data survives.",
+        "vi": "Thông tin điều khiển được thêm rồi xử lý ở tầng nhận phù hợp; dữ liệu ứng dụng vẫn được giữ lại."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-protocols",
+      "book-transport"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-012",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

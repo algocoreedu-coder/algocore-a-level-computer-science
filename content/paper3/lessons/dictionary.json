@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T09",
   "slug": "dictionary",
   "estimatedMinutes": 30,
@@ -136,19 +136,26 @@
     {
       "id": "representation",
       "title": {
-        "en": "ADT does not imply hashing",
-        "vi": "ADT không ngầm định hashing"
+        "en": "Complete bounded entry-list implementation",
+        "vi": "Triển khai entry-list có cận đầy đủ"
       },
       "paragraphs": [
         {
           "en": "An ordered entry list is one teaching representation. The dictionary interface does not make a numeric key a physical index or require hashing.",
           "vi": "Entry list có thứ tự là một representation dạy học. Interface dictionary không biến numeric key thành physical index hoặc bắt buộc hashing."
+        },
+        {
+          "en": "The bounded record array below declares every type and bound. LOOKUP reports whether a key was found; duplicate INSERT, full storage and missing UPDATE all fail without changing existing entries.",
+          "vi": "Mảng record có cận dưới đây khai báo đầy đủ kiểu và cận. LOOKUP báo key có được tìm thấy hay không; INSERT trùng, vùng lưu trữ đầy và UPDATE key thiếu đều thất bại mà không đổi các entry hiện có."
         }
       ],
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "code": "TYPE TDictionaryEntry\n   DECLARE Key : STRING\n   DECLARE Value : STRING\nENDTYPE\n\nCONSTANT Capacity = 5\nDECLARE Entries : ARRAY[0:4] OF TDictionaryEntry\nDECLARE Count : INTEGER\n\nFUNCTION FindIndex(SearchKey : STRING) RETURNS INTEGER\n   DECLARE Index : INTEGER\n   Index ← 0\n   WHILE Index < Count\n      IF Entries[Index].Key = SearchKey THEN\n         RETURN Index\n      ENDIF\n      Index ← Index + 1\n   ENDWHILE\n   RETURN -1\nENDFUNCTION\n\nPROCEDURE Lookup(SearchKey : STRING, BYREF FoundValue : STRING, BYREF Found : BOOLEAN)\n   DECLARE Index : INTEGER\n   Index ← FindIndex(SearchKey)\n   IF Index = -1 THEN\n      Found ← FALSE\n   ELSE\n      FoundValue ← Entries[Index].Value\n      Found ← TRUE\n   ENDIF\nENDPROCEDURE\n\nFUNCTION Insert(NewKey : STRING, NewValue : STRING) RETURNS BOOLEAN\n   IF FindIndex(NewKey) <> -1 THEN\n      RETURN FALSE\n   ENDIF\n   IF Count = Capacity THEN\n      RETURN FALSE\n   ENDIF\n   Entries[Count].Key ← NewKey\n   Entries[Count].Value ← NewValue\n   Count ← Count + 1\n   RETURN TRUE\nENDFUNCTION\n\nFUNCTION Update(SearchKey : STRING, NewValue : STRING) RETURNS BOOLEAN\n   DECLARE Index : INTEGER\n   Index ← FindIndex(SearchKey)\n   IF Index = -1 THEN\n      RETURN FALSE\n   ENDIF\n   Entries[Index].Value ← NewValue\n   RETURN TRUE\nENDFUNCTION",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -519,17 +526,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Lookup a value by unique key",
-            "vi": "Lookup value bằng key unique"
-          },
-          "feedback": {
-            "en": "Correct: dictionary access is key–value mapping",
-            "vi": "Đúng: dictionary truy cập bằng mapping key–value"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Remove newest item",
@@ -550,6 +546,17 @@
             "en": "Follow left/right children conflicts with the rule: dictionary access is key–value mapping",
             "vi": "Theo child trái/phải trái với quy tắc: dictionary truy cập bằng mapping key–value"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Lookup a value by unique key",
+            "vi": "Lookup value bằng key unique"
+          },
+          "feedback": {
+            "en": "Correct: dictionary access is key–value mapping",
+            "vi": "Đúng: dictionary truy cập bằng mapping key–value"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -566,6 +573,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Create duplicate CS",
+            "vi": "Tạo CS duplicate"
+          },
+          "feedback": {
+            "en": "Create duplicate CS conflicts with the rule: duplicate INSERT is rejected by contract",
+            "vi": "Tạo CS duplicate trái với quy tắc: INSERT duplicate bị contract từ chối"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -586,17 +604,6 @@
           "feedback": {
             "en": "Overwrite its value conflicts with the rule: duplicate INSERT is rejected by contract",
             "vi": "Ghi đè value trái với quy tắc: INSERT duplicate bị contract từ chối"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Create duplicate CS",
-            "vi": "Tạo CS duplicate"
-          },
-          "feedback": {
-            "en": "Create duplicate CS conflicts with the rule: duplicate INSERT is rejected by contract",
-            "vi": "Tạo CS duplicate trái với quy tắc: INSERT duplicate bị contract từ chối"
           }
         }
       ],
@@ -663,17 +670,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Return failure and preserve state",
-            "vi": "Trả failure và giữ state"
-          },
-          "feedback": {
-            "en": "Correct: UPDATE requires an existing key",
-            "vi": "Đúng: UPDATE cần key existing"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Append automatically",
@@ -694,6 +690,17 @@
             "en": "Delete first entry conflicts with the rule: UPDATE requires an existing key",
             "vi": "Delete entry đầu trái với quy tắc: UPDATE cần key existing"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Return failure and preserve state",
+            "vi": "Trả failure và giữ state"
+          },
+          "feedback": {
+            "en": "Correct: UPDATE requires an existing key",
+            "vi": "Đúng: UPDATE cần key existing"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -710,6 +717,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Never store integer keys",
+            "vi": "Không bao giờ lưu key integer"
+          },
+          "feedback": {
+            "en": "Never store integer keys conflicts with the rule: key identity is separate from physical position",
+            "vi": "Không bao giờ lưu key integer trái với quy tắc: identity key tách khỏi position vật lý"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -730,17 +748,6 @@
           "feedback": {
             "en": "Always conflicts with the rule: key identity is separate from physical position",
             "vi": "Luôn luôn trái với quy tắc: identity key tách khỏi position vật lý"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Never store integer keys",
-            "vi": "Không bao giờ lưu key integer"
-          },
-          "feedback": {
-            "en": "Never store integer keys conflicts with the rule: key identity is separate from physical position",
-            "vi": "Không bao giờ lưu key integer trái với quy tắc: identity key tách khỏi position vật lý"
           }
         }
       ],
@@ -814,5 +821,58 @@
       "kind": "guide",
       "url": "https://www.cambridgeinternational.org/Images/697401-2026-pseudocode-guide.pdf"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "dictionary-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Differentiate LOOKUP, INSERT and UPDATE under the locked policy.",
+      "vi": "Phân biệt LOOKUP, INSERT và UPDATE theo policy đã khóa."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Dictionary ADT; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho ADT dictionary; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Identify operation and key.",
+        "vi": "Nhận diện operation và key."
+      },
+      {
+        "en": "Apply uniqueness/missing policy.",
+        "vi": "Áp dụng chính sách uniqueness/missing."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "LOOKUP returns value or NotFound.",
+        "vi": "LOOKUP trả value hoặc NotFound."
+      },
+      {
+        "en": "INSERT adds only an absent key.",
+        "vi": "INSERT chỉ thêm key absent."
+      },
+      {
+        "en": "UPDATE changes only an existing key; failures preserve state.",
+        "vi": "UPDATE chỉ đổi key existing; failure giữ state."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

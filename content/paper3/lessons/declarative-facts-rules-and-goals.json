@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T06",
   "slug": "declarative-facts-rules-and-goals",
   "estimatedMinutes": 40,
@@ -92,6 +92,10 @@
         {
           "en": "A fact asserts supplied information; a rule derives a conclusion when all conditions hold; a goal asks for truth or bindings.",
           "vi": "Fact khẳng định thông tin; rule suy conclusion khi mọi condition đúng; goal hỏi truth hoặc binding."
+        },
+        {
+          "en": "Notation boundary: the listing uses AlgoCore finite clause notation S20-DECL-CLAUSE-1. It is not Cambridge pseudocode and is not claimed to be executable Prolog; GOAL is the teaching marker that introduces the query to prove.",
+          "vi": "Boundary ký pháp: listing dùng ký pháp clause hữu hạn AlgoCore S20-DECL-CLAUSE-1. Đây không phải giả mã Cambridge và không được xem là Prolog thực thi; GOAL là marker dạy học mở đầu truy vấn cần chứng minh."
         }
       ],
       "sourceIds": [
@@ -146,6 +150,10 @@
         {
           "en": "A failed condition blocks that proof path. The core fixture enumerates only declared finite alternatives.",
           "vi": "Condition fail chặn proof path. Fixture chỉ liệt kê alternative hữu hạn đã khai báo."
+        },
+        {
+          "en": "The model may inspect only the facts and rules shown. A satisfied goal needs a finite proof chain with consistent bindings; an unsatisfied goal is not automatically a syntax error.",
+          "vi": "Mô hình chỉ được xét facts và rules đã hiển thị. Goal satisfied cần proof chain hữu hạn với binding nhất quán; goal unsatisfied không tự động là syntax error."
         }
       ],
       "sourceIds": [
@@ -153,7 +161,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "studies(an, computer_science).\npassed(an, programming).\ncan_join(S) IF studies(S, computer_science) AND passed(S, programming).\nGOAL can_join(an)"
+      "code": "studies(an, computer_science).\npassed(an, programming).\ncan_join(S) IF studies(S, computer_science) AND passed(S, programming).\nGOAL can_join(an)",
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -182,6 +192,10 @@
       {
         "en": "AlgoCore-authored knowledge base.",
         "vi": "Knowledge base do AlgoCore biên soạn."
+      },
+      {
+        "en": "GOAL is an AlgoCore query marker, not a Cambridge-pseudocode keyword or a universal Prolog command.",
+        "vi": "GOAL là query marker của AlgoCore, không phải keyword giả mã Cambridge hay lệnh Prolog phổ quát."
       }
     ],
     "sourceIds": [
@@ -482,17 +496,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "State the meaning and declared convention for declarative facts, rules and goals.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho facts, rules và goals declarative."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -513,6 +516,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "State the meaning and declared convention for declarative facts, rules and goals.",
+            "vi": "Nêu ý nghĩa và convention đã khai báo cho facts, rules và goals declarative."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -529,6 +543,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -549,17 +574,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -626,17 +640,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -657,6 +660,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Show before state, applied rule, calculation and after state.",
+            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -673,6 +687,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -693,17 +718,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -840,5 +854,58 @@
       "locator": "Q2, PDF p.4",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "declarative-facts-rules-and-goals-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Write facts/rules/goals and justify a result.",
+      "vi": "Viết facts/rules/goals và giải thích result."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Declarative facts, rules and goals; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Facts, rules và goals trong declarative; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Copy facts and rule notation.",
+        "vi": "Chép notation fact và rule."
+      },
+      {
+        "en": "Match goal to a fact or rule conclusion.",
+        "vi": "Match goal với fact hoặc conclusion rule."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Declare constants and variables correctly.",
+        "vi": "Khai báo constant và variable đúng."
+      },
+      {
+        "en": "Match goal to conclusion.",
+        "vi": "Match goal với conclusion."
+      },
+      {
+        "en": "Carry bindings through all conditions.",
+        "vi": "Giữ binding qua mọi condition."
+      },
+      {
+        "en": "List the proof chain or failed premise.",
+        "vi": "Liệt kê proof chain hoặc premise fail."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

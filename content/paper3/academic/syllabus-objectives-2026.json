@@ -1,0 +1,4253 @@
+{
+  "schemaVersion": 1,
+  "qualification": "Cambridge International AS & A Level Computer Science 9618",
+  "examYear": 2026,
+  "paper": 3,
+  "source": {
+    "id": "cambridge-9618-syllabus-2026-v2",
+    "title": "Cambridge International AS & A Level Computer Science 9618 — syllabus for examinations in 2026, Version 2",
+    "locator": "Printed/PDF pp.32–38, Sections 13–20"
+  },
+  "methodology": {
+    "en": "These are AlgoCore atomic capability statements derived from the official syllabus and current lesson objectives. They are not verbatim Cambridge wording and are not official Cambridge marks.",
+    "vi": "Đây là các capability nguyên tử do AlgoCore phân rã từ syllabus chính thức và mục tiêu bài học hiện tại. Chúng không phải nguyên văn Cambridge và không phải điểm chính thức của Cambridge.",
+    "expectedCapabilityCount": 200,
+    "expectedStrandCount": 15,
+    "depthScale": [
+      "full",
+      "partial"
+    ]
+  },
+  "summary": {
+    "capabilityCount": 200,
+    "full": 200,
+    "partial": 0,
+    "bySection": {
+      "13": {
+        "total": 21,
+        "full": 21,
+        "partial": 0
+      },
+      "14": {
+        "total": 24,
+        "full": 24,
+        "partial": 0
+      },
+      "15": {
+        "total": 31,
+        "full": 31,
+        "partial": 0
+      },
+      "16": {
+        "total": 27,
+        "full": 27,
+        "partial": 0
+      },
+      "17": {
+        "total": 14,
+        "full": 14,
+        "partial": 0
+      },
+      "18": {
+        "total": 13,
+        "full": 13,
+        "partial": 0
+      },
+      "19": {
+        "total": 37,
+        "full": 37,
+        "partial": 0
+      },
+      "20": {
+        "total": 33,
+        "full": 33,
+        "partial": 0
+      }
+    }
+  },
+  "strands": [
+    {
+      "id": "13.1",
+      "sectionId": "13",
+      "title": {
+        "en": "User-defined data types",
+        "vi": "Kiểu dữ liệu tự định nghĩa"
+      },
+      "syllabusLocator": {
+        "printedPage": 32,
+        "section": "13.1 User-defined data types"
+      }
+    },
+    {
+      "id": "13.2",
+      "sectionId": "13",
+      "title": {
+        "en": "File organisation and access",
+        "vi": "Tổ chức và truy cập tệp"
+      },
+      "syllabusLocator": {
+        "printedPage": 32,
+        "section": "13.2 File organisation and access"
+      }
+    },
+    {
+      "id": "13.3",
+      "sectionId": "13",
+      "title": {
+        "en": "Floating-point numbers, representation and manipulation",
+        "vi": "Số dấu phẩy động: biểu diễn và xử lý"
+      },
+      "syllabusLocator": {
+        "printedPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      }
+    },
+    {
+      "id": "14.1",
+      "sectionId": "14",
+      "title": {
+        "en": "Protocols",
+        "vi": "Giao thức"
+      },
+      "syllabusLocator": {
+        "printedPage": 33,
+        "section": "14.1 Protocols"
+      }
+    },
+    {
+      "id": "14.2",
+      "sectionId": "14",
+      "title": {
+        "en": "Circuit switching and packet switching",
+        "vi": "Chuyển mạch kênh và chuyển mạch gói"
+      },
+      "syllabusLocator": {
+        "printedPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      }
+    },
+    {
+      "id": "15.1",
+      "sectionId": "15",
+      "title": {
+        "en": "Processors, parallel processing and virtual machines",
+        "vi": "Bộ xử lý, xử lý song song và máy ảo"
+      },
+      "syllabusLocator": {
+        "printedPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      }
+    },
+    {
+      "id": "15.2",
+      "sectionId": "15",
+      "title": {
+        "en": "Boolean algebra and logic circuits",
+        "vi": "Đại số Boolean và mạch logic"
+      },
+      "syllabusLocator": {
+        "printedPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      }
+    },
+    {
+      "id": "16.1",
+      "sectionId": "16",
+      "title": {
+        "en": "Purposes of an operating system",
+        "vi": "Chức năng của hệ điều hành"
+      },
+      "syllabusLocator": {
+        "printedPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      }
+    },
+    {
+      "id": "16.2",
+      "sectionId": "16",
+      "title": {
+        "en": "Translation software",
+        "vi": "Phần mềm dịch"
+      },
+      "syllabusLocator": {
+        "printedPage": 35,
+        "section": "16.2 Translation Software"
+      }
+    },
+    {
+      "id": "17.1",
+      "sectionId": "17",
+      "title": {
+        "en": "Encryption, encryption protocols and digital certificates",
+        "vi": "Mã hóa, giao thức mã hóa và chứng chỉ số"
+      },
+      "syllabusLocator": {
+        "printedPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      }
+    },
+    {
+      "id": "18.1",
+      "sectionId": "18",
+      "title": {
+        "en": "Artificial intelligence",
+        "vi": "Trí tuệ nhân tạo"
+      },
+      "syllabusLocator": {
+        "printedPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      }
+    },
+    {
+      "id": "19.1",
+      "sectionId": "19",
+      "title": {
+        "en": "Algorithms",
+        "vi": "Thuật toán"
+      },
+      "syllabusLocator": {
+        "printedPage": 37,
+        "section": "19.1 Algorithms"
+      }
+    },
+    {
+      "id": "19.2",
+      "sectionId": "19",
+      "title": {
+        "en": "Recursion",
+        "vi": "Đệ quy"
+      },
+      "syllabusLocator": {
+        "printedPage": 37,
+        "section": "19.2 Recursion"
+      }
+    },
+    {
+      "id": "20.1",
+      "sectionId": "20",
+      "title": {
+        "en": "Programming paradigms",
+        "vi": "Mô hình lập trình"
+      },
+      "syllabusLocator": {
+        "printedPage": 38,
+        "section": "20.1 Programming Paradigms"
+      }
+    },
+    {
+      "id": "20.2",
+      "sectionId": "20",
+      "title": {
+        "en": "File processing and exception handling",
+        "vi": "Xử lý tệp và ngoại lệ"
+      },
+      "syllabusLocator": {
+        "printedPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      }
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "P3-2026-13.1-C001",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Explain why a built-in type may be too general for a problem.",
+        "vi": "Giải thích vì sao kiểu có sẵn có thể quá tổng quát cho bài toán."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "user-defined-and-enumerated-types"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C002",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Define an enumerated type, declare a variable and assign a valid member; Distinguish an enum value, a string and the whole type.",
+        "vi": "Định nghĩa kiểu liệt kê, khai báo biến và gán phần tử hợp lệ; Phân biệt giá trị enum, chuỗi và toàn bộ kiểu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "user-defined-and-enumerated-types"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C003",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Define a pointer type compatible with its destination data.",
+        "vi": "Định nghĩa kiểu con trỏ tương thích với dữ liệu đích."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "pointers-and-referenced-data"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C004",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Distinguish the pointer value, the target address and the target data; Trace address-of and dereference without replacing an address with its data.",
+        "vi": "Phân biệt giá trị con trỏ, địa chỉ đích và dữ liệu đích; Mô phỏng lấy địa chỉ và giải tham chiếu mà không nhầm địa chỉ với dữ liệu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "pointers-and-referenced-data"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C005",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Define a typed set and explain uniqueness and lack of ordering.",
+        "vi": "Định nghĩa tập hợp có kiểu và giải thích tính không trùng, không có thứ tự."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "sets"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C006",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Predict membership, union and intersection from the same data; Distinguish an empty set from a false membership result.",
+        "vi": "Dự đoán phép kiểm thuộc, hợp và giao từ cùng dữ liệu; Phân biệt tập rỗng với kết quả sai của phép kiểm thuộc."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "sets"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C007",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Choose meaningful field names and appropriate types for an entity.",
+        "vi": "Chọn tên trường có nghĩa và kiểu phù hợp cho thực thể."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "records-and-composite-models"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.1-C008",
+      "section": "13",
+      "strand": "13.1",
+      "title": {
+        "en": "Distinguish a record type, one instance and an array of records; Trace a field access/update and explain the limited connection to classes and objects.",
+        "vi": "Phân biệt kiểu record, một bản ghi cụ thể và mảng record; Trace truy cập/cập nhật trường và giải thích mối liên hệ cơ bản với lớp, đối tượng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.1 User-defined data types"
+      },
+      "linkedLessonSlugs": [
+        "records-and-composite-models"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C001",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Distinguish serial, sequential and random organisation.",
+        "vi": "Phân biệt tổ chức serial, sequential và random."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "organisation-versus-access"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C002",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Trace sequential access and explain when an unsuccessful scan may stop early; Explain how an index or calculated address supports direct access.",
+        "vi": "Trace truy cập tuần tự và giải thích khi nào tìm không thấy được phép dừng sớm; Giải thích cách chỉ mục hoặc địa chỉ tính toán hỗ trợ truy cập trực tiếp."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "organisation-versus-access"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C003",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Calculate a MOD hash with the stated divisor and index base.",
+        "vi": "Tính hash MOD theo số chia và gốc chỉ số đã cho."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "hashing-to-locate-records"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C004",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Distinguish a logical slot from a physical byte address; Explain why a stored key must be checked after hashing.",
+        "vi": "Phân biệt ô logic với địa chỉ byte vật lý; Giải thích vì sao vẫn phải kiểm khóa được lưu sau khi hash."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "hashing-to-locate-records"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C005",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Trace collision insertion without overwriting another record.",
+        "vi": "Trace chèn khi va chạm mà không ghi đè bản ghi khác."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "collisions-and-retrieval"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.2-C006",
+      "section": "13",
+      "strand": "13.2",
+      "title": {
+        "en": "Retrieve a displaced record using the same probing route; Justify empty-slot and full-cycle stopping conditions.",
+        "vi": "Tìm bản ghi bị dời bằng cùng đường dò; Giải thích điều kiện dừng tại ô trống và sau một vòng đầy đủ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 32,
+        "section": "13.2 File organisation and access"
+      },
+      "linkedLessonSlugs": [
+        "collisions-and-retrieval"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C001",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Read the width, point position and signedness before interpreting a floating-point number; Encode an exactly representable positive or negative denary value in the stated format.",
+        "vi": "Đọc số bit, vị trí dấu chấm và quy ước dấu trước khi diễn giải số dấu phẩy động; Mã hóa số thập phân dương hoặc âm biểu diễn chính xác được trong định dạng đã cho."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "signed-floating-point-conversion"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C002",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Decode both fields and use their weights to check the original value; Distinguish a negative mantissa from a negative exponent, and check normalisation separately.",
+        "vi": "Giải mã hai trường và dùng trọng số để kiểm lại giá trị ban đầu; Phân biệt định trị âm với số mũ âm và kiểm chuẩn hóa riêng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "signed-floating-point-conversion"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C003",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Recognise normalised positive and negative two’s-complement mantissas.",
+        "vi": "Nhận biết định trị bù hai dương và âm đã chuẩn hóa."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "normalisation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C004",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Trace a value-preserving shift with a compensating exponent change; Explain zero and an exponent limit without an invalid shift.",
+        "vi": "Trace phép dịch giữ giá trị cùng thay đổi số mũ để bù; Giải thích số không và giới hạn số mũ mà không dịch sai."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "normalisation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C005",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Calculate spacing at a specified exponent.",
+        "vi": "Tính khoảng cách tại số mũ xác định."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "precision-range-and-limits"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C006",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Explain the mantissa/exponent trade-off under a fixed total width; Derive positive and negative normalised limits without assuming symmetry.",
+        "vi": "Giải thích đánh đổi giữa định trị và số mũ khi tổng bit cố định; Suy ra giới hạn chuẩn hóa dương và âm mà không giả định đối xứng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "precision-range-and-limits"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-13.3-C007",
+      "section": "13",
+      "strand": "13.3",
+      "title": {
+        "en": "Explain why finite storage may not represent a real value exactly; Compare truncation and rounding under an explicit tie rule; Calculate signed and absolute error, and distinguish precision error from range errors.",
+        "vi": "Giải thích vì sao lưu trữ hữu hạn có thể không biểu diễn chính xác giá trị thực; So cắt và làm tròn theo quy tắc xử lý hòa rõ ràng; Tính sai số có dấu và tuyệt đối, phân biệt sai số độ chính xác với lỗi phạm vi."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "13.3 Floating-point numbers, representation and manipulation"
+      },
+      "linkedLessonSlugs": [
+        "approximation-rounding-and-range-errors"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C001",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain why the communicating parties need agreed protocols, not just a physical connection.",
+        "vi": "Giải thích vì sao hai bên cần giao thức thống nhất, bên cạnh kết nối vật lý."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "tcp-ip-stack-and-message-journey"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C002",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Name the four TCP/IP layers in order and assign a precise responsibility to each.",
+        "vi": "Nêu đúng thứ tự bốn tầng TCP/IP và gắn một trách nhiệm cụ thể với từng tầng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "tcp-ip-stack-and-message-journey"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C003",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Trace a message down the sender’s stack and up the receiver’s stack through adjacent layers.",
+        "vi": "Theo dõi thông điệp đi xuống stack bên gửi rồi đi lên stack bên nhận qua các tầng kề nhau."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "tcp-ip-stack-and-message-journey"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C004",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain how added control information helps delivery while the application data is preserved.",
+        "vi": "Giải thích thông tin điều khiển bổ sung hỗ trợ việc truyền như thế nào trong khi dữ liệu ứng dụng được giữ nguyên."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "tcp-ip-stack-and-message-journey"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C005",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain a connection is not yet a shared language.",
+        "vi": "Giải thích có kết nối chưa có nghĩa là hiểu nhau."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:agreed-rules",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "tcp-ip-stack-and-message-journey"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C006",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Match HTTP, FTP, SMTP, POP3, IMAP and BitTorrent to their purposes.",
+        "vi": "Gắn HTTP, FTP, SMTP, POP3, IMAP và BitTorrent với đúng mục đích."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "application-protocol-selection"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C007",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Distinguish email submission/relay from retrieval and mailbox synchronisation.",
+        "vi": "Phân biệt nộp/chuyển tiếp email với lấy thư và đồng bộ hộp thư."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "application-protocol-selection"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C008",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Justify a protocol choice with a scenario-specific function and reject a plausible near miss.",
+        "vi": "Giải thích lựa chọn bằng chức năng phù hợp tình huống và loại một phương án gần đúng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "application-protocol-selection"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C009",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain identify the service before naming the protocol.",
+        "vi": "Giải thích xác định dịch vụ trước khi nêu giao thức."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:protocol-purpose",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "application-protocol-selection"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C010",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain hTTP and FTP: use the service context.",
+        "vi": "Giải thích hTTP và FTP: dựa vào ngữ cảnh dịch vụ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:web-and-file-services",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "application-protocol-selection"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C011",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain the separate roles of metadata, tracker, peers, pieces, swarm and seed.",
+        "vi": "Giải thích vai trò riêng của metadata, tracker, peer, các phần, swarm và seed."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "bittorrent-and-peer-to-peer-transfer"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C012",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Trace piece availability through downloads and uploads without removing the source copy.",
+        "vi": "Theo dõi phần tệp có sẵn qua tải xuống/lên mà không xóa bản ở nguồn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "bittorrent-and-peer-to-peer-transfer"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C013",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Decide whether completion remains possible after a source leaves.",
+        "vi": "Xác định còn khả năng hoàn tất hay không sau khi một nguồn rời mạng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "bittorrent-and-peer-to-peer-transfer"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.1-C014",
+      "section": "14",
+      "strand": "14.1",
+      "title": {
+        "en": "Explain distribute the payload among peers.",
+        "vi": "Giải thích phân bố payload giữa các peer."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:pieces-peers-seed",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.1 Protocols"
+      },
+      "linkedLessonSlugs": [
+        "bittorrent-and-peer-to-peer-transfer"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C001",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Trace splitting, addressing, forwarding, arrival and reassembly in packet switching.",
+        "vi": "Theo dõi chia nhỏ, đánh địa chỉ, chuyển tiếp, nhận và ghép lại trong packet switching."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "packet-journey-and-routers"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C002",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Use a router’s destination lookup and available next-hop information to justify forwarding.",
+        "vi": "Dùng tra cứu theo đích và next hop khả dụng để giải thích chuyển tiếp của router."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "packet-journey-and-routers"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C003",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Identify the limits of a supplied route and separate receiver ordering from IP delivery.",
+        "vi": "Nhận ra giới hạn tuyến đã cho và tách việc sắp thứ tự ở bên nhận khỏi truyền IP."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "packet-journey-and-routers"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C004",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Explain a message becomes separately handled units.",
+        "vi": "Giải thích thông điệp thành các đơn vị được xử lý riêng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:split-and-reassemble",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "packet-journey-and-routers"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C005",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Explain read the destination, preserve the payload.",
+        "vi": "Giải thích đọc đích, giữ nguyên payload."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:control-versus-payload",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "packet-journey-and-routers"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C006",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Describe circuit establishment, reserved use and release.",
+        "vi": "Mô tả thiết lập circuit, sử dụng phần dành riêng và giải phóng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "choosing-a-switching-method"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C007",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Explain how packets share capacity and why overhead, queueing and ordering may matter.",
+        "vi": "Giải thích packet dùng chung dung lượng và vì sao thông tin điều khiển, hàng đợi, sắp thứ tự có thể quan trọng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "choosing-a-switching-method"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C008",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Compare both methods using the same criteria and justify a conditional choice.",
+        "vi": "So sánh hai phương pháp theo cùng tiêu chí và giải thích lựa chọn có điều kiện."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "choosing-a-switching-method"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C009",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Provide genuinely distinct benefits/drawbacks when the question requires them.",
+        "vi": "Nêu lợi ích/hạn chế thực sự khác nhau khi đề yêu cầu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "choosing-a-switching-method"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-14.2-C010",
+      "section": "14",
+      "strand": "14.2",
+      "title": {
+        "en": "Explain establish, use, release.",
+        "vi": "Giải thích thiết lập, sử dụng, giải phóng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:circuit-lifecycle",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 33,
+        "section": "14.2 Circuit switching, packet switching"
+      },
+      "linkedLessonSlugs": [
+        "choosing-a-switching-method"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C001",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Compare instruction formats, addressing modes, registers and memory access.",
+        "vi": "So sánh định dạng lệnh, chế độ địa chỉ, thanh ghi và truy cập bộ nhớ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "risc-and-cisc"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C002",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Trace a load/store sequence and a symbolic complex instruction for the same calculation.",
+        "vi": "Truy vết chuỗi load/store và một lệnh phức hợp minh họa cho cùng phép tính."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "risc-and-cisc"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C003",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Explain why instruction count alone does not determine execution time.",
+        "vi": "Giải thích vì sao chỉ số lệnh không quyết định thời gian thực hiện."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "risc-and-cisc"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C004",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Trace IF, ID, OF, IE and WB across a stated clock schedule.",
+        "vi": "Theo dõi IF, ID, OF, IE, WB trên lịch nhịp đã cho."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "pipelines-registers-and-interrupts"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C005",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Distinguish the stage occupied during a clock from the boundary register contents after it.",
+        "vi": "Phân biệt giai đoạn đang hoạt động trong nhịp với nội dung thanh ghi ở cuối nhịp."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "pipelines-registers-and-interrupts"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C006",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Calculate ideal completion time and explain throughput versus latency.",
+        "vi": "Tính thời gian hoàn tất lý tưởng và giải thích throughput khác latency."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "pipelines-registers-and-interrupts"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C007",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Explain context preservation, unfinished instructions and restart under the stated interrupt policy.",
+        "vi": "Giải thích lưu ngữ cảnh, lệnh chưa xong và chạy lại theo chính sách ngắt đã nêu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "pipelines-registers-and-interrupts"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C008",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Classify SISD, SIMD, MISD and MIMD from stream evidence.",
+        "vi": "Phân loại SISD, SIMD, MISD, MIMD từ dữ kiện luồng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "flynn-architectures-and-massive-parallelism"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C009",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Trace independent lane operations and a coordinated parallel sum.",
+        "vi": "Truy vết thao tác ở các nhánh độc lập và phép tổng song song phối hợp."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "flynn-architectures-and-massive-parallelism"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C010",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Explain massive parallelism and the cost of coordination.",
+        "vi": "Giải thích massively parallel và chi phí phối hợp."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "flynn-architectures-and-massive-parallelism"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C011",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Explain host OS, guest OS and hypervisor roles in a hosted model.",
+        "vi": "Giải thích host OS, guest OS và hypervisor trong mô hình hosted."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "virtual-machines"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C012",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Trace a guest request and manage a bounded allocation example.",
+        "vi": "Theo một yêu cầu của guest và quản lý ví dụ phân bổ có giới hạn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "virtual-machines"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.1-C013",
+      "section": "15",
+      "strand": "15.1",
+      "title": {
+        "en": "Evaluate compatibility, isolation, performance and maintenance trade-offs.",
+        "vi": "Đánh giá tương thích, cô lập, hiệu năng và chi phí bảo trì."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.1 Processors, Parallel Processing and Virtual Machines"
+      },
+      "linkedLessonSlugs": [
+        "virtual-machines"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C001",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Evaluate gates, including a three-input AND, in dependency order.",
+        "vi": "Tính các cổng, gồm AND ba đầu vào, theo thứ tự phụ thuộc."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "circuit-truth-table-and-expression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C002",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Construct a complete truth table with named intermediate outputs.",
+        "vi": "Lập bảng chân trị đầy đủ với đầu ra trung gian có tên."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "circuit-truth-table-and-expression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C003",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Derive canonical sum-of-products from exactly the output-1 rows.",
+        "vi": "Suy SOP chuẩn từ đúng các hàng đầu ra bằng1."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "circuit-truth-table-and-expression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C004",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Rebuild an equivalent circuit and check all input combinations.",
+        "vi": "Dựng lại mạch tương đương và kiểm mọi tổ hợp đầu vào."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "circuit-truth-table-and-expression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C005",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Derive all half-adder and full-adder truth-table rows.",
+        "vi": "Suy ra mọi hàng bảng chân trị half adder và full adder."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "half-full-adders"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C006",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Construct a full adder from two half adders and an OR gate.",
+        "vi": "Dựng full adder từ hai half adder và cổng OR."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "half-full-adders"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C007",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Explain carry-in/carry-out when adding multi-bit numbers.",
+        "vi": "Giải thích carry-in/carry-out khi cộng số nhiều bit."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "half-full-adders"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C008",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Draw and reason about the declared cross-coupled NOR SR circuit.",
+        "vi": "Vẽ và suy luận mạch SR NOR mắc hồi tiếp chéo đã nêu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "sr-and-jk-flip-flops"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C009",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Derive hold, set, reset, invalid and JK toggle cases using previous Q.",
+        "vi": "Suy ra giữ, set, reset, invalid và toggle JK từ Q trước."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "sr-and-jk-flip-flops"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C010",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Explain one-bit storage and why a clock/event convention matters.",
+        "vi": "Giải thích lưu một bit và ý nghĩa quy ước clock/sự kiện."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "sr-and-jk-flip-flops"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C011",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Explain why previous state is needed.",
+        "vi": "Giải thích vì sao cần trạng thái trước."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:storage-and-feedback",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "sr-and-jk-flip-flops"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C012",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Apply Boolean identities and De Morgan’s laws with correct scope.",
+        "vi": "Áp dụng các đồng nhất Boolean và luật De Morgan đúng phạm vi."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "boolean-simplification"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C013",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Present one justified transformation per step.",
+        "vi": "Trình bày mỗi bước một phép biến đổi có lý do."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "boolean-simplification"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C014",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Verify equivalence exhaustively and reject invalid steps with a counterexample.",
+        "vi": "Kiểm tương đương đầy đủ và bác bước sai bằng phản ví dụ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "boolean-simplification"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C015",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Place truth-table values correctly in two-, three- and four-variable Gray-code maps.",
+        "vi": "Đặt đúng giá trị bảng chân trị vào map Gray hai, ba, bốn biến."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "karnaugh-maps"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C016",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Validate groups including edge wrapping, overlap and singleton cases.",
+        "vi": "Kiểm nhóm gồm nối mép, chồng lấp và ô đơn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "karnaugh-maps"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C017",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Derive constant literals and verify complete equivalent SOP coverage.",
+        "vi": "Suy literal không đổi và kiểm SOP tương đương phủ đủ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "karnaugh-maps"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-15.2-C018",
+      "section": "15",
+      "strand": "15.2",
+      "title": {
+        "en": "Explain place values by labels, not visual counting.",
+        "vi": "Giải thích đặt giá trị theo nhãn, không đếm ô theo mắt."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "theory:map-from-table",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 34,
+        "section": "15.2 Boolean Algebra and Logic Circuits"
+      },
+      "linkedLessonSlugs": [
+        "karnaugh-maps"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C001",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Explain CPU, memory and I/O resource management with a concrete benefit.",
+        "vi": "Giải thích quản lý CPU, bộ nhớ và I/O cùng lợi ích cụ thể."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "resources-processes-and-states"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C002",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Distinguish a stored program from a process and its saved context.",
+        "vi": "Phân biệt chương trình được lưu với tiến trình và ngữ cảnh đã lưu của nó."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "resources-processes-and-states"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C003",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Trace valid state transitions and reject a blocked-to-running shortcut.",
+        "vi": "Trace chuyển trạng thái hợp lệ và bác việc đi tắt từ Blocked sang Running."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "resources-processes-and-states"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C004",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Trace FCFS, RR, SJF and SRT with arrivals, remaining times and stated ties.",
+        "vi": "Trace FCFS, RR, SJF và SRT với thời điểm đến, thời gian còn lại và quy tắc hòa đã nêu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "scheduling-choices"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C005",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Calculate response, waiting and turnaround for a declared CPU-only model.",
+        "vi": "Tính thời gian phản hồi, chờ và hoàn thành tính từ lúc đến trong mô hình chỉ dùng CPU đã nêu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "scheduling-choices"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C006",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Justify a policy for a workload without claiming it is universally best.",
+        "vi": "Lý giải lựa chọn chính sách theo tải công việc, không khẳng định luôn tốt nhất."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "scheduling-choices"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C007",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Explain the kernel’s interrupt-handling and low-level scheduling responsibilities.",
+        "vi": "Giải thích trách nhiệm xử lý ngắt và lập lịch mức thấp của kernel."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "kernel-interrupts-and-scheduling"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C008",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Trace saving and restoring the correct process context.",
+        "vi": "Trace việc lưu và khôi phục đúng ngữ cảnh tiến trình."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "kernel-interrupts-and-scheduling"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C009",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Distinguish a timer-driven process switch from I/O service that resumes the same process.",
+        "vi": "Phân biệt chuyển tiến trình do định thời với xử lý I/O rồi tiếp tục cùng tiến trình."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "kernel-interrupts-and-scheduling"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C010",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Calculate page/offset and frame/offset addresses with a page table.",
+        "vi": "Tính địa chỉ trang/offset và khung/offset bằng bảng trang."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "paging-segmentation-and-virtual-memory"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C011",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Check a segment limit before adding its base address.",
+        "vi": "Kiểm tra giới hạn đoạn trước khi cộng địa chỉ nền."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "paging-segmentation-and-virtual-memory"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C012",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Explain a page fault and finite virtual memory without confusing either with a virtual machine.",
+        "vi": "Giải thích page fault và bộ nhớ ảo hữu hạn, không nhầm với máy ảo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "paging-segmentation-and-virtual-memory"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C013",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Trace FIFO and LRU using explicit frame contents and policy history.",
+        "vi": "Trace FIFO và LRU với nội dung khung và lịch sử chính sách rõ ràng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "replacement-and-thrashing"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C014",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Count faults/hits without treating every fault as an eviction.",
+        "vi": "Đếm lỗi/hit mà không coi mọi lỗi là loại trang."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "replacement-and-thrashing"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.1-C015",
+      "section": "16",
+      "strand": "16.1",
+      "title": {
+        "en": "Explain thrashing using locality, active memory demand and the cost of paging.",
+        "vi": "Giải thích thrashing qua tính cục bộ, nhu cầu bộ nhớ đang dùng và chi phí chuyển trang."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.1 Purposes of an Operating System (OS)"
+      },
+      "linkedLessonSlugs": [
+        "replacement-and-thrashing"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C001",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Explain execution by an interpreter without a standalone translated program.",
+        "vi": "Giải thích thực thi bằng trình thông dịch không tạo chương trình đã dịch độc lập."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "interpreter-versus-compiler"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C002",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Separate compile-time diagnostics, target-code creation and runtime output.",
+        "vi": "Tách chẩn đoán khi biên dịch, tạo mã đích và đầu ra khi chạy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "interpreter-versus-compiler"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C003",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Compare workflows for a task using qualified benefits and limitations.",
+        "vi": "So sánh quy trình theo nhiệm vụ với lợi ích và giới hạn có điều kiện."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "interpreter-versus-compiler"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C004",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Explain lexical analysis, syntax analysis, code generation and code optimisation.",
+        "vi": "Giải thích phân tích từ vựng, phân tích cú pháp, sinh mã và tối ưu mã."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "compilation-stages"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C005",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Trace tokens, a symbol table and an expression structure on a small program.",
+        "vi": "Trace token, bảng ký hiệu và cấu trúc biểu thức của chương trình nhỏ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "compilation-stages"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C006",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Distinguish lexical/syntax diagnostics and justify a behaviour-preserving optimisation.",
+        "vi": "Phân biệt chẩn đoán từ vựng/cú pháp và lý giải tối ưu giữ hành vi."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "compilation-stages"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C007",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Distinguish terminals, non-terminals, production rules, choice and sequence.",
+        "vi": "Phân biệt ký hiệu kết thúc, không kết thúc, luật sinh, lựa chọn và nối tiếp."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "bnf-and-syntax-diagrams"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C008",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Trace a derivation and the equivalent syntax-diagram path for a bounded grammar.",
+        "vi": "Trace phép dẫn xuất và đường đi tương đương trong sơ đồ cú pháp của văn phạm hữu hạn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "bnf-and-syntax-diagrams"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C009",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Accept or reject a candidate only after checking the whole string.",
+        "vi": "Chỉ chấp nhận hoặc bác chuỗi sau khi kiểm tra toàn bộ chuỗi."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "bnf-and-syntax-diagrams"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C010",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Convert between bracketed infix and postfix while preserving precedence.",
+        "vi": "Đổi giữa infix có ngoặc và postfix mà giữ đúng độ ưu tiên."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "rpn-and-the-stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C011",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Trace every push, ordered pop, operation and result push.",
+        "vi": "Trace từng lần đẩy, lấy đúng thứ tự, tính và đẩy kết quả."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "rpn-and-the-stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-16.2-C012",
+      "section": "16",
+      "strand": "16.2",
+      "title": {
+        "en": "Diagnose invalid expressions without inventing a numerical answer.",
+        "vi": "Chẩn đoán biểu thức sai mà không tạo đáp án số giả."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 35,
+        "section": "16.2 Translation Software"
+      },
+      "linkedLessonSlugs": [
+        "rpn-and-the-stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C001",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Distinguish plaintext, ciphertext, encryption and decryption.",
+        "vi": "Phân biệt bản rõ, bản mã, mã hóa và giải mã."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "confidentiality-and-key-choice"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C002",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Compare symmetric and asymmetric key ownership.",
+        "vi": "So sánh quyền sở hữu khóa đối xứng và bất đối xứng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "confidentiality-and-key-choice"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C003",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Choose the correct key for a confidential or verified message.",
+        "vi": "Chọn đúng khóa cho thông điệp bí mật hoặc được xác minh."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "confidentiality-and-key-choice"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C004",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Explain the result as actor → key → operation → security outcome.",
+        "vi": "Giải thích kết quả theo tác nhân → khóa → thao tác → kết quả bảo mật."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "confidentiality-and-key-choice"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C005",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "State the purpose of quantum key distribution.",
+        "vi": "Nêu mục đích của phân phối khóa lượng tử."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "quantum-cryptography"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C006",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Trace sender, Eve and receiver choices through a deterministic teaching fixture.",
+        "vi": "Theo dõi lựa chọn của người gửi, Eve và người nhận qua một fixture dạy học xác định."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "quantum-cryptography"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C007",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Explain why sample comparison may lead to accept or abort; Link each benefit and drawback to its mechanism.",
+        "vi": "Giải thích vì sao so sánh mẫu có thể dẫn đến chấp nhận hoặc hủy; Liên hệ mỗi lợi ích và hạn chế với cơ chế của nó."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "quantum-cryptography"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C008",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "State the purpose of SSL/TLS in client–server communication.",
+        "vi": "Nêu mục đích SSL/TLS trong truyền thông client–server."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "ssl-tls-communication"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C009",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Trace a simplified certificate check and session setup.",
+        "vi": "Theo dõi kiểm tra chứng chỉ và thiết lập phiên giản lược."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "ssl-tls-communication"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C010",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Identify appropriate situations for TLS.",
+        "vi": "Xác định tình huống phù hợp dùng TLS."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "ssl-tls-communication"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C011",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Explain what TLS does and does not guarantee.",
+        "vi": "Giải thích TLS bảo đảm và không bảo đảm điều gì."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "ssl-tls-communication"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C012",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Trace certificate request, identity check and issuance.",
+        "vi": "Theo dõi yêu cầu chứng chỉ, kiểm tra danh tính và cấp chứng chỉ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "certificates-and-signatures"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C013",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Distinguish a certificate from a digital signature.",
+        "vi": "Phân biệt chứng chỉ số với chữ ký số."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "certificates-and-signatures"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-17.1-C014",
+      "section": "17",
+      "strand": "17.1",
+      "title": {
+        "en": "Trace digest signing and verification in the reviewed teaching model; Interpret valid, tampered and wrong-key outcomes.",
+        "vi": "Theo dõi ký và kiểm chứng bản tóm lược trong mô hình dạy học đã duyệt; Diễn giải kết quả hợp lệ, bị sửa và sai khóa."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "17.1 Encryption, Encryption Protocols and Digital Certificates"
+      },
+      "linkedLessonSlugs": [
+        "certificates-and-signatures"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C001",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Identify nodes, edges, weights and paths in an AI problem graph; Trace tentative distances, frontier, current node, settled nodes and predecessors.",
+        "vi": "Nhận diện nút, cạnh, trọng số và đường đi trong đồ thị bài toán AI; Trace khoảng cách tạm thời, frontier, nút hiện tại, nút đã chốt và predecessor."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "graphs-and-dijkstra"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C002",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Apply strict-lower relaxation and the declared tie rule; Reconstruct the shortest path and justify its total cost.",
+        "vi": "Áp dụng cập nhật khi thấp hơn nghiêm ngặt và quy tắc phá hòa đã công bố; Dựng lại đường đi ngắn nhất và giải thích tổng chi phí."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "graphs-and-dijkstra"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C003",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Distinguish g(n), h(n) and f(n)=g(n)+h(n); Trace open, closed, predecessor and cost updates.",
+        "vi": "Phân biệt g(n), h(n) và f(n)=g(n)+h(n); Trace open, closed, predecessor và cập nhật chi phí."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "a-star-and-heuristic-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C004",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Compare A* selection order with Dijkstra on one graph; State the heuristic condition and limitation before claiming optimality.",
+        "vi": "So sánh thứ tự chọn của A* với Dijkstra trên cùng đồ thị; Nêu điều kiện và giới hạn heuristic trước khi tuyên bố tối ưu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "a-star-and-heuristic-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C005",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Explain machine learning at syllabus level; Distinguish supervised, unsupervised and reinforcement learning from evidence.",
+        "vi": "Giải thích học máy ở mức syllabus; Phân biệt học có giám sát, không giám sát và tăng cường từ dữ kiện."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "learning-categories"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C006",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Separate target labels, discovered patterns and reward signals; Recognise supervised regression as continuous-target prediction.",
+        "vi": "Tách nhãn mục tiêu, mẫu được khám phá và tín hiệu thưởng; Nhận diện hồi quy có giám sát là dự đoán mục tiêu liên tục."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "learning-categories"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C007",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Identify input, hidden and output layers, nodes and weighted connections.",
+        "vi": "Nhận diện lớp đầu vào, lớp ẩn, lớp đầu ra, nút và kết nối có trọng số."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "neural-networks-and-deep-learning"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C008",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Trace a forward prediction with a declared teaching rule.",
+        "vi": "Trace dự đoán xuôi bằng quy tắc dạy học đã công bố."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "neural-networks-and-deep-learning"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C009",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Distinguish training from inference; Explain how multiple hidden layers relate to deep learning.",
+        "vi": "Phân biệt training với inference; Giải thích quan hệ giữa nhiều lớp ẩn và học sâu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "neural-networks-and-deep-learning"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C010",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Order the eight training-cycle stages; Distinguish prediction, target, error and squared error.",
+        "vi": "Sắp xếp tám giai đoạn chu trình training; Phân biệt dự đoán, mục tiêu, sai số và sai số bình phương."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "backpropagation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C011",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Trace an old/new weight and prediction with the declared toy rule; Distinguish training from inference and backward correction from normal data flow.",
+        "vi": "Trace trọng số và dự đoán cũ/mới bằng quy tắc đồ chơi đã công bố; Phân biệt training với inference và hiệu chỉnh ngược với luồng dữ liệu bình thường."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "backpropagation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C012",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Identify input–continuous-target training pairs; Read a fitted line, prediction and residual.",
+        "vi": "Nhận diện cặp huấn luyện đầu vào–mục tiêu liên tục; Đọc đường khớp, dự đoán và residual."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "regression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-18.1-C013",
+      "section": "18",
+      "strand": "18.1",
+      "title": {
+        "en": "Distinguish regression from classification; Explain extrapolation and correlation limits.",
+        "vi": "Phân biệt hồi quy với phân loại; Giải thích giới hạn ngoại suy và tương quan."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 36,
+        "section": "18.1 Artificial Intelligence (AI)"
+      },
+      "linkedLessonSlugs": [
+        "regression"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C001",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace a zero-based first-match scan.",
+        "vi": "Trace phép quét zero-based trả match đầu tiên."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linear-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C002",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write bounded Cambridge pseudocode.",
+        "vi": "Viết giả mã Cambridge có giới hạn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linear-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C003",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Handle empty, duplicate and missing cases; Explain O(n) worst-case growth.",
+        "vi": "Xử lý empty, duplicate và missing; Giải thích tăng trưởng worst-case O(n)."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linear-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C004",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "State and test the sorted precondition.",
+        "vi": "Nêu và kiểm tra điều kiện sorted."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C005",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace inclusive Low, High and Mid.",
+        "vi": "Trace Low, High, Mid tính cả hai đầu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C006",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write a progressing search that checks the last candidate; Explain logarithmic comparison growth.",
+        "vi": "Viết thuật toán tiến triển có xét ứng viên cuối; Giải thích tăng trưởng phép so sánh logarithmic."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-search"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C007",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace adjacent comparisons and swaps.",
+        "vi": "Trace so sánh và swap cặp kề."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "bubble-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C008",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Explain the completed upper region.",
+        "vi": "Giải thích vùng trên đã hoàn tất."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "bubble-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C009",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write corrected pass-level early exit; Relate work to size and initial order.",
+        "vi": "Viết early exit đúng ở mức pass; Liên hệ công việc với size và thứ tự ban đầu."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "bubble-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C010",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace key, position and shifts.",
+        "vi": "Trace key, position và shifts."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "insertion-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C011",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Maintain the sorted-prefix invariant.",
+        "vi": "Duy trì invariant sorted-prefix."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "insertion-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C012",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write stable ascending pseudocode; Explain order and size effects.",
+        "vi": "Viết giả mã tăng dần stable; Giải thích ảnh hưởng của order và size."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "insertion-sort"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C013",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Describe LIFO and the stack interface.",
+        "vi": "Mô tả LIFO và interface stack."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C014",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace PUSH, POP and PEEK.",
+        "vi": "Trace PUSH, POP và PEEK."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C015",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write array-stack guards and updates; Handle underflow and overflow without mutation.",
+        "vi": "Viết guard và update stack bằng mảng; Xử lý underflow và overflow không mutation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C016",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Describe FIFO and the queue interface.",
+        "vi": "Mô tả FIFO và interface queue."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "queue"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C017",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace circular ENQUEUE and DEQUEUE.",
+        "vi": "Trace ENQUEUE và DEQUEUE vòng tròn."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "queue"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C018",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Write count-based empty/full guards; Explain wrap-around and no-mutation errors.",
+        "vi": "Viết guard empty/full dựa trên Count; Giải thích wrap-around và lỗi không mutation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "queue",
+        "stack"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C019",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace an unordered record-array list.",
+        "vi": "Trace list record-array không ordered."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linked-list"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C020",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Find/delete the first reachable match.",
+        "vi": "Find/delete match reachable đầu tiên."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linked-list"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C021",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Allocate the lowest free address; Relink safely and preserve reachability.",
+        "vi": "Cấp phát address free thấp nhất; Relink an toàn và giữ reachability."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "linked-list"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C022",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Identify root, child and leaf.",
+        "vi": "Nhận diện root, child và leaf."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-tree"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C023",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace BST find and insert paths.",
+        "vi": "Trace đường find và insert BST."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-tree"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C024",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Preserve smaller-left/larger-right ordering; Reject duplicates without mutation.",
+        "vi": "Giữ thứ tự nhỏ-trái/lớn-phải; Từ chối duplicate không mutation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "binary-tree"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C025",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Describe unique key–value mappings.",
+        "vi": "Mô tả mapping key–value unique."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "dictionary"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C026",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Trace LOOKUP, INSERT and UPDATE.",
+        "vi": "Trace LOOKUP, INSERT và UPDATE."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "dictionary"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C027",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Apply duplicate/missing failure rules; Separate interface from representation.",
+        "vi": "Áp dụng quy tắc failure duplicate/missing; Tách interface khỏi representation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "dictionary"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C028",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Separate interface from representation.",
+        "vi": "Tách interface khỏi representation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "implementing-one-adt-with-another"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C029",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "State a representation invariant.",
+        "vi": "Nêu representation invariant."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "implementing-one-adt-with-another"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C030",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Map external operations to internal operations; Justify behavior and compare costs.",
+        "vi": "Map operation ngoài tới operation trong; Biện minh behavior và so sánh cost."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "implementing-one-adt-with-another"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C031",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Define task, n, metric and assumptions.",
+        "vi": "Định nghĩa task, n, metric và assumption."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "time-and-space-complexity"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C032",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Separate time from extra space.",
+        "vi": "Tách time khỏi extra space."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "time-and-space-complexity"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.1-C033",
+      "section": "19",
+      "strand": "19.1",
+      "title": {
+        "en": "Use O(1), O(log n), O(n) and O(n²); Compare only algorithms doing the same task.",
+        "vi": "Dùng O(1), O(log n), O(n) và O(n²); Chỉ so thuật toán làm cùng task."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.1 Algorithms"
+      },
+      "linkedLessonSlugs": [
+        "time-and-space-complexity"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.2-C001",
+      "section": "19",
+      "strand": "19.2",
+      "title": {
+        "en": "Identify base and recursive cases; Prove progress toward the base.",
+        "vi": "Nhận diện base case và recursive case; Chứng minh progress tới base."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.2 Recursion"
+      },
+      "linkedLessonSlugs": [
+        "designing-and-tracing-recursion"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.2-C002",
+      "section": "19",
+      "strand": "19.2",
+      "title": {
+        "en": "Write typed recursive pseudocode; Separate call order from return order.",
+        "vi": "Viết giả mã recursive có type; Tách call order khỏi return order."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.2 Recursion"
+      },
+      "linkedLessonSlugs": [
+        "designing-and-tracing-recursion"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.2-C003",
+      "section": "19",
+      "strand": "19.2",
+      "title": {
+        "en": "Model one frame per invocation; Trace push order to the zero base.",
+        "vi": "Mô hình một frame mỗi invocation; Trace push order tới base zero."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.2 Recursion"
+      },
+      "linkedLessonSlugs": [
+        "call-stacks-and-unwinding"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-19.2-C004",
+      "section": "19",
+      "strand": "19.2",
+      "title": {
+        "en": "Trace LIFO pop and returned-value flow; Distinguish runtime frames from a program stack ADT.",
+        "vi": "Trace pop LIFO và luồng return value; Phân biệt runtime frame với stack ADT trong chương trình."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 37,
+        "section": "19.2 Recursion"
+      },
+      "linkedLessonSlugs": [
+        "call-stacks-and-unwinding"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C001",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Identify four paradigms from evidence.",
+        "vi": "Nhận diện bốn paradigm từ bằng chứng."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "paradigms-and-procedural-design"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C002",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Decompose a procedural solution.",
+        "vi": "Phân rã lời giải thủ tục."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "paradigms-and-procedural-design"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C003",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace parameters and return values.",
+        "vi": "Trace tham số và giá trị trả về."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "paradigms-and-procedural-design"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C004",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Write consistent Cambridge pseudocode.",
+        "vi": "Viết Cambridge pseudocode nhất quán."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "paradigms-and-procedural-design"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C005",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Explain five addressing modes accurately.",
+        "vi": "Giải thích chính xác năm chế độ địa chỉ."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "five-addressing-modes"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C006",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "five-addressing-modes"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C007",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Use the declared convention.",
+        "vi": "Dùng convention đã khai báo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "five-addressing-modes"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C008",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Handle boundary and error cases.",
+        "vi": "Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "five-addressing-modes"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C009",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Explain assembly execution and construction accurately.",
+        "vi": "Giải thích chính xác thực thi và xây dựng assembly."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "assembly-execution-and-construction"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C010",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "assembly-execution-and-construction"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C011",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Use the declared convention.",
+        "vi": "Dùng convention đã khai báo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "assembly-execution-and-construction"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C012",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Handle boundary and error cases.",
+        "vi": "Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "assembly-execution-and-construction"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C013",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Explain class, object design and encapsulation accurately.",
+        "vi": "Giải thích chính xác thiết kế class, object và encapsulation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "class-object-design-and-encapsulation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C014",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "class-object-design-and-encapsulation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C015",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Use the declared convention.",
+        "vi": "Dùng convention đã khai báo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "class-object-design-and-encapsulation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C016",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Handle boundary and error cases.",
+        "vi": "Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "class-object-design-and-encapsulation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C017",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Explain inheritance, polymorphism and aggregation accurately.",
+        "vi": "Giải thích chính xác inheritance, polymorphism và aggregation."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "inheritance-polymorphism-and-aggregation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C018",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "inheritance-polymorphism-and-aggregation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C019",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Use the declared convention.",
+        "vi": "Dùng convention đã khai báo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "inheritance-polymorphism-and-aggregation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C020",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Handle boundary and error cases.",
+        "vi": "Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "inheritance-polymorphism-and-aggregation"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C021",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Explain declarative facts, rules and goals accurately.",
+        "vi": "Giải thích chính xác facts, rules và goals trong declarative."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "declarative-facts-rules-and-goals"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C022",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "declarative-facts-rules-and-goals"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C023",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Use the declared convention.",
+        "vi": "Dùng convention đã khai báo."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "declarative-facts-rules-and-goals"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.1-C024",
+      "section": "20",
+      "strand": "20.1",
+      "title": {
+        "en": "Handle boundary and error cases.",
+        "vi": "Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.1 Programming Paradigms"
+      },
+      "linkedLessonSlugs": [
+        "declarative-facts-rules-and-goals"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C001",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Explain serial and sequential text-file workflows accurately.",
+        "vi": "Giải thích chính xác workflow text file serial và sequential."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "serial-sequential-text-file-workflows"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C002",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "serial-sequential-text-file-workflows"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C003",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Use the declared convention; Handle boundary and error cases.",
+        "vi": "Dùng convention đã khai báo; Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "serial-sequential-text-file-workflows"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C004",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Explain random-file record operations accurately.",
+        "vi": "Giải thích chính xác operation record trong random file."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "random-file-record-operations"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C005",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "random-file-record-operations"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C006",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Use the declared convention; Handle boundary and error cases.",
+        "vi": "Dùng convention đã khai báo; Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "random-file-record-operations"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C007",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Explain exceptions and controlled recovery accurately.",
+        "vi": "Giải thích chính xác exception và phục hồi có kiểm soát."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "exceptions-and-controlled-recovery"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C008",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Trace every visible state change.",
+        "vi": "Trace mọi thay đổi state nhìn thấy."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "lesson-objective",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "exceptions-and-controlled-recovery"
+      ],
+      "depth": "full"
+    },
+    {
+      "id": "P3-2026-20.2-C009",
+      "section": "20",
+      "strand": "20.2",
+      "title": {
+        "en": "Use the declared convention; Handle boundary and error cases.",
+        "vi": "Dùng convention đã khai báo; Xử lý boundary và error case."
+      },
+      "wordingAuthority": "algocore-decomposition-of-official-syllabus",
+      "decompositionBasis": "merged-lesson-objectives",
+      "syllabusLocator": {
+        "documentId": "cambridge-9618-syllabus-2026-v2",
+        "printedAndPdfPage": 38,
+        "section": "20.2 File Processing and Exception Handling"
+      },
+      "linkedLessonSlugs": [
+        "exceptions-and-controlled-recovery"
+      ],
+      "depth": "full"
+    }
+  ]
+}

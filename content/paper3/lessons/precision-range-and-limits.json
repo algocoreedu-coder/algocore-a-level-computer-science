@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.3-T03",
   "slug": "precision-range-and-limits",
   "title": {
@@ -382,6 +382,15 @@
         "en": "For limits, select appropriate signed M and E endpoints, then multiply.",
         "vi": "Với giới hạn, chọn đầu M có dấu và E phù hợp rồi nhân."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "calculate",
+        "guidance": {
+          "en": "Show each intermediate value for Precision, range and limits, keep the stated bit width or units, and state the final result.",
+          "vi": "Trình bày từng giá trị trung gian của Độ chính xác, phạm vi và giới hạn, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -474,17 +483,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "M6/E6",
-            "vi": "M6/E6"
-          },
-          "feedback": {
-            "en": "Its larger exponent field expands range, but its mantissa step is the coarsest here.",
-            "vi": "Trường số mũ lớn mở range nhưng bước định trị ở đây thô nhất."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "M10/E2",
@@ -505,6 +503,17 @@
             "en": "How the bits are allocated changes the representable values.",
             "vi": "Cách phân chia bit làm đổi các giá trị biểu diễn được."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "M6/E6",
+            "vi": "M6/E6"
+          },
+          "feedback": {
+            "en": "Its larger exponent field expands range, but its mantissa step is the coarsest here.",
+            "vi": "Trường số mũ lớn mở range nhưng bước định trị ở đây thô nhất."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -521,6 +530,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "The exponent must always be positive.",
+            "vi": "Số mũ luôn phải dương."
+          },
+          "feedback": {
+            "en": "Signed exponents may be negative; the issue is the mantissa prefix.",
+            "vi": "Số mũ có dấu có thể âm; vấn đề là mẫu đầu định trị."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -541,17 +561,6 @@
           "feedback": {
             "en": "Correct. The nearest-zero allowed normalised M is 10111111=−65/128.",
             "vi": "Đúng. M chuẩn hóa gần không nhất cho phép là 10111111=−65/128."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "The exponent must always be positive.",
-            "vi": "Số mũ luôn phải dương."
-          },
-          "feedback": {
-            "en": "Signed exponents may be negative; the issue is the mantissa prefix.",
-            "vi": "Số mũ có dấu có thể âm; vấn đề là mẫu đầu định trị."
           }
         }
       ],
@@ -611,5 +620,54 @@
       "locator": "Chapter 13, printed pp.323–324; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "precision-range-and-limits-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "calculate",
+    "taskType": "calculation",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the fixed-width trade-off and derive one spacing and one signed limit from the field sizes.",
+      "vi": "Giải thích đánh đổi độ rộng cố định rồi suy ra một khoảng cách và một giới hạn có dấu từ kích thước trường."
+    },
+    "answerGuidance": [
+      {
+        "en": "Show each intermediate value for Precision, range and limits, keep the stated bit width or units, and state the final result.",
+        "vi": "Trình bày từng giá trị trung gian của Độ chính xác, phạm vi và giới hạn, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+      },
+      {
+        "en": "State total width, sign convention and whether nonzero values must be normalised.",
+        "vi": "Nêu tổng độ rộng, quy ước dấu và có yêu cầu chuẩn hóa số khác không hay không."
+      },
+      {
+        "en": "For spacing, fix E and use 2^(E−(m−1)).",
+        "vi": "Với khoảng cách, giữ E và dùng 2^(E−(m−1))."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "More M bits refine local steps; more E bits expand scales.",
+        "vi": "Thêm bit M làm mịn bước cục bộ; thêm bit E mở thang."
+      },
+      {
+        "en": "Δ=2^(E−(m−1)) at a fixed exponent.",
+        "vi": "Δ=2^(E−(m−1)) tại số mũ cố định."
+      },
+      {
+        "en": "Signed limits depend on normalisation and are not automatically symmetric.",
+        "vi": "Giới hạn có dấu phụ thuộc chuẩn hóa và không tự đối xứng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

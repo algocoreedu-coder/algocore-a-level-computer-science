@@ -52,10 +52,26 @@ export interface StudyMapCatalog {
   readonly relationships: readonly Relationship[];
 }
 
+type ReleaseGate = "PASS" | "FAIL";
+interface LessonReleaseStatus {
+  readonly topicId: string;
+  readonly state: string;
+  readonly releaseAllowed?: boolean;
+  readonly gates?: Readonly<Record<"academic" | "practice" | "code" | "visual" | "ux" | "qa", ReleaseGate>>;
+}
+
+function hasPassedReleaseGate(item: LessonReleaseStatus): boolean {
+  return item.state === "reviewed"
+    && item.releaseAllowed === true
+    && Boolean(item.gates)
+    && Object.values(item.gates ?? {}).length === 6
+    && Object.values(item.gates ?? {}).every((gate) => gate === "PASS");
+}
+
 // This catalog contains navigation metadata only. A planned topic is not a lesson.
 export function getCatalog(): StudyMapCatalog {
-  const reviewed = new Set((lessonStatus.lessons as { topicId: string; state: string }[]).filter(item => item.state === "reviewed").map(item => item.topicId));
-  return { ...catalogData, topics: catalogData.topics.map(topic => ({ ...topic, status: reviewed.has(topic.id) ? "available" : "planned" })) } as StudyMapCatalog;
+  const released = new Set((lessonStatus.lessons as LessonReleaseStatus[]).filter(hasPassedReleaseGate).map((item) => item.topicId));
+  return { ...catalogData, topics: catalogData.topics.map((topic) => ({ ...topic, status: released.has(topic.id) ? "available" : "planned" })) } as StudyMapCatalog;
 }
 
 export type PageQuery = Record<string, string | string[] | undefined>;

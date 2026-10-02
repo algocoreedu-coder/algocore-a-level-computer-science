@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-14.1-T03",
   "slug": "bittorrent-and-peer-to-peer-transfer",
   "title": {
@@ -416,6 +416,15 @@
         "en": "Check all required pieces before reconstruction or seed status.",
         "vi": "Kiểm tra đủ mọi phần cần thiết trước khi khôi phục hay gọi là seed."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of BitTorrent and peer-to-peer transfer; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của BitTorrent và truyền tệp peer-to-peer; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -470,17 +479,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Receiving tracker peer-contact information",
-            "vi": "Nhận thông tin liên hệ peer từ tracker"
-          },
-          "feedback": {
-            "en": "Discovery supplies contacts, not a payload piece.",
-            "vi": "Tìm peer cung cấp liên hệ, không phải phần payload."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Receiving a verified B from an online peer",
@@ -501,6 +499,17 @@
             "en": "The file name describes content but is not its payload.",
             "vi": "Tên tệp mô tả nội dung nhưng không phải payload."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Receiving tracker peer-contact information",
+            "vi": "Nhận thông tin liên hệ peer từ tracker"
+          },
+          "feedback": {
+            "en": "Discovery supplies contacts, not a payload piece.",
+            "vi": "Tìm peer cung cấp liên hệ, không phải phần payload."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -517,6 +526,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "No, all uploads require a complete file",
+            "vi": "Không, mọi lần tải lên cần đủ tệp"
+          },
+          "feedback": {
+            "en": "This would miss the central benefit of partial-piece sharing.",
+            "vi": "Điều này bỏ qua lợi ích chính của chia sẻ khi mới có một phần."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -537,17 +557,6 @@
           "feedback": {
             "en": "Correct: having one needed piece permits upload; seed requires the complete file.",
             "vi": "Đúng: có phần cần thiết cho phép tải lên; seed cần toàn bộ tệp."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "No, all uploads require a complete file",
-            "vi": "Không, mọi lần tải lên cần đủ tệp"
-          },
-          "feedback": {
-            "en": "This would miss the central benefit of partial-piece sharing.",
-            "vi": "Điều này bỏ qua lợi ích chính của chia sẻ khi mới có một phần."
           }
         }
       ],
@@ -614,17 +623,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Yes: only seeds can upload",
-            "vi": "Có: chỉ seed mới tải lên được"
-          },
-          "feedback": {
-            "en": "Partial peers can supply their existing pieces.",
-            "vi": "Peer chưa đủ tệp cung cấp được phần đang có."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "No: together they hold all pieces and may exchange them",
@@ -645,6 +643,17 @@
             "en": "The tracker supplies peer information, not invented payload.",
             "vi": "Tracker cung cấp thông tin peer, không tạo payload."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Yes: only seeds can upload",
+            "vi": "Có: chỉ seed mới tải lên được"
+          },
+          "feedback": {
+            "en": "Partial peers can supply their existing pieces.",
+            "vi": "Peer chưa đủ tệp cung cấp được phần đang có."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -661,6 +670,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Duplicate C and rename it D",
+            "vi": "Sao chép C rồi đổi tên thành D"
+          },
+          "feedback": {
+            "en": "Different piece identities correspond to different required data.",
+            "vi": "Định danh phần khác nhau tương ứng dữ liệu bắt buộc khác nhau."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -681,17 +701,6 @@
           "feedback": {
             "en": "Correct: no current online inventory supplies the missing data.",
             "vi": "Đúng: không tập online hiện tại nào cung cấp dữ liệu thiếu."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Duplicate C and rename it D",
-            "vi": "Sao chép C rồi đổi tên thành D"
-          },
-          "feedback": {
-            "en": "Different piece identities correspond to different required data.",
-            "vi": "Định danh phần khác nhau tương ứng dữ liệu bắt buộc khác nhau."
           }
         }
       ],
@@ -824,5 +833,58 @@
       "kind": "guide",
       "url": "https://www.bittorrent.org/beps/bep_0003.html"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "bittorrent-and-peer-to-peer-transfer-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain a tracker-based download from descriptor to seed, including what happens if a needed piece has no online source.",
+      "vi": "Giải thích việc tải dùng tracker từ tệp mô tả đến seed, gồm trường hợp một phần cần thiết không có nguồn online."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of BitTorrent and peer-to-peer transfer; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của BitTorrent và truyền tệp peer-to-peer; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Separate metadata/discovery from payload transfer.",
+        "vi": "Tách metadata/tìm peer khỏi truyền payload."
+      },
+      {
+        "en": "For each transfer, verify online source, existing piece and missing destination piece.",
+        "vi": "Mỗi lần truyền kiểm tra nguồn online, phần đã có và phần đích còn thiếu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Obtain metadata and discover peers through the tracker.",
+        "vi": "Lấy metadata và tìm peer qua tracker."
+      },
+      {
+        "en": "Download valid missing pieces from online holders and upload pieces already received.",
+        "vi": "Tải phần hợp lệ còn thiếu từ bên online đang có và tải lên phần đã nhận."
+      },
+      {
+        "en": "Retain source copies; reconstruct only after all required pieces are present in correct file order.",
+        "vi": "Giữ bản nguồn; chỉ khôi phục khi đủ mọi phần theo thứ tự tệp đúng."
+      },
+      {
+        "en": "An unavailable necessary piece blocks completion; a complete sharing peer is a seed.",
+        "vi": "Phần bắt buộc không sẵn có chặn hoàn tất; peer có đủ tệp và chia sẻ là seed."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-bittorrent"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-012",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

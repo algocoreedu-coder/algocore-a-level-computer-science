@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.1-T02",
   "slug": "scheduling-choices",
   "estimatedMinutes": 40,
@@ -338,6 +338,15 @@
         "en": "Check CPU-work conservation; calculate named metrics; justify one workload-specific trade-off.",
         "vi": "Kiểm bảo toàn công việc CPU; tính chỉ số được hỏi; lý giải một đánh đổi theo tải."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "write",
+        "guidance": {
+          "en": "Use Cambridge-style pseudocode for Scheduling choices; initialise state, handle boundary cases and make the returned result explicit.",
+          "vi": "Dùng pseudocode theo phong cách Cambridge cho Lựa chọn thuật toán lập lịch; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -382,17 +391,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "P2",
-            "vi": "P2"
-          },
-          "feedback": {
-            "en": "Correct: arrivals are admitted before the unfinished process is appended.",
-            "vi": "Đúng: nhận tiến trình mới trước khi thêm tiến trình chưa xong vào cuối hàng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "P1",
@@ -413,6 +411,17 @@
             "en": "Quantum expiry neither blocks P1 nor prevents P2 from running.",
             "vi": "Hết quantum không chặn P1 và không ngăn P2 chạy."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "P2",
+            "vi": "P2"
+          },
+          "feedback": {
+            "en": "Correct: arrivals are admitted before the unfinished process is appended.",
+            "vi": "Đúng: nhận tiến trình mới trước khi thêm tiến trình chưa xong vào cuối hàng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -429,6 +438,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "P1 returns because it arrived first.",
+            "vi": "P1 chạy lại vì đến trước."
+          },
+          "feedback": {
+            "en": "That is an arrival-order argument, not the SRT selection rule.",
+            "vi": "Đây là lý lẽ thứ tự đến, không phải quy tắc SRT."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -449,17 +469,6 @@
           "feedback": {
             "en": "That confuses SRT with SJF.",
             "vi": "Bạn đã nhầm SRT với SJF."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "P1 returns because it arrived first.",
-            "vi": "P1 chạy lại vì đến trước."
-          },
-          "feedback": {
-            "en": "That is an arrival-order argument, not the SRT selection rule.",
-            "vi": "Đây là lý lẽ thứ tự đến, không phải quy tắc SRT."
           }
         }
       ],
@@ -526,17 +535,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Keep A running.",
-            "vi": "Giữ A chạy."
-          },
-          "feedback": {
-            "en": "Correct: only a strictly shorter arrival preempts the current process.",
-            "vi": "Đúng: chỉ tiến trình đến có thời gian nhỏ hơn hẳn mới lấy quyền CPU."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Always switch to B.",
@@ -557,6 +555,17 @@
             "en": "The model permits one running process, not two simultaneous CPU bursts.",
             "vi": "Mô hình chỉ có một tiến trình Running, không chạy đồng thời hai burst."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Keep A running.",
+            "vi": "Giữ A chạy."
+          },
+          "feedback": {
+            "en": "Correct: only a strictly shorter arrival preempts the current process.",
+            "vi": "Đúng: chỉ tiến trình đến có thời gian nhỏ hơn hẳn mới lấy quyền CPU."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -573,6 +582,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "RR sends all long jobs to blocked so short jobs can run.",
+            "vi": "RR chặn mọi tác vụ dài để tác vụ ngắn chạy."
+          },
+          "feedback": {
+            "en": "It rotates runnable jobs through ready; it does not invent I/O waits.",
+            "vi": "RR luân phiên tác vụ có thể chạy qua Ready, không tạo chờ I/O giả."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -593,17 +613,6 @@
           "feedback": {
             "en": "No such universal completion-time guarantee follows from round robin.",
             "vi": "Round robin không có bảo đảm phổ quát đó."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "RR sends all long jobs to blocked so short jobs can run.",
-            "vi": "RR chặn mọi tác vụ dài để tác vụ ngắn chạy."
-          },
-          "feedback": {
-            "en": "It rotates runnable jobs through ready; it does not invent I/O waits.",
-            "vi": "RR luân phiên tác vụ có thể chạy qua Ready, không tạo chờ I/O giả."
           }
         }
       ],
@@ -689,5 +698,54 @@
       "locator": "PDF p12 Q8(a–b)",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "scheduling-choices-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the four policies and one reason their timelines differ.",
+      "vi": "Giải thích bốn chính sách và một lý do dòng thời gian của chúng khác nhau."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Scheduling choices; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Lựa chọn thuật toán lập lịch; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Write arrival/burst data and all boundary assumptions.",
+        "vi": "Ghi dữ liệu đến/burst và mọi giả định tại biên."
+      },
+      {
+        "en": "At each event update remaining time before choosing among arrived ready processes.",
+        "vi": "Ở mỗi sự kiện, cập nhật thời gian còn lại rồi chọn giữa các tiến trình Ready đã đến."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "FCFS uses arrival order; SJF selects the shortest available burst without preemption.",
+        "vi": "FCFS dùng thứ tự đến; SJF chọn burst sẵn có ngắn nhất mà không cưỡng đoạt."
+      },
+      {
+        "en": "RR limits each turn; SRT compares current remaining work and can preempt.",
+        "vi": "RR giới hạn từng lượt; SRT so sánh phần việc còn lại hiện tại và có thể cưỡng đoạt."
+      },
+      {
+        "en": "Arrivals, ties and boundary ordering must be explicit; metrics derive from the timeline.",
+        "vi": "Phải nêu rõ thời điểm đến, quy tắc hòa và thứ tự biên; chỉ số được suy ra từ dòng thời gian."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

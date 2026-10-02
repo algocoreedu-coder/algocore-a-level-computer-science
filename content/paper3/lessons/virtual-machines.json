@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.1-T04",
   "slug": "virtual-machines",
   "estimatedMinutes": 30,
@@ -366,6 +366,15 @@
         "en": "Explain each benefit or cost using the scenario.",
         "vi": "Giải thích từng lợi ích hoặc chi phí theo tình huống."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Virtual machines; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Máy ảo; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -410,6 +419,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Virtual memory alone",
+            "vi": "Chỉ virtual memory"
+          },
+          "feedback": {
+            "en": "Virtual memory is not an operating system role.",
+            "vi": "Virtual memory không phải vai trò hệ điều hành."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Host OS",
@@ -429,17 +449,6 @@
           "feedback": {
             "en": "Physical resources remain shared and mediated.",
             "vi": "Tài nguyên vật lý vẫn chung và được làm trung gian."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Virtual memory alone",
-            "vi": "Chỉ virtual memory"
-          },
-          "feedback": {
-            "en": "Virtual memory is not an operating system role.",
-            "vi": "Virtual memory không phải vai trò hệ điều hành."
           }
         }
       ],
@@ -506,17 +515,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "10GiB",
-            "vi": "10GiB"
-          },
-          "feedback": {
-            "en": "Stopping does not release A’s4GiB reservation here.",
-            "vi": "Ở đây dừng không trả phần4GiB của A."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "14GiB",
@@ -537,6 +535,17 @@
             "en": "No resize has added the remaining2GiB.",
             "vi": "Chưa có resize thêm2GiB còn lại."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "10GiB",
+            "vi": "10GiB"
+          },
+          "feedback": {
+            "en": "Stopping does not release A’s4GiB reservation here.",
+            "vi": "Ở đây dừng không trả phần4GiB của A."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -553,6 +562,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Increase virtual memory instead of installing a guest",
+            "vi": "Tăng virtual memory thay vì cài guest"
+          },
+          "feedback": {
+            "en": "Memory management does not supply the required OS environment.",
+            "vi": "Quản lý bộ nhớ không cung cấp môi trường OS cần thiết."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -573,17 +593,6 @@
           "feedback": {
             "en": "Compatibility still depends on the environment and supported hardware.",
             "vi": "Tương thích vẫn phụ thuộc môi trường và phần cứng được hỗ trợ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Increase virtual memory instead of installing a guest",
-            "vi": "Tăng virtual memory thay vì cài guest"
-          },
-          "feedback": {
-            "en": "Memory management does not supply the required OS environment.",
-            "vi": "Quản lý bộ nhớ không cung cấp môi trường OS cần thiết."
           }
         }
       ],
@@ -700,5 +709,54 @@
       "locator": "Question9(a,b), page12",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "virtual-machines-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the hosted stack, one benefit and one limitation of a VM.",
+      "vi": "Giải thích chồng lớp hosted, một lợi ích và một hạn chế của VM."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Virtual machines; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Máy ảo; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "State the virtualisation model and identify host/guest roles.",
+        "vi": "Nêu mô hình ảo hóa và vai trò host/guest."
+      },
+      {
+        "en": "Follow the request through the labelled boundary.",
+        "vi": "Theo yêu cầu qua ranh giới ghi nhãn."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Guest OS controls virtual hardware; host OS controls real hardware in this model.",
+        "vi": "Guest OS điều khiển phần cứng ảo; host OS điều khiển phần cứng thật trong mô hình này."
+      },
+      {
+        "en": "The hypervisor creates/manages guests and mediates resources.",
+        "vi": "Hypervisor tạo/quản lý guest và làm trung gian tài nguyên."
+      },
+      {
+        "en": "Compatibility and isolation benefits still have capacity, performance and maintenance constraints.",
+        "vi": "Lợi ích tương thích/cô lập vẫn chịu ràng buộc dung lượng, hiệu năng và bảo trì."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

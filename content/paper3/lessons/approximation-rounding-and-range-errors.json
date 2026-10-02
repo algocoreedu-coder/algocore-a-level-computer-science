@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.3-T04",
   "slug": "approximation-rounding-and-range-errors",
   "title": {
@@ -360,6 +360,15 @@
         "en": "Check range, apply the rule, decode and calculate stored−exact.",
         "vi": "Kiểm miền, áp dụng quy tắc, giải mã và tính giá trị lưu−chính xác."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "calculate",
+        "guidance": {
+          "en": "Show each intermediate value for Approximation, rounding and range errors, keep the stated bit width or units, and state the final result.",
+          "vi": "Trình bày từng giá trị trung gian của Xấp xỉ, làm tròn và lỗi phạm vi, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -414,6 +423,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "3",
+          "label": {
+            "en": "The exponent 4 is negative.",
+            "vi": "Số mũ 4 là âm."
+          },
+          "feedback": {
+            "en": "4 is positive and fits E4.",
+            "vi": "4 là dương và vừa E4."
+          }
+        },
+        {
           "id": "1",
           "label": {
             "en": "Every finite binary value causes overflow.",
@@ -433,17 +453,6 @@
           "feedback": {
             "en": "Correct. M6 leaves only five fractional positions after the sign.",
             "vi": "Đúng. M6 chỉ còn năm vị trí phân số sau dấu."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "The exponent 4 is negative.",
-            "vi": "Số mũ 4 là âm."
-          },
-          "feedback": {
-            "en": "4 is positive and fits E4.",
-            "vi": "4 là dương và vừa E4."
           }
         }
       ],
@@ -510,17 +519,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "Overflow",
-            "vi": "Overflow"
-          },
-          "feedback": {
-            "en": "The value is too small, not too large.",
-            "vi": "Giá trị quá nhỏ, không phải quá lớn."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "Underflow under the normalised requirement",
@@ -541,6 +539,17 @@
             "en": "1/2048 is not zero; a system policy must not be invented.",
             "vi": "1/2048 không phải không; không được tự thêm chính sách hệ thống."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Overflow",
+            "vi": "Overflow"
+          },
+          "feedback": {
+            "en": "The value is too small, not too large.",
+            "vi": "Giá trị quá nhỏ, không phải quá lớn."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -557,6 +566,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "+0.0625",
+            "vi": "+0.0625"
+          },
+          "feedback": {
+            "en": "Correct. The stored value exceeds the exact value by 1/16.",
+            "vi": "Đúng. Giá trị lưu lớn hơn chính xác 1/16."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -577,17 +597,6 @@
           "feedback": {
             "en": "The two values differ; a short decimal display does not erase the difference.",
             "vi": "Hai giá trị khác nhau; hiển thị thập phân ngắn không xóa khác biệt."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "+0.0625",
-            "vi": "+0.0625"
-          },
-          "feedback": {
-            "en": "Correct. The stored value exceeds the exact value by 1/16.",
-            "vi": "Đúng. Giá trị lưu lớn hơn chính xác 1/16."
           }
         }
       ],
@@ -647,5 +656,54 @@
       "locator": "Chapter 13, printed pp.320–321,324–325; examples independently checked",
       "kind": "book"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "approximation-rounding-and-range-errors-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "calculate",
+    "taskType": "calculation",
+    "marks": 3,
+    "prompt": {
+      "en": "Distinguish the two causes of inexact storage and the two range errors, then state the error formula.",
+      "vi": "Phân biệt hai nguyên nhân lưu không chính xác và hai lỗi phạm vi rồi nêu công thức sai số."
+    },
+    "answerGuidance": [
+      {
+        "en": "Show each intermediate value for Approximation, rounding and range errors, keep the stated bit width or units, and state the final result.",
+        "vi": "Trình bày từng giá trị trung gian của Xấp xỉ, làm tròn và lỗi phạm vi, giữ đúng độ rộng bit hoặc đơn vị đã cho và nêu kết quả cuối."
+      },
+      {
+        "en": "State M/E widths, normalisation requirement and rounding rule.",
+        "vi": "Nêu độ rộng M/E, yêu cầu chuẩn hóa và quy tắc làm tròn."
+      },
+      {
+        "en": "Keep the exact value separate from candidate stored values.",
+        "vi": "Tách giá trị chính xác khỏi các giá trị lưu ứng viên."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "A finite expansion may be too long; some fractions recur in binary.",
+        "vi": "Khai triển hữu hạn có thể quá dài; một số phân số tuần hoàn trong nhị phân."
+      },
+      {
+        "en": "Use the stated truncation/rounding rule and tie convention.",
+        "vi": "Dùng quy tắc cắt/làm tròn và hòa đã nêu."
+      },
+      {
+        "en": "Signed error=stored−exact; overflow is too large, underflow is too small and nonzero for the required range.",
+        "vi": "Sai số có dấu=lưu−chính xác; overflow quá lớn, underflow quá nhỏ và khác không theo miền yêu cầu."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-008",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T01",
   "slug": "paradigms-and-procedural-design",
   "estimatedMinutes": 40,
@@ -110,6 +110,10 @@
         {
           "en": "A procedural trace follows sequence, selection and iteration. Record values after each executed statement, not after skipped branches.",
           "vi": "Trace thủ tục đi theo tuần tự, rẽ nhánh và lặp. Ghi giá trị sau mỗi câu lệnh thực thi, không ghi nhánh bị bỏ qua."
+        },
+        {
+          "en": "The complete Cambridge-pseudocode example below declares its data, uses selection inside a procedure, iterates over an array, passes an accumulator by reference and calls a typed function. Trace one call frame at a time and state which name owns each value.",
+          "vi": "Ví dụ giả mã Cambridge đầy đủ bên dưới khai báo dữ liệu, dùng rẽ nhánh trong procedure, lặp qua array, truyền accumulator bằng tham chiếu và gọi function có kiểu. Hãy trace từng call frame và nêu name nào sở hữu mỗi value."
         }
       ],
       "sourceIds": [
@@ -128,6 +132,10 @@
         {
           "en": "A procedure is called as a complete statement. A function call forms part of an expression and replaces itself with its returned value.",
           "vi": "Procedure được gọi như một câu lệnh hoàn chỉnh. Lời gọi function nằm trong biểu thức và được thay bằng giá trị trả về."
+        },
+        {
+          "en": "Code block: Cambridge pseudocode for examinations in 2026. CALL is used for the procedure; Total is BYREF and Distance is BYVAL; the function call appears inside an expression. The final output is 14 because the zero distance is rejected by selection.",
+          "vi": "Khối code: giả mã Cambridge cho kỳ thi 2026. CALL dùng cho procedure; Total là BYREF và Distance là BYVAL; lời gọi function nằm trong expression. Output cuối là 14 vì khoảng cách bằng 0 bị rẽ nhánh từ chối."
         }
       ],
       "sourceIds": [
@@ -135,7 +143,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "FUNCTION DeliveryCost(Distance : INTEGER) RETURNS INTEGER\n   RETURN Distance * 2\nENDFUNCTION"
+      "code": "FUNCTION DeliveryCost(Distance : INTEGER) RETURNS INTEGER\n   IF Distance <= 0 THEN\n      RETURN 0\n   ENDIF\n   RETURN Distance * 2\nENDFUNCTION\n\nPROCEDURE AddDeliveryCost(BYREF Total : INTEGER, BYVAL Distance : INTEGER)\n   IF Distance > 0 THEN\n      Total ← Total + DeliveryCost(Distance)\n   ENDIF\nENDPROCEDURE\n\nDECLARE Distances : ARRAY[1:3] OF INTEGER\nDECLARE Index : INTEGER\nDECLARE Total : INTEGER\nDistances[1] ← 4\nDistances[2] ← 0\nDistances[3] ← 3\nTotal ← 0\nFOR Index ← 1 TO 3\n   CALL AddDeliveryCost(Total, Distances[Index])\nNEXT Index\nOUTPUT Total",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "contracts",
@@ -530,17 +540,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "ACC and memory addresses",
-            "vi": "ACC và địa chỉ bộ nhớ"
-          },
-          "feedback": {
-            "en": "Those indicate low-level programming.",
-            "vi": "Đó là low-level."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "A loop updates Total",
@@ -561,6 +560,17 @@
             "en": "Correct: the required result is derived from declarations.",
             "vi": "Đúng: kết quả được suy ra từ khai báo."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "ACC and memory addresses",
+            "vi": "ACC và địa chỉ bộ nhớ"
+          },
+          "feedback": {
+            "en": "Those indicate low-level programming.",
+            "vi": "Đó là low-level."
+          }
         }
       ],
       "correctChoiceId": "c",
@@ -577,6 +587,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "30",
+            "vi": "30"
+          },
+          "feedback": {
+            "en": "30 belongs to ItemCost in the caller.",
+            "vi": "30 thuộc ItemCost ở caller."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -597,17 +618,6 @@
           "feedback": {
             "en": "8 is the later returned result.",
             "vi": "8 là kết quả trả về sau đó."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "30",
-            "vi": "30"
-          },
-          "feedback": {
-            "en": "30 belongs to ItemCost in the caller.",
-            "vi": "30 thuộc ItemCost ở caller."
           }
         }
       ],
@@ -674,17 +684,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "CALL Cost(4)",
-            "vi": "CALL Cost(4)"
-          },
-          "feedback": {
-            "en": "CALL is for procedures.",
-            "vi": "CALL dành cho procedure."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Cost(4)",
@@ -705,6 +704,17 @@
             "en": "Correct: the returned value is used in an expression.",
             "vi": "Đúng: giá trị trả về được dùng trong biểu thức."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "CALL Cost(4)",
+            "vi": "CALL Cost(4)"
+          },
+          "feedback": {
+            "en": "CALL is for procedures.",
+            "vi": "CALL dành cho procedure."
+          }
         }
       ],
       "correctChoiceId": "c",
@@ -721,6 +731,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "They make execution declarative.",
+            "vi": "Chúng biến thực thi thành declarative."
+          },
+          "feedback": {
+            "en": "Procedural modules remain imperative.",
+            "vi": "Module thủ tục vẫn là imperative."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -741,17 +762,6 @@
           "feedback": {
             "en": "Correct: this supports reuse, testing and tracing.",
             "vi": "Đúng: hỗ trợ tái sử dụng, test và trace."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "They make execution declarative.",
-            "vi": "Chúng biến thực thi thành declarative."
-          },
-          "feedback": {
-            "en": "Procedural modules remain imperative.",
-            "vi": "Module thủ tục vẫn là imperative."
           }
         }
       ],
@@ -841,5 +851,58 @@
       "locator": "Q9, PDF p.10",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "paradigms-and-procedural-design-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain representation choice, then trace a function call.",
+      "vi": "Giải thích lựa chọn biểu diễn, rồi trace lời gọi function."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Paradigms and procedural design; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Mô hình lập trình và thiết kế thủ tục; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Underline representation clues.",
+        "vi": "Gạch chân dấu hiệu biểu diễn."
+      },
+      {
+        "en": "State input and initial state.",
+        "vi": "Nêu input và trạng thái đầu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Name the paradigm and cite scenario evidence.",
+        "vi": "Nêu paradigm và bằng chứng tình huống."
+      },
+      {
+        "en": "State initial variables and arguments.",
+        "vi": "Nêu biến đầu và đối số."
+      },
+      {
+        "en": "Show parameter, executed statements and return.",
+        "vi": "Cho thấy tham số, câu lệnh thực thi và return."
+      },
+      {
+        "en": "Report output and final state.",
+        "vi": "Nêu output và state cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

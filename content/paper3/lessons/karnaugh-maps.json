@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.2-T05",
   "slug": "karnaugh-maps",
   "estimatedMinutes": 40,
@@ -372,6 +372,15 @@
         "en": "Keep constant literals, OR the terms, then check every row.",
         "vi": "Giữ literal không đổi, OR các tích rồi kiểm mọi hàng."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Karnaugh maps; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Bản đồ Karnaugh; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -426,6 +435,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Always the sixth cell in a left-to-right scan",
+            "vi": "Luôn là ô thứ sáu khi quét trái sang phải"
+          },
+          "feedback": {
+            "en": "Gray order changes the visual order of minterms.",
+            "vi": "Thứ tự Gray làm đổi thứ tự minterm khi nhìn."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "A=1,BC=10",
@@ -445,17 +465,6 @@
           "feedback": {
             "en": "That is minterm7, not6.",
             "vi": "Đó là minterm7, không phải6."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Always the sixth cell in a left-to-right scan",
-            "vi": "Luôn là ô thứ sáu khi quét trái sang phải"
-          },
-          "feedback": {
-            "en": "Gray order changes the visual order of minterms.",
-            "vi": "Thứ tự Gray làm đổi thứ tự minterm khi nhìn."
           }
         }
       ],
@@ -522,17 +531,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "A",
-            "vi": "A"
-          },
-          "feedback": {
-            "en": "A changes between the cells and must be eliminated.",
-            "vi": "A đổi giữa hai ô nên phải loại."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "B AND C",
@@ -553,6 +551,17 @@
             "en": "Both bits are1, so they are not complemented.",
             "vi": "Hai bit là1 nên không phủ định."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "A",
+            "vi": "A"
+          },
+          "feedback": {
+            "en": "A changes between the cells and must be eliminated.",
+            "vi": "A đổi giữa hai ô nên phải loại."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -569,6 +578,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Only if diagonal groups are allowed",
+            "vi": "Chỉ khi cho phép nhóm chéo"
+          },
+          "feedback": {
+            "en": "The valid connection is edge wrapping, not a diagonal rule.",
+            "vi": "Kết nối hợp lệ là nối mép, không phải quy tắc chéo."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -589,17 +609,6 @@
           "feedback": {
             "en": "Map adjacency is determined by Gray labels and wrapping.",
             "vi": "Kề của map do nhãn Gray và nối mép quyết định."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Only if diagonal groups are allowed",
-            "vi": "Chỉ khi cho phép nhóm chéo"
-          },
-          "feedback": {
-            "en": "The valid connection is edge wrapping, not a diagonal rule.",
-            "vi": "Kết nối hợp lệ là nối mép, không phải quy tắc chéo."
           }
         }
       ],
@@ -717,5 +726,54 @@
       "locator": "Question6(a), page9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "karnaugh-maps-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Describe how labels, group geometry and constant literals combine into a verified SOP.",
+      "vi": "Mô tả cách nhãn, hình nhóm và literal không đổi kết hợp thành SOP đã kiểm."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Karnaugh maps; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Bản đồ Karnaugh; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Copy axis variables and Gray labels exactly.",
+        "vi": "Chép đúng biến trên trục và nhãn Gray."
+      },
+      {
+        "en": "Map each input row to its cell.",
+        "vi": "Đưa từng hàng đầu vào vào đúng ô."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Gray-code labels determine placement and adjacency, including opposite-edge wraps.",
+        "vi": "Nhãn Gray quyết định vị trí/kề, gồm nối mép đối diện."
+      },
+      {
+        "en": "Use rectangular power-of-two1 groups; overlap is allowed and every1 must be covered.",
+        "vi": "Dùng nhóm1 chữ nhật lũy thừa hai; cho chồng và phải phủ mọi1."
+      },
+      {
+        "en": "Retain invariant literals, OR the terms and check all2^n input rows.",
+        "vi": "Giữ literal bất biến, OR tích và kiểm đủ2^n hàng."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

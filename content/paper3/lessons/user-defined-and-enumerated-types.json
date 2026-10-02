@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2026.2",
   "topicId": "P3-13.1-T01",
   "slug": "user-defined-and-enumerated-types",
   "title": {
@@ -112,7 +112,9 @@
         "book",
         "guide"
       ],
-      "code": "TYPE TStudyStatus = (Active, Paused, Completed)\nDECLARE Status : TStudyStatus\nStatus ← Active"
+      "code": "TYPE TStudyStatus = (Active, Paused, Completed)\nDECLARE Status : TStudyStatus\nStatus ← Active",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     },
     {
       "id": "check-before-changing",
@@ -156,7 +158,9 @@
         "book",
         "guide"
       ],
-      "code": "TYPE TStudyStatus = (Active, Paused, Completed)\nTYPE TCourse\n   DECLARE Title : STRING\n   DECLARE Status : TStudyStatus\nENDTYPE\nDECLARE Course : TCourse\nCourse.Title ← \"Computer Science\"\nCourse.Status ← Paused"
+      "code": "TYPE TStudyStatus = (Active, Paused, Completed)\nTYPE TCourse\n   DECLARE Title : STRING\n   DECLARE Status : TStudyStatus\nENDTYPE\nDECLARE Course : TCourse\nCourse.Title ← \"Computer Science\"\nCourse.Status ← Paused",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -222,7 +226,9 @@
           "en": "Every listed constant corresponds to a required state.",
           "vi": "Mỗi hằng được liệt kê tương ứng trạng thái được yêu cầu."
         },
-        "code": "TYPE TStudyStatus = (Active, Paused, Completed)"
+        "code": "TYPE TStudyStatus = (Active, Paused, Completed)",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "declare",
@@ -242,7 +248,9 @@
           "en": "The variable name and the type name serve different roles.",
           "vi": "Tên biến và tên kiểu có vai trò khác nhau."
         },
-        "code": "DECLARE Status : TStudyStatus"
+        "code": "DECLARE Status : TStudyStatus",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "assign",
@@ -262,7 +270,9 @@
           "en": "The variable stores one state, not two historical values.",
           "vi": "Biến lưu một trạng thái, không lưu hai giá trị trong lịch sử."
         },
-        "code": "Status ← Active\nStatus ← Paused"
+        "code": "Status ← Active\nStatus ← Paused",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "reject",
@@ -326,6 +336,15 @@
         "en": "Assign unquoted enum constants and justify the chosen domain.",
         "vi": "Gán hằng enum không đặt dấu nháy và giải thích miền đã chọn."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "write",
+        "guidance": {
+          "en": "Use Cambridge-style pseudocode for User-defined and enumerated types; initialise state, handle boundary cases and make the returned result explicit.",
+          "vi": "Dùng pseudocode theo phong cách Cambridge cho Kiểu tự định nghĩa và kiểu liệt kê; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -370,17 +389,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "The variable already contains Active.",
-            "vi": "Biến đã chứa Active."
-          },
-          "feedback": {
-            "en": "No assignment has selected Active; do not invent a default.",
-            "vi": "Chưa có phép gán chọn Active; không tự đặt mặc định."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "The variable has a type, but no value has been assigned in this example.",
@@ -401,6 +409,17 @@
             "en": "The domain lists alternatives, not three simultaneous stored values.",
             "vi": "Miền liệt kê phương án, không phải ba giá trị cùng lưu."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "The variable already contains Active.",
+            "vi": "Biến đã chứa Active."
+          },
+          "feedback": {
+            "en": "No assignment has selected Active; do not invent a default.",
+            "vi": "Chưa có phép gán chọn Active; không tự đặt mặc định."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -417,6 +436,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "TicketKind ← Adult",
+            "vi": "TicketKind ← Adult"
+          },
+          "feedback": {
+            "en": "This is an assignment, not a type definition.",
+            "vi": "Đây là phép gán, không phải định nghĩa kiểu."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -437,17 +467,6 @@
           "feedback": {
             "en": "This declares a string variable; it does not define the three permitted categories.",
             "vi": "Đây là khai báo biến chuỗi, không định nghĩa ba loại được phép."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "TicketKind ← Adult",
-            "vi": "TicketKind ← Adult"
-          },
-          "feedback": {
-            "en": "This is an assignment, not a type definition.",
-            "vi": "Đây là phép gán, không phải định nghĩa kiểu."
           }
         }
       ],
@@ -514,17 +533,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "1",
-          "label": {
-            "en": "DECLARE Status : STRING",
-            "vi": "DECLARE Status : STRING"
-          },
-          "feedback": {
-            "en": "STRING permits arbitrary text rather than the declared enum domain.",
-            "vi": "STRING cho văn bản tùy ý thay vì miền enum đã khai báo."
-          }
-        },
-        {
           "id": "2",
           "label": {
             "en": "DECLARE Status : TStudyStatus",
@@ -545,6 +553,17 @@
             "en": "The field name and type roles have been reversed.",
             "vi": "Vai trò tên trường và kiểu đã bị đảo."
           }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "DECLARE Status : STRING",
+            "vi": "DECLARE Status : STRING"
+          },
+          "feedback": {
+            "en": "STRING permits arbitrary text rather than the declared enum domain.",
+            "vi": "STRING cho văn bản tùy ý thay vì miền enum đã khai báo."
+          }
         }
       ],
       "correctChoiceId": "2",
@@ -561,6 +580,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "3",
+          "label": {
+            "en": "The enum is composite; the record is non-composite.",
+            "vi": "Enum phức hợp; record không phức hợp."
+          },
+          "feedback": {
+            "en": "This reverses the roles of a single enumerated choice and grouped fields.",
+            "vi": "Đáp án đảo vai trò một lựa chọn liệt kê với các trường được gom."
+          }
+        },
         {
           "id": "1",
           "label": {
@@ -581,17 +611,6 @@
           "feedback": {
             "en": "Correct. One enum variable selects one member; a record groups several fields.",
             "vi": "Đúng. Biến enum chọn một phần tử; record gom nhiều trường."
-          }
-        },
-        {
-          "id": "3",
-          "label": {
-            "en": "The enum is composite; the record is non-composite.",
-            "vi": "Enum phức hợp; record không phức hợp."
-          },
-          "feedback": {
-            "en": "This reverses the roles of a single enumerated choice and grouped fields.",
-            "vi": "Đáp án đảo vai trò một lựa chọn liệt kê với các trường được gom."
           }
         }
       ],
@@ -662,5 +681,54 @@
       "kind": "guide",
       "url": "https://www.cambridgeinternational.org/Images/697401-2026-pseudocode-guide-for-teachers.pdf"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "user-defined-and-enumerated-types-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain the three statements needed to create a traffic-light enum and store Red.",
+      "vi": "Giải thích ba lệnh cần để tạo enum đèn giao thông và lưu Red."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for User-defined and enumerated types; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Kiểu tự định nghĩa và kiểu liệt kê; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Extract all permitted values and choose one type name.",
+        "vi": "Trích mọi giá trị được phép và chọn tên kiểu."
+      },
+      {
+        "en": "Define the type, then declare the requested variables.",
+        "vi": "Định nghĩa kiểu rồi khai báo các biến được yêu cầu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Define TYPE Signal = (Red, Amber, Green).",
+        "vi": "Định nghĩa TYPE Signal = (Red, Amber, Green)."
+      },
+      {
+        "en": "DECLARE Current : Signal creates the variable.",
+        "vi": "DECLARE Current : Signal tạo biến."
+      },
+      {
+        "en": "Current ← Red assigns a permitted constant; \"Red\" would be a string.",
+        "vi": "Current ← Red gán hằng hợp lệ; \"Red\" là chuỗi."
+      }
+    ],
+    "sourceIds": [
+      "syllabus",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-011",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

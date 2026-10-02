@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.15.1",
+  "version": "2026.2",
   "topicId": "P3-15.1-T03",
   "slug": "flynn-architectures-and-massive-parallelism",
   "estimatedMinutes": 30,
@@ -464,6 +464,15 @@
         "en": "For MPP, describe division, communication, combination and constraints.",
         "vi": "Với MPP, mô tả chia, trao đổi, gộp và giới hạn."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Flynn architectures and massive parallelism; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Phân loại Flynn và xử lý song song quy mô lớn; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -556,17 +565,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "SIMD",
-            "vi": "SIMD"
-          },
-          "feedback": {
-            "en": "The instruction streams are multiple, not single.",
-            "vi": "Luồng lệnh là nhiều, không phải một."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "MISD",
@@ -587,6 +585,17 @@
             "en": "The stated data stream is shared and single.",
             "vi": "Luồng dữ liệu đề nêu là chung và đơn."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "SIMD",
+            "vi": "SIMD"
+          },
+          "feedback": {
+            "en": "The instruction streams are multiple, not single.",
+            "vi": "Luồng lệnh là nhiều, không phải một."
+          }
         }
       ],
       "correctChoiceId": "b",
@@ -603,6 +612,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "36 from every lane",
+            "vi": "Mỗi nhánh đều36"
+          },
+          "feedback": {
+            "en": "Each lane has only its partition in this model.",
+            "vi": "Mỗi nhánh chỉ có phần của nó trong mô hình này."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -623,17 +643,6 @@
           "feedback": {
             "en": "That omits inputs7 and8.",
             "vi": "Cách đó bỏ đầu vào7 và8."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "36 from every lane",
-            "vi": "Mỗi nhánh đều36"
-          },
-          "feedback": {
-            "en": "Each lane has only its partition in this model.",
-            "vi": "Mỗi nhánh chỉ có phần của nó trong mô hình này."
           }
         }
       ],
@@ -700,17 +709,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "A faster clock in one processor",
-            "vi": "Clock nhanh hơn trong một bộ xử lý"
-          },
-          "feedback": {
-            "en": "That does not describe many coordinated processors.",
-            "vi": "Đó không mô tả nhiều bộ xử lý phối hợp."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Many connected processors divide coordinated work and exchange results",
@@ -730,6 +728,17 @@
           "feedback": {
             "en": "Data volume alone says nothing about parallel architecture.",
             "vi": "Chỉ lượng dữ liệu không nói được kiến trúc song song."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "A faster clock in one processor",
+            "vi": "Clock nhanh hơn trong một bộ xử lý"
+          },
+          "feedback": {
+            "en": "That does not describe many coordinated processors.",
+            "vi": "Đó không mô tả nhiều bộ xử lý phối hợp."
           }
         }
       ],
@@ -810,5 +819,54 @@
       "locator": "Question5, page7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "flynn-architectures-and-massive-parallelism-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Classify all four Flynn categories, then explain one limit on MPP speedup.",
+      "vi": "Phân loại bốn nhóm Flynn rồi giải thích một giới hạn tăng tốc MPP."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Flynn architectures and massive parallelism; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Phân loại Flynn và xử lý song song quy mô lớn; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Count independent instruction streams.",
+        "vi": "Đếm luồng lệnh độc lập."
+      },
+      {
+        "en": "Count independent/shared data streams.",
+        "vi": "Đếm luồng dữ liệu riêng hoặc dùng chung."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Use the instruction/data single-or-multiple grid.",
+        "vi": "Dùng bảng một/nhiều luồng lệnh và dữ liệu."
+      },
+      {
+        "en": "MPP needs coordinated work and interprocessor communication.",
+        "vi": "MPP cần công việc phối hợp và trao đổi giữa bộ xử lý."
+      },
+      {
+        "en": "Dependencies and communication prevent automatic linear speedup.",
+        "vi": "Phụ thuộc và trao đổi khiến tăng tốc không tự động tuyến tính."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-002",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

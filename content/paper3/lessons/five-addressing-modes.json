@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T02",
   "slug": "five-addressing-modes",
   "estimatedMinutes": 40,
@@ -153,7 +153,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "LDM #20   // immediate\nLDD 20    // direct\nLDI 20    // indirect\nLDX 20    // indexed with IX\nJMR #5    // relative in this fixture"
+      "code": "LDM #20   // immediate\nLDD 20    // direct\nLDI 20    // indirect\nLDX 20    // indexed with IX\nJMR #5    // relative in this fixture",
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -482,6 +484,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "M[M[12]]",
+            "vi": "M[M[12]]"
+          },
+          "feedback": {
+            "en": "That would be indirect.",
+            "vi": "Đó là indirect."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "Literal 12",
@@ -501,17 +514,6 @@
           "feedback": {
             "en": "That would be direct.",
             "vi": "Đó là direct."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "M[M[12]]",
-            "vi": "M[M[12]]"
-          },
-          "feedback": {
-            "en": "That would be indirect.",
-            "vi": "Đó là indirect."
           }
         }
       ],
@@ -578,17 +580,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "20",
-            "vi": "20"
-          },
-          "feedback": {
-            "en": "Operand is the pointer location.",
-            "vi": "Operand là vị trí pointer."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "40",
@@ -609,6 +600,17 @@
             "en": "Correct: the second read supplies the value.",
             "vi": "Đúng: lần đọc thứ hai cho value."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "20",
+            "vi": "20"
+          },
+          "feedback": {
+            "en": "Operand is the pointer location.",
+            "vi": "Operand là vị trí pointer."
+          }
         }
       ],
       "correctChoiceId": "c",
@@ -625,6 +627,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "60",
+            "vi": "60"
+          },
+          "feedback": {
+            "en": "Indexed is addition, not multiplication.",
+            "vi": "Indexed là cộng, không nhân."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -645,17 +658,6 @@
           "feedback": {
             "en": "Correct: 20+3.",
             "vi": "Đúng: 20+3."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "60",
-            "vi": "60"
-          },
-          "feedback": {
-            "en": "Indexed is addition, not multiplication.",
-            "vi": "Indexed là cộng, không nhân."
           }
         }
       ],
@@ -722,17 +724,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Wrap to 4",
-            "vi": "Quay vòng về 4"
-          },
-          "feedback": {
-            "en": "No wrap rule was supplied.",
-            "vi": "Không có quy tắc wrap."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Read 0",
@@ -752,6 +743,17 @@
           "feedback": {
             "en": "Correct: range failure is explicit.",
             "vi": "Đúng: lỗi range phải rõ."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Wrap to 4",
+            "vi": "Quay vòng về 4"
+          },
+          "feedback": {
+            "en": "No wrap rule was supplied.",
+            "vi": "Không có quy tắc wrap."
           }
         }
       ],
@@ -840,5 +842,58 @@
       "locator": "Q9, PDF p.11",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "five-addressing-modes-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain all five resolution paths.",
+      "vi": "Giải thích cả năm đường phân giải."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Five addressing modes; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Năm chế độ địa chỉ; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Copy the supplied instruction meaning.",
+        "vi": "Chép nghĩa lệnh được cung cấp."
+      },
+      {
+        "en": "Write registers and memory cells.",
+        "vi": "Ghi register và memory cell."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State the supplied mnemonic and operand.",
+        "vi": "Nêu mnemonic và operand."
+      },
+      {
+        "en": "Write the formula or dereference path.",
+        "vi": "Viết formula hoặc dereference path."
+      },
+      {
+        "en": "Separate EA/target from final value.",
+        "vi": "Tách EA/target khỏi final value."
+      },
+      {
+        "en": "Apply range and PC-timing rules.",
+        "vi": "Áp dụng range và PC-timing rule."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

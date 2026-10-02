@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T03",
   "slug": "bubble-sort",
   "estimatedMinutes": 35,
@@ -149,7 +149,9 @@
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -472,17 +474,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Left value > right value",
-            "vi": "Giá trị trái > giá trị phải"
-          },
-          "feedback": {
-            "en": "Correct: swap only an out-of-order adjacent pair",
-            "vi": "Đúng: chỉ swap cặp kề sai thứ tự"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Left value < right value",
@@ -503,6 +494,17 @@
             "en": "Values are equal conflicts with the rule: swap only an out-of-order adjacent pair",
             "vi": "Hai giá trị bằng nhau trái với quy tắc: chỉ swap cặp kề sai thứ tự"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Left value > right value",
+            "vi": "Giá trị trái > giá trị phải"
+          },
+          "feedback": {
+            "en": "Correct: swap only an out-of-order adjacent pair",
+            "vi": "Đúng: chỉ swap cặp kề sai thứ tự"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -519,6 +521,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Discard half a search window",
+            "vi": "Loại nửa cửa sổ search"
+          },
+          "feedback": {
+            "en": "Discard half a search window conflicts with the rule: bubble sort scans adjacent pairs",
+            "vi": "Loại nửa cửa sổ search trái với quy tắc: bubble sort quét các cặp kề"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -539,17 +552,6 @@
           "feedback": {
             "en": "Saved key and shifts conflicts with the rule: bubble sort scans adjacent pairs",
             "vi": "Lưu key và shift trái với quy tắc: bubble sort quét các cặp kề"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Discard half a search window",
-            "vi": "Loại nửa cửa sổ search"
-          },
-          "feedback": {
-            "en": "Discard half a search window conflicts with the rule: bubble sort scans adjacent pairs",
-            "vi": "Loại nửa cửa sổ search trái với quy tắc: bubble sort quét các cặp kề"
           }
         }
       ],
@@ -616,17 +618,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "The largest value is at index 4",
-            "vi": "Giá trị lớn nhất ở index 4"
-          },
-          "feedback": {
-            "en": "Correct: one complete pass fixes the upper boundary",
-            "vi": "Đúng: một pass hoàn chỉnh cố định biên trên"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "The whole array is sorted",
@@ -647,6 +638,17 @@
             "en": "The smallest value is always at index 0 conflicts with the rule: one complete pass fixes the upper boundary",
             "vi": "Giá trị nhỏ nhất luôn ở index 0 trái với quy tắc: một pass hoàn chỉnh cố định biên trên"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "The largest value is at index 4",
+            "vi": "Giá trị lớn nhất ở index 4"
+          },
+          "feedback": {
+            "en": "Correct: one complete pass fixes the upper boundary",
+            "vi": "Đúng: một pass hoàn chỉnh cố định biên trên"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -663,6 +665,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Only after the entire algorithm",
+            "vi": "Chỉ sau toàn bộ thuật toán"
+          },
+          "feedback": {
+            "en": "Only after the entire algorithm conflicts with the rule: the flag must summarize the complete pass",
+            "vi": "Chỉ sau toàn bộ thuật toán trái với quy tắc: flag phải tóm tắt cả pass"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -683,17 +696,6 @@
           "feedback": {
             "en": "Inside every IF comparison conflicts with the rule: the flag must summarize the complete pass",
             "vi": "Trong mỗi IF comparison trái với quy tắc: flag phải tóm tắt cả pass"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Only after the entire algorithm",
-            "vi": "Chỉ sau toàn bộ thuật toán"
-          },
-          "feedback": {
-            "en": "Only after the entire algorithm conflicts with the rule: the flag must summarize the complete pass",
-            "vi": "Chỉ sau toàn bộ thuật toán trái với quy tắc: flag phải tóm tắt cả pass"
           }
         }
       ],
@@ -827,5 +829,58 @@
       "locator": "Question 8, pp8–9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "bubble-sort-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Describe one bubble pass and the early-exit proof.",
+      "vi": "Mô tả một bubble pass và chứng minh early exit."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Bubble sort; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Sắp xếp nổi bọt; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Declare direction and boundary.",
+        "vi": "Khai báo hướng và biên."
+      },
+      {
+        "en": "Reset Swapped before a pass.",
+        "vi": "Reset Swapped trước pass."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Compare every active adjacent pair.",
+        "vi": "So mọi cặp kề active."
+      },
+      {
+        "en": "Swap only left>right and record Swapped.",
+        "vi": "Chỉ swap khi trái>phải và ghi Swapped."
+      },
+      {
+        "en": "Shrink after the pass; stop if no swap occurred.",
+        "vi": "Thu biên sau pass; dừng nếu không có swap."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

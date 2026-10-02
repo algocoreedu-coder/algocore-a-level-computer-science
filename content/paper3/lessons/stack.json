@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T05",
   "slug": "stack",
   "estimatedMinutes": 35,
@@ -141,15 +141,17 @@
       },
       "paragraphs": [
         {
-          "en": "Underflow and overflow are explicit results. No invalid cell is read or overwritten.",
-          "vi": "Underflow và overflow là kết quả rõ ràng. Không đọc hoặc ghi đè ô không hợp lệ."
+          "en": "The fixed array, bounds and element type are explicit. PUSH returns a Boolean result; POP and PEEK use BYREF outputs so underflow cannot be confused with a valid integer. Overflow and underflow leave Top and all live cells unchanged.",
+          "vi": "Mảng cố định, cận và kiểu phần tử được khai báo rõ. PUSH trả kết quả Boolean; POP và PEEK dùng output BYREF để underflow không bị nhầm với một số nguyên hợp lệ. Overflow và underflow giữ nguyên Top cùng mọi ô đang dùng."
         }
       ],
-      "code": "// PUSH\nIF Top = Capacity - 1 THEN RETURN FALSE\nTop ← Top + 1\nStack[Top] ← NewValue\n// POP\nIF Top = -1 THEN RETURN ErrorValue\nRemoved ← Stack[Top]\nStack[Top] ← EmptyValue\nTop ← Top - 1\nRETURN Removed",
+      "code": "CONSTANT Capacity = 5\nCONSTANT EmptyValue = 0\nDECLARE Stack : ARRAY[0:4] OF INTEGER\nDECLARE Top : INTEGER\nTop ← -1\n\nFUNCTION Push(NewValue : INTEGER) RETURNS BOOLEAN\n   IF Top = Capacity - 1 THEN\n      RETURN FALSE\n   ENDIF\n   Top ← Top + 1\n   Stack[Top] ← NewValue\n   RETURN TRUE\nENDFUNCTION\n\nPROCEDURE Pop(BYREF Removed : INTEGER, BYREF Success : BOOLEAN)\n   IF Top = -1 THEN\n      Success ← FALSE\n   ELSE\n      Removed ← Stack[Top]\n      Stack[Top] ← EmptyValue\n      Top ← Top - 1\n      Success ← TRUE\n   ENDIF\nENDPROCEDURE\n\nPROCEDURE Peek(BYREF TopValue : INTEGER, BYREF Success : BOOLEAN)\n   IF Top = -1 THEN\n      Success ← FALSE\n   ELSE\n      TopValue ← Stack[Top]\n      Success ← TRUE\n   ENDIF\nENDPROCEDURE",
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -472,17 +474,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "LIFO",
-            "vi": "LIFO"
-          },
-          "feedback": {
-            "en": "Correct: the most recent pushed item is removed first",
-            "vi": "Đúng: phần tử push gần nhất được loại trước"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "FIFO",
@@ -503,6 +494,17 @@
             "en": "Sorted key order conflicts with the rule: the most recent pushed item is removed first",
             "vi": "Thứ tự key sorted trái với quy tắc: phần tử push gần nhất được loại trước"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "LIFO",
+            "vi": "LIFO"
+          },
+          "feedback": {
+            "en": "Correct: the most recent pushed item is removed first",
+            "vi": "Đúng: phần tử push gần nhất được loại trước"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -519,6 +521,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "head, next, null",
+            "vi": "head, next, null"
+          },
+          "feedback": {
+            "en": "head, next, null conflicts with the rule: stack operations use one logical top",
+            "vi": "head, next, null trái với quy tắc: thao tác stack dùng một logical top"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -539,17 +552,6 @@
           "feedback": {
             "en": "enqueue, dequeue, front conflicts with the rule: stack operations use one logical top",
             "vi": "enqueue, dequeue, front trái với quy tắc: thao tác stack dùng một logical top"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "head, next, null",
-            "vi": "head, next, null"
-          },
-          "feedback": {
-            "en": "head, next, null conflicts with the rule: stack operations use one logical top",
-            "vi": "head, next, null trái với quy tắc: thao tác stack dùng một logical top"
           }
         }
       ],
@@ -616,17 +618,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "B",
-            "vi": "B"
-          },
-          "feedback": {
-            "en": "Correct: LIFO removes the most recent B",
-            "vi": "Đúng: LIFO loại B mới nhất"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "A",
@@ -647,6 +638,17 @@
             "en": "Nothing conflicts with the rule: LIFO removes the most recent B",
             "vi": "Không có gì trái với quy tắc: LIFO loại B mới nhất"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "B",
+            "vi": "B"
+          },
+          "feedback": {
+            "en": "Correct: LIFO removes the most recent B",
+            "vi": "Đúng: LIFO loại B mới nhất"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -663,6 +665,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "write → guard",
+            "vi": "ghi → guard"
+          },
+          "feedback": {
+            "en": "write → guard conflicts with the rule: the old top must be saved before pointer change",
+            "vi": "ghi → guard trái với quy tắc: top cũ phải được lưu trước khi đổi pointer"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -683,17 +696,6 @@
           "feedback": {
             "en": "decrement → read conflicts with the rule: the old top must be saved before pointer change",
             "vi": "giảm → đọc trái với quy tắc: top cũ phải được lưu trước khi đổi pointer"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "write → guard",
-            "vi": "ghi → guard"
-          },
-          "feedback": {
-            "en": "write → guard conflicts with the rule: the old top must be saved before pointer change",
-            "vi": "ghi → guard trái với quy tắc: top cũ phải được lưu trước khi đổi pointer"
           }
         }
       ],
@@ -839,5 +841,58 @@
       "locator": "Question 12, p17",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "stack-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Write the stack pointer contract and safe operation orders.",
+      "vi": "Viết pointer contract và thứ tự thao tác an toàn của stack."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Stack ADT; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho ADT stack; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Write Top meaning.",
+        "vi": "Ghi ý nghĩa Top."
+      },
+      {
+        "en": "Check empty/full first.",
+        "vi": "Kiểm tra empty/full trước."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Top=−1 empty; Capacity−1 full.",
+        "vi": "Top=−1 empty; Capacity−1 full."
+      },
+      {
+        "en": "PUSH guard, increment, write.",
+        "vi": "PUSH guard, tăng, ghi."
+      },
+      {
+        "en": "POP guard, save, clear/decrement, return.",
+        "vi": "POP guard, lưu, xóa/giảm, trả."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

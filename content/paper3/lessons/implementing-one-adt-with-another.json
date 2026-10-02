@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T10",
   "slug": "implementing-one-adt-with-another",
   "estimatedMinutes": 40,
@@ -143,13 +143,19 @@
         {
           "en": "Arrays/records/other ADTs may implement stack, queue, linked list, dictionary and BST. For graph, know nodes, edges, direction/weight and justify suitability; graph-structure code is not required.",
           "vi": "Mảng/record/ADT khác có thể cài stack, queue, linked list, dictionary và BST. Với graph, biết node, edge, direction/weight và justify suitability; không yêu cầu code cấu trúc graph."
+        },
+        {
+          "en": "In the two-stack queue, DEQUEUE transfers Inbox only when Outbox is empty, then checks Outbox again. If both stacks were empty, Success is FALSE and no POP occurs.",
+          "vi": "Trong queue dùng hai stack, DEQUEUE chỉ chuyển Inbox khi Outbox rỗng, rồi kiểm tra lại Outbox. Nếu ban đầu cả hai stack đều rỗng, Success là FALSE và không có POP nào xảy ra."
         }
       ],
-      "code": "PROCEDURE Enqueue(NewValue : STRING)\n  CALL Push(Inbox, NewValue)\nENDPROCEDURE\n\nFUNCTION Dequeue() RETURNS STRING\n  IF IsEmpty(Outbox) THEN\n    WHILE NOT IsEmpty(Inbox)\n      CALL Push(Outbox, Pop(Inbox))\n    ENDWHILE\n  ENDIF\n  RETURN Pop(Outbox)\nENDFUNCTION",
+      "code": "PROCEDURE Enqueue(NewValue : STRING, BYREF Success : BOOLEAN)\n   Success ← Push(Inbox, NewValue)\nENDPROCEDURE\n\nPROCEDURE Dequeue(BYREF Removed : STRING, BYREF Success : BOOLEAN)\n   DECLARE MovedValue : STRING\n   DECLARE TransferSuccess : BOOLEAN\n   IF IsEmpty(Outbox) THEN\n      WHILE NOT IsEmpty(Inbox)\n         MovedValue ← Pop(Inbox)\n         TransferSuccess ← Push(Outbox, MovedValue)\n      ENDWHILE\n   ENDIF\n   IF IsEmpty(Outbox) THEN\n      Success ← FALSE\n   ELSE\n      Removed ← Pop(Outbox)\n      Success ← TRUE\n   ENDIF\nENDPROCEDURE",
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -472,17 +478,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Observable operations and results",
-            "vi": "Operation và result observable"
-          },
-          "feedback": {
-            "en": "Correct: the interface describes client-visible behavior",
-            "vi": "Đúng: interface mô tả behavior client nhìn thấy"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "One fixed array layout",
@@ -503,6 +498,17 @@
             "en": "Compiler frame addresses conflicts with the rule: the interface describes client-visible behavior",
             "vi": "Address call frame compiler trái với quy tắc: interface mô tả behavior client nhìn thấy"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Observable operations and results",
+            "vi": "Operation và result observable"
+          },
+          "feedback": {
+            "en": "Correct: the interface describes client-visible behavior",
+            "vi": "Đúng: interface mô tả behavior client nhìn thấy"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -519,6 +525,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Trace binary search",
+            "vi": "Trace binary search"
+          },
+          "feedback": {
+            "en": "Trace binary search conflicts with the rule: one external interface is mapped onto another structure",
+            "vi": "Trace binary search trái với quy tắc: một interface ngoài được map lên cấu trúc khác"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -539,17 +556,6 @@
           "feedback": {
             "en": "Define FIFO only conflicts with the rule: one external interface is mapped onto another structure",
             "vi": "Chỉ định nghĩa FIFO trái với quy tắc: một interface ngoài được map lên cấu trúc khác"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Trace binary search",
-            "vi": "Trace binary search"
-          },
-          "feedback": {
-            "en": "Trace binary search conflicts with the rule: one external interface is mapped onto another structure",
-            "vi": "Trace binary search trái với quy tắc: một interface ngoài được map lên cấu trúc khác"
           }
         }
       ],
@@ -616,17 +622,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "A",
-            "vi": "A"
-          },
-          "feedback": {
-            "en": "Correct: moving all values reverses order",
-            "vi": "Đúng: chuyển toàn bộ value đảo order"
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "C",
@@ -647,6 +642,17 @@
             "en": "B conflicts with the rule: moving all values reverses order",
             "vi": "B trái với quy tắc: chuyển toàn bộ value đảo order"
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "A",
+            "vi": "A"
+          },
+          "feedback": {
+            "en": "Correct: moving all values reverses order",
+            "vi": "Đúng: chuyển toàn bộ value đảo order"
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -663,6 +669,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "After every POP",
+            "vi": "Sau mọi POP"
+          },
+          "feedback": {
+            "en": "After every POP conflicts with the rule: existing Outbox values are older and must remain first",
+            "vi": "Sau mọi POP trái với quy tắc: value Outbox hiện có cũ hơn và phải ra trước"
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -683,17 +700,6 @@
           "feedback": {
             "en": "On every ENQUEUE conflicts with the rule: existing Outbox values are older and must remain first",
             "vi": "Mỗi ENQUEUE trái với quy tắc: value Outbox hiện có cũ hơn và phải ra trước"
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "After every POP",
-            "vi": "Sau mọi POP"
-          },
-          "feedback": {
-            "en": "After every POP conflicts with the rule: existing Outbox values are older and must remain first",
-            "vi": "Sau mọi POP trái với quy tắc: value Outbox hiện có cũ hơn và phải ra trước"
           }
         }
       ],
@@ -840,5 +846,58 @@
       "locator": "Question 9(b), pp6–7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "implementing-one-adt-with-another-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Explain how one ADT can implement another.",
+      "vi": "Giải thích cách một ADT cài ADT khác."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Implementing one ADT with another; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Cài đặt một ADT bằng ADT khác; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Write external interface.",
+        "vi": "Ghi interface ngoài."
+      },
+      {
+        "en": "Name internal substrate.",
+        "vi": "Nêu substrate trong."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State external behavior and internal representation.",
+        "vi": "Nêu behavior ngoài và representation trong."
+      },
+      {
+        "en": "Give invariant and operation mapping.",
+        "vi": "Nêu invariant và mapping operation."
+      },
+      {
+        "en": "Show equal observable results and discuss cost.",
+        "vi": "Cho thấy result observable bằng nhau và bàn cost."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

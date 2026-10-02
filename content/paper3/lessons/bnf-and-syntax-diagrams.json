@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.2-T03",
   "slug": "bnf-and-syntax-diagrams",
   "estimatedMinutes": 40,
@@ -361,6 +361,15 @@
         "en": "Require a legal stopping route and no unmatched suffix; cite the first failed expectation.",
         "vi": "Yêu cầu đường dừng hợp lệ và không còn hậu tố; chỉ kỳ vọng bị lỗi đầu tiên."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "write",
+        "guidance": {
+          "en": "Use Cambridge-style pseudocode for BNF and syntax diagrams; initialise state, handle boundary cases and make the returned result explicit.",
+          "vi": "Dùng pseudocode theo phong cách Cambridge cho BNF và sơ đồ cú pháp; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -405,6 +414,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "::= and |.",
+            "vi": "::= và |."
+          },
+          "feedback": {
+            "en": "They are grammar notation, not generated characters.",
+            "vi": "Chúng là ký pháp văn phạm, không phải ký tự được sinh."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "A and B.",
@@ -424,17 +444,6 @@
           "feedback": {
             "en": "That is the non-terminal being defined.",
             "vi": "Đó là non-terminal đang được định nghĩa."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "::= and |.",
-            "vi": "::= và |."
-          },
-          "feedback": {
-            "en": "They are grammar notation, not generated characters.",
-            "vi": "Chúng là ký pháp văn phạm, không phải ký tự được sinh."
           }
         }
       ],
@@ -501,17 +510,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Choose the recursive alternative three times, then ε.",
-            "vi": "Chọn phương án đệ quy ba lần rồi ε."
-          },
-          "feedback": {
-            "en": "Correct: each recursion consumes one digit and ε stops.",
-            "vi": "Đúng: mỗi lần đệ quy dùng một chữ số và ε dừng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "The vertical bar concatenates every digit.",
@@ -532,6 +530,17 @@
             "en": "ε contributes no character.",
             "vi": "ε không thêm ký tự."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Choose the recursive alternative three times, then ε.",
+            "vi": "Chọn phương án đệ quy ba lần rồi ε."
+          },
+          "feedback": {
+            "en": "Correct: each recursion consumes one digit and ε stops.",
+            "vi": "Đúng: mỗi lần đệ quy dùng một chữ số và ε dừng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -548,6 +557,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Every name must contain exactly two digits.",
+            "vi": "Mọi tên phải có đúng hai chữ số."
+          },
+          "feedback": {
+            "en": "The recursive tail allows zero or more digits.",
+            "vi": "Tail đệ quy cho phép không hoặc nhiều chữ số."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -568,17 +588,6 @@
           "feedback": {
             "en": "A is an allowed <letter>.",
             "vi": "A là <letter> được phép."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Every name must contain exactly two digits.",
-            "vi": "Mọi tên phải có đúng hai chữ số."
-          },
-          "feedback": {
-            "en": "The recursive tail allows zero or more digits.",
-            "vi": "Tail đệ quy cho phép không hoặc nhiều chữ số."
           }
         }
       ],
@@ -700,5 +709,54 @@
       "locator": "PDF p12 Q7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "bnf-and-syntax-diagrams-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 3,
+    "prompt": {
+      "en": "Derive B20 and explain why AB is invalid.",
+      "vi": "Dẫn xuất B20 và giải thích vì sao AB sai."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for BNF and syntax diagrams; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho BNF và sơ đồ cú pháp; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Identify the start symbol, terminals and each alternative.",
+        "vi": "Xác định ký hiệu đầu, terminal và từng phương án."
+      },
+      {
+        "en": "Expand one non-terminal at a time while marking the consumed input.",
+        "vi": "Mở rộng từng non-terminal đồng thời đánh dấu đầu vào đã dùng."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Expand <name> to <letter><tail>, choose B, consume 2 and 0 through recursive tail expansions, then choose ε.",
+        "vi": "Mở rộng <name> thành <letter><tail>, chọn B, dùng 2 và 0 qua các lần mở rộng tail đệ quy rồi chọn ε."
+      },
+      {
+        "en": "AB fails after A because <tail> accepts a digit or ε, not B; ε would leave an unmatched suffix.",
+        "vi": "AB sai sau A vì <tail> nhận chữ số hoặc ε, không nhận B; chọn ε sẽ để lại hậu tố."
+      },
+      {
+        "en": "The same choices, sequence and repetition can be represented by a syntax-diagram path.",
+        "vi": "Cùng lựa chọn, nối tiếp và lặp có thể biểu diễn bằng đường đi trong sơ đồ cú pháp."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

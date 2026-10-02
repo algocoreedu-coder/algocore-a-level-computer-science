@@ -1,22 +1,35 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import type { Locale } from "@/app/lib/paper3/catalog";
 import type { Paper3Lesson } from "@/app/lib/paper3/lesson-types";
-import { FloatWorkbench } from "./FloatWorkbench";
-import { FileWorkbench } from "./FileWorkbench";
-import { ConceptWorkbench } from "./ConceptWorkbench";
-import { NumericWorkbench } from "./NumericWorkbench";
-import { NetworkWorkbench } from "./NetworkWorkbench";
-import { NetworkTopicWorkbench } from "./NetworkTopicWorkbench";
-import { HardwareWorkbench } from "./HardwareWorkbench";
-import { LogicWorkbench } from "./LogicWorkbench";
-import { HardwareScaleWorkbench } from "./HardwareScaleWorkbench";
-import { LogicScaleWorkbench } from "./LogicScaleWorkbench";
-import { Section16Workbench, type Section16Kind } from "./Section16Workbench";
-import { Section17SecurityWorkbench, type SecurityVisualKind } from "./Section17SecurityWorkbench";
-import { Section18AIWorkbench, type AIVisualKind } from "./Section18AIWorkbench";
-import { Section19ComputationalWorkbench, type Section19VisualKind } from "./Section19ComputationalWorkbench";
-import { Section20FurtherProgrammingWorkbench, type Section20VisualKind } from "./Section20FurtherProgrammingWorkbench";
+import type { Section16Kind } from "./Section16Workbench";
+import type { SecurityVisualKind } from "./Section17SecurityWorkbench";
+import type { AIVisualKind } from "./Section18AIWorkbench";
+import type { Section19VisualKind } from "./Section19ComputationalWorkbench";
+import type { Section20VisualKind } from "./Section20FurtherProgrammingWorkbench";
 import { CambridgeVisualPrimer } from "./CambridgeVisualPrimer";
 import styles from "./LessonPage.module.css";
+
+function VisualLoading() {
+  return <div className={styles.visualLoading} role="status" aria-live="polite">Loading interactive visual… · Đang tải minh họa tương tác…</div>;
+}
+
+const FloatWorkbench = dynamic(() => import("./FloatWorkbench").then(module => module.FloatWorkbench), { loading: VisualLoading });
+const FileWorkbench = dynamic(() => import("./FileWorkbench").then(module => module.FileWorkbench), { loading: VisualLoading });
+const ConceptWorkbench = dynamic(() => import("./ConceptWorkbench").then(module => module.ConceptWorkbench), { loading: VisualLoading });
+const NumericWorkbench = dynamic(() => import("./NumericWorkbench").then(module => module.NumericWorkbench), { loading: VisualLoading });
+const NetworkWorkbench = dynamic(() => import("./NetworkWorkbench").then(module => module.NetworkWorkbench), { loading: VisualLoading });
+const NetworkTopicWorkbench = dynamic(() => import("./NetworkTopicWorkbench").then(module => module.NetworkTopicWorkbench), { loading: VisualLoading });
+const HardwareWorkbench = dynamic(() => import("./HardwareWorkbench").then(module => module.HardwareWorkbench), { loading: VisualLoading });
+const LogicWorkbench = dynamic(() => import("./LogicWorkbench").then(module => module.LogicWorkbench), { loading: VisualLoading });
+const HardwareScaleWorkbench = dynamic(() => import("./HardwareScaleWorkbench").then(module => module.HardwareScaleWorkbench), { loading: VisualLoading });
+const LogicScaleWorkbench = dynamic(() => import("./LogicScaleWorkbench").then(module => module.LogicScaleWorkbench), { loading: VisualLoading });
+const Section16Workbench = dynamic(() => import("./Section16Workbench").then(module => module.Section16Workbench), { loading: VisualLoading });
+const Section17SecurityWorkbench = dynamic(() => import("./Section17SecurityWorkbench").then(module => module.Section17SecurityWorkbench), { loading: VisualLoading });
+const Section18AIWorkbench = dynamic(() => import("./Section18AIWorkbench").then(module => module.Section18AIWorkbench), { loading: VisualLoading });
+const Section19ComputationalWorkbench = dynamic(() => import("./Section19ComputationalWorkbench").then(module => module.Section19ComputationalWorkbench), { loading: VisualLoading });
+const Section20FurtherProgrammingWorkbench = dynamic(() => import("./Section20FurtherProgrammingWorkbench").then(module => module.Section20FurtherProgrammingWorkbench), { loading: VisualLoading });
 
 export function VisualStage({ lesson, locale }: { readonly lesson: Paper3Lesson; readonly locale: Locale }) {
   return <div className={styles.visualStage} data-visual-stage>

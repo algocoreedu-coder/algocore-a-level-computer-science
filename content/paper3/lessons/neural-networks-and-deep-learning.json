@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T04",
   "slug": "neural-networks-and-deep-learning",
   "estimatedMinutes": 30,
@@ -457,17 +457,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "input → hidden layer(s) → output",
-            "vi": "đầu vào → lớp ẩn → đầu ra"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "output → target → input during inference",
@@ -488,6 +477,17 @@
             "en": "Artificial nodes are computational units.",
             "vi": "Nút nhân tạo là đơn vị tính toán."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "input → hidden layer(s) → output",
+            "vi": "đầu vào → lớp ẩn → đầu ra"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -504,6 +504,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "One weighted edge in a graph",
+            "vi": "Một cạnh trọng số trong đồ thị"
+          },
+          "feedback": {
+            "en": "That is graph terminology.",
+            "vi": "Đó là thuật ngữ đồ thị."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -524,17 +535,6 @@
           "feedback": {
             "en": "Data volume alone is not the structural definition.",
             "vi": "Chỉ dung lượng dữ liệu không phải định nghĩa cấu trúc."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "One weighted edge in a graph",
-            "vi": "Một cạnh trọng số trong đồ thị"
-          },
-          "feedback": {
-            "en": "That is graph terminology.",
-            "vi": "Đó là thuật ngữ đồ thị."
           }
         }
       ],
@@ -601,17 +601,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "0.60",
-            "vi": "0.60"
-          },
-          "feedback": {
-            "en": "Correct: 0.56+0.24−0.20.",
-            "vi": "Đúng: 0.56+0.24−0.20."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "1.40",
@@ -632,6 +621,17 @@
             "en": "That is the alternate-input score.",
             "vi": "Đó là điểm của đầu vào thay thế."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "0.60",
+            "vi": "0.60"
+          },
+          "feedback": {
+            "en": "Correct: 0.56+0.24−0.20.",
+            "vi": "Đúng: 0.56+0.24−0.20."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -648,6 +648,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Unsupervised clustering",
+            "vi": "Phân cụm không giám sát"
+          },
+          "feedback": {
+            "en": "No grouping task is described.",
+            "vi": "Không có nhiệm vụ phân nhóm."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -668,17 +679,6 @@
           "feedback": {
             "en": "Training would compare a target and adjust weights.",
             "vi": "Training sẽ so mục tiêu và điều chỉnh trọng số."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Unsupervised clustering",
-            "vi": "Phân cụm không giám sát"
-          },
-          "feedback": {
-            "en": "No grouping task is described.",
-            "vi": "Không có nhiệm vụ phân nhóm."
           }
         }
       ],
@@ -752,5 +752,54 @@
       "locator": "Question 12, p9",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "neural-networks-and-deep-learning-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain structure, flow and mode of a neural network.",
+      "vi": "Giải thích cấu trúc, luồng và chế độ của mạng nơ-ron."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Neural networks and deep learning; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Mạng nơ-ron và học sâu; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Label layer order and current mode.",
+        "vi": "Gắn nhãn thứ tự lớp và chế độ hiện tại."
+      },
+      {
+        "en": "Write inputs, weights and the declared output rule.",
+        "vi": "Ghi đầu vào, trọng số và quy tắc đầu ra đã công bố."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Inputs move through weighted connections and hidden processing to output.",
+        "vi": "Đầu vào đi qua kết nối có trọng số và xử lý ẩn tới đầu ra."
+      },
+      {
+        "en": "Training may adjust weights; inference keeps them fixed.",
+        "vi": "Training có thể chỉnh trọng số; inference giữ cố định."
+      },
+      {
+        "en": "Deep learning uses multiple hidden representation layers.",
+        "vi": "Học sâu dùng nhiều lớp biểu diễn ẩn."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

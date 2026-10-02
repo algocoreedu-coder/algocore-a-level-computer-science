@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "en": "AlgoCore Paper 3 mock-paper set",
+    "vi": "Bộ đề luyện Paper 3 của AlgoCore"
+  },
+  "authorshipNotice": {
+    "en": "All questions are AlgoCore-authored practice material, not official Cambridge International questions.",
+    "vi": "Tất cả câu hỏi là học liệu luyện tập do AlgoCore tự biên soạn, không phải câu hỏi chính thức của Cambridge International."
+  },
+  "schema": {
+    "paperRequiredKeys": [
+      "durationMinutes",
+      "totalMarks",
+      "aoTargets",
+      "questions"
+    ],
+    "questionRequiredKeys": [
+      "id",
+      "sectionIds",
+      "commandWords",
+      "ao",
+      "marks",
+      "prompt",
+      "markingPoints",
+      "workedSolution",
+      "sourcePatternIds"
+    ],
+    "bilingualFields": [
+      "title",
+      "instructions",
+      "prompt",
+      "scenario",
+      "markingPoints",
+      "workedSolution"
+    ]
+  },
+  "papers": [
+    {
+      "id": "P3-MOCK-A",
+      "file": "mock-paper-3-a.json",
+      "title": {
+        "en": "Paper 3 Mock A — Core coverage",
+        "vi": "Đề luyện Paper 3 A — Bao quát kiến thức cốt lõi"
+      },
+      "durationMinutes": 90,
+      "totalMarks": 75,
+      "aoTargets": {
+        "AO1": 45,
+        "AO2": 30
+      },
+      "sectionIds": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "questionCount": 16
+    },
+    {
+      "id": "P3-MOCK-B",
+      "file": "mock-paper-3-b.json",
+      "title": {
+        "en": "Paper 3 Mock B — Transfer and tracing",
+        "vi": "Đề luyện Paper 3 B — Vận dụng và trace"
+      },
+      "durationMinutes": 90,
+      "totalMarks": 75,
+      "aoTargets": {
+        "AO1": 45,
+        "AO2": 30
+      },
+      "sectionIds": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "questionCount": 16
+    }
+  ],
+  "expectedTotals": {
+    "durationMinutes": 90,
+    "totalMarks": 75,
+    "aoTargets": {
+      "AO1": 45,
+      "AO2": 30
+    },
+    "sectionIds": [
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20"
+    ]
+  },
+  "validationMetadata": {
+    "validator": "validate-mocks.cjs",
+    "status": "PASS",
+    "checks": [
+      "duration",
+      "total marks",
+      "AO totals",
+      "Sections 13–20",
+      "question schema",
+      "bilingual content",
+      "marking-point counts",
+      "sourcePatternIds",
+      "AlgoCore authorship"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.2-T02",
   "slug": "random-file-record-operations",
   "estimatedMinutes": 40,
@@ -92,6 +92,10 @@
         {
           "en": "Random access requires a declared mapping from key/record number to a valid record position.",
           "vi": "Random access cần mapping đã khai báo từ key/record number tới position hợp lệ."
+        },
+        {
+          "en": "Model boundary: the lesson visual stores fixed-shape records in memory and treats positions 0..4 as logical direct-access addresses. It illustrates SEEK/GETRECORD/PUTRECORD semantics; it does not open a binary file or claim that every system uses the same byte layout.",
+          "vi": "Boundary mô hình: visual của bài giữ record có cấu trúc cố định trong bộ nhớ và xem position 0..4 là địa chỉ truy cập trực tiếp logic. Nó minh họa semantics SEEK/GETRECORD/PUTRECORD; không mở file nhị phân và không cho rằng mọi hệ thống dùng cùng byte layout."
         }
       ],
       "sourceIds": [
@@ -146,6 +150,10 @@
         {
           "en": "The optional byte formula uses one-based recordNumber, baseByte=0 and recordSize=24; SEEK still uses the fixture's logical index.",
           "vi": "Byte formula tùy chọn dùng recordNumber one-based, baseByte=0, recordSize=24; SEEK vẫn dùng logical index của fixture."
+        },
+        {
+          "en": "The byte-offset formula is an optional learner-authored illustration. In Cambridge pseudocode, SEEK receives the record address supplied by the question; state the declared base and mapping before calculating it.",
+          "vi": "Công thức byte offset là minh họa tự biên soạn tùy chọn. Trong giả mã Cambridge, SEEK nhận record address do đề cho; hãy nêu base và mapping đã khai báo trước khi tính."
         }
       ],
       "sourceIds": [
@@ -153,7 +161,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "OPENFILE \"Stock.dat\" FOR RANDOM\nPosition ← RecordNumber - 1\nSEEK \"Stock.dat\", Position\nGETRECORD \"Stock.dat\", Stock\nStock.Quantity ← Stock.Quantity + 5\nSEEK \"Stock.dat\", Position\nPUTRECORD \"Stock.dat\", Stock\nCLOSEFILE \"Stock.dat\""
+      "code": "TYPE StockRecord\n   DECLARE ProductCode : STRING\n   DECLARE Quantity : INTEGER\nENDTYPE\n\nCONSTANT RecordCount = 5\nDECLARE Stock : StockRecord\nDECLARE RecordNumber : INTEGER\nDECLARE Position : INTEGER\nRecordNumber ← 3\n\nOPENFILE \"Stock.dat\" FOR RANDOM\nIF RecordNumber >= 1 AND RecordNumber <= RecordCount THEN\n   Position ← RecordNumber - 1\n   SEEK \"Stock.dat\", Position\n   GETRECORD \"Stock.dat\", Stock\n   Stock.Quantity ← Stock.Quantity + 5\n   SEEK \"Stock.dat\", Position\n   PUTRECORD \"Stock.dat\", Stock\nENDIF\nCLOSEFILE \"Stock.dat\"",
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -182,6 +192,10 @@
       {
         "en": "In-memory AlgoCore records only.",
         "vi": "Chỉ record in-memory AlgoCore."
+      },
+      {
+        "en": "Direct-access model boundary: fixed-shape in-memory records; no learner file or binary format is opened.",
+        "vi": "Boundary mô hình truy cập trực tiếp: record có cấu trúc cố định trong bộ nhớ; không mở learner file hay binary format."
       }
     ],
     "sourceIds": [
@@ -530,17 +544,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -561,6 +564,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Use the supplied terms, state and required output.",
+            "vi": "Dùng term, state và output được cung cấp."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -577,6 +591,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -597,17 +622,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -674,17 +688,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -705,6 +708,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Declare one convention and keep all syntax consistent.",
+            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -721,6 +735,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -741,17 +766,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -841,5 +855,58 @@
       "locator": "Q8, PDF p.6",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "random-file-record-operations-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Trace a random record update.",
+      "vi": "Trace update random record."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Random-file record operations; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Operation record trong random file; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Copy record layout, base and valid range.",
+        "vi": "Chép record layout, base và range."
+      },
+      {
+        "en": "Compute and range-check the position.",
+        "vi": "Tính và kiểm tra range position."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State layout/base/range.",
+        "vi": "Nêu layout/base/range."
+      },
+      {
+        "en": "Calculate and validate position.",
+        "vi": "Tính và validate position."
+      },
+      {
+        "en": "Show SEEK/GET/edit/PUT pointer state.",
+        "vi": "Cho state SEEK/GET/edit/PUT."
+      },
+      {
+        "en": "Prove unrelated records unchanged.",
+        "vi": "Chứng minh record khác không đổi."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

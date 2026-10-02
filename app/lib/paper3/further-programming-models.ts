@@ -33,6 +33,8 @@ export interface FurtherProgrammingStep<S> {
 export interface FurtherProgrammingTrace<S> {
   readonly fixtureId: string;
   readonly scenario: string;
+  readonly representation: Localized;
+  readonly modelBoundary: Localized;
   readonly convention: Localized;
   readonly pseudocode: readonly string[];
   readonly initial: S;
@@ -228,6 +230,30 @@ const statusFor = (family: string, scenario: string, expected: Readonly<Record<s
 const semanticRule = (line: string): Localized =>
   L(`Apply the locked ${line} transition.`, `Áp dụng chuyển tiếp ${line} đã khóa.`);
 
+const representationByFamily: Readonly<Record<string, Localized>> = Object.freeze({
+  paradigmProcedural: L("Cambridge pseudocode 2026 trace model", "Mô hình trace giả mã Cambridge 2026"),
+  addressing: L("Coursebook assembly addressing model", "Mô hình addressing assembly theo sách"),
+  assembly: L("Coursebook assembly execution model", "Mô hình thực thi assembly theo sách"),
+  classEncapsulation: L("Cambridge pseudocode 2026 OOP model", "Mô hình OOP theo giả mã Cambridge 2026"),
+  oopDispatch: L("Cambridge pseudocode 2026 OOP relationship model", "Mô hình quan hệ OOP theo giả mã Cambridge 2026"),
+  declarative: L("AlgoCore finite clause notation (S20-DECL-CLAUSE-1)", "Ký pháp clause hữu hạn AlgoCore (S20-DECL-CLAUSE-1)"),
+  sequentialFile: L("Cambridge pseudocode 2026 text-file model", "Mô hình text file theo giả mã Cambridge 2026"),
+  randomFile: L("Cambridge pseudocode 2026 direct-access record model", "Mô hình record truy cập trực tiếp theo giả mã Cambridge 2026"),
+  exception: L("Python 3 exception control-flow model", "Mô hình control flow exception Python 3"),
+});
+
+const boundaryByFamily: Readonly<Record<string, Localized>> = Object.freeze({
+  paradigmProcedural: L("The visual executes only reviewed trace fixtures; it is not a general pseudocode interpreter.", "Visual chỉ chạy các fixture trace đã duyệt; đây không phải trình thông dịch giả mã tổng quát."),
+  addressing: L("Addresses and memory cells belong to the declared teaching machine, not a universal processor.", "Địa chỉ và ô nhớ thuộc teaching machine đã khai báo, không phải mọi bộ xử lý."),
+  assembly: L("Only the declared instruction subset and fixtures are modelled.", "Chỉ tập lệnh con và fixture đã khai báo được mô hình hóa."),
+  classEncapsulation: L("ScoreCard is an AlgoCore concept fixture; the lesson's Account listing is the exam-style pseudocode exemplar.", "ScoreCard là fixture khái niệm của AlgoCore; listing Account trong bài là ví dụ giả mã theo phong cách thi."),
+  oopDispatch: L("The object graph is a bounded AlgoCore fixture used to expose is-a, has-a and actual-type dispatch.", "Object graph là fixture AlgoCore hữu hạn để làm rõ is-a, has-a và dispatch theo actual type."),
+  declarative: L("This is not Cambridge pseudocode or executable Prolog; GOAL/QUERY denotes a query in the declared finite model.", "Đây không phải giả mã Cambridge hay Prolog thực thi; GOAL/QUERY biểu thị truy vấn trong mô hình hữu hạn đã khai báo."),
+  sequentialFile: L("Records are held in memory so the visual never reads or writes a learner's files.", "Record được giữ trong bộ nhớ nên visual không đọc hay ghi file của học sinh."),
+  randomFile: L("Logical fixed-record slots model direct access; the optional byte-offset view is illustrative and no binary file is opened.", "Các slot record độ dài cố định mô hình hóa truy cập trực tiếp; phần byte offset chỉ minh họa và không mở file nhị phân."),
+  exception: L("The visual traces reviewed Python 3 outcomes; it does not execute learner-supplied code.", "Visual trace các kết quả Python 3 đã duyệt; nó không chạy code do học sinh nhập."),
+});
+
 function buildTrace<S extends BaseState>(
   scenario: string,
   initialInput: S,
@@ -277,7 +303,9 @@ function buildTrace<S extends BaseState>(
   return deepFreeze({
     fixtureId: scenario,
     scenario,
-    convention: L("Bounded Cambridge teaching fixture; no arbitrary program, query or file is executed.", "Fixture dạy học Cambridge hữu hạn; không chạy chương trình, truy vấn hoặc tệp tùy ý."),
+    representation: representationByFamily[family] ?? L("Declared teaching model", "Mô hình dạy học đã khai báo"),
+    modelBoundary: boundaryByFamily[family] ?? L("Only reviewed fixtures are evaluated.", "Chỉ các fixture đã duyệt được đánh giá."),
+    convention: L("Bounded teaching fixture; no arbitrary program, query or file is executed.", "Fixture dạy học hữu hạn; không chạy chương trình, truy vấn hoặc tệp tùy ý."),
     pseudocode: [...pseudocode],
     initial,
     steps,

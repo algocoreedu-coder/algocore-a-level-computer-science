@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.19.1",
+  "version": "2026.2",
   "topicId": "P3-19.1-T01",
   "slug": "linear-search",
   "estimatedMinutes": 30,
@@ -149,7 +149,9 @@
       "sourceIds": [
         "syllabus-2026",
         "book"
-      ]
+      ],
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -234,7 +236,9 @@
           "en": "Check that no cells checked; comparisons=0.",
           "vi": "Kiểm tra rằng chưa xét ô nào; comparisons=0."
         },
-        "code": "Index ← 0"
+        "code": "Index ← 0",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       },
       {
         "id": "check-0",
@@ -311,7 +315,9 @@
           "en": "Check that result=3; comparisons=4; index 4 is not inspected.",
           "vi": "Kiểm tra rằng result=3; comparisons=4; không xét index 4."
         },
-        "code": "RETURN Index"
+        "code": "RETURN Index",
+        "codeLanguage": "pseudocode",
+        "codeDialect": "Cambridge-style pseudocode"
       }
     ],
     "result": {
@@ -474,6 +480,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "UpperBound",
+            "vi": "UpperBound"
+          },
+          "feedback": {
+            "en": "UpperBound names the last valid cell, not failure.",
+            "vi": "UpperBound là ô hợp lệ cuối, không phải failure."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "−1",
@@ -493,17 +510,6 @@
           "feedback": {
             "en": "Index 0 is a valid location, so it cannot mean missing here.",
             "vi": "Index 0 là vị trí hợp lệ nên không thể nghĩa là missing."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "UpperBound",
-            "vi": "UpperBound"
-          },
-          "feedback": {
-            "en": "UpperBound names the last valid cell, not failure.",
-            "vi": "UpperBound là ô hợp lệ cuối, không phải failure."
           }
         }
       ],
@@ -570,17 +576,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Index 2",
-            "vi": "Index 2"
-          },
-          "feedback": {
-            "en": "Correct: Index advances exactly once per mismatch.",
-            "vi": "Đúng: Index tăng đúng một lần cho mỗi mismatch."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Index 3",
@@ -601,6 +596,17 @@
             "en": "Without increment the algorithm would not progress.",
             "vi": "Không tăng thì thuật toán không tiến triển."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Index 2",
+            "vi": "Index 2"
+          },
+          "feedback": {
+            "en": "Correct: Index advances exactly once per mismatch.",
+            "vi": "Đúng: Index tăng đúng một lần cho mỗi mismatch."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -617,6 +623,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "5",
+            "vi": "5"
+          },
+          "feedback": {
+            "en": "The first match stops before checking the duplicate at index 4.",
+            "vi": "Match đầu tiên dừng trước khi xét duplicate tại index 4."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -637,17 +654,6 @@
           "feedback": {
             "en": "Three mismatches occur before the fourth comparison matches.",
             "vi": "Có ba mismatch trước phép so sánh thứ tư khớp."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "5",
-            "vi": "5"
-          },
-          "feedback": {
-            "en": "The first match stops before checking the duplicate at index 4.",
-            "vi": "Match đầu tiên dừng trước khi xét duplicate tại index 4."
           }
         }
       ],
@@ -714,17 +720,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Zero comparisons; return −1",
-            "vi": "0 phép so sánh; trả −1"
-          },
-          "feedback": {
-            "en": "Correct: 0<=−1 is false before any read.",
-            "vi": "Đúng: 0<=−1 sai trước mọi lần đọc."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Read Data[0]",
@@ -744,6 +739,17 @@
           "feedback": {
             "en": "0 is a valid index in non-empty fixtures, not the missing sentinel.",
             "vi": "0 là index hợp lệ trong fixture không rỗng, không phải sentinel missing."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Zero comparisons; return −1",
+            "vi": "0 phép so sánh; trả −1"
+          },
+          "feedback": {
+            "en": "Correct: 0<=−1 is false before any read.",
+            "vi": "Đúng: 0<=−1 sai trước mọi lần đọc."
           }
         }
       ],
@@ -841,5 +847,58 @@
       "locator": "Question 8(a), p10",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "linear-search-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "State the invariant and termination rule for first-match linear search.",
+      "vi": "Nêu invariant và quy tắc dừng của linear search match đầu tiên."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Linear search; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Tìm kiếm tuyến tính; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Write the bounds and duplicate policy.",
+        "vi": "Ghi cận và chính sách duplicate."
+      },
+      {
+        "en": "Initialise the first valid index.",
+        "vi": "Khởi tạo chỉ số hợp lệ đầu tiên."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "All indices below Index have been checked and do not match.",
+        "vi": "Mọi chỉ số dưới Index đã được xét và không khớp."
+      },
+      {
+        "en": "Return Index on equality.",
+        "vi": "Trả Index khi bằng."
+      },
+      {
+        "en": "Return −1 only after Index passes UpperBound.",
+        "vi": "Chỉ trả −1 khi Index vượt UpperBound."
+      },
+      {
+        "en": "State the declared convention and verify the final invariant or boundary.",
+        "vi": "Nêu quy ước đã công bố và kiểm tra invariant hoặc boundary cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-016",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

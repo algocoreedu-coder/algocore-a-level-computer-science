@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.2-T01",
   "slug": "interpreter-versus-compiler",
   "estimatedMinutes": 35,
@@ -297,6 +297,15 @@
         "en": "For comparisons, state mechanism→benefit→condition or cost.",
         "vi": "Khi so sánh, nêu cơ chế→lợi ích→điều kiện hoặc chi phí."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "compare",
+        "guidance": {
+          "en": "Make paired points about Interpreter versus compiler; name both sides in each point and state a meaningful difference or similarity.",
+          "vi": "Viết các ý đối chiếu theo cặp về Thông dịch và biên dịch; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -341,17 +350,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Empty; it has not run.",
-            "vi": "Rỗng; chương trình chưa chạy."
-          },
-          "feedback": {
-            "en": "Correct: the artifact is available for a later run.",
-            "vi": "Đúng: sản phẩm sẵn có để chạy sau."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "[5,10] already printed.",
@@ -372,6 +370,17 @@
             "en": "The valid trace has no syntax error, and diagnostics are not program output.",
             "vi": "Trace hợp lệ không có lỗi cú pháp; chẩn đoán cũng không phải đầu ra chương trình."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Empty; it has not run.",
+            "vi": "Rỗng; chương trình chưa chạy."
+          },
+          "feedback": {
+            "en": "Correct: the artifact is available for a later run.",
+            "vi": "Đúng: sản phẩm sẵn có để chạy sau."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -388,6 +397,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "[5,10] despite the malformed statement.",
+            "vi": "[5,10] dù câu lệnh sai."
+          },
+          "feedback": {
+            "en": "The invalid addition cannot produce the intended second output.",
+            "vi": "Phép cộng sai không thể tạo đầu ra thứ hai dự kiến."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -408,17 +428,6 @@
           "feedback": {
             "en": "This question specifies sequential interpretation, not compilation.",
             "vi": "Câu này chỉ rõ thông dịch tuần tự, không phải biên dịch."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "[5,10] despite the malformed statement.",
-            "vi": "[5,10] dù câu lệnh sai."
-          },
-          "feedback": {
-            "en": "The invalid addition cannot produce the intended second output.",
-            "vi": "Phép cộng sai không thể tạo đầu ra thứ hai dự kiến."
           }
         }
       ],
@@ -485,17 +494,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Runs can reuse the artifact without recompiling unchanged source each time.",
-            "vi": "Các lần chạy dùng lại sản phẩm mà không biên dịch lại nguồn không đổi mỗi lần."
-          },
-          "feedback": {
-            "en": "Correct, assuming a compatible target/runtime environment.",
-            "vi": "Đúng, với giả định môi trường đích/chạy tương thích."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "All runs are guaranteed to have no runtime failures.",
@@ -516,6 +514,17 @@
             "en": "Dependencies and target compatibility may remain.",
             "vi": "Phụ thuộc và tương thích đích vẫn có thể tồn tại."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Runs can reuse the artifact without recompiling unchanged source each time.",
+            "vi": "Các lần chạy dùng lại sản phẩm mà không biên dịch lại nguồn không đổi mỗi lần."
+          },
+          "feedback": {
+            "en": "Correct, assuming a compatible target/runtime environment.",
+            "vi": "Đúng, với giả định môi trường đích/chạy tương thích."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -532,6 +541,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "10 is necessarily a lexical error.",
+            "vi": "10 nhất thiết là lỗi từ vựng."
+          },
+          "feedback": {
+            "en": "A valid numeric output can still be the wrong result.",
+            "vi": "Đầu ra số hợp lệ vẫn có thể là kết quả sai."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -552,17 +572,6 @@
           "feedback": {
             "en": "A compiler does not generally know the intended external task.",
             "vi": "Trình biên dịch nói chung không biết nhiệm vụ bên ngoài mong muốn."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "10 is necessarily a lexical error.",
-            "vi": "10 nhất thiết là lỗi từ vựng."
-          },
-          "feedback": {
-            "en": "A valid numeric output can still be the wrong result.",
-            "vi": "Đầu ra số hợp lệ vẫn có thể là kết quả sai."
           }
         }
       ],
@@ -636,5 +645,54 @@
       "locator": "PDF p11 Q6",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "interpreter-versus-compiler-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "compare",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Compare interpreter execution with compilation followed by a run.",
+      "vi": "So sánh chạy bằng thông dịch với biên dịch rồi chạy."
+    },
+    "answerGuidance": [
+      {
+        "en": "Make paired points about Interpreter versus compiler; name both sides in each point and state a meaningful difference or similarity.",
+        "vi": "Viết các ý đối chiếu theo cặp về Thông dịch và biên dịch; gọi tên cả hai phía trong mỗi ý và nêu khác biệt hoặc điểm giống có ý nghĩa."
+      },
+      {
+        "en": "Identify the specified model rather than inferring from a language name.",
+        "vi": "Xác định mô hình được nêu thay vì suy từ tên ngôn ngữ."
+      },
+      {
+        "en": "Track source processing, artifact availability and actual output separately.",
+        "vi": "Theo riêng xử lý nguồn, sự tồn tại sản phẩm và đầu ra thực."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "The interpreter model executes without a standalone translated program.",
+        "vi": "Mô hình thông dịch chạy không cần chương trình đã dịch độc lập."
+      },
+      {
+        "en": "Compilation prepares target code; program output occurs during a later run.",
+        "vi": "Biên dịch chuẩn bị mã đích; đầu ra chương trình xảy ra trong lần chạy sau."
+      },
+      {
+        "en": "Error behaviour and performance claims require an explicit model and task.",
+        "vi": "Hành vi lỗi và nhận định hiệu năng cần mô hình và nhiệm vụ rõ."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-006",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

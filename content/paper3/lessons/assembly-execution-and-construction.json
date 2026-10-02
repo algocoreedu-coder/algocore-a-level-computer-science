@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.1-T03",
   "slug": "assembly-execution-and-construction",
   "estimatedMinutes": 40,
@@ -153,7 +153,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "LDM #7\nSTO Total\nLDD Value\nADD Total\nCMP #12\nJPE Done\nDone: END\nValue: #5\nTotal: #0"
+      "code": "LDM #7\nSTO Total\nLDD Value\nADD Total\nCMP #12\nJPE Done\nDone: END\nValue: #5\nTotal: #0",
+      "codeLanguage": "assembly",
+      "codeDialect": "Cambridge 9618 assembly language"
     }
   ],
   "visual": {
@@ -530,17 +532,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -561,6 +552,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Use the supplied terms, state and required output.",
+            "vi": "Dùng term, state và output được cung cấp."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -577,6 +579,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -597,17 +610,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -674,17 +676,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -705,6 +696,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Declare one convention and keep all syntax consistent.",
+            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -721,6 +723,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -741,17 +754,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -840,5 +842,58 @@
       "locator": "Q11, PDF p.15",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "assembly-execution-and-construction-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Trace and construct with a supplied instruction set.",
+      "vi": "Trace và xây dựng với supplied instruction set."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Assembly execution and construction; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Thực thi và xây dựng assembly; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Copy the instruction table.",
+        "vi": "Chép instruction table."
+      },
+      {
+        "en": "Write initial PC/register/memory.",
+        "vi": "Ghi PC/register/memory đầu."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State initial PC/register/memory.",
+        "vi": "Nêu PC/register/memory đầu."
+      },
+      {
+        "en": "Resolve each operand.",
+        "vi": "Phân giải từng operand."
+      },
+      {
+        "en": "Record every after-state and branch.",
+        "vi": "Ghi mọi after-state và branch."
+      },
+      {
+        "en": "Use only supplied instructions and show data labels.",
+        "vi": "Chỉ dùng lệnh cung cấp và cho data label."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

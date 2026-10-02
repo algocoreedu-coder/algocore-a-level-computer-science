@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.2-T03",
   "slug": "exceptions-and-controlled-recovery",
   "estimatedMinutes": 40,
@@ -146,6 +146,10 @@
         {
           "en": "Finally-style cleanup runs under the declared Python model; a mismatched exception propagates after cleanup.",
           "vi": "Cleanup kiểu finally chạy theo model Python; exception không khớp propagate sau cleanup."
+        },
+        {
+          "en": "Code block: runnable Python 3. It declares the input and resource state before the protected block, uses typed handlers, always performs cleanup, and prints the observable result. With raw = '0' it prints 0 False.",
+          "vi": "Khối code: Python 3 chạy được. Nó khai báo input và resource state trước protected block, dùng typed handler, luôn cleanup và in kết quả quan sát được. Với raw = '0', nó in 0 False."
         }
       ],
       "sourceIds": [
@@ -153,7 +157,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "try:\n    quantity = int(raw)\n    result = 100 // quantity\nexcept ValueError:\n    result = None\nexcept ZeroDivisionError:\n    result = 0\nfinally:\n    resource_open = False"
+      "code": "raw = \"0\"\nresource_open = True\n\ntry:\n    quantity = int(raw)\n    result = 100 // quantity\nexcept ValueError:\n    result = None\nexcept ZeroDivisionError:\n    result = 0\nfinally:\n    resource_open = False\n\nprint(result, resource_open)",
+      "codeLanguage": "python",
+      "codeDialect": "Python 3"
     }
   ],
   "visual": {
@@ -182,6 +188,10 @@
       {
         "en": "AlgoCore control-flow fixture; no code execution.",
         "vi": "Fixture control-flow AlgoCore; không chạy code tùy ý."
+      },
+      {
+        "en": "The static listing is runnable Python 3; the visual is a deterministic control-flow trace and does not execute learner input.",
+        "vi": "Listing tĩnh là Python 3 chạy được; visual là trace control flow tất định và không chạy input của học sinh."
       }
     ],
     "sourceIds": [
@@ -482,17 +492,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "State the meaning and declared convention for exceptions and controlled recovery.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho exception và phục hồi có kiểm soát."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -513,6 +512,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "State the meaning and declared convention for exceptions and controlled recovery.",
+            "vi": "Nêu ý nghĩa và convention đã khai báo cho exception và phục hồi có kiểm soát."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -529,6 +539,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -549,17 +570,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -626,17 +636,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -657,6 +656,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Show before state, applied rule, calculation and after state.",
+            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -673,6 +683,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -693,17 +714,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -840,5 +850,58 @@
       "locator": "Q10, PDF p.14",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "exceptions-and-controlled-recovery-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Trace normal, handled and unhandled exception paths.",
+      "vi": "Trace path normal, handled và unhandled."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Exceptions and controlled recovery; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Exception và phục hồi có kiểm soát; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "Declare language and possible exception types.",
+        "vi": "Khai báo language và exception type."
+      },
+      {
+        "en": "Trace until the exact raising operation.",
+        "vi": "Trace tới đúng operation raise."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Name language and raising operation/type.",
+        "vi": "Nêu language và operation/type raise."
+      },
+      {
+        "en": "Show skipped protected statements.",
+        "vi": "Cho statement protected bị skip."
+      },
+      {
+        "en": "Match handler or show propagation.",
+        "vi": "Match handler hoặc show propagation."
+      },
+      {
+        "en": "Report recovery, cleanup and final state.",
+        "vi": "Nêu recovery, cleanup và state cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

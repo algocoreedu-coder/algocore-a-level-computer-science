@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.17.1",
+  "version": "2026.2",
   "topicId": "P3-17.1-T02",
   "slug": "quantum-cryptography",
   "estimatedMinutes": 40,
@@ -300,6 +300,15 @@
         "en": "Accept or abort using the stated threshold, then state limitations.",
         "vi": "Chấp nhận hoặc hủy theo ngưỡng đã cho, rồi nêu giới hạn."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Quantum cryptography; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Mật mã lượng tử; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -354,17 +363,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Establish key material and reveal suspicious disturbance",
-            "vi": "Thiết lập vật liệu khóa và phát hiện nhiễu động đáng ngờ"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Guarantee every endpoint is malware-free",
@@ -385,6 +383,17 @@
             "en": "That is outside the teaching model.",
             "vi": "Điều đó nằm ngoài mô hình dạy học."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Establish key material and reveal suspicious disturbance",
+            "vi": "Thiết lập vật liệu khóa và phát hiện nhiễu động đáng ngờ"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -401,6 +410,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "They prove Eve was present",
+            "vi": "Chúng chứng minh Eve có mặt"
+          },
+          "feedback": {
+            "en": "Basis mismatch between Alice and Bob is expected and does not by itself prove eavesdropping.",
+            "vi": "Không khớp cơ sở giữa Alice và Bob là điều dự kiến và tự nó không chứng minh nghe lén."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -421,17 +441,6 @@
           "feedback": {
             "en": "They are simply unsuitable candidates after sifting.",
             "vi": "Chúng chỉ là ứng viên không phù hợp sau sàng lọc."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "They prove Eve was present",
-            "vi": "Chúng chứng minh Eve có mặt"
-          },
-          "feedback": {
-            "en": "Basis mismatch between Alice and Bob is expected and does not by itself prove eavesdropping.",
-            "vi": "Không khớp cơ sở giữa Alice và Bob là điều dự kiến và tự nó không chứng minh nghe lén."
           }
         }
       ],
@@ -498,17 +507,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Specialist equipment and channel/distance constraints",
-            "vi": "Thiết bị chuyên dụng và giới hạn kênh/khoảng cách"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "No need to authenticate the classical channel",
@@ -529,6 +527,17 @@
             "en": "Specialist hardware adds cost.",
             "vi": "Phần cứng chuyên dụng làm tăng chi phí."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Specialist equipment and channel/distance constraints",
+            "vi": "Thiết bị chuyên dụng và giới hạn kênh/khoảng cách"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -545,6 +554,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Encrypt application data → buy hardware → skip sample comparison",
+            "vi": "Mã hóa dữ liệu ứng dụng → mua phần cứng → bỏ so sánh mẫu"
+          },
+          "feedback": {
+            "en": "This omits the QKD evidence sequence.",
+            "vi": "Cách này bỏ chuỗi bằng chứng QKD."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -565,17 +585,6 @@
           "feedback": {
             "en": "Publishing every candidate bit destroys its secrecy.",
             "vi": "Công bố mọi bit ứng viên làm mất bí mật."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Encrypt application data → buy hardware → skip sample comparison",
-            "vi": "Mã hóa dữ liệu ứng dụng → mua phần cứng → bỏ so sánh mẫu"
-          },
-          "feedback": {
-            "en": "This omits the QKD evidence sequence.",
-            "vi": "Cách này bỏ chuỗi bằng chứng QKD."
           }
         }
       ],
@@ -649,5 +658,53 @@
       "locator": "Question 9(b), p7",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "quantum-cryptography-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Describe the QKD journey from transmission to accept/abort.",
+      "vi": "Mô tả hành trình QKD từ truyền đến chấp nhận/hủy."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Quantum cryptography; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Mật mã lượng tử; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Identify the sender, receiver, quantum channel and classical channel.",
+        "vi": "Xác định người gửi, người nhận, kênh lượng tử và kênh cổ điển."
+      },
+      {
+        "en": "Mark compatible positions after basis comparison.",
+        "vi": "Đánh dấu vị trí tương thích sau so sánh cơ sở."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Transmit quantum states, then compare bases over a classical channel.",
+        "vi": "Truyền trạng thái lượng tử, rồi so sánh cơ sở qua kênh cổ điển."
+      },
+      {
+        "en": "Reveal a sample of sifted positions and estimate errors/disturbance.",
+        "vi": "Công khai mẫu vị trí đã sàng lọc và ước lượng lỗi/nhiễu động."
+      },
+      {
+        "en": "Accept remaining material only when the stated check passes; otherwise abort.",
+        "vi": "Chỉ chấp nhận vật liệu còn lại khi kiểm tra đã nêu đạt; nếu không thì hủy."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

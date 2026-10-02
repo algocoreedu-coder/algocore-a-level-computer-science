@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.20.1",
+  "version": "2026.2",
   "topicId": "P3-20.2-T01",
   "slug": "serial-sequential-text-file-workflows",
   "estimatedMinutes": 40,
@@ -153,7 +153,9 @@
         "book",
         "pseudocode-2026"
       ],
-      "code": "OPENFILE \"Input.txt\" FOR READ\nOPENFILE \"Archive.txt\" FOR WRITE\nWHILE NOT EOF(\"Input.txt\")\n   READFILE \"Input.txt\", Line\n   WRITEFILE \"Archive.txt\", Line\nENDWHILE\nCLOSEFILE \"Input.txt\"\nCLOSEFILE \"Archive.txt\""
+      "code": "OPENFILE \"Input.txt\" FOR READ\nOPENFILE \"Archive.txt\" FOR WRITE\nWHILE NOT EOF(\"Input.txt\")\n   READFILE \"Input.txt\", Line\n   WRITEFILE \"Archive.txt\", Line\nENDWHILE\nCLOSEFILE \"Input.txt\"\nCLOSEFILE \"Archive.txt\"",
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode"
     }
   ],
   "visual": {
@@ -482,6 +484,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "State the meaning and declared convention for serial/sequential text files.",
@@ -501,17 +514,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -578,17 +580,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -609,6 +600,17 @@
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Read the current state and exact operation rule.",
+            "vi": "Đọc current state và operation rule chính xác."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -625,6 +627,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "Infer hidden rules from the topic name.",
+            "vi": "Suy rule ẩn từ tên topic."
+          },
+          "feedback": {
+            "en": "Only stated conventions receive semantics.",
+            "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -645,17 +658,6 @@
           "feedback": {
             "en": "This can preserve a result after its assumptions changed.",
             "vi": "Cách này có thể giữ result khi giả định đã đổi."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
           }
         }
       ],
@@ -722,17 +724,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Reuse the previous answer without checking inputs.",
@@ -752,6 +743,17 @@
           "feedback": {
             "en": "Only stated conventions receive semantics.",
             "vi": "Chỉ convention được nêu mới có semantics."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Restate the new convention and recompute from that state.",
+            "vi": "Nêu lại convention mới và tính lại từ state đó."
+          },
+          "feedback": {
+            "en": "Correct: the answer exposes the governing rule and state.",
+            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
           }
         }
       ],
@@ -840,5 +842,58 @@
       "locator": "Q10, PDF p.8",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "serial-sequential-text-file-workflows-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "write",
+    "taskType": "pseudocode",
+    "marks": 4,
+    "prompt": {
+      "en": "Trace a complete text-file workflow.",
+      "vi": "Trace workflow text file hoàn chỉnh."
+    },
+    "answerGuidance": [
+      {
+        "en": "Use Cambridge-style pseudocode for Serial and sequential text-file workflows; initialise state, handle boundary cases and make the returned result explicit.",
+        "vi": "Dùng pseudocode theo phong cách Cambridge cho Workflow text file serial và sequential; khởi tạo trạng thái, xử lý biên và nêu rõ kết quả trả về."
+      },
+      {
+        "en": "State file contents and mode before opening.",
+        "vi": "Nêu content và mode trước open."
+      },
+      {
+        "en": "Apply mode effect immediately.",
+        "vi": "Áp effect mode ngay."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "State initial content and open mode.",
+        "vi": "Nêu content đầu và open mode."
+      },
+      {
+        "en": "Apply WRITE/APPEND effects correctly.",
+        "vi": "Áp effect WRITE/APPEND đúng."
+      },
+      {
+        "en": "Show pointer, EOF and read/write each step.",
+        "vi": "Cho pointer, EOF và read/write từng bước."
+      },
+      {
+        "en": "Close and report final file state.",
+        "vi": "Close và nêu file state cuối."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-009",
+      "P3-PAT-017",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

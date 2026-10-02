@@ -1,0 +1,1302 @@
+{
+  "schemaVersion": 1,
+  "book": {
+    "id": "watson-williams-2019-9781510457591",
+    "title": "Cambridge International AS & A Level Computer Science",
+    "authors": [
+      "David Watson",
+      "Helen Williams"
+    ],
+    "publisher": "Hodder Education",
+    "year": 2019,
+    "isbn": "9781510457591"
+  },
+  "evidencePolicy": {
+    "en": "Every locator below is copied from an existing lesson source entry. No page locator has been inferred or added when absent.",
+    "vi": "Mọi locator dưới đây được chép từ source entry đang tồn tại trong lesson. Không suy diễn hoặc thêm locator trang khi nguồn không có."
+  },
+  "summary": {
+    "lessonCount": 66,
+    "mappedLessonCount": 66,
+    "strandCount": 15
+  },
+  "lessons": [
+    {
+      "lessonSlug": "user-defined-and-enumerated-types",
+      "topicId": "P3-13.1-T01",
+      "section": "13",
+      "strand": "13.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.1-C001",
+        "P3-2026-13.1-C002"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.304–305; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "pointers-and-referenced-data",
+      "topicId": "P3-13.1-T02",
+      "section": "13",
+      "strand": "13.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.1-C003",
+        "P3-2026-13.1-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.305–306; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "sets",
+      "topicId": "P3-13.1-T03",
+      "section": "13",
+      "strand": "13.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.1-C005",
+        "P3-2026-13.1-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.305,307; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "records-and-composite-models",
+      "topicId": "P3-13.1-T04",
+      "section": "13",
+      "strand": "13.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.1-C007",
+        "P3-2026-13.1-C008"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.307; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "organisation-versus-access",
+      "topicId": "P3-13.2-T01",
+      "section": "13",
+      "strand": "13.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.2-C001",
+        "P3-2026-13.2-C002"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.308–310; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "hashing-to-locate-records",
+      "topicId": "P3-13.2-T02",
+      "section": "13",
+      "strand": "13.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.2-C003",
+        "P3-2026-13.2-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.310–311; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "collisions-and-retrieval",
+      "topicId": "P3-13.2-T03",
+      "section": "13",
+      "strand": "13.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.2-C005",
+        "P3-2026-13.2-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.311; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "signed-floating-point-conversion",
+      "topicId": "P3-13.3-T01",
+      "section": "13",
+      "strand": "13.3",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.3-C001",
+        "P3-2026-13.3-C002"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book13-3",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13.3, printed pp.313–320 (PDF pp.329–336): representation and conversion; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "normalisation",
+      "topicId": "P3-13.3-T02",
+      "section": "13",
+      "strand": "13.3",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.3-C003",
+        "P3-2026-13.3-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.321–323; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "precision-range-and-limits",
+      "topicId": "P3-13.3-T03",
+      "section": "13",
+      "strand": "13.3",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.3-C005",
+        "P3-2026-13.3-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.323–324; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "approximation-rounding-and-range-errors",
+      "topicId": "P3-13.3-T04",
+      "section": "13",
+      "strand": "13.3",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-13.3-C007"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "David Watson and Helen Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019",
+          "locator": "Chapter 13, printed pp.320–321,324–325; examples independently checked"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "tcp-ip-stack-and-message-journey",
+      "topicId": "P3-14.1-T01",
+      "section": "14",
+      "strand": "14.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-14.1-C001",
+        "P3-2026-14.1-C002",
+        "P3-2026-14.1-C003",
+        "P3-2026-14.1-C004",
+        "P3-2026-14.1-C005"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-protocols",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 329–331 (PDF pages 345–347): protocol agreement, four-layer stack, application services"
+        },
+        {
+          "lessonSourceId": "book-transport",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 333–334 (PDF pages 349–350): TCP, Internet and Link responsibilities"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "application-protocol-selection",
+      "topicId": "P3-14.1-T02",
+      "section": "14",
+      "strand": "14.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-14.1-C006",
+        "P3-2026-14.1-C007",
+        "P3-2026-14.1-C008",
+        "P3-2026-14.1-C009",
+        "P3-2026-14.1-C010"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-application",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 330–333 (PDF pages 346–349): application protocols and email"
+        },
+        {
+          "lessonSourceId": "book-bittorrent",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 335–337 (PDF pages 351–353): peer-to-peer file sharing"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "bittorrent-and-peer-to-peer-transfer",
+      "topicId": "P3-14.1-T03",
+      "section": "14",
+      "strand": "14.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-14.1-C011",
+        "P3-2026-14.1-C012",
+        "P3-2026-14.1-C013",
+        "P3-2026-14.1-C014"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-bittorrent",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 335–337 (PDF pages 351–353): metadata, pieces, tracker, swarm and sharing"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "packet-journey-and-routers",
+      "topicId": "P3-14.2-T01",
+      "section": "14",
+      "strand": "14.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-14.2-C001",
+        "P3-2026-14.2-C002",
+        "P3-2026-14.2-C003",
+        "P3-2026-14.2-C004",
+        "P3-2026-14.2-C005"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-packets",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 339–340 (PDF pages 355–356): packet transmission and reassembly"
+        },
+        {
+          "lessonSourceId": "book-routing",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 341–343 (PDF pages 357–359): routing tables, routers and network journey"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "choosing-a-switching-method",
+      "topicId": "P3-14.2-T02",
+      "section": "14",
+      "strand": "14.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-14.2-C006",
+        "P3-2026-14.2-C007",
+        "P3-2026-14.2-C008",
+        "P3-2026-14.2-C009",
+        "P3-2026-14.2-C010"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-circuit",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed page 338 (PDF page 354): circuit establishment, transfer, release and tradeoffs"
+        },
+        {
+          "lessonSourceId": "book-packets",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 14, printed pages 339–343 (PDF pages 355–359): packet sharing, comparison and applications"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "risc-and-cisc",
+      "topicId": "P3-15.1-T01",
+      "section": "15",
+      "strand": "15.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.1-C001",
+        "P3-2026-15.1-C002",
+        "P3-2026-15.1-C003"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.1.1, printed347–348 / PDF363–364"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "pipelines-registers-and-interrupts",
+      "topicId": "P3-15.1-T02",
+      "section": "15",
+      "strand": "15.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.1-C004",
+        "P3-2026-15.1-C005",
+        "P3-2026-15.1-C006",
+        "P3-2026-15.1-C007"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-pipeline",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.1.1, printed pages348–350 (PDF pages364–366): five-stage pipeline, registers and interrupt policies"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "flynn-architectures-and-massive-parallelism",
+      "topicId": "P3-15.1-T03",
+      "section": "15",
+      "strand": "15.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.1-C008",
+        "P3-2026-15.1-C009",
+        "P3-2026-15.1-C010"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.1.2, printed350–353 / PDF366–369"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "virtual-machines",
+      "topicId": "P3-15.1-T04",
+      "section": "15",
+      "strand": "15.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.1-C011",
+        "P3-2026-15.1-C012",
+        "P3-2026-15.1-C013"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Section16.2, printed392–394 / PDF408–410; hosted diagram and benefits/limitations"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "circuit-truth-table-and-expression",
+      "topicId": "P3-15.2-T01",
+      "section": "15",
+      "strand": "15.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.2-C001",
+        "P3-2026-15.2-C002",
+        "P3-2026-15.2-C003",
+        "P3-2026-15.2-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book-logic",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.2, printed pages354–355 and361–362 (PDF pages370–371 and377–378): Boolean rules, circuit/expression conversion and sum of products"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "half-full-adders",
+      "topicId": "P3-15.2-T02",
+      "section": "15",
+      "strand": "15.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.2-C005",
+        "P3-2026-15.2-C006",
+        "P3-2026-15.2-C007"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.2.2, printed356–358 / PDF372–374"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "sr-and-jk-flip-flops",
+      "topicId": "P3-15.2-T03",
+      "section": "15",
+      "strand": "15.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.2-C008",
+        "P3-2026-15.2-C009",
+        "P3-2026-15.2-C010",
+        "P3-2026-15.2-C011"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.2.3, printed358–361 / PDF374–377; NOR circuit Figure15.15 and tables15.6–15.7; set/reset derived from circuit"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "boolean-simplification",
+      "topicId": "P3-15.2-T04",
+      "section": "15",
+      "strand": "15.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.2-C012",
+        "P3-2026-15.2-C013",
+        "P3-2026-15.2-C014"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.2.1, printed354–356 / PDF370–372; Table15.2 laws, with complements read from actual source diagram"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "karnaugh-maps",
+      "topicId": "P3-15.2-T05",
+      "section": "15",
+      "strand": "15.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-15.2-C015",
+        "P3-2026-15.2-C016",
+        "P3-2026-15.2-C017",
+        "P3-2026-15.2-C018"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter15.2.5, printed363–369 / PDF379–385; Gray order and wrap examples; group-size rule corrected to powers of two"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "resources-processes-and-states",
+      "topicId": "P3-16.1-T01",
+      "section": "16",
+      "strand": "16.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.1-C001",
+        "P3-2026-16.1-C002",
+        "P3-2026-16.1-C003"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp374–378 / PDF pp390–394: resources, kernel, process management and states"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "scheduling-choices",
+      "topicId": "P3-16.1-T02",
+      "section": "16",
+      "strand": "16.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.1-C004",
+        "P3-2026-16.1-C005",
+        "P3-2026-16.1-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp379–382 / PDF pp395–398; corrected teacher traces, not the erroneous SRT worked trace"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "kernel-interrupts-and-scheduling",
+      "topicId": "P3-16.1-T03",
+      "section": "16",
+      "strand": "16.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.1-C007",
+        "P3-2026-16.1-C008",
+        "P3-2026-16.1-C009"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed p375 and p382 / PDF pp391,398: kernel responsibilities and interrupt handling"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "paging-segmentation-and-virtual-memory",
+      "topicId": "P3-16.1-T04",
+      "section": "16",
+      "strand": "16.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.1-C010",
+        "P3-2026-16.1-C011",
+        "P3-2026-16.1-C012"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp383–387 / PDF pp399–403, paging, segmentation and virtual memory; corrected segment-base calculation"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "replacement-and-thrashing",
+      "topicId": "P3-16.1-T05",
+      "section": "16",
+      "strand": "16.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.1-C013",
+        "P3-2026-16.1-C014",
+        "P3-2026-16.1-C015"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp385–389 / PDF pp401–405, page replacement and thrashing"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "interpreter-versus-compiler",
+      "topicId": "P3-16.2-T01",
+      "section": "16",
+      "strand": "16.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.2-C001",
+        "P3-2026-16.2-C002",
+        "P3-2026-16.2-C003"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp394–395 / PDF pp410–411, interpreters and compilers"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "compilation-stages",
+      "topicId": "P3-16.2-T02",
+      "section": "16",
+      "strand": "16.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.2-C004",
+        "P3-2026-16.2-C005",
+        "P3-2026-16.2-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp395–398 / PDF pp411–414, compilation stages; symbol-table type corrections applied"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "bnf-and-syntax-diagrams",
+      "topicId": "P3-16.2-T03",
+      "section": "16",
+      "strand": "16.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.2-C007",
+        "P3-2026-16.2-C008",
+        "P3-2026-16.2-C009"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp398–400 / PDF pp414–416; corrected teacher grammar for sequence"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "rpn-and-the-stack",
+      "topicId": "P3-16.2-T04",
+      "section": "16",
+      "strand": "16.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-16.2-C010",
+        "P3-2026-16.2-C011",
+        "P3-2026-16.2-C012"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Printed pp400–401 / PDF pp416–417, §16.3.4 Reverse Polish notation"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "confidentiality-and-key-choice",
+      "topicId": "P3-17.1-T01",
+      "section": "17",
+      "strand": "17.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-17.1-C001",
+        "P3-2026-17.1-C002",
+        "P3-2026-17.1-C003",
+        "P3-2026-17.1-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 17.1, printed pp410–413 / PDF pp426–429: plaintext/ciphertext, symmetric and asymmetric encryption"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "quantum-cryptography",
+      "topicId": "P3-17.1-T02",
+      "section": "17",
+      "strand": "17.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-17.1-C005",
+        "P3-2026-17.1-C006",
+        "P3-2026-17.1-C007"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 17.2, printed pp414–415 / PDF pp430–431: QKD purpose, teaching sequence, advantages and limitations"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "ssl-tls-communication",
+      "topicId": "P3-17.1-T03",
+      "section": "17",
+      "strand": "17.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-17.1-C008",
+        "P3-2026-17.1-C009",
+        "P3-2026-17.1-C010",
+        "P3-2026-17.1-C011"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 17.3, printed pp416–418 / PDF pp432–434: SSL/TLS purpose, client–server use and simplified establishment sequence"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "certificates-and-signatures",
+      "topicId": "P3-17.1-T04",
+      "section": "17",
+      "strand": "17.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-17.1-C012",
+        "P3-2026-17.1-C013",
+        "P3-2026-17.1-C014"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 17.4, printed pp418–424 / PDF pp434–440: digital signatures, certificate contents, acquisition and verification"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "graphs-and-dijkstra",
+      "topicId": "P3-18.1-T01",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C001",
+        "P3-2026-18.1-C002"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.1.1, printed pp425–429 / PDF pp441–445: graph purpose and Dijkstra trace"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "a-star-and-heuristic-search",
+      "topicId": "P3-18.1-T02",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C003",
+        "P3-2026-18.1-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.1.2, printed pp429–434 / PDF pp445–450: A* and heuristic search"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "learning-categories",
+      "topicId": "P3-18.1-T03",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C005",
+        "P3-2026-18.1-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.2.2, printed pp436–439 / PDF pp452–455: machine learning categories"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "neural-networks-and-deep-learning",
+      "topicId": "P3-18.1-T04",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C007",
+        "P3-2026-18.1-C008",
+        "P3-2026-18.1-C009"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.2.1 and 18.2.3, printed pp435, 439–443 / PDF pp451, 455–459: ANN structure and deep learning"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "backpropagation",
+      "topicId": "P3-18.1-T05",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C010",
+        "P3-2026-18.1-C011"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.2.6, printed pp444–445 / PDF pp460–461: iterative error comparison and weight adjustment"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "regression",
+      "topicId": "P3-18.1-T06",
+      "section": "18",
+      "strand": "18.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-18.1-C012",
+        "P3-2026-18.1-C013"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder 2019, ISBN 9781510457591",
+          "locator": "Chapter 18.2.6, printed p445 / PDF p461: regression relationship and continuous prediction"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "linear-search",
+      "topicId": "P3-19.1-T01",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C001",
+        "P3-2026-19.1-C002",
+        "P3-2026-19.1-C003"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp451–454 / PDF pp467–470: linear search"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "binary-search",
+      "topicId": "P3-19.1-T02",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C004",
+        "P3-2026-19.1-C005",
+        "P3-2026-19.1-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp454–457 / PDF pp470–473: binary search"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "bubble-sort",
+      "topicId": "P3-19.1-T03",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C007",
+        "P3-2026-19.1-C008",
+        "P3-2026-19.1-C009"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp458–461 / PDF pp474–477: bubble sort; pass-level correction documented"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "insertion-sort",
+      "topicId": "P3-19.1-T04",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C010",
+        "P3-2026-19.1-C011",
+        "P3-2026-19.1-C012"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp461–464 / PDF pp477–480: insertion sort and performance"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "stack",
+      "topicId": "P3-19.1-T05",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C013",
+        "P3-2026-19.1-C014",
+        "P3-2026-19.1-C015",
+        "P3-2026-19.1-C018"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp464–466 / PDF pp480–482: ADT and stack"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "queue",
+      "topicId": "P3-19.1-T06",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C016",
+        "P3-2026-19.1-C017",
+        "P3-2026-19.1-C018"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp466–469 / PDF pp482–485: circular queue"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "linked-list",
+      "topicId": "P3-19.1-T07",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C019",
+        "P3-2026-19.1-C020",
+        "P3-2026-19.1-C021"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp469–481 / PDF pp485–497: linked-list find, insert and delete"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "binary-tree",
+      "topicId": "P3-19.1-T08",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C022",
+        "P3-2026-19.1-C023",
+        "P3-2026-19.1-C024"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp481–487 / PDF pp497–503: binary-tree find and insert"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "dictionary",
+      "topicId": "P3-19.1-T09",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C025",
+        "P3-2026-19.1-C026",
+        "P3-2026-19.1-C027"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp488–489 / PDF pp504–505: dictionary and ADT implementation"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "implementing-one-adt-with-another",
+      "topicId": "P3-19.1-T10",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C028",
+        "P3-2026-19.1-C029",
+        "P3-2026-19.1-C030"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp487–489 / PDF pp503–505: graph scope and ADT implementations"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "time-and-space-complexity",
+      "topicId": "P3-19.1-T11",
+      "section": "19",
+      "strand": "19.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.1-C031",
+        "P3-2026-19.1-C032",
+        "P3-2026-19.1-C033"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp489–490 / PDF pp505–506: algorithm comparison and Big O"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "designing-and-tracing-recursion",
+      "topicId": "P3-19.2-T01",
+      "section": "19",
+      "strand": "19.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.2-C001",
+        "P3-2026-19.2-C002"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp490–493 / PDF pp506–509: recursion; factorial base 0 and trace"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "call-stacks-and-unwinding",
+      "topicId": "P3-19.2-T02",
+      "section": "19",
+      "strand": "19.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-19.2-C003",
+        "P3-2026-19.2-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Watson and Williams, Cambridge International AS & A Level Computer Science, Hodder Education, 2019, ISBN 9781510457591",
+          "locator": "Chapter 19, printed pp491 and 494 / PDF pp507 and 510: factorial base-zero trace and compiler stack"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "paradigms-and-procedural-design",
+      "topicId": "P3-20.1-T01",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C001",
+        "P3-2026-20.1-C002",
+        "P3-2026-20.1-C003",
+        "P3-2026-20.1-C004"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.498–500 (PDF pp.514–516)"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "five-addressing-modes",
+      "topicId": "P3-20.1-T02",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C005",
+        "P3-2026-20.1-C006",
+        "P3-2026-20.1-C007",
+        "P3-2026-20.1-C008"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20 pp.498–500 and Chapter 4 pp.121–129"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "assembly-execution-and-construction",
+      "topicId": "P3-20.1-T03",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C009",
+        "P3-2026-20.1-C010",
+        "P3-2026-20.1-C011",
+        "P3-2026-20.1-C012"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20 pp.498–500; Chapter 4 pp.123–129"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "class-object-design-and-encapsulation",
+      "topicId": "P3-20.1-T04",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C013",
+        "P3-2026-20.1-C014",
+        "P3-2026-20.1-C015",
+        "P3-2026-20.1-C016"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.501–507"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "inheritance-polymorphism-and-aggregation",
+      "topicId": "P3-20.1-T05",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C017",
+        "P3-2026-20.1-C018",
+        "P3-2026-20.1-C019",
+        "P3-2026-20.1-C020"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.505–521"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "declarative-facts-rules-and-goals",
+      "topicId": "P3-20.1-T06",
+      "section": "20",
+      "strand": "20.1",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.1-C021",
+        "P3-2026-20.1-C022",
+        "P3-2026-20.1-C023",
+        "P3-2026-20.1-C024"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.521–525"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "serial-sequential-text-file-workflows",
+      "topicId": "P3-20.2-T01",
+      "section": "20",
+      "strand": "20.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.2-C001",
+        "P3-2026-20.2-C002",
+        "P3-2026-20.2-C003"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.526–533"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "random-file-record-operations",
+      "topicId": "P3-20.2-T02",
+      "section": "20",
+      "strand": "20.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.2-C004",
+        "P3-2026-20.2-C005",
+        "P3-2026-20.2-C006"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.533–535"
+        }
+      ]
+    },
+    {
+      "lessonSlug": "exceptions-and-controlled-recovery",
+      "topicId": "P3-20.2-T03",
+      "section": "20",
+      "strand": "20.2",
+      "alignmentStatus": "mapped-from-lesson-source",
+      "capabilityIds": [
+        "P3-2026-20.2-C007",
+        "P3-2026-20.2-C008",
+        "P3-2026-20.2-C009"
+      ],
+      "bookSources": [
+        {
+          "lessonSourceId": "book",
+          "title": "Cambridge International AS & A Level Computer Science — David Watson and Helen Williams (Hodder Education, 2019)",
+          "locator": "Chapter 20, printed pp.535–537"
+        }
+      ]
+    }
+  ]
+}

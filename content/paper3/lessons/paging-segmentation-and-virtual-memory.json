@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.16.1",
+  "version": "2026.2",
   "topicId": "P3-16.1-T04",
   "slug": "paging-segmentation-and-virtual-memory",
   "estimatedMinutes": 45,
@@ -337,6 +337,15 @@
         "en": "For a fault, explain load→update→retry; for a valid mapping show the full address equation.",
         "vi": "Với lỗi trang, giải thích nạp→cập nhật→thử lại; với ánh xạ hợp lệ, trình bày đầy đủ phương trình địa chỉ."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "describe",
+        "guidance": {
+          "en": "State the ordered events or observable features of Paging, segmentation and virtual memory; include enough detail to show what changes.",
+          "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Phân trang, phân đoạn và bộ nhớ ảo; đủ chi tiết để thấy điều gì thay đổi."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -381,6 +390,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "35",
+            "vi": "35"
+          },
+          "feedback": {
+            "en": "That retains the logical page rather than using the mapping.",
+            "vi": "Đó là giữ trang logic thay vì dùng ánh xạ."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "83",
@@ -400,17 +420,6 @@
           "feedback": {
             "en": "5+3 omits the frame size.",
             "vi": "5+3 bỏ mất kích thước khung."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "35",
-            "vi": "35"
-          },
-          "feedback": {
-            "en": "That retains the logical page rather than using the mapping.",
-            "vi": "Đó là giữ trang logic thay vì dùng ánh xạ."
           }
         }
       ],
@@ -477,17 +486,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Load into frame 2, update the entry and retry.",
-            "vi": "Nạp vào khung 2, cập nhật mục bảng và thử lại."
-          },
-          "feedback": {
-            "en": "Correct: translation depends on the new valid mapping.",
-            "vi": "Đúng: dịch phụ thuộc ánh xạ mới hợp lệ."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Return 34 immediately because the offset is known.",
@@ -508,6 +506,17 @@
             "en": "That describes virtual-machine use, not page-fault service.",
             "vi": "Đó là dùng máy ảo, không phải xử lý lỗi trang."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Load into frame 2, update the entry and retry.",
+            "vi": "Nạp vào khung 2, cập nhật mục bảng và thử lại."
+          },
+          "feedback": {
+            "en": "Correct: translation depends on the new valid mapping.",
+            "vi": "Đúng: dịch phụ thuộc ánh xạ mới hợp lệ."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -524,6 +533,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "No loading is necessary.",
+            "vi": "Không cần nạp."
+          },
+          "feedback": {
+            "en": "The page is still absent and must be brought into RAM.",
+            "vi": "Trang vẫn vắng mặt nên cần đưa vào RAM."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -544,17 +564,6 @@
           "feedback": {
             "en": "That ignores available unallocated space.",
             "vi": "Bạn đã bỏ qua vùng chưa cấp sẵn có."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "No loading is necessary.",
-            "vi": "Không cần nạp."
-          },
-          "feedback": {
-            "en": "The page is still absent and must be brought into RAM.",
-            "vi": "Trang vẫn vắng mặt nên cần đưa vào RAM."
           }
         }
       ],
@@ -688,5 +697,54 @@
       "locator": "PDF p4 Q5(a–b)",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "paging-segmentation-and-virtual-memory-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Explain paging translation, segmentation bounds and one page-fault recovery path.",
+      "vi": "Giải thích dịch phân trang, giới hạn phân đoạn và một đường khôi phục lỗi trang."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Paging, segmentation and virtual memory; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Phân trang, phân đoạn và bộ nhớ ảo; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Write the page size or base/limit convention first.",
+        "vi": "Ghi kích thước trang hoặc quy ước nền/giới hạn trước."
+      },
+      {
+        "en": "Check the relevant table and validity/presence before calculating a result.",
+        "vi": "Kiểm tra bảng và tính hợp lệ/hiện diện trước khi tính kết quả."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Page=A DIV size, offset=A MOD size; physical=frame×size+offset.",
+        "vi": "Trang=A DIV cỡ, offset=A MOD cỡ; vật lý=khung×cỡ+offset."
+      },
+      {
+        "en": "Check offset<limit before base+offset for a segment.",
+        "vi": "Kiểm offset<limit trước nền+offset cho đoạn."
+      },
+      {
+        "en": "Load a valid missing page, update its table entry and retry; backing storage is finite.",
+        "vi": "Nạp trang hợp lệ còn thiếu, cập nhật mục bảng và thử lại; bộ nhớ hỗ trợ hữu hạn."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-014",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

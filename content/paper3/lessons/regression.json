@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.18.1",
+  "version": "2026.2",
   "topicId": "P3-18.1-T06",
   "slug": "regression",
   "estimatedMinutes": 30,
@@ -430,6 +430,17 @@
       "transfer": false,
       "choices": [
         {
+          "id": "c",
+          "label": {
+            "en": "An open graph node",
+            "vi": "Một nút open của đồ thị"
+          },
+          "feedback": {
+            "en": "That belongs to graph search.",
+            "vi": "Điều đó thuộc tìm kiếm đồ thị."
+          }
+        },
+        {
           "id": "a",
           "label": {
             "en": "A continuous numeric value",
@@ -449,17 +460,6 @@
           "feedback": {
             "en": "That is classification.",
             "vi": "Đó là phân loại."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "An open graph node",
-            "vi": "Một nút open của đồ thị"
-          },
-          "feedback": {
-            "en": "That belongs to graph search.",
-            "vi": "Điều đó thuộc tìm kiếm đồ thị."
           }
         }
       ],
@@ -526,17 +526,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "collect input–target pairs → fit relationship → select new x → predict continuous y → state limits",
-            "vi": "thu cặp đầu vào–mục tiêu → khớp quan hệ → chọn x mới → dự đoán y liên tục → nêu giới hạn"
-          },
-          "feedback": {
-            "en": "Correct.",
-            "vi": "Đúng."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "predict before data → force line through every point",
@@ -557,6 +546,17 @@
             "en": "That confuses clustering with regression.",
             "vi": "Cách này nhầm phân cụm với hồi quy."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "collect input–target pairs → fit relationship → select new x → predict continuous y → state limits",
+            "vi": "thu cặp đầu vào–mục tiêu → khớp quan hệ → chọn x mới → dự đoán y liên tục → nêu giới hạn"
+          },
+          "feedback": {
+            "en": "Correct.",
+            "vi": "Đúng."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -573,6 +573,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "3.50 and 0",
+            "vi": "3.50 và 0"
+          },
+          "feedback": {
+            "en": "The fitted line does not equal x or pass through every point.",
+            "vi": "Đường khớp không bằng x hoặc đi qua mọi điểm."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -593,17 +604,6 @@
           "feedback": {
             "en": "The intercept and residual sign are wrong.",
             "vi": "Sai intercept và dấu residual."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "3.50 and 0",
-            "vi": "3.50 và 0"
-          },
-          "feedback": {
-            "en": "The fitted line does not equal x or pass through every point.",
-            "vi": "Đường khớp không bằng x hoặc đi qua mọi điểm."
           }
         }
       ],
@@ -727,5 +727,62 @@
       "locator": "Question 5(b), p7: regression named as an AI method; no direct calculation question found in the audited 2021–2025 corpus",
       "kind": "mark-scheme"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "regression-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "describe",
+    "taskType": "constructed-response",
+    "marks": 5,
+    "prompt": {
+      "en": "Describe a regression answer in five parts.",
+      "vi": "Mô tả câu trả lời hồi quy trong năm phần."
+    },
+    "answerGuidance": [
+      {
+        "en": "State the ordered events or observable features of Regression; include enough detail to show what changes.",
+        "vi": "Nêu các sự kiện theo thứ tự hoặc đặc điểm quan sát được của Hồi quy; đủ chi tiết để thấy điều gì thay đổi."
+      },
+      {
+        "en": "Identify input x and continuous target y.",
+        "vi": "Nhận diện đầu vào x và mục tiêu liên tục y."
+      },
+      {
+        "en": "State the fitted equation and residual convention.",
+        "vi": "Nêu phương trình khớp và quy ước residual."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "Input and continuous target pairs.",
+        "vi": "Cặp đầu vào và mục tiêu liên tục."
+      },
+      {
+        "en": "Fitted equation and residual convention.",
+        "vi": "Phương trình khớp và quy ước residual."
+      },
+      {
+        "en": "New input substitution and numeric prediction.",
+        "vi": "Thay đầu vào mới và dự đoán số."
+      },
+      {
+        "en": "Observed-range/extrapolation limit.",
+        "vi": "Giới hạn miền quan sát/ngoại suy."
+      },
+      {
+        "en": "No automatic causal claim.",
+        "vi": "Không tự động tuyên bố nhân quả."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book"
+    ],
+    "examPatternIds": [
+      "P3-PAT-004",
+      "P3-PAT-015",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }

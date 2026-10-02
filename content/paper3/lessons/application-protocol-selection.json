@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.1",
+  "version": "2026.2",
   "topicId": "P3-14.1-T02",
   "slug": "application-protocol-selection",
   "title": {
@@ -386,6 +386,15 @@
         "en": "Remove absolutes such as POP3 always deletes or IMAP never downloads.",
         "vi": "Bỏ khẳng định tuyệt đối như POP3 luôn xóa hay IMAP không bao giờ tải thư."
       }
+    ],
+    "commandWords": [
+      {
+        "command": "explain",
+        "guidance": {
+          "en": "Link cause to effect for Choose an application protocol; each point should say what happens and why it matters.",
+          "vi": "Liên kết nguyên nhân với kết quả của Chọn giao thức ứng dụng; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+        }
+      }
     ]
   },
   "misconceptions": [
@@ -440,17 +449,6 @@
       "transfer": false,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "Web request/response resource transfer",
-            "vi": "Truyền tài nguyên qua yêu cầu/phản hồi web"
-          },
-          "feedback": {
-            "en": "Correct: web resources include images, not only text.",
-            "vi": "Đúng: tài nguyên web gồm cả ảnh, không chỉ văn bản."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "Synchronise mailbox folders",
@@ -471,6 +469,17 @@
             "en": "That is routing, not HTTP’s application service.",
             "vi": "Đó là định tuyến, không phải dịch vụ ứng dụng HTTP."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Web request/response resource transfer",
+            "vi": "Truyền tài nguyên qua yêu cầu/phản hồi web"
+          },
+          "feedback": {
+            "en": "Correct: web resources include images, not only text.",
+            "vi": "Đúng: tài nguyên web gồm cả ảnh, không chỉ văn bản."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -487,6 +496,17 @@
       },
       "transfer": false,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "IMAP: mail-server relay",
+            "vi": "IMAP: chuyển tiếp giữa mail server"
+          },
+          "feedback": {
+            "en": "IMAP accesses mailboxes, while SMTP handles relay.",
+            "vi": "IMAP truy cập hộp thư, còn SMTP xử lý chuyển tiếp."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -507,17 +527,6 @@
           "feedback": {
             "en": "POP3 retrieves mail; this answer also misattributes richer mailbox state.",
             "vi": "POP3 lấy thư; đáp án này còn gán nhầm quản lý trạng thái hộp thư."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "IMAP: mail-server relay",
-            "vi": "IMAP: chuyển tiếp giữa mail server"
-          },
-          "feedback": {
-            "en": "IMAP accesses mailboxes, while SMTP handles relay.",
-            "vi": "IMAP truy cập hộp thư, còn SMTP xử lý chuyển tiếp."
           }
         }
       ],
@@ -584,17 +593,6 @@
       "transfer": true,
       "choices": [
         {
-          "id": "a",
-          "label": {
-            "en": "IMAP mailbox access and synchronisation",
-            "vi": "Truy cập và đồng bộ hộp thư IMAP"
-          },
-          "feedback": {
-            "en": "Correct: the key requirement is shared mailbox state.",
-            "vi": "Đúng: yêu cầu chính là trạng thái hộp thư dùng chung."
-          }
-        },
-        {
           "id": "b",
           "label": {
             "en": "SMTP outgoing submission",
@@ -615,6 +613,17 @@
             "en": "A file transfer alone does not define mailbox flags or folders.",
             "vi": "Chỉ truyền tệp không quy định cờ trạng thái hay thư mục hộp thư."
           }
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "IMAP mailbox access and synchronisation",
+            "vi": "Truy cập và đồng bộ hộp thư IMAP"
+          },
+          "feedback": {
+            "en": "Correct: the key requirement is shared mailbox state.",
+            "vi": "Đúng: yêu cầu chính là trạng thái hộp thư dùng chung."
+          }
         }
       ],
       "correctChoiceId": "a",
@@ -631,6 +640,17 @@
       },
       "transfer": true,
       "choices": [
+        {
+          "id": "c",
+          "label": {
+            "en": "IMAP is responsible for every network layer",
+            "vi": "IMAP chịu trách nhiệm mọi tầng mạng"
+          },
+          "feedback": {
+            "en": "IMAP is an Application protocol, not the whole suite.",
+            "vi": "IMAP là giao thức Application, không phải toàn bộ bộ giao thức."
+          }
+        },
         {
           "id": "a",
           "label": {
@@ -651,17 +671,6 @@
           "feedback": {
             "en": "Correct: select the protocol for each specified exchange.",
             "vi": "Đúng: chọn giao thức cho từng lượt trao đổi được chỉ rõ."
-          }
-        },
-        {
-          "id": "c",
-          "label": {
-            "en": "IMAP is responsible for every network layer",
-            "vi": "IMAP chịu trách nhiệm mọi tầng mạng"
-          },
-          "feedback": {
-            "en": "IMAP is an Application protocol, not the whole suite.",
-            "vi": "IMAP là giao thức Application, không phải toàn bộ bộ giao thức."
           }
         }
       ],
@@ -815,5 +824,55 @@
       "kind": "guide",
       "url": "https://www.rfc-editor.org/rfc/rfc9051.html#abstract"
     }
-  ]
+  ],
+  "examPractice": {
+    "id": "application-protocol-selection-exam-practice",
+    "origin": "algocore-authored",
+    "commandWord": "explain",
+    "taskType": "constructed-response",
+    "marks": 3,
+    "prompt": {
+      "en": "Without the table, give one function for all six protocols and explain the email split.",
+      "vi": "Không nhìn bảng, nêu một chức năng cho cả sáu giao thức và giải thích phân chia trong email."
+    },
+    "answerGuidance": [
+      {
+        "en": "Link cause to effect for Choose an application protocol; each point should say what happens and why it matters.",
+        "vi": "Liên kết nguyên nhân với kết quả của Chọn giao thức ứng dụng; mỗi ý cần nêu điều gì xảy ra và vì sao điều đó quan trọng."
+      },
+      {
+        "en": "Underline the action and identify the participants.",
+        "vi": "Gạch chân hành động và xác định các bên."
+      },
+      {
+        "en": "State the service requirement before naming the protocol.",
+        "vi": "Nêu yêu cầu dịch vụ trước khi gọi tên giao thức."
+      }
+    ],
+    "markingPoints": [
+      {
+        "en": "HTTP web resources; FTP file-transfer service; BitTorrent peer-to-peer pieces.",
+        "vi": "HTTP tài nguyên web; FTP dịch vụ truyền tệp; BitTorrent các phần peer-to-peer."
+      },
+      {
+        "en": "SMTP outgoing submission/relay; POP3 retrieval; IMAP server-mailbox access and synchronisation.",
+        "vi": "SMTP nộp/chuyển tiếp thư gửi đi; POP3 lấy thư; IMAP truy cập và đồng bộ hộp thư server."
+      },
+      {
+        "en": "Deletion is separate from POP3 retrieval; IMAP can also retrieve content.",
+        "vi": "Xóa thư tách biệt với lấy thư POP3; IMAP cũng lấy được nội dung."
+      }
+    ],
+    "sourceIds": [
+      "syllabus-2026",
+      "book-application",
+      "book-bittorrent"
+    ],
+    "examPatternIds": [
+      "P3-PAT-005",
+      "P3-PAT-012",
+      "P3-PAT-010",
+      "P3-PAT-018"
+    ]
+  }
 }
