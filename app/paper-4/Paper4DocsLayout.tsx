@@ -2,7 +2,8 @@
 
 import type { Root } from "fumadocs-core/page-tree";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
-import { BookOpen, Braces, Home } from "lucide-react";
+import { BookOpen, Braces, Clock3, Home } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useMemo, type ReactNode } from "react";
 
 import { useLearningLocale } from "@/app/AppProviders";
@@ -15,6 +16,8 @@ const lessonBySlug = new Map(manifest.lessons.map((lesson) => [lesson.slug, less
 
 export function Paper4DocsLayout({ children }: { readonly children: ReactNode }) {
   const locale = useLearningLocale();
+  const pathname = usePathname();
+  const isLesson = pathname.startsWith("/paper-4/lessons/");
   const tree = useMemo<Root>(() => ({
     $id: "paper4-root",
     name: "A Level 9618",
@@ -33,6 +36,13 @@ export function Paper4DocsLayout({ children }: { readonly children: ReactNode })
             name: locale === "vi" ? "Trang khóa học" : "Course hub",
             url: `/paper-4?lang=${locale}`,
             icon: <Home />,
+          },
+          {
+            $id: "paper4-rehearsals",
+            type: "page",
+            name: locale === "vi" ? "Luyện đề tổng hợp" : "Mixed rehearsal",
+            url: `/paper-4/rehearsals?lang=${locale}`,
+            icon: <Clock3 />,
           },
           ...manifest.packages.map((pkg) => ({
             $id: pkg.package_id,
@@ -56,7 +66,15 @@ export function Paper4DocsLayout({ children }: { readonly children: ReactNode })
     ],
   }), [locale]);
 
-  return <DocsLayout
+  const skipToLesson = () => {
+    requestAnimationFrame(() => document.getElementById("lesson-content")?.focus());
+  };
+
+  return <>
+    {isLesson && <a className="paper4-global-skip-link" href="#lesson-content" onClick={skipToLesson}>
+      {locale === "vi" ? "Bỏ qua đến nội dung bài học" : "Skip to lesson content"}
+    </a>}
+    <DocsLayout
     key={locale}
     tree={tree}
     containerProps={{ className: "paper4-docs-layout" }}
@@ -75,5 +93,6 @@ export function Paper4DocsLayout({ children }: { readonly children: ReactNode })
         </form>
       </div>,
     }}
-  >{children}</DocsLayout>;
+    >{children}</DocsLayout>
+  </>;
 }

@@ -110,22 +110,6 @@
 @container (max-width: 56rem) { .recursionPanels,.recursionSupport > div { grid-template-columns: minmax(0,1fr); } }
 @media (max-width: 640px) { .recursionVisual,.recursionPrediction,.recursionSupport article { padding: var(--alg-space-3); } .recursionFrames article { grid-template-columns: minmax(0,1fr); } .recursionReturns { grid-template-columns: minmax(0,1fr); } }
 
-.skipLink {
-  position: absolute;
-  left: 1rem;
-  top: -5rem;
-  z-index: 80;
-  border-radius: 0.5rem;
-  background: var(--color-fd-primary);
-  color: var(--color-fd-primary-foreground);
-  padding: 0.65rem 1rem;
-  font-weight: 700;
-}
-
-.skipLink:focus {
-  top: 1rem;
-}
-
 .eyebrow,
 .meta,
 .localeNav,
@@ -152,6 +136,15 @@
   padding: 0.35rem 0.65rem;
 }
 
+.lessonHeader h1 {
+  margin-block: var(--alg-space-3) var(--alg-space-2);
+}
+
+.lessonHeader > p {
+  max-width: var(--alg-prose-width);
+  margin-block: 0;
+}
+
 .meta {
   justify-content: space-between;
   margin: 1.25rem 0 1.75rem;
@@ -168,6 +161,9 @@
 .localeNav a,
 .lessonNav a,
 .visualLabLink {
+  align-items: center;
+  display: inline-flex;
+  min-height: var(--alg-touch-target);
   border: 1px solid var(--learning-border);
   border-radius: 0.55rem;
   color: var(--color-fd-foreground);
@@ -563,8 +559,16 @@
   font-weight: 400;
 }
 
+.responseField textarea[readonly] {
+  background: var(--color-fd-secondary);
+  color: var(--color-fd-foreground);
+  cursor: default;
+}
+
 .responseField textarea:focus-visible,
-.learningButton:focus-visible {
+.learningButton:focus-visible,
+.secondaryButton:focus-visible,
+.criterionConfirmation input:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--learning-accent) 42%, transparent);
   outline-offset: 2px;
 }
@@ -589,6 +593,76 @@
   min-height: 1.5em;
   color: var(--learning-muted);
   font-size: 0.82rem;
+}
+
+.practiceStepLabel {
+  margin: var(--alg-space-4) 0 0;
+  color: var(--learning-accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.validationError {
+  min-height: 1.5em;
+  color: var(--alg-state-danger-fg, var(--color-fd-foreground));
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.selfCheckPanel {
+  display: grid;
+  gap: var(--alg-space-3);
+  min-width: 0;
+  margin: var(--alg-space-3) 0 0;
+  border: 1px solid var(--learning-border);
+  border-radius: var(--alg-radius-lg);
+  background: var(--color-fd-secondary);
+  padding: var(--alg-space-4);
+}
+
+.selfCheckPanel legend {
+  padding-inline: var(--alg-space-2);
+  color: var(--learning-accent);
+  font-weight: 800;
+}
+
+.selfCheckPanel > p,
+.selfCheckPanel blockquote {
+  margin: 0;
+}
+
+.selfCheckPanel blockquote {
+  border-inline-start: var(--alg-border-width-strong) solid var(--learning-accent);
+  background: var(--color-fd-card);
+  padding: var(--alg-space-3);
+  color: var(--color-fd-foreground);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.criterionConfirmation {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--alg-space-3);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.criterionConfirmation input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--learning-accent);
+}
+
+.practiceJourney > article > .learningButton,
+.selfCheckPanel .learningButton,
+.afterAttempt .secondaryButton,
+.riskJourney .learningButton {
+  justify-self: start;
+  min-height: 44px;
 }
 
 .contractBlock {
@@ -776,6 +850,43 @@
   padding: 0.8rem 1rem;
 }
 
+.reasoningTrace {
+  display: grid;
+  gap: var(--alg-space-3);
+  border: var(--alg-border-width-subtle) solid var(--learning-border);
+  border-radius: var(--alg-radius-lg);
+  background: var(--color-fd-card);
+  padding: var(--alg-space-4);
+}
+
+.reasoningTrace header h3,
+.reasoningTrace header p,
+.reasoningGuide ul,
+.reasoningTrace > p { margin: 0; }
+
+.reasoningTrace header p,
+.reasoningGuide { color: var(--learning-muted); }
+
+.reasoningGuide {
+  border-inline-start: var(--alg-border-width-strong) solid var(--learning-accent);
+  background: var(--color-fd-secondary);
+  padding: var(--alg-space-3);
+}
+
+.reasoningGuide ul { margin-top: var(--alg-space-2); padding-inline-start: var(--alg-space-6); }
+.reasoningTrace label { font-weight: 800; }
+.reasoningTrace textarea {
+  width: 100%;
+  resize: vertical;
+  border: var(--alg-border-width-subtle) solid var(--learning-border);
+  border-radius: var(--alg-radius-md);
+  background: var(--color-fd-background);
+  color: var(--color-fd-foreground);
+  font: inherit;
+  padding: var(--alg-space-3);
+}
+.reasoningTrace .learningButton { justify-self: start; }
+
 .contractFacts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
@@ -892,11 +1003,6 @@
   gap: 0.8rem;
 }
 
-.riskJourney .learningButton {
-  justify-self: start;
-  min-height: 44px;
-}
-
 .riskProgress {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -944,9 +1050,23 @@
 }
 
 @media (max-width: 640px) {
+  .lessonHeader h1 {
+    font-size: clamp(1.55rem, 8vw, 2rem);
+    line-height: 1.15;
+    margin-block: var(--alg-space-2) var(--alg-space-1);
+  }
+
+  .lessonHeader > p {
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .eyebrow span { display: none; }
+
   .meta {
     align-items: flex-start;
-    flex-direction: column;
+    margin-block: var(--alg-space-2) var(--alg-space-3);
+    padding-block: var(--alg-space-2);
   }
 
   .section {
@@ -977,7 +1097,10 @@
 
   .copyButton,
   .itemNav button,
-  .stageActions button {
+  .stageActions button,
+  .practiceJourney > article > .learningButton,
+  .selfCheckPanel .learningButton,
+  .afterAttempt .secondaryButton {
     width: 100%;
   }
 }

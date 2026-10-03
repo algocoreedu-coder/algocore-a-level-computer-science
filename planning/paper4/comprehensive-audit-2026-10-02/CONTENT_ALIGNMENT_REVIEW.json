@@ -1,0 +1,1072 @@
+{
+  "review_id": "paper4-content-alignment-2026-10-02",
+  "qualification": "Cambridge International AS & A Level Computer Science 9618",
+  "exam_year": 2026,
+  "paper": 4,
+  "programming_language": "Python",
+  "decision": "REWORK",
+  "decision_summary": "Curriculum and source traceability are complete, but the present learner experience is not yet uniformly exam-ready. Thirteen lessons have bespoke projections and thirteen rely on a generic DTO fallback; Graph also exceeds the explicit syllabus coding boundary.",
+  "denominators": {
+    "lessons": 26,
+    "knowledge_units": 108,
+    "non_excluded_editorial_objectives": 107,
+    "coursebook_sections": 55,
+    "past_paper_pattern_families": 58,
+    "paper4_question_papers_2021_2025": 29,
+    "paper4_mark_schemes_2021_2025": 29,
+    "paper4_questions": 87,
+    "paper4_marking_rows": 672
+  },
+  "verified_current_counts": {
+    "lesson_dtos": 26,
+    "knowledge_units": 108,
+    "objectives_referenced_by_knowledge_units": 107,
+    "objective_ids_missing_from_knowledge_units": [],
+    "coursebook_sections_referenced": 55,
+    "pattern_families_in_lesson_authority": 58,
+    "pattern_families_with_marking_chains": 58,
+    "pattern_families_in_dto_practice": 58,
+    "dto_practice_items": 79,
+    "bespoke_projection_lessons": 13,
+    "canonical_fallback_lessons": 13,
+    "bespoke_projection_practice_items": 64,
+    "assessment_requirements": 107,
+    "assessment_requirements_linked_by_dto_practice": 63,
+    "assessment_requirements_not_linked_by_dto_practice": 44,
+    "unlinked_requirement_scope_counts": {
+      "core_practical": 16,
+      "prerequisite": 24,
+      "supporting_understanding": 4
+    },
+    "unique_mark_scheme_sources_in_current_chains": 29,
+    "python_lines_across_lesson_artifacts": 1570,
+    "template_style_micro_examples": 82,
+    "book_pattern_gaps_requiring_algocore_synthesis": 19
+  },
+  "classification": {
+    "complete": [
+      "107/107 non-excluded editorial objectives have a current knowledge-unit destination.",
+      "55/55 indexed coursebook sections are referenced by the current knowledge units.",
+      "58/58 past-paper pattern families occur in lesson authority, marking chains and DTO practice.",
+      "29/29 local 2021-2025 Paper 4 mark schemes are represented by current marking-chain samples."
+    ],
+    "partial": [
+      "Only 13/26 lessons have a bespoke teacher-approved-for-implementation learner projection; none of those status labels alone is a final release approval.",
+      "63/107 assessment requirements are explicitly linked from DTO practice; 44 lack that machine-readable link. Bespoke projections may teach some of them semantically, so this is a traceability gap rather than proof of 44 absent teaching points.",
+      "Current marking chains contain representative official atoms and locators, but the practice prompt is often an AlgoCore fixture task rather than a complete past-paper-style worked question.",
+      "Nineteen exam-pattern techniques require explicit AlgoCore synthesis because the coursebook supplies only foundations or concepts."
+    ],
+    "missing": [
+      "Bespoke student journeys for binary-tree, dictionary, hashing, the four OOP lessons, the four file/exception lessons, graphs and exam-workflow.",
+      "A uniform per-lesson question-to-solution-to-marking explanation that preserves the exact QP/MS scenario and states where marks are official versus teacher-created.",
+      "A released assessment crosswalk proving every one of the 107 requirements is exercised by a visible learner task."
+    ],
+    "overreach": [
+      "The Graph lesson asks learners to implement adjacency-list/matrix Python. Syllabus 2026 p37 explicitly says candidates will not be required to write code for a graph structure.",
+      "Recursive binary search is useful transfer practice but is not a separately stated requirement; present it as extension/transfer rather than a core binary-search obligation.",
+      "Hashing, performance and graphs are support/corpus-support areas and must not be presented as three equally weighted standalone compulsory coding families.",
+      "Random-file bytes/BytesIO is an AlgoCore implementation model; distinguish it from the p40 rule that supplied source files will not contain binary files."
+    ]
+  },
+  "priorities": {
+    "P0": [
+      "Correct Graph scope immediately: remove coding assessment and retain describe/features/justify-use outcomes.",
+      "Produce and teacher-review the 13 missing bespoke learner projections, starting with OOP, file processing/exceptions, binary tree and dictionary.",
+      "Close the 44 assessment-requirement traceability gaps or document the exact bespoke task that satisfies each requirement.",
+      "For every core lesson, add at least one complete exam-sized worked example: recognise prompt, plan, runnable Python, trace, expected output, error path and QP/MS-grounded mark protection."
+    ],
+    "P1": [
+      "Label all 19 coursebook-gap techniques as AlgoCore synthesis from coursebook foundations plus exact QP/MS evidence.",
+      "Convert representative marking atoms into plain learner guidance without exposing internal IDs or implying invented Cambridge marks.",
+      "Move recursive binary search to an extension/transfer disclosure and add a non-recursive canonical binary-search example first.",
+      "Clarify random-file representation, sequential organisation versus sequential access, and the non-binary supplied-file constraint."
+    ],
+    "P2": [
+      "Create a teacher-facing matrix showing syllabus objective, book locator, past-paper family, worked example, practice item and release status.",
+      "Add timed mixed-paper rehearsal and evidence-document checks only after lesson-level content gates pass."
+    ]
+  },
+  "lesson_review": [
+    {
+      "slug": "binary-search",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 3,
+      "syllabus_objectives": 2,
+      "book_sections": 2,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 1,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 1,
+      "python_lines": 71,
+      "template_micro_examples": 0,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "binary-tree",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 4,
+      "syllabus_objectives": 4,
+      "book_sections": 6,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 4,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 107,
+      "template_micro_examples": 4,
+      "recommendation": "Author a learner projection with branch-by-branch insert/search and traversal traces, then bind an exact past-paper-style question and marking explanation."
+    },
+    {
+      "slug": "data-models",
+      "scope_role": "prerequisite",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 6,
+      "syllabus_objectives": 9,
+      "book_sections": 8,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 9,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 7,
+      "python_lines": 47,
+      "template_micro_examples": 0,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "dictionary",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 5,
+      "syllabus_objectives": 3,
+      "book_sections": 2,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 3,
+      "dto_practice_requirement_links": 3,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 34,
+      "template_micro_examples": 5,
+      "recommendation": "Author the dictionary ADT contract and a concrete implementation-from-another-ADT example; keep dictionary separate from hash-table internals."
+    },
+    {
+      "slug": "exam-workflow",
+      "scope_role": "corpus_application",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 4,
+      "syllabus_objectives": 4,
+      "book_sections": 6,
+      "official_or_associated_patterns": 6,
+      "marking_chains": 3,
+      "dto_practice_items": 4,
+      "expected_assessment_requirements": 4,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 2,
+      "python_lines": 34,
+      "template_micro_examples": 4,
+      "recommendation": "Reduce the capstone to a clear evidence/submission workflow and separate it from examinable knowledge."
+    },
+    {
+      "slug": "exceptions",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 3,
+      "syllabus_objectives": 4,
+      "book_sections": 3,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 4,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 36,
+      "template_micro_examples": 3,
+      "recommendation": "Add focused try/except/finally examples for input and file failures, with recovery behaviour and resource cleanup."
+    },
+    {
+      "slug": "graphs",
+      "scope_role": "support",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 2,
+      "syllabus_objectives": 2,
+      "book_sections": 1,
+      "official_or_associated_patterns": 3,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 32,
+      "template_micro_examples": 2,
+      "recommendation": "Remove graph-implementation coding tasks; retain description of features and justification of graph use only."
+    },
+    {
+      "slug": "hashing",
+      "scope_role": "corpus_support",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 4,
+      "syllabus_objectives": 1,
+      "book_sections": 5,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 1,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 125,
+      "template_micro_examples": 0,
+      "recommendation": "Keep as corpus-support, label it as such, and teach only the collision scheme supplied by each question."
+    },
+    {
+      "slug": "linked-list",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 5,
+      "syllabus_objectives": 7,
+      "book_sections": 4,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 7,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 3,
+      "python_lines": 143,
+      "template_micro_examples": 5,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "object-files",
+      "scope_role": "corpus_application",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 3,
+      "syllabus_objectives": 2,
+      "book_sections": 6,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 1,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 1,
+      "python_lines": 88,
+      "template_micro_examples": 0,
+      "recommendation": "Add record parsing, subclass construction and lookup/update worked examples with actual file lines."
+    },
+    {
+      "slug": "oop-aggregation",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 3,
+      "syllabus_objectives": 2,
+      "book_sections": 4,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 1,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 1,
+      "python_lines": 56,
+      "template_micro_examples": 3,
+      "recommendation": "Add a has-a object graph and capacity-bound add method worked example."
+    },
+    {
+      "slug": "oop-inheritance",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 3,
+      "syllabus_objectives": 2,
+      "book_sections": 2,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 2,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 68,
+      "template_micro_examples": 3,
+      "recommendation": "Add a base/subclass constructor and dynamic-dispatch trace tied to an exam-style class diagram."
+    },
+    {
+      "slug": "oop-model",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 4,
+      "syllabus_objectives": 7,
+      "book_sections": 4,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 2,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 7,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 6,
+      "python_lines": 51,
+      "template_micro_examples": 4,
+      "recommendation": "Add a full prompt-to-class-design worked example; constructor/instance code alone does not assess independent class design."
+    },
+    {
+      "slug": "oop-state",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 4,
+      "syllabus_objectives": 5,
+      "book_sections": 5,
+      "official_or_associated_patterns": 3,
+      "marking_chains": 3,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 5,
+      "dto_practice_requirement_links": 3,
+      "unlinked_assessment_requirements": 2,
+      "python_lines": 49,
+      "template_micro_examples": 4,
+      "recommendation": "Add object-state traces for encapsulation, getters, setters and rule-based updates using an exam-sized scenario."
+    },
+    {
+      "slug": "performance",
+      "scope_role": "support",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 3,
+      "syllabus_objectives": 8,
+      "book_sections": 5,
+      "official_or_associated_patterns": 5,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 8,
+      "dto_practice_requirement_links": 8,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 48,
+      "template_micro_examples": 3,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "procedural-design",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 8,
+      "syllabus_objectives": 21,
+      "book_sections": 10,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 1,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 21,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 20,
+      "python_lines": 38,
+      "template_micro_examples": 8,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "queue",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 5,
+      "syllabus_objectives": 6,
+      "book_sections": 5,
+      "official_or_associated_patterns": 5,
+      "marking_chains": 5,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 6,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 2,
+      "python_lines": 80,
+      "template_micro_examples": 0,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "random-files",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 3,
+      "syllabus_objectives": 4,
+      "book_sections": 3,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 4,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 39,
+      "template_micro_examples": 3,
+      "recommendation": "Explain the authored fixed-record Python representation and the syllabus rule that supplied source files are not binary."
+    },
+    {
+      "slug": "recursion",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 5,
+      "syllabus_objectives": 8,
+      "book_sections": 4,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 1,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 8,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 7,
+      "python_lines": 42,
+      "template_micro_examples": 0,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "search-collections",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 4,
+      "syllabus_objectives": 2,
+      "book_sections": 7,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 2,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 28,
+      "template_micro_examples": 4,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "sorting",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 4,
+      "syllabus_objectives": 5,
+      "book_sections": 4,
+      "official_or_associated_patterns": 3,
+      "marking_chains": 3,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 5,
+      "dto_practice_requirement_links": 3,
+      "unlinked_assessment_requirements": 2,
+      "python_lines": 155,
+      "template_micro_examples": 4,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "stack",
+      "scope_role": "core",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 5,
+      "syllabus_objectives": 6,
+      "book_sections": 4,
+      "official_or_associated_patterns": 5,
+      "marking_chains": 5,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 6,
+      "dto_practice_requirement_links": 4,
+      "unlinked_assessment_requirements": 2,
+      "python_lines": 47,
+      "template_micro_examples": 5,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "testing",
+      "scope_role": "prerequisite",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 5,
+      "syllabus_objectives": 8,
+      "book_sections": 3,
+      "official_or_associated_patterns": 1,
+      "marking_chains": 0,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 8,
+      "dto_practice_requirement_links": 8,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 33,
+      "template_micro_examples": 5,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "text-files",
+      "scope_role": "core",
+      "instructional_layer": "canonical_dto_fallback",
+      "classification": "rework",
+      "knowledge_units": 5,
+      "syllabus_objectives": 11,
+      "book_sections": 6,
+      "official_or_associated_patterns": 2,
+      "marking_chains": 2,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 11,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 10,
+      "python_lines": 39,
+      "template_micro_examples": 5,
+      "recommendation": "Add explicit read/write/append lifecycle examples and distinguish serial from key-ordered sequential organisation."
+    },
+    {
+      "slug": "text-processing",
+      "scope_role": "corpus_application",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 4,
+      "syllabus_objectives": 1,
+      "book_sections": 5,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 1,
+      "dto_practice_requirement_links": 1,
+      "unlinked_assessment_requirements": 0,
+      "python_lines": 45,
+      "template_micro_examples": 4,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    },
+    {
+      "slug": "validation-rules",
+      "scope_role": "prerequisite",
+      "instructional_layer": "bespoke_learner_projection",
+      "classification": "partial",
+      "knowledge_units": 4,
+      "syllabus_objectives": 8,
+      "book_sections": 7,
+      "official_or_associated_patterns": 4,
+      "marking_chains": 4,
+      "dto_practice_items": 3,
+      "expected_assessment_requirements": 8,
+      "dto_practice_requirement_links": 2,
+      "unlinked_assessment_requirements": 6,
+      "python_lines": 35,
+      "template_micro_examples": 4,
+      "recommendation": "Teacher-approved-for-implementation projection exists; retain source checks and complete release review."
+    }
+  ],
+  "assessment_traceability_gaps": [
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.1-01",
+      "objective_id": "SYL-10.1-01",
+      "scope": "prerequisite",
+      "capability_en": "Choose suitable scalar data types",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.1-03",
+      "objective_id": "SYL-10.1-03",
+      "scope": "prerequisite",
+      "capability_en": "Read and update record fields",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.2-01",
+      "objective_id": "SYL-10.2-01",
+      "scope": "prerequisite",
+      "capability_en": "Use indices and upper/lower bounds",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.2-02",
+      "objective_id": "SYL-10.2-02",
+      "scope": "prerequisite",
+      "capability_en": "Choose and process 1D/2D arrays",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.3-01",
+      "objective_id": "SYL-10.3-01",
+      "scope": "prerequisite",
+      "capability_en": "Explain persistent storage and process line-based text files",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-10.4-02",
+      "objective_id": "SYL-10.4-02",
+      "scope": "prerequisite",
+      "capability_en": "Relate stack/queue/list behaviour to array representation",
+      "lesson_slugs": [
+        "linked-list",
+        "queue",
+        "stack"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-01",
+      "objective_id": "SYL-11.1-01",
+      "scope": "prerequisite",
+      "capability_en": "Declare and initialise constants and variables",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-02",
+      "objective_id": "SYL-11.1-02",
+      "scope": "prerequisite",
+      "capability_en": "Assign and evaluate arithmetic/logical expressions",
+      "lesson_slugs": [
+        "data-models",
+        "validation-rules"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-03",
+      "objective_id": "SYL-11.1-03",
+      "scope": "prerequisite",
+      "capability_en": "Read keyboard input and produce console output",
+      "lesson_slugs": [
+        "exam-workflow",
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-04",
+      "objective_id": "SYL-11.1-04",
+      "scope": "prerequisite",
+      "capability_en": "Use built-in/library functions including strings",
+      "lesson_slugs": [
+        "exam-workflow",
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-01",
+      "objective_id": "SYL-11.2-01",
+      "scope": "prerequisite",
+      "capability_en": "Use selection including nested conditions and CASE equivalents",
+      "lesson_slugs": [
+        "procedural-design",
+        "validation-rules"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-02",
+      "objective_id": "SYL-11.2-02",
+      "scope": "prerequisite",
+      "capability_en": "Use count-controlled iteration",
+      "lesson_slugs": [
+        "procedural-design",
+        "validation-rules"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-03",
+      "objective_id": "SYL-11.2-03",
+      "scope": "prerequisite",
+      "capability_en": "Use pre-condition iteration",
+      "lesson_slugs": [
+        "procedural-design",
+        "validation-rules"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-04",
+      "objective_id": "SYL-11.2-04",
+      "scope": "prerequisite",
+      "capability_en": "Use post-condition iteration and choose appropriate loops",
+      "lesson_slugs": [
+        "procedural-design",
+        "validation-rules"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-01",
+      "objective_id": "SYL-11.3-01",
+      "scope": "prerequisite",
+      "capability_en": "Define and call procedures with clear interfaces",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-02",
+      "objective_id": "SYL-11.3-02",
+      "scope": "prerequisite",
+      "capability_en": "Use parameters and distinguish value/reference effects",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-03",
+      "objective_id": "SYL-11.3-03",
+      "scope": "prerequisite",
+      "capability_en": "Define functions and use returned values in expressions",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-04",
+      "objective_id": "SYL-11.3-04",
+      "scope": "prerequisite",
+      "capability_en": "Use header/interface/parameter/argument/return terminology",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-12.2-01",
+      "objective_id": "SYL-12.2-01",
+      "scope": "prerequisite",
+      "capability_en": "Track module decomposition and parameters passed",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.1-02",
+      "objective_id": "SYL-19.1-02",
+      "scope": "core_practical",
+      "capability_en": "Implement binary search",
+      "lesson_slugs": [
+        "binary-search"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.1-09",
+      "objective_id": "SYL-19.1-09",
+      "scope": "core_practical",
+      "capability_en": "Find an item in a linked list",
+      "lesson_slugs": [
+        "linked-list"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-02",
+      "objective_id": "SYL-19.2-02",
+      "scope": "core_practical",
+      "capability_en": "Express recursion in a programming language",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-03",
+      "objective_id": "SYL-19.2-03",
+      "scope": "core_practical",
+      "capability_en": "Write a recursive algorithm",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-04",
+      "objective_id": "SYL-19.2-04",
+      "scope": "core_practical",
+      "capability_en": "Trace a recursive algorithm",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-05",
+      "objective_id": "SYL-19.2-05",
+      "scope": "supporting_understanding",
+      "capability_en": "Explain when recursion is beneficial",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-06",
+      "objective_id": "SYL-19.2-06",
+      "scope": "supporting_understanding",
+      "capability_en": "Explain stack support for recursive translation",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-07",
+      "objective_id": "SYL-19.2-07",
+      "scope": "supporting_understanding",
+      "capability_en": "Explain unwinding and pending returns",
+      "lesson_slugs": [
+        "recursion"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-01",
+      "objective_id": "SYL-20.1-01",
+      "scope": "supporting_understanding",
+      "capability_en": "Explain a programming paradigm and procedural/OOP characteristics",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-08",
+      "objective_id": "SYL-20.1-08",
+      "scope": "core_practical",
+      "capability_en": "Understand and demonstrate OOP attributes",
+      "lesson_slugs": [
+        "oop-model"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-10",
+      "objective_id": "SYL-20.1-10",
+      "scope": "core_practical",
+      "capability_en": "Understand and demonstrate OOP classes",
+      "lesson_slugs": [
+        "oop-model"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-14",
+      "objective_id": "SYL-20.1-14",
+      "scope": "core_practical",
+      "capability_en": "Understand and demonstrate OOP encapsulation",
+      "lesson_slugs": [
+        "oop-state"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-17",
+      "objective_id": "SYL-20.1-17",
+      "scope": "core_practical",
+      "capability_en": "Understand and demonstrate OOP instances",
+      "lesson_slugs": [
+        "oop-model"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-18",
+      "objective_id": "SYL-20.1-18",
+      "scope": "core_practical",
+      "capability_en": "Design appropriate classes for a problem",
+      "lesson_slugs": [
+        "oop-model"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-19",
+      "objective_id": "SYL-20.1-19",
+      "scope": "core_practical",
+      "capability_en": "Write code demonstrating OOP",
+      "lesson_slugs": [
+        "object-files",
+        "oop-model",
+        "oop-state"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.2-02",
+      "objective_id": "SYL-20.2-02",
+      "scope": "core_practical",
+      "capability_en": "Open a file in write mode",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.2-03",
+      "objective_id": "SYL-20.2-03",
+      "scope": "core_practical",
+      "capability_en": "Open a file in append mode",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.2-06",
+      "objective_id": "SYL-20.2-06",
+      "scope": "core_practical",
+      "capability_en": "Write a record to a file",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.2-07",
+      "objective_id": "SYL-20.2-07",
+      "scope": "core_practical",
+      "capability_en": "Process serial files",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-20.2-08",
+      "objective_id": "SYL-20.2-08",
+      "scope": "core_practical",
+      "capability_en": "Process sequential files",
+      "lesson_slugs": [
+        "text-files"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-9.1-01",
+      "objective_id": "SYL-9.1-01",
+      "scope": "prerequisite",
+      "capability_en": "Model essential information through abstraction",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-9.1-02",
+      "objective_id": "SYL-9.1-02",
+      "scope": "prerequisite",
+      "capability_en": "Decompose a task into procedures/functions",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-02",
+      "objective_id": "SYL-9.2-02",
+      "scope": "prerequisite",
+      "capability_en": "Choose suitable identifiers and record their roles",
+      "lesson_slugs": [
+        "data-models"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-03",
+      "objective_id": "SYL-9.2-03",
+      "scope": "prerequisite",
+      "capability_en": "Translate input-process-output specifications",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    },
+    {
+      "requirement_id": "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-04",
+      "objective_id": "SYL-9.2-04",
+      "scope": "prerequisite",
+      "capability_en": "Refine a task to programmable detail",
+      "lesson_slugs": [
+        "procedural-design"
+      ],
+      "interpretation": "No explicit link from a current DTO practice item; inspect the bespoke learner projection before declaring the capability absent."
+    }
+  ],
+  "evidence": [
+    {
+      "source": "697372-2026-syllabus.pdf",
+      "locators": [
+        "PDF/printed p37 sections 19.1-19.2",
+        "p38 sections 20.1-20.2",
+        "p39 teacher guidance",
+        "p40 Paper 4 assessment and source-file rule"
+      ]
+    },
+    {
+      "source": "stage-1/CORPUS_QA.md and QUESTION_INDEX.json",
+      "locators": [
+        "29 QP + 29 MS",
+        "87 questions",
+        "672 marking rows"
+      ]
+    },
+    {
+      "source": "stage-2/EXAM_PATTERN_CATALOG.json",
+      "locators": [
+        "58 pattern families"
+      ]
+    },
+    {
+      "source": "stage-3/COVERAGE_MATRIX.json",
+      "locators": [
+        "111 editorial objectives: 107 non-excluded and 4 excluded"
+      ]
+    },
+    {
+      "source": "stage-3/BOOK_KNOWLEDGE_MAP.json",
+      "locators": [
+        "55 book sections",
+        "108 knowledge blocks",
+        "19 book-gap synthesis obligations"
+      ]
+    },
+    {
+      "source": "algocore-fumadocs/app/data/paper4-v2/lessons/*.json",
+      "locators": [
+        "26 lesson DTOs",
+        "108 KUs",
+        "79 DTO practice items",
+        "58 marking chains"
+      ]
+    },
+    {
+      "source": "algocore-fumadocs/app/data/paper4-v2/learner-projections/*.json",
+      "locators": [
+        "13 teacher-approved-for-implementation projections",
+        "64 bespoke practice items"
+      ]
+    }
+  ],
+  "limitations": [
+    "This review verifies local source identity, mapping integrity and targeted content semantics; it does not independently re-mark all 672 corpus rows.",
+    "A missing DTO assessment-requirement ID does not by itself prove the concept is absent from prose or a bespoke task; it proves the release crosswalk is incomplete.",
+    "Coursebook locators support teaching but do not make AlgoCore code or rubrics official Cambridge material."
+  ]
+}

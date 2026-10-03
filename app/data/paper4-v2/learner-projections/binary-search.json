@@ -351,7 +351,10 @@
           "success_check": {
             "en": "The trace ends only when low > high, and the unsorted input is rejected before searching.",
             "vi": "Trace chỉ kết thúc khi low > high, và input chưa sắp bị từ chối trước khi tìm kiếm."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.1-02"
+          ]
         }
       ]
     },

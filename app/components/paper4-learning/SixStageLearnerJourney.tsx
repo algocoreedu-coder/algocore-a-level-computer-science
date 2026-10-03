@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { Paper4VisualRuntime } from "@/app/components/paper4-visual";
 import { BINARY_SEARCH_PROGRESS_KEY } from "@/app/components/paper4-visual/binarySearchAdapter";
@@ -32,7 +32,13 @@ import { LinkedListPractice, LinkedListTrace } from "./LinkedListTrace";
 import { LINKED_LIST_PROGRESS_KEY, LINKED_LIST_PROTECT_KEY } from "./linkedListProjectionAdapter";
 import { RecursionPractice, RecursionTrace } from "./RecursionTrace";
 import { RECURSION_PROGRESS_KEY, RECURSION_PROTECT_KEY } from "./recursionProjectionAdapter";
-import type { LearningLocale, Localized } from "./types";
+import { DECISION_RAIL_LESSONS, DecisionRailTrace } from "./DecisionRailTrace";
+import { PatternRuntimeSupplement } from "./PatternRuntimeSupplement";
+import { bindLessonPatternCheckpoints } from "./patternCheckpointBindings";
+import { CanonicalAssessmentPractice } from "./CanonicalAssessmentPractice";
+import { CanonicalKnowledgeReference } from "./CanonicalLessonJourney";
+import { Paper4LessonShell, type Paper4StageItem } from "./Paper4LessonShell";
+import type { AssessmentItem, KnowledgeUnit, LearningLocale, Localized, PythonExpectedOutput, PythonFixture } from "./types";
 import styles from "./LessonLearningPage.module.css";
 
 function stageProgressKey(lessonSlug: string) { return `algocore.paper4.learner.${lessonSlug}.stage.v1`; }
@@ -44,19 +50,58 @@ const ui = {
 
 export type LearnerJourneyNavigation = Readonly<{ slug: string; title: Localized }> | null;
 
+type ReasoningTraceStep = Readonly<{
+  step?: number;
+  code_focus?: readonly string[];
+  prediction?: Localized;
+  answer?: Localized;
+}>;
+
+function ReasoningTraceFallback({ projection, locale, onProgress }: Readonly<{
+  projection: LearnerProjection;
+  locale: LearningLocale;
+  onProgress: (hasRecordedPrediction: boolean) => void;
+}>) {
+  const inputId = useId();
+  const [draft, setDraft] = useState("");
+  const [revealed, setRevealed] = useState(false);
+  const stage = projection.stages.trace;
+  const candidate = stage.steps.find((item): item is ReasoningTraceStep => Boolean(item && typeof item === "object")) ?? {};
+  const prompt = candidate.prediction ?? stage.student_question;
+  const answer = candidate.answer ?? stage.invariant_check;
+  const guide = (candidate.code_focus ?? []).map((line) => line.replace(/^\s*#\s?/, "").trim()).filter(Boolean);
+  const labels = locale === "vi"
+    ? { title: "Trace suy luận — không cần cài đặt Python", guide: "Các điểm cần xét", response: "Dự đoán của em", placeholder: "Viết quyết định tiếp theo và lý do…", reveal: "Ghi dự đoán và đối chiếu", recorded: "Đã ghi dự đoán. Hãy đối chiếu với quy tắc của bài.", answer: "Cách suy luận" }
+    : { title: "Reasoning trace — no Python implementation required", guide: "Decision guide", response: "Your prediction", placeholder: "Write the next decision and your reason…", reveal: "Record prediction and compare", recorded: "Prediction recorded. Compare it with the lesson rule.", answer: "Reasoning" };
+
+  return <section className={styles.reasoningTrace} data-reasoning-trace data-prediction-recorded={revealed ? "true" : "false"} aria-labelledby={`${inputId}-title`}>
+    <header><h3 id={`${inputId}-title`}>{labels.title}</h3><p>{learnerText(stage.scenario.instruction, locale)}</p></header>
+    {guide.length > 0 && <div className={styles.reasoningGuide}><strong>{labels.guide}</strong><ul>{guide.map((item) => <li key={item}>{item}</li>)}</ul></div>}
+    <label htmlFor={inputId}>{labels.response}: {learnerText(prompt, locale)}</label>
+    <textarea id={inputId} rows={4} value={draft} placeholder={labels.placeholder} onChange={(event) => { setDraft(event.currentTarget.value); setRevealed(false); }} />
+    <button type="button" className={styles.learningButton} disabled={!draft.trim()} onClick={() => { setRevealed(true); onProgress(true); }}>{labels.reveal}</button>
+    <p className={styles.statusText} role="status">{revealed ? labels.recorded : ""}</p>
+    {revealed && <aside className={styles.invariantCard} data-answer-revealed="true"><strong>{labels.answer}</strong><p>{learnerText(answer, locale)}</p></aside>}
+  </section>;
+}
+
 function stageFromHash() {
   if (typeof window === "undefined") return null;
   const hash = window.location.hash.replace(/^#stage-/, "") as LearnerStageId;
   return LEARNER_STAGE_IDS.includes(hash) ? hash : null;
 }
 
-function StageContent({ stageId, lessonSlug, projection, locale, patterns, pythonArtifact, nextLesson, onTraceProgress, onPracticeProgress }: Readonly<{
+function StageContent({ stageId, lessonSlug, projection, locale, patterns, pythonArtifact, knowledgeUnits, assessmentItems, testFixtures, testExpectedOutputs, nextLesson, onTraceProgress, onPracticeProgress }: Readonly<{
   stageId: LearnerStageId;
   lessonSlug: string;
   projection: LearnerProjection;
   locale: LearningLocale;
   patterns: readonly PatternMetadata[];
   pythonArtifact: PythonArtifactDto;
+  knowledgeUnits: readonly KnowledgeUnit[];
+  assessmentItems: readonly AssessmentItem[];
+  testFixtures: readonly PythonFixture[];
+  testExpectedOutputs: readonly PythonExpectedOutput[];
   nextLesson: LearnerJourneyNavigation;
   onTraceProgress: (hasRecordedPrediction: boolean) => void;
   onPracticeProgress: (hasAttempt: boolean) => void;
@@ -76,7 +121,7 @@ function StageContent({ stageId, lessonSlug, projection, locale, patterns, pytho
     if (lessonSlug === "stack" || lessonSlug === "queue" || lessonSlug === "linked-list" || lessonSlug === "recursion") {
       const stage = lessonSlug === "recursion" ? (projection as unknown as RecursionLearnerProjection).stages.understand : lessonSlug === "linked-list" ? (projection as unknown as LinkedListLearnerProjection).stages.understand : lessonSlug === "queue" ? (projection as unknown as QueueLearnerProjection).stages.understand : (projection as unknown as StackLearnerProjection).stages.understand;
       const caption = lessonSlug === "recursion" ? "Value-returning recursive Python" : lessonSlug === "linked-list" ? "Parallel-array live/free Python" : lessonSlug === "queue" ? "Circular queue Python" : "Current-top Python";
-      return <div className={styles.stageStack}><p className={styles.mentalModel}>{learnerText(stage.mental_model,locale)}</p><div><h3>{t.rules}</h3><ol>{stage.rules.map((rule,index)=><li key={index}>{learnerText(rule,locale)}</li>)}</ol></div><aside className={styles.invariantCard}><strong>{t.invariant}</strong><p>{learnerText(stage.invariant,locale)}</p></aside><LearnerCodeCard caption={caption} lines={stage.python_recipe} locale={locale}/><p>{learnerText(stage.transfer_note, locale)}</p></div>;
+      return <div className={styles.stageStack}><p className={styles.mentalModel}>{learnerText(stage.mental_model,locale)}</p><div><h3>{t.rules}</h3><ol>{stage.rules.map((rule,index)=><li key={index}>{learnerText(rule,locale)}</li>)}</ol></div><aside className={styles.invariantCard}><strong>{t.invariant}</strong><p>{learnerText(stage.invariant,locale)}</p></aside><LearnerCodeCard caption={caption} lines={stage.python_recipe} locale={locale}/><p>{learnerText(stage.transfer_note, locale)}</p><CanonicalKnowledgeReference knowledgeUnits={knowledgeUnits} locale={locale} /></div>;
     }
     const stage = projection.stages.understand;
     return <div className={styles.stageStack}>
@@ -88,15 +133,19 @@ function StageContent({ stageId, lessonSlug, projection, locale, patterns, pytho
       {stage.recursive_extension && <details className={styles.optionalDisclosure}><summary>{learnerText(stage.recursive_extension.label, locale)}</summary><p>{learnerText(stage.recursive_extension.content, locale)}</p></details>}
       {stage.transfer_note && <details className={styles.optionalDisclosure}><summary>{learnerText(stage.transfer_note.label, locale)}</summary><p>{learnerText(stage.transfer_note.content, locale)}</p></details>}
       {stage.representation_contrast && <details className={styles.optionalDisclosure}><summary>{learnerText(stage.representation_contrast.prompt, locale)}</summary><p>{learnerText(stage.representation_contrast.answer, locale)}</p></details>}
+      <CanonicalKnowledgeReference knowledgeUnits={knowledgeUnits} locale={locale} />
     </div>;
   }
   if (stageId === "trace") {
     const stage = projection.stages.trace;
+    const patternContract = bindLessonPatternCheckpoints(lessonSlug, patterns, projection);
     const traceInstruction = lessonSlug === "performance" ? (projection as unknown as PerformanceLearnerProjection).stages.trace.scenario.metric : lessonSlug === "stack" ? (projection as unknown as StackLearnerProjection).stages.trace.student_question : lessonSlug === "queue" ? (projection as unknown as QueueLearnerProjection).stages.trace.student_question : lessonSlug === "linked-list" ? (projection as unknown as LinkedListLearnerProjection).stages.trace.student_question : lessonSlug === "recursion" ? (projection as unknown as RecursionLearnerProjection).stages.trace.student_question : stage.scenario.instruction;
     return <div className={styles.stageStack}>
       <div className={styles.traceIntro} data-trace-prompt><strong>{learnerText(stage.scenario.label, locale)}</strong><p>{learnerText(traceInstruction, locale)}</p></div>
       {lessonSlug === "data-models"
         ? <DataModelsVisualRuntime projection={projection as unknown as DataModelsLearnerProjection} patterns={patterns} pythonArtifact={pythonArtifact} locale={locale} onLearnerProgress={onTraceProgress} />
+        : DECISION_RAIL_LESSONS.has(lessonSlug)
+          ? <DecisionRailTrace lessonSlug={lessonSlug} projection={projection} locale={locale} onLearnerProgress={onTraceProgress} />
         : lessonSlug === "procedural-design"
           ? <ProceduralDesignTrace projection={projection as ProceduralDesignLearnerProjection} locale={locale} onLearnerProgress={onTraceProgress} />
         : lessonSlug === "validation-rules"
@@ -119,11 +168,15 @@ function StageContent({ stageId, lessonSlug, projection, locale, patterns, pytho
           ? <LinkedListTrace projection={projection as unknown as LinkedListLearnerProjection} locale={locale} onLearnerProgress={onTraceProgress} />
         : lessonSlug === "recursion"
           ? <RecursionTrace projection={projection as unknown as RecursionLearnerProjection} locale={locale} onLearnerProgress={onTraceProgress} />
-        : <Paper4VisualRuntime patterns={patterns} pythonArtifact={pythonArtifact} initialPatternId={patterns[0]?.pattern_id} initialLocale={locale} locale={locale} autoplayDelayMs={1800} headingLevel={3} audience="learner" onLearnerProgress={(progress) => onTraceProgress(progress.hasRecordedPrediction)} />}
+        : patterns.length === 0
+          ? <ReasoningTraceFallback projection={projection} locale={locale} onProgress={onTraceProgress} />
+          : <Paper4VisualRuntime patterns={patterns} pythonArtifact={pythonArtifact} initialPatternId={patterns[0]?.pattern_id} initialLocale={locale} locale={locale} autoplayDelayMs={1800} headingLevel={3} audience="learner" onLearnerProgress={(progress) => onTraceProgress(progress.hasRecordedPrediction)} />}
+      <PatternRuntimeSupplement patterns={patternContract.runtimeSupplementPatterns} pythonArtifact={pythonArtifact} locale={locale} />
       <p className={styles.invariantCard}>{learnerText(stage.invariant_check, locale)}</p>
     </div>;
   }
-  if (stageId === "practise") return lessonSlug === "recursion"
+  if (stageId === "practise") {
+    const microPractice = lessonSlug === "recursion"
     ? <RecursionPractice stage={(projection as unknown as RecursionLearnerProjection).stages.practise} locale={locale} onAttemptChange={onPracticeProgress}/>
     : lessonSlug === "linked-list"
     ? <LinkedListPractice stage={(projection as unknown as LinkedListLearnerProjection).stages.practise} locale={locale} onAttemptChange={onPracticeProgress}/>
@@ -138,6 +191,11 @@ function StageContent({ stageId, lessonSlug, projection, locale, patterns, pytho
     : lessonSlug === "search-collections" ? <SearchCollectionsPractice stage={(projection as SearchCollectionsLearnerProjection).stages.practise} locale={locale} onAttemptChange={onPracticeProgress} />
     : lessonSlug === "text-processing" ? <TextProcessingPractice stage={(projection as TextProcessingLearnerProjection).stages.practise} locale={locale} onAttemptChange={onPracticeProgress} />
     : <LearnerPractice stage={projection.stages.practise} locale={locale} progressKey={practiceProgressKey(lessonSlug)} onAttemptChange={onPracticeProgress} />;
+    return <div className={styles.stageStack}>
+      {microPractice}
+      <CanonicalAssessmentPractice items={assessmentItems} locale={locale} lessonSlug={lessonSlug} pythonArtifact={pythonArtifact} fixtures={testFixtures} expectedOutputs={testExpectedOutputs} />
+    </div>;
+  }
   if (stageId === "protectMarks") {
     const stage = projection.stages.protectMarks;
     if (lessonSlug === "data-models" || lessonSlug === "procedural-design" || lessonSlug === "validation-rules" || lessonSlug === "testing" || lessonSlug === "text-processing" || lessonSlug === "search-collections" || lessonSlug === "sorting" || lessonSlug === "performance" || lessonSlug === "stack" || lessonSlug === "queue" || lessonSlug === "linked-list" || lessonSlug === "recursion") return <LearnerRiskChecks stage={stage} locale={locale} progressKey={lessonSlug === "procedural-design" ? PROCEDURAL_DESIGN_PROTECT_KEY : lessonSlug === "validation-rules" ? VALIDATION_RULES_PROTECT_KEY : lessonSlug === "testing" ? TESTING_PROTECT_KEY : lessonSlug === "text-processing" ? TEXT_PROCESSING_PROTECT_KEY : lessonSlug === "search-collections" ? SEARCH_COLLECTIONS_PROTECT_KEY : lessonSlug === "sorting" ? SORTING_PROTECT_KEY : lessonSlug === "performance" ? PERFORMANCE_PROTECT_KEY : lessonSlug === "stack" ? STACK_PROTECT_KEY : lessonSlug === "queue" ? QUEUE_PROTECT_KEY : lessonSlug === "linked-list" ? LINKED_LIST_PROTECT_KEY : lessonSlug === "recursion" ? RECURSION_PROTECT_KEY : undefined} />;
@@ -164,12 +222,16 @@ function StageContent({ stageId, lessonSlug, projection, locale, patterns, pytho
   </div>;
 }
 
-export function SixStageLearnerJourney({ lessonSlug, projection, locale, patterns, pythonArtifact, nextLesson }: Readonly<{
+export function SixStageLearnerJourney({ lessonSlug, projection, locale, patterns, pythonArtifact, knowledgeUnits, assessmentItems, testFixtures, testExpectedOutputs, nextLesson }: Readonly<{
   lessonSlug: string;
   projection: LearnerProjection;
   locale: LearningLocale;
   patterns: readonly PatternMetadata[];
   pythonArtifact: PythonArtifactDto;
+  knowledgeUnits: readonly KnowledgeUnit[];
+  assessmentItems: readonly AssessmentItem[];
+  testFixtures: readonly PythonFixture[];
+  testExpectedOutputs: readonly PythonExpectedOutput[];
   nextLesson: LearnerJourneyNavigation;
 }>) {
   const [activeStage, setActiveStage] = useState<LearnerStageId>("recognise");
@@ -270,24 +332,33 @@ export function SixStageLearnerJourney({ lessonSlug, projection, locale, pattern
     setActiveStage("recognise");
   };
 
-  return <div className={styles.learnerJourney} data-learner-journey="six-stage" data-lesson-slug={lessonSlug}>
-    <nav className={styles.stageNav} data-stage-navigation aria-label={ui[locale].navigation}>
-      <ol>{LEARNER_STAGE_IDS.map((stageId, index) => {
-        const state = index < activeIndex ? "complete" : index === activeIndex ? "current" : "locked";
-        return <li key={stageId} data-stage-state={state}><button type="button" onClick={() => selectStage(stageId)} disabled={index > activeIndex} aria-current={state === "current" ? "step" : undefined}><span>{index + 1}</span>{learnerText(names[stageId], locale)}</button></li>;
-      })}</ol>
-    </nav>
+  const stageItems: readonly Paper4StageItem[] = LEARNER_STAGE_IDS.map((stageId, index) => ({
+    id: stageId,
+    label: learnerText(names[stageId], locale),
+    state: index < activeIndex ? "complete" : index === activeIndex ? "current" : "locked",
+    disabled: index > activeIndex,
+    onSelect: () => selectStage(stageId),
+  }));
+
+  return <Paper4LessonShell
+    className={styles.learnerJourney}
+    items={stageItems}
+    journeyKind="bespoke"
+    knowledgeUnitCount={knowledgeUnits.length}
+    lessonSlug={lessonSlug}
+    locale={locale}
+  >
     {LEARNER_STAGE_IDS.map((stageId, index) => {
       const current = stageId === activeStage;
       const stage = projection.stages[stageId];
       return <section key={`${stageId}-${resetRevision}`} id={`stage-${stageId}`} data-learner-stage={stageMarker[stageId]} data-stage-state={index < activeIndex ? "complete" : current ? "current" : "locked"} hidden={!current} aria-hidden={current ? undefined : "true"} aria-labelledby={`stage-${stageId}-title`} className={styles.learnerStage}>
         <header className={styles.stageHeader} data-stage-header><span aria-hidden="true">{stage.order}</span><div><h2 id={`stage-${stageId}-title`} tabIndex={-1}>{learnerText(stage.name, locale)}</h2><p data-active-learning-question={current && stageId !== "trace" ? "true" : undefined}>{learnerText(stage.student_question, locale)}</p></div></header>
-        {current && <div data-stage-content><StageContent stageId={stageId} lessonSlug={lessonSlug} projection={projection} locale={locale} patterns={patterns} pythonArtifact={pythonArtifact} nextLesson={nextLesson} onTraceProgress={updateTraceProgress} onPracticeProgress={updatePracticeProgress} /></div>}
+        {current && <div data-stage-content><StageContent stageId={stageId} lessonSlug={lessonSlug} projection={projection} locale={locale} patterns={patterns} pythonArtifact={pythonArtifact} knowledgeUnits={knowledgeUnits} assessmentItems={assessmentItems} testFixtures={testFixtures} testExpectedOutputs={testExpectedOutputs} nextLesson={nextLesson} onTraceProgress={updateTraceProgress} onPracticeProgress={updatePracticeProgress} /></div>}
         <div className={styles.stageActions}>
           {index < LEARNER_STAGE_IDS.length - 1 && <button type="button" className={styles.learningButton} data-exit-gate={stageId === "trace" ? "prediction" : stageId === "practise" ? "attempt" : "open"} disabled={(stageId === "trace" && !traceReady) || (stageId === "practise" && !practiceReady)} onClick={() => selectStage(LEARNER_STAGE_IDS[index + 1])}>{ui[locale].continue}: {learnerText(names[LEARNER_STAGE_IDS[index + 1]], locale)} →</button>}
           {index === LEARNER_STAGE_IDS.length - 1 && <button type="button" className={styles.secondaryButton} data-action="restart-lesson" onClick={restart}>{ui[locale].restart}</button>}
         </div>
       </section>;
     })}
-  </div>;
+  </Paper4LessonShell>;
 }

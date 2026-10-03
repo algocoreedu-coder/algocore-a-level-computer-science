@@ -28,11 +28,12 @@ export function artifactSource(artifact: PythonArtifactDto) {
 function excerptLines(artifact: PythonArtifactDto, visibleLineIds: readonly string[] | undefined, maxVisibleLines: number) {
   const ordered = [...artifact.lines].sort((left, right) => left.order - right.order);
   if (!visibleLineIds) return ordered;
-  const requested = new Set(visibleLineIds);
+  const hardLimit = Math.min(8, Math.max(1, maxVisibleLines));
+  const requested = new Set(visibleLineIds.slice(0, hardLimit));
   const selected = new Set<number>();
   ordered.forEach((line, index) => { if (requested.has(line.line_id)) selected.add(index); });
   if (selected.size === 0) return ordered;
-  const limit = Math.max(selected.size, Math.min(8, Math.max(1, maxVisibleLines)));
+  const limit = hardLimit;
   for (let distance = 1; selected.size < limit && distance < ordered.length; distance += 1) {
     for (const index of [...selected].sort((left, right) => left - right)) {
       for (const candidate of [index - distance, index + distance]) {
@@ -52,6 +53,7 @@ export function PythonArtifact({ artifact, activeLineIds = [], visibleLineIds, m
   const orderedLines = useMemo(() => excerptLines(artifact, visibleLineIds, maxVisibleLines), [artifact, maxVisibleLines, visibleLineIds]);
   const Heading = headingLevel === 4 ? "h4" : "h3";
   const t = labels[locale];
+  const sourceLabel = audience === "learner" ? (locale === "vi" ? "Mã Python" : "Python source") : t.source;
 
   const copyCode = async () => {
     try {
@@ -63,10 +65,10 @@ export function PythonArtifact({ artifact, activeLineIds = [], visibleLineIds, m
   };
 
   return (
-    <section className={`${styles.artifact} ${className ?? ""}`} aria-labelledby={titleId} data-python-artifact-id={artifact.python_artifact_id} data-code-sha256={artifact.code_sha256}>
+    <section className={`${styles.artifact} ${className ?? ""}`} aria-labelledby={titleId} data-python-artifact-id={audience === "audit" ? artifact.python_artifact_id : undefined} data-code-sha256={audience === "audit" ? artifact.code_sha256 : undefined}>
       <header className={styles.header}>
         <div>
-          <Heading id={titleId}>{t.source}</Heading>
+          <Heading id={titleId}>{sourceLabel}</Heading>
           <p>{artifact.caption[locale]}</p>
         </div>
         <button type="button" onClick={copyCode}>{t.copy}</button>
@@ -74,7 +76,7 @@ export function PythonArtifact({ artifact, activeLineIds = [], visibleLineIds, m
       {audience === "audit" && <p className={styles.execution}>
         <strong>{t.execution}</strong> · {artifact.entry_point} · {artifact.version}
       </p>}
-      <pre className={styles.source} tabIndex={0} aria-label={t.source}>
+      <pre className={styles.source} tabIndex={0} aria-label={sourceLabel}>
         <code className={styles.lines}>
           {orderedLines.map((line, index) => {
             const active = activeIds.has(line.line_id);
@@ -85,7 +87,7 @@ export function PythonArtifact({ artifact, activeLineIds = [], visibleLineIds, m
                     <span className={styles.lineNumber}>…</span><span className={styles.lineText}>…</span>
                   </span>
                 )}
-                <span id={audience === "audit" ? line.line_id : undefined} className={styles.line} data-line-id={line.line_id} aria-current={active ? "step" : undefined}>
+                <span id={audience === "audit" ? line.line_id : undefined} className={styles.line} data-line-id={audience === "audit" ? line.line_id : undefined} data-active-code-line={active ? "true" : undefined} aria-current={active ? "step" : undefined}>
                   <span className={styles.lineNumber} aria-hidden="true">{line.order}</span>
                   <span className={styles.lineText}>{line.text || "\u00a0"}</span>
                   {active && <span className={styles.srOnly}>{t.active}</span>}

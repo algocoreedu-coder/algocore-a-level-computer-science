@@ -186,7 +186,11 @@
           "en": "Prepare results for scores [35, 65, 82] with bonus 5",
           "vi": "Chuẩn bị kết quả cho scores [35, 65, 82] với bonus 5"
         },
-        "scores": [35, 65, 82],
+        "scores": [
+          35,
+          65,
+          82
+        ],
         "bonus": 5,
         "instruction": {
           "en": "Predict the next call, its returned value and whether the original list changes.",
@@ -263,7 +267,10 @@
         {
           "kind": "failure",
           "input": {
-            "scores": [40, 70],
+            "scores": [
+              40,
+              70
+            ],
             "bonus": "5"
           },
           "expected": {
@@ -294,8 +301,14 @@
       },
       "items": [
         {
-          "level": {"en": "Guided", "vi": "Có hướng dẫn"},
-          "title": {"en": "Assign one responsibility", "vi": "Gán một trách nhiệm"},
+          "level": {
+            "en": "Guided",
+            "vi": "Có hướng dẫn"
+          },
+          "title": {
+            "en": "Assign one responsibility",
+            "vi": "Gán một trách nhiệm"
+          },
           "prompt": {
             "en": "For adjust, classify and coordinate, state one input and one output for each subroutine.",
             "vi": "Với adjust, classify và coordinate, nêu một input và một output cho mỗi subroutine."
@@ -311,11 +324,25 @@
           "success_check": {
             "en": "Each helper has one responsibility and its output can be tested independently.",
             "vi": "Mỗi helper có một trách nhiệm và output có thể được kiểm thử độc lập."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-02",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-04",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-12.2-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-9.1-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-9.1-02"
+          ]
         },
         {
-          "level": {"en": "Guided", "vi": "Có hướng dẫn"},
-          "title": {"en": "Trace the call flow", "vi": "Trace luồng gọi"},
+          "level": {
+            "en": "Guided",
+            "vi": "Có hướng dẫn"
+          },
+          "title": {
+            "en": "Trace the call flow",
+            "vi": "Trace luồng gọi"
+          },
           "prompt": {
             "en": "Trace scores [68, 97] and bonus 5. Give adjusted, labels and the final returned tuple without changing scores.",
             "vi": "Trace scores [68, 97] và bonus 5. Cho biết adjusted, labels và tuple cuối được trả về mà không thay đổi scores."
@@ -334,8 +361,14 @@
           }
         },
         {
-          "level": {"en": "Faded", "vi": "Giảm gợi ý"},
-          "title": {"en": "Handle boundary and failure", "vi": "Xử lý boundary và failure"},
+          "level": {
+            "en": "Faded",
+            "vi": "Giảm gợi ý"
+          },
+          "title": {
+            "en": "Handle boundary and failure",
+            "vi": "Xử lý boundary và failure"
+          },
           "prompt": {
             "en": "Explain the returned values for an empty scores list with bonus 0, then for scores [40] with bonus \"5\".",
             "vi": "Giải thích giá trị trả về với scores rỗng và bonus 0, sau đó với scores [40] và bonus \"5\"."
@@ -354,8 +387,14 @@
           }
         },
         {
-          "level": {"en": "Independent", "vi": "Tự làm"},
-          "title": {"en": "Translate a supplied algorithm", "vi": "Chuyển thuật toán được cho"},
+          "level": {
+            "en": "Independent",
+            "vi": "Tự làm"
+          },
+          "title": {
+            "en": "Translate a supplied algorithm",
+            "vi": "Chuyển thuật toán được cho"
+          },
           "prompt": {
             "en": "A supplied algorithm checks validity, loops over values and returns a result. Write its Python function header, identify the loop progress and state where each branch returns.",
             "vi": "Một thuật toán được cho kiểm tra hợp lệ, lặp qua các value và trả kết quả. Viết function header bằng Python, xác định bước tiến của loop và nêu nơi mỗi nhánh return."
@@ -371,7 +410,17 @@
           "success_check": {
             "en": "The translation preserves behaviour rather than replacing the supplied algorithm with a preferred shortcut.",
             "vi": "Bản chuyển giữ nguyên hành vi thay vì thay thuật toán đã cho bằng shortcut khác."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-02",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-03",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.2-04",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.3-03",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-20.1-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-03",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-04"
+          ]
         }
       ]
     },
@@ -402,24 +451,60 @@
       ],
       "mistakes": [
         {
-          "mistake": {"en": "One large function performs validation, transformation, classification and output.", "vi": "Một function lớn làm cả validation, biến đổi, phân loại và output."},
-          "consequence": {"en": "Responsibilities and intermediate results are hard to test or trace.", "vi": "Trách nhiệm và kết quả trung gian khó kiểm thử hoặc trace."},
-          "repair": {"en": "Extract one helper for each named responsibility and give it an explicit contract.", "vi": "Tách một helper cho mỗi trách nhiệm được đặt tên và ghi hợp đồng rõ ràng."}
+          "mistake": {
+            "en": "One large function performs validation, transformation, classification and output.",
+            "vi": "Một function lớn làm cả validation, biến đổi, phân loại và output."
+          },
+          "consequence": {
+            "en": "Responsibilities and intermediate results are hard to test or trace.",
+            "vi": "Trách nhiệm và kết quả trung gian khó kiểm thử hoặc trace."
+          },
+          "repair": {
+            "en": "Extract one helper for each named responsibility and give it an explicit contract.",
+            "vi": "Tách một helper cho mỗi trách nhiệm được đặt tên và ghi hợp đồng rõ ràng."
+          }
         },
         {
-          "mistake": {"en": "A helper result is calculated but not returned or assigned.", "vi": "Kết quả của helper được tính nhưng không được return hoặc gán."},
-          "consequence": {"en": "The caller receives None or continues with stale data.", "vi": "Nơi gọi nhận None hoặc tiếp tục với dữ liệu cũ."},
-          "repair": {"en": "Return the value from the helper and store or immediately return it at the call site.", "vi": "Return giá trị từ helper và gán hoặc return ngay tại nơi gọi."}
+          "mistake": {
+            "en": "A helper result is calculated but not returned or assigned.",
+            "vi": "Kết quả của helper được tính nhưng không được return hoặc gán."
+          },
+          "consequence": {
+            "en": "The caller receives None or continues with stale data.",
+            "vi": "Nơi gọi nhận None hoặc tiếp tục với dữ liệu cũ."
+          },
+          "repair": {
+            "en": "Return the value from the helper and store or immediately return it at the call site.",
+            "vi": "Return giá trị từ helper và gán hoặc return ngay tại nơi gọi."
+          }
         },
         {
-          "mistake": {"en": "The Python translation changes branch order, loop progress or integer operations from the supplied algorithm.", "vi": "Bản Python thay đổi thứ tự branch, bước tiến loop hoặc phép toán số nguyên của thuật toán đã cho."},
-          "consequence": {"en": "The program implements a different algorithm or does not terminate.", "vi": "Chương trình cài đặt thuật toán khác hoặc không dừng."},
-          "repair": {"en": "Map each supplied condition, update and return before simplifying the code.", "vi": "Ánh xạ từng condition, update và return đã cho trước khi rút gọn code."}
+          "mistake": {
+            "en": "The Python translation changes branch order, loop progress or integer operations from the supplied algorithm.",
+            "vi": "Bản Python thay đổi thứ tự branch, bước tiến loop hoặc phép toán số nguyên của thuật toán đã cho."
+          },
+          "consequence": {
+            "en": "The program implements a different algorithm or does not terminate.",
+            "vi": "Chương trình cài đặt thuật toán khác hoặc không dừng."
+          },
+          "repair": {
+            "en": "Map each supplied condition, update and return before simplifying the code.",
+            "vi": "Ánh xạ từng condition, update và return đã cho trước khi rút gọn code."
+          }
         },
         {
-          "mistake": {"en": "A subroutine mutates the caller's list even though the task requires a new result.", "vi": "Subroutine thay đổi list của nơi gọi dù bài yêu cầu kết quả mới."},
-          "consequence": {"en": "Later code sees unexpected values and the before-state is lost.", "vi": "Code phía sau thấy giá trị ngoài dự kiến và trạng thái trước bị mất."},
-          "repair": {"en": "Construct and return a new list, or copy the input before mutation when the contract requires isolation.", "vi": "Tạo và return list mới, hoặc copy input trước khi thay đổi khi hợp đồng yêu cầu tách biệt."}
+          "mistake": {
+            "en": "A subroutine mutates the caller's list even though the task requires a new result.",
+            "vi": "Subroutine thay đổi list của nơi gọi dù bài yêu cầu kết quả mới."
+          },
+          "consequence": {
+            "en": "Later code sees unexpected values and the before-state is lost.",
+            "vi": "Code phía sau thấy giá trị ngoài dự kiến và trạng thái trước bị mất."
+          },
+          "repair": {
+            "en": "Construct and return a new list, or copy the input before mutation when the contract requires isolation.",
+            "vi": "Tạo và return list mới, hoặc copy input trước khi thay đổi khi hợp đồng yêu cầu tách biệt."
+          }
         }
       ],
       "boundary_trace": [
@@ -451,24 +536,54 @@
       },
       "recall_items": [
         {
-          "prompt": {"en": "What three parts form a useful subroutine contract?", "vi": "Ba phần nào tạo thành hợp đồng subroutine hữu ích?"},
-          "answer": {"en": "Its responsibility, inputs and returned result or declared side effect.", "vi": "Trách nhiệm, input và kết quả return hoặc tác động đã công bố."}
+          "prompt": {
+            "en": "What three parts form a useful subroutine contract?",
+            "vi": "Ba phần nào tạo thành hợp đồng subroutine hữu ích?"
+          },
+          "answer": {
+            "en": "Its responsibility, inputs and returned result or declared side effect.",
+            "vi": "Trách nhiệm, input và kết quả return hoặc tác động đã công bố."
+          }
         },
         {
-          "prompt": {"en": "Why validate before calling transformation helpers?", "vi": "Vì sao cần validation trước khi gọi helper biến đổi?"},
-          "answer": {"en": "The helpers may assume valid input; early rejection prevents invalid transformation and unwanted mutation.", "vi": "Helper có thể giả định input hợp lệ; từ chối sớm ngăn biến đổi sai và thay đổi ngoài ý muốn."}
+          "prompt": {
+            "en": "Why validate before calling transformation helpers?",
+            "vi": "Vì sao cần validation trước khi gọi helper biến đổi?"
+          },
+          "answer": {
+            "en": "The helpers may assume valid input; early rejection prevents invalid transformation and unwanted mutation.",
+            "vi": "Helper có thể giả định input hợp lệ; từ chối sớm ngăn biến đổi sai và thay đổi ngoài ý muốn."
+          }
         },
         {
-          "prompt": {"en": "How do you preserve a caller's list?", "vi": "Làm sao giữ nguyên list của nơi gọi?"},
-          "answer": {"en": "Build and return a new list, or work on an explicit copy when mutation is needed internally.", "vi": "Tạo và return list mới, hoặc làm việc trên bản copy rõ ràng khi cần thay đổi nội bộ."}
+          "prompt": {
+            "en": "How do you preserve a caller's list?",
+            "vi": "Làm sao giữ nguyên list của nơi gọi?"
+          },
+          "answer": {
+            "en": "Build and return a new list, or work on an explicit copy when mutation is needed internally.",
+            "vi": "Tạo và return list mới, hoặc làm việc trên bản copy rõ ràng khi cần thay đổi nội bộ."
+          }
         },
         {
-          "prompt": {"en": "What must a faithful pseudocode translation preserve?", "vi": "Bản chuyển pseudocode trung thực phải giữ điều gì?"},
-          "answer": {"en": "Parameters, branch meaning and order, loop progress and termination, integer operations and returned values.", "vi": "Parameter, ý nghĩa và thứ tự branch, bước tiến và điều kiện dừng loop, phép toán số nguyên và giá trị return."}
+          "prompt": {
+            "en": "What must a faithful pseudocode translation preserve?",
+            "vi": "Bản chuyển pseudocode trung thực phải giữ điều gì?"
+          },
+          "answer": {
+            "en": "Parameters, branch meaning and order, loop progress and termination, integer operations and returned values.",
+            "vi": "Parameter, ý nghĩa và thứ tự branch, bước tiến và điều kiện dừng loop, phép toán số nguyên và giá trị return."
+          }
         },
         {
-          "prompt": {"en": "What is the zero-iteration result in this lesson?", "vi": "Kết quả zero iteration trong bài này là gì?"},
-          "answer": {"en": "Valid empty scores returns success with empty adjusted and label lists; no element helper call is needed.", "vi": "Scores rỗng hợp lệ trả thành công với adjusted và labels rỗng; không cần gọi helper cho phần tử."}
+          "prompt": {
+            "en": "What is the zero-iteration result in this lesson?",
+            "vi": "Kết quả zero iteration trong bài này là gì?"
+          },
+          "answer": {
+            "en": "Valid empty scores returns success with empty adjusted and label lists; no element helper call is needed.",
+            "vi": "Scores rỗng hợp lệ trả thành công với adjusted và labels rỗng; không cần gọi helper cho phần tử."
+          }
         }
       ],
       "exit_task": {

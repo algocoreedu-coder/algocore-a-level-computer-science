@@ -6,7 +6,7 @@
   "packageManager": "npm@10.9.4",
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 3018",
-    "build": "next build --webpack",
+    "build": "npm run check:dual-paper:source && next build --webpack",
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "tsc --noEmit",
     "check:student-auth": "node scripts/check-student-auth.mjs",
@@ -101,7 +101,26 @@
     "check:paper4:linked-list": "node scripts/check-linked-list-learner-release-gate.mjs",
     "check:paper4:linked-list:browser": "node --experimental-websocket scripts/check-linked-list-learner-browser-gate.mjs",
     "check:paper4:recursion": "node scripts/check-recursion-learner-release-gate.mjs",
-    "check:paper4:recursion:browser": "node --experimental-websocket scripts/check-recursion-learner-browser-gate.mjs"
+    "check:paper4:recursion:browser": "node --experimental-websocket scripts/check-recursion-learner-browser-gate.mjs",
+    "build:paper4": "npm run prepare:paper4:python-runtime && next build --webpack",
+    "prepare:paper4:python-runtime": "node scripts/prepare-paper4-python-runtime.mjs",
+    "predev": "npm run prepare:paper4:python-runtime",
+    "prebuild": "npm run prepare:paper4:python-runtime",
+    "postbuild": "npm run check:dual-paper:build",
+    "check:dual-paper:source": "node scripts/check-dual-paper-source.mjs",
+    "check:dual-paper:build": "node scripts/check-dual-paper-build.mjs",
+    "check:dual-paper:runtime": "node scripts/check-dual-paper-runtime.mjs",
+    "verify:dual-paper": "npm run typecheck && npm run build && npm run check:dual-paper:runtime",
+    "check:paper4:lesson-gaps": "node scripts/check-paper4-lesson-gap-remediation.mjs",
+    "check:paper4:teacher-r1": "node scripts/check-paper4-teacher-r1.mjs",
+    "generate:paper4:e0-bridge": "node scripts/build-paper4-assessment-bridge.mjs",
+    "check:paper4:e0-contract": "node scripts/check-paper4-e0-contract.mjs",
+    "check:paper4:canonical-assessments": "node scripts/check-paper4-canonical-assessment-surface.mjs",
+    "check:paper4:rehearsals": "node scripts/check-paper4-rehearsal-ui.mjs",
+    "check:paper4:rehearsals:browser": "node scripts/check-paper4-rehearsal-browser.mjs",
+    "verify:paper4:e0": "npm run generate:paper4:e0-bridge && npm run check:paper4:e0-contract && npm run typecheck",
+    "check:paper4:lesson-gaps:browser": "node --experimental-websocket scripts/check-paper4-lesson-gap-browser.mjs",
+    "check:paper4:python-fixture-runner": "npm run prepare:paper4:python-runtime && node scripts/check-paper4-python-fixture-runner.mjs"
   },
   "dependencies": {
     "fumadocs-core": "16.15.11",
@@ -109,7 +128,8 @@
     "lucide-react": "^0.577.0",
     "next": "16.3.8",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "pyodide": "0.29.0"
   },
   "devDependencies": {
     "@shadcn/lint": "^0.2.0",

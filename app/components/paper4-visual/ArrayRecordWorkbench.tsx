@@ -6,11 +6,11 @@ import styles from "./Paper4VisualRuntime.module.css";
 const copy = {
   en: {
     count: "Live count", capacity: "Capacity", result: "Result", candidate: "Candidate record", records: "Bounded record array",
-    index: "index", empty: "empty slot", name: "name", score: "score", unavailable: "not present", state: "Record state",
+    index: "index", empty: "empty slot", name: "name", score: "score", unavailable: "not present", state: "Record state", slots: "Record array slots",
   },
   vi: {
     count: "Số record đang dùng", capacity: "Capacity", result: "Kết quả", candidate: "Record mới", records: "Mảng record có giới hạn",
-    index: "index", empty: "ô trống", name: "name", score: "score", unavailable: "không có", state: "Trạng thái record",
+    index: "index", empty: "ô trống", name: "name", score: "score", unavailable: "không có", state: "Trạng thái record", slots: "Các ô trong mảng record",
   },
 } as const;
 
@@ -26,7 +26,7 @@ export function ArrayRibbon({ records, capacity, activeIndex, locale }: Readonly
   const t = copy[locale];
   return <section className={styles.arrayRibbonSection} id="array-ribbon" aria-labelledby="array-ribbon-title">
     <h4 id="array-ribbon-title">{t.records}</h4>
-    <div className={styles.arrayRibbonViewport} role="region" tabIndex={0} aria-label={t.records}>
+    <div className={styles.arrayRibbonViewport} role="region" tabIndex={0} aria-label={t.slots}>
       <ol className={styles.arrayRibbon}>
         {Array.from({ length: capacity }, (_, index) => {
           const record = records[index];

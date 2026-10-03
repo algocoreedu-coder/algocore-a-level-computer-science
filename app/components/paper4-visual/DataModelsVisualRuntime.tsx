@@ -204,4 +204,3 @@ export function DataModelsVisualRuntime({ projection, patterns, pythonArtifact, 
     <label className={styles.learnerScenarioSelect} htmlFor={`${componentId}-scenario`}><strong>{t.scenario}</strong><select id={`${componentId}-scenario`} value={activeScenario.case_kind} onChange={(change) => changeScenario(change.currentTarget.value)}>{["normal", "boundary", "failure"].map((kind) => <option key={kind} value={kind} disabled={kind !== "normal" && !normalComplete}>{kind === "normal" ? projection.stages.trace.scenario.label[locale] : projection.stages.trace.variants.find((variant) => variant.kind === kind)!.label[locale]}</option>)}</select>{!normalComplete && <small>{t.transferLocked}</small>}</label>
   </section>;
 }
-

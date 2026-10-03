@@ -1595,6 +1595,23 @@
   overflow-wrap: anywhere;
 }
 
+@container (max-width: 28rem) {
+  .arrayRibbonViewport {
+    overflow-x: visible;
+  }
+
+  .arrayRibbon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr));
+    min-width: 0;
+  }
+
+  .arrayRibbon li {
+    inline-size: auto;
+    min-width: 0;
+  }
+}
+
 .dataModelsOutput {
   border-left: 4px solid var(--pv-accent);
   margin-top: 0.75rem;

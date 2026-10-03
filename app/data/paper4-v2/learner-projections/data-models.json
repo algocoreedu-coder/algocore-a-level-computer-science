@@ -606,7 +606,14 @@
           "success_check": {
             "en": "The write happens only after both guards pass and the new index equals the old count.",
             "vi": "Bước ghi chỉ xảy ra sau khi cả hai guard đúng và index mới bằng count cũ."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-10.1-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-10.1-03",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-11.1-02",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-9.2-02"
+          ]
         },
         {
           "level": {
@@ -684,7 +691,11 @@
           "success_check": {
             "en": "The answer checks row and column separately and does not confuse fixed fixture values with proof of random generation, range or uniqueness.",
             "vi": "Câu trả lời kiểm tra riêng row và column, đồng thời không nhầm giá trị fixture cố định với bằng chứng tạo số ngẫu nhiên, miền giá trị hoặc tính không trùng."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-10.2-01",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-10.2-02"
+          ]
         }
       ]
     },

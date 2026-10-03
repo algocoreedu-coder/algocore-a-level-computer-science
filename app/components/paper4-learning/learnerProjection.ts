@@ -19,6 +19,7 @@ type PracticeItem = Readonly<{
   hint: Localized;
   model_answer: Localized;
   success_check: Localized;
+  assessment_requirement_ids?: readonly string[];
 }>;
 
 export type StageBase = Readonly<{ order: number; name: Localized; student_question: Localized }>;
@@ -645,7 +646,11 @@ export function assertLearnerProjectionSafe(projection: LearnerProjection) {
   const inspect = (value: unknown): void => {
     if (typeof value === "string") { assertLearnerTextSafe(value); return; }
     if (Array.isArray(value)) { value.forEach(inspect); return; }
-    if (value && typeof value === "object") Object.values(value).forEach(inspect);
+    if (value && typeof value === "object") Object.entries(value).forEach(([key, child]) => {
+      // Traceability IDs are machine-readable links and are never rendered as learner copy.
+      if (key === "assessment_requirement_ids") return;
+      inspect(child);
+    });
   };
   inspect(projection.lesson_title);
   inspect(projection.exam_family);

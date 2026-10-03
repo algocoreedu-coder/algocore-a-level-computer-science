@@ -11,3 +11,4 @@ tmp/
 __pycache__/
 *.py[cod]
 .vercel/
+public/vendor/pyodide/

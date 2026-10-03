@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import type { LearnerProjection } from "./learnerProjection";
 import { learnerText } from "./learnerProjection";
@@ -10,12 +10,20 @@ import styles from "./LessonLearningPage.module.css";
 const copy = {
   en: {
     answer: "Your answer or trace",
-    placeholder: "Write your answer before revealing support…",
-    record: "Record attempt",
-    recorded: "Attempt recorded. You can now check the support.",
+    placeholder: "Write your answer before starting the self-check…",
+    draftStep: "Step 1 of 2 — Write your own answer",
+    validateDraft: "Continue to self-check",
+    draftNeedsWork: "Add a meaningful answer or trace. A placeholder such as “x”, “test” or “…” is not an attempt.",
+    draftReady: "Draft saved. Now compare it with the task criterion.",
+    criterionStep: "Step 2 of 2 — Check the task criterion",
+    criterionIntro: "Compare your draft with this criterion before opening support:",
+    criterionConfirm: "I compared my draft with this criterion and can identify where my answer addresses it.",
+    record: "Record self-check and reveal support",
+    recorded: "Self-check recorded. This confirms an attempt; it does not mark the answer correct.",
+    revise: "Revise my answer",
     hint: "Hint",
     model: "Model answer",
-    check: "Success check",
+    check: "Self-check criterion",
     previous: "Previous practice",
     next: "Next practice",
     item: "Practice item",
@@ -29,12 +37,20 @@ const copy = {
   },
   vi: {
     answer: "Câu trả lời hoặc trace của bạn",
-    placeholder: "Viết câu trả lời trước khi mở hỗ trợ…",
-    record: "Ghi nhận lần làm",
-    recorded: "Đã ghi nhận. Bây giờ bạn có thể kiểm tra phần hỗ trợ.",
+    placeholder: "Viết câu trả lời trước khi bắt đầu tự kiểm…",
+    draftStep: "Bước 1/2 — Tự viết câu trả lời",
+    validateDraft: "Tiếp tục để tự kiểm",
+    draftNeedsWork: "Hãy viết câu trả lời hoặc trace có ý nghĩa. Nội dung giữ chỗ như “x”, “test” hoặc “…” chưa được tính là một lần làm.",
+    draftReady: "Đã lưu bản nháp. Bây giờ hãy đối chiếu với tiêu chí của bài.",
+    criterionStep: "Bước 2/2 — Kiểm tra tiêu chí của bài",
+    criterionIntro: "Đối chiếu bản nháp với tiêu chí này trước khi mở hỗ trợ:",
+    criterionConfirm: "Tôi đã đối chiếu bản nháp với tiêu chí và xác định được phần câu trả lời đáp ứng tiêu chí đó.",
+    record: "Ghi nhận tự kiểm và mở hỗ trợ",
+    recorded: "Đã ghi nhận tự kiểm. Đây là xác nhận đã làm bài, không phải kết luận câu trả lời đúng.",
+    revise: "Sửa câu trả lời",
     hint: "Gợi ý",
     model: "Đáp án mẫu",
-    check: "Điểm tự kiểm",
+    check: "Tiêu chí tự kiểm",
     previous: "Bài luyện trước",
     next: "Bài luyện tiếp",
     item: "Bài luyện",
@@ -51,6 +67,20 @@ const copy = {
 type PracticeStage = LearnerProjection["stages"]["practise"];
 type RecallStage = LearnerProjection["stages"]["recallAndContinue"];
 type ProtectMarksStage = LearnerProjection["stages"]["protectMarks"];
+const PRACTICE_GATE_VERSION = 2;
+const practiceFillerPattern = /^(?:x{1,3}|test(?:ing)?|asdf|qwerty|idk|i\s+don'?t\s+know|kh[oô]ng\s+bi[eế]t|n\/?a|\.{1,}|[-_?]+)$/iu;
+
+export function isMeaningfulPracticeDraft(value: string) {
+  const normalized = value.trim().replace(/\s+/g, " ");
+  if (!normalized || practiceFillerPattern.test(normalized)) return false;
+  if (/^-?\d+(?:\.\d+)?$/.test(normalized) || /^(?:\[\]|\{\}|\(\)|true|false|none)$/i.test(normalized)) return true;
+  return (normalized.match(/[\p{L}\p{N}]/gu) ?? []).length >= 2;
+}
+
+function withoutIndex(values: ReadonlySet<number>, index: number) {
+  return new Set([...values].filter((value) => value !== index));
+}
+
 export const PRACTICE_PROGRESS_KEY = "algocore.paper4.learner.binary-search.practice.v1";
 export const RECALL_PROGRESS_KEY = "algocore.paper4.learner.binary-search.recall.v1";
 export function practiceProgressKey(lessonSlug: string) { return `algocore.paper4.learner.${lessonSlug}.practice.v1`; }
@@ -58,51 +88,90 @@ export function recallProgressKey(lessonSlug: string) { return `algocore.paper4.
 
 export function LearnerPractice({ stage, locale, progressKey, onAttemptChange }: { readonly stage: PracticeStage; readonly locale: LearningLocale; readonly progressKey: string; readonly onAttemptChange?: (hasAttempt: boolean) => void }) {
   const t = copy[locale];
+  const responseRef = useRef<HTMLTextAreaElement>(null);
+  const criterionRef = useRef<HTMLInputElement>(null);
+  const criterionId = useId();
+  const statusId = useId();
   const [index, setIndex] = useState(0);
   const [drafts, setDrafts] = useState<Record<number, string>>({});
   const [attempted, setAttempted] = useState<ReadonlySet<number>>(new Set());
+  const [draftReady, setDraftReady] = useState<ReadonlySet<number>>(new Set());
+  const [criterionConfirmed, setCriterionConfirmed] = useState<ReadonlySet<number>>(new Set());
+  const [invalidDrafts, setInvalidDrafts] = useState<ReadonlySet<number>>(new Set());
   const [progressRestored, setProgressRestored] = useState(false);
   const item = stage.items[index];
   const draft = drafts[index] ?? "";
   const hasAttempt = attempted.has(index);
+  const isDraftReady = draftReady.has(index);
+  const isCriterionConfirmed = criterionConfirmed.has(index);
+  const hasInvalidDraft = invalidDrafts.has(index);
 
   useEffect(() => {
     try {
       const value = JSON.parse(window.sessionStorage.getItem(progressKey) ?? "null") as unknown;
       if (!value || typeof value !== "object") { setProgressRestored(true); return; }
-      const stored = value as { index?: unknown; drafts?: unknown; attempted?: unknown };
+      const stored = value as { gateVersion?: unknown; index?: unknown; drafts?: unknown; attempted?: unknown; draftReady?: unknown; criterionConfirmed?: unknown };
       if (typeof stored.index === "number" && Number.isInteger(stored.index) && stored.index >= 0 && stored.index < stage.items.length) setIndex(stored.index);
+      let cleanDrafts: Record<string, string> = {};
       if (stored.drafts && typeof stored.drafts === "object" && !Array.isArray(stored.drafts)) {
-        const clean = Object.fromEntries(Object.entries(stored.drafts).filter(([key, entry]) => /^\d+$/.test(key) && typeof entry === "string" && Number(key) < stage.items.length));
-        setDrafts(clean);
+        cleanDrafts = Object.fromEntries(Object.entries(stored.drafts).filter(([key, entry]) => /^\d+$/.test(key) && typeof entry === "string" && Number(key) < stage.items.length));
+        setDrafts(cleanDrafts);
       }
-      if (Array.isArray(stored.attempted)) setAttempted(new Set(stored.attempted.filter((entry): entry is number => typeof entry === "number" && Number.isInteger(entry) && entry >= 0 && entry < stage.items.length)));
+      const cleanIndexes = (entries: unknown) => new Set(Array.isArray(entries) ? entries.filter((entry): entry is number => typeof entry === "number" && Number.isInteger(entry) && entry >= 0 && entry < stage.items.length) : []);
+      if (stored.gateVersion === PRACTICE_GATE_VERSION) {
+        const restoredDraftReady = cleanIndexes(stored.draftReady);
+        const restoredCriterionConfirmed = cleanIndexes(stored.criterionConfirmed);
+        const restoredAttempted = new Set([...cleanIndexes(stored.attempted)].filter((entry) => restoredDraftReady.has(entry) && restoredCriterionConfirmed.has(entry) && isMeaningfulPracticeDraft(cleanDrafts[String(entry)] ?? "")));
+        setAttempted(restoredAttempted);
+        setDraftReady(restoredDraftReady);
+        setCriterionConfirmed(restoredCriterionConfirmed);
+      }
     } catch { /* Ignore malformed or unavailable session storage. */ }
     setProgressRestored(true);
   }, [progressKey, stage.items.length]);
 
   useEffect(() => {
     if (!progressRestored) return;
-    try { window.sessionStorage.setItem(progressKey, JSON.stringify({ index, drafts, attempted: [...attempted] })); }
+    try { window.sessionStorage.setItem(progressKey, JSON.stringify({ gateVersion: PRACTICE_GATE_VERSION, index, drafts, attempted: [...attempted], draftReady: [...draftReady], criterionConfirmed: [...criterionConfirmed] })); }
     catch { /* Storage can be unavailable. */ }
-  }, [attempted, drafts, index, progressKey, progressRestored]);
+  }, [attempted, criterionConfirmed, draftReady, drafts, index, progressKey, progressRestored]);
 
   useEffect(() => { onAttemptChange?.(attempted.size > 0); }, [attempted, onAttemptChange]);
 
   if (!item) return null;
-  const persistPractice = (nextIndex: number, nextDrafts: Record<number, string>, nextAttempted: ReadonlySet<number>) => {
-    try { window.sessionStorage.setItem(progressKey, JSON.stringify({ index: nextIndex, drafts: nextDrafts, attempted: [...nextAttempted] })); }
+  const persistPractice = (nextIndex: number, nextDrafts: Record<number, string>, nextAttempted: ReadonlySet<number>, nextDraftReady: ReadonlySet<number>, nextCriterionConfirmed: ReadonlySet<number>) => {
+    try { window.sessionStorage.setItem(progressKey, JSON.stringify({ gateVersion: PRACTICE_GATE_VERSION, index: nextIndex, drafts: nextDrafts, attempted: [...nextAttempted], draftReady: [...nextDraftReady], criterionConfirmed: [...nextCriterionConfirmed] })); }
     catch { /* Storage can be unavailable. */ }
+  };
+  const validateDraft = () => {
+    if (!isMeaningfulPracticeDraft(draft)) {
+      setInvalidDrafts((current) => new Set([...current, index]));
+      return;
+    }
+    const nextDraftReady = new Set([...draftReady, index]);
+    setDraftReady(nextDraftReady);
+    setInvalidDrafts((current) => withoutIndex(current, index));
+    persistPractice(index, drafts, attempted, nextDraftReady, criterionConfirmed);
+    requestAnimationFrame(() => criterionRef.current?.focus());
   };
   const record = () => {
-    if (!draft.trim()) return;
+    if (!isMeaningfulPracticeDraft(draft) || !isDraftReady || !isCriterionConfirmed) return;
     const nextAttempted = new Set([...attempted, index]);
     setAttempted(nextAttempted);
-    try { window.sessionStorage.setItem(progressKey, JSON.stringify({ index, drafts, attempted: [...nextAttempted] })); }
-    catch { /* Storage can be unavailable. */ }
+    persistPractice(index, drafts, nextAttempted, draftReady, criterionConfirmed);
+  };
+  const revise = () => {
+    const nextAttempted = withoutIndex(attempted, index);
+    const nextDraftReady = withoutIndex(draftReady, index);
+    const nextCriterionConfirmed = withoutIndex(criterionConfirmed, index);
+    setAttempted(nextAttempted);
+    setDraftReady(nextDraftReady);
+    setCriterionConfirmed(nextCriterionConfirmed);
+    persistPractice(index, drafts, nextAttempted, nextDraftReady, nextCriterionConfirmed);
+    requestAnimationFrame(() => responseRef.current?.focus());
   };
 
-  return <div className={styles.practiceJourney} data-practice-gate="attempt-before-reveal">
+  return <div className={styles.practiceJourney} data-practice-gate="attempt-before-reveal" data-practice-gate-version={PRACTICE_GATE_VERSION} data-attempt-result="self-check-only" data-self-check-state={hasAttempt ? "recorded" : isDraftReady ? "criterion" : "draft"}>
     <p>{learnerText(stage.attempt_rule, locale)}</p>
     <article className={styles.learnerCard}>
       <header className={styles.cardHeader}>
@@ -110,21 +179,46 @@ export function LearnerPractice({ stage, locale, progressKey, onAttemptChange }:
         <strong>{t.item} {index + 1} {t.of} {stage.items.length}</strong>
       </header>
       <p>{learnerText(item.prompt, locale)}</p>
+      <p className={styles.practiceStepLabel}>{t.draftStep}</p>
       <label className={styles.responseField}>
         <span>{t.answer}</span>
-        <textarea value={draft} onChange={(event) => { const nextDrafts = { ...drafts, [index]: event.target.value }; persistPractice(index, nextDrafts, attempted); setDrafts(nextDrafts); }} placeholder={t.placeholder} rows={5} />
+        <textarea ref={responseRef} value={draft} readOnly={hasAttempt} aria-describedby={statusId} aria-invalid={hasInvalidDraft || undefined} onChange={(event) => {
+          const nextDrafts = { ...drafts, [index]: event.target.value };
+          const nextDraftReady = withoutIndex(draftReady, index);
+          const nextCriterionConfirmed = withoutIndex(criterionConfirmed, index);
+          setDrafts(nextDrafts);
+          setDraftReady(nextDraftReady);
+          setCriterionConfirmed(nextCriterionConfirmed);
+          setInvalidDrafts((current) => withoutIndex(current, index));
+          persistPractice(index, nextDrafts, attempted, nextDraftReady, nextCriterionConfirmed);
+        }} placeholder={t.placeholder} rows={5} />
       </label>
-      <button className={styles.learningButton} type="button" disabled={!draft.trim()} onClick={record}>{t.record}</button>
-      <p className={styles.statusText} aria-live="polite">{hasAttempt ? t.recorded : ""}</p>
+      {!hasAttempt && !isDraftReady && <button className={styles.learningButton} type="button" onClick={validateDraft}>{t.validateDraft}</button>}
+      <p id={statusId} className={hasInvalidDraft ? styles.validationError : styles.statusText} aria-live="polite">{hasAttempt ? t.recorded : hasInvalidDraft ? t.draftNeedsWork : isDraftReady ? t.draftReady : ""}</p>
+      {!hasAttempt && isDraftReady && <fieldset className={styles.selfCheckPanel}>
+        <legend>{t.criterionStep}</legend>
+        <p>{t.criterionIntro}</p>
+        <blockquote id={criterionId}>{learnerText(item.success_check, locale)}</blockquote>
+        <label className={styles.criterionConfirmation}>
+          <input ref={criterionRef} type="checkbox" checked={isCriterionConfirmed} aria-describedby={criterionId} onChange={(event) => {
+            const nextCriterionConfirmed = event.target.checked ? new Set([...criterionConfirmed, index]) : withoutIndex(criterionConfirmed, index);
+            setCriterionConfirmed(nextCriterionConfirmed);
+            persistPractice(index, drafts, attempted, draftReady, nextCriterionConfirmed);
+          }} />
+          <span>{t.criterionConfirm}</span>
+        </label>
+        <button className={styles.learningButton} type="button" disabled={!isCriterionConfirmed} onClick={record}>{t.record}</button>
+      </fieldset>}
       {hasAttempt && <div className={styles.afterAttempt} data-answer-revealed="true">
         <details><summary>{t.hint}</summary><p>{learnerText(item.hint, locale)}</p></details>
         <details><summary>{t.model}</summary><p>{learnerText(item.model_answer, locale)}</p></details>
         <p><strong>{t.check}: </strong>{learnerText(item.success_check, locale)}</p>
+        <button type="button" className={styles.secondaryButton} onClick={revise}>{t.revise}</button>
       </div>}
     </article>
     <nav className={styles.itemNav} aria-label={stage.name[locale]}>
-      <button type="button" disabled={index === 0} onClick={() => { const nextIndex = Math.max(0, index - 1); persistPractice(nextIndex, drafts, attempted); setIndex(nextIndex); }}>← {t.previous}</button>
-      <button type="button" disabled={index >= stage.items.length - 1 || !hasAttempt} onClick={() => { const nextIndex = Math.min(stage.items.length - 1, index + 1); persistPractice(nextIndex, drafts, attempted); setIndex(nextIndex); }}>{t.next} →</button>
+      <button type="button" disabled={index === 0} onClick={() => { const nextIndex = Math.max(0, index - 1); persistPractice(nextIndex, drafts, attempted, draftReady, criterionConfirmed); setIndex(nextIndex); }}>← {t.previous}</button>
+      <button type="button" disabled={index >= stage.items.length - 1 || !hasAttempt} onClick={() => { const nextIndex = Math.min(stage.items.length - 1, index + 1); persistPractice(nextIndex, drafts, attempted, draftReady, criterionConfirmed); setIndex(nextIndex); }}>{t.next} →</button>
     </nav>
   </div>;
 }
@@ -211,6 +305,7 @@ export function LearnerRiskChecks({ stage, locale, progressKey }: { readonly sta
 
 export function LearnerCodeCard({ caption, lines, locale, activeLineIndex }: { readonly caption: string; readonly lines: readonly string[]; readonly locale: LearningLocale; readonly activeLineIndex?: number }) {
   const t = copy[locale];
+  const captionId = useId();
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
   const source = lines.join("\n");
   const copyCode = async () => {
@@ -218,8 +313,8 @@ export function LearnerCodeCard({ caption, lines, locale, activeLineIndex }: { r
     catch { setStatus("failed"); }
   };
   return <figure className={styles.codeFigure} data-learner-code-card>
-    <figcaption><span>{caption}</span><button type="button" className={styles.copyButton} onClick={copyCode}>{t.copyCode}</button></figcaption>
-    <pre tabIndex={0} data-learner-code="recipe"><code>{lines.map((line, index) => <span data-learner-code-line data-active={activeLineIndex === index || undefined} aria-current={activeLineIndex === index ? "step" : undefined} key={index}>{line}{index < lines.length - 1 ? "\n" : ""}</span>)}</code></pre>
+    <figcaption><span id={captionId}>{caption}</span><button type="button" className={styles.copyButton} onClick={copyCode}>{t.copyCode}</button></figcaption>
+    <pre tabIndex={0} role="region" aria-labelledby={captionId} data-learner-code="recipe"><code>{lines.map((line, index) => <span data-learner-code-line data-active={activeLineIndex === index || undefined} aria-current={activeLineIndex === index ? "step" : undefined} key={index}>{line}{index < lines.length - 1 ? "\n" : ""}</span>)}</code></pre>
     <p className={styles.srOnly} aria-live="polite">{status === "copied" ? t.copied : status === "failed" ? t.copyFailed : ""}</p>
   </figure>;
 }

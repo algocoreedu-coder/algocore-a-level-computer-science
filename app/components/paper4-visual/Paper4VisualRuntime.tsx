@@ -8,7 +8,7 @@ import styles from "./Paper4VisualRuntime.module.css";
 import { createInitialRuntimeState, runtimeReducer } from "./reducer";
 import { SearchWindow } from "./SearchWindow";
 import { defaultScenario, loadTraceChunk, selectScenarioEvents } from "./traceLoader";
-import type { JsonValue, Locale, Paper4VisualRuntimeProps, PatternMetadata, PythonArtifactDto, TraceChunk, TraceEvent } from "./types";
+import type { JsonValue, Locale, Paper4VisualRuntimeProps, PatternMetadata, PythonArtifactDto, RuntimeState, TraceChunk, TraceEvent } from "./types";
 
 const copy = {
   vi: {
@@ -18,7 +18,7 @@ const copy = {
     stateTransition: "So sánh trạng thái", rawJson: "Xem JSON đầy đủ", fields: "trường", items: "mục", noChange: "Không có thay đổi dữ liệu ở bước này.",
     yourPrediction: "Dự đoán của bạn", checkPrediction: "Kiểm tra dự đoán", correct: "Đúng. Hãy đối chiếu trạng thái vừa được mở.", incorrect: "Chưa đúng.",
     traceComplete: "Bạn đã đến cuối trace. Dùng Làm lại để luyện lại.", scenarioInput: "Đổi tình huống đầu vào", inputHint: "Chọn trace normal, boundary hoặc failure.",
-    applyInput: "Áp dụng tình huống", loading: "Đang tải trace đã kiểm chứng…", loadError: "Không thể tải trace đã kiểm chứng.", retry: "Thử tải lại", migration: "Visual v2 đang chờ route truyền pattern metadata và Python artifact.",
+    applyInput: "Áp dụng tình huống", loading: "Đang tải trace…", loadError: "Không thể tải trace.", retry: "Thử tải lại", migration: "Visual v2 đang chờ route truyền pattern metadata và Python artifact.",
     audit: "Chi tiết trace và bằng chứng", fullBinding: "Binding dòng đầy đủ", codeLocked: "Hãy ghi lại dự đoán để mở đoạn mã tạo ra thay đổi này.", normal: "Bình thường", boundary: "Biên", failure: "Lỗi",
   },
   en: {
@@ -28,7 +28,7 @@ const copy = {
     stateTransition: "Compare state", rawJson: "View raw JSON", fields: "fields", items: "items", noChange: "No data changes at this step.",
     yourPrediction: "Your prediction", checkPrediction: "Check prediction", correct: "Correct. Compare the revealed state.", incorrect: "Not yet.",
     traceComplete: "You reached the end of the trace. Reset to practise again.", scenarioInput: "Change input scenario", inputHint: "Choose the normal, boundary, or failure trace.",
-    applyInput: "Apply scenario", loading: "Loading the verified trace…", loadError: "The verified trace could not be loaded.", retry: "Try again", migration: "The v2 visual is waiting for pattern metadata and a Python artifact from the route.",
+    applyInput: "Apply scenario", loading: "Loading the trace…", loadError: "The trace could not be loaded.", retry: "Try again", migration: "The v2 visual is waiting for pattern metadata and a Python artifact from the route.",
     audit: "Trace and evidence details", fullBinding: "Complete line binding", codeLocked: "Record a prediction to reveal the code that creates this change.", normal: "Normal", boundary: "Boundary", failure: "Failure",
   },
 } as const;
@@ -53,6 +53,25 @@ function structuredValue(value: JsonValue | undefined): JsonValue | undefined {
 
 function normalize(value: string) {
   return value.trim().toLocaleUpperCase("en-US").replace(/[\s-]+/g, "_");
+}
+
+type StoredRuntimeProgress = Pick<RuntimeState, "patternId" | "scenarioId" | "eventIndex" | "eventId" | "stepPhase" | "predictionStatus" | "predictionAnswer">;
+
+function runtimeProgressKey(patternId: string) {
+  return `algocore.paper4.visual.${patternId}.progress.v1`;
+}
+
+function restoreRuntimeProgress(value: unknown, chunk: TraceChunk): StoredRuntimeProgress | null {
+  if (!value || typeof value !== "object") return null;
+  const candidate = value as Partial<StoredRuntimeProgress>;
+  if (candidate.patternId !== chunk.pattern_id || typeof candidate.scenarioId !== "string" || !Number.isInteger(candidate.eventIndex) || typeof candidate.eventId !== "string") return null;
+  if (candidate.stepPhase !== "predict" && candidate.stepPhase !== "revealed") return null;
+  if (candidate.predictionStatus !== "idle" && candidate.predictionStatus !== "correct" && candidate.predictionStatus !== "incorrect") return null;
+  if (typeof candidate.predictionAnswer !== "string") return null;
+  const scenario = chunk.scenarios.find((item) => item.scenario_id === candidate.scenarioId);
+  const eventIndex = candidate.eventIndex as number;
+  if (!scenario || eventIndex < 0 || eventIndex >= scenario.event_ids.length || scenario.event_ids[eventIndex] !== candidate.eventId) return null;
+  return { patternId: candidate.patternId, scenarioId: candidate.scenarioId, eventIndex, eventId: candidate.eventId, stepPhase: candidate.stepPhase, predictionStatus: candidate.predictionStatus, predictionAnswer: candidate.predictionAnswer };
 }
 
 function patternLabel(pattern: PatternMetadata, locale: Locale) {
@@ -80,16 +99,30 @@ function compactValue(value: JsonValue, locale: Locale): string {
   return `${entries.length} ${copy[locale].fields}`;
 }
 
-function StateSummary({ value, locale, rawLabel, emptyLabel }: Readonly<{ value: JsonValue | undefined; locale: Locale; rawLabel: string; emptyLabel: string }>) {
-  if (isRecord(value) && value[locale] !== undefined && structuredValue(value) === undefined) return <p className={styles.stateLead}>{localText(value, locale)}</p>;
+const hiddenLearnerStateKeys = new Set(["fixture_ref", "history"]);
+
+function learnerSafeText(value: string, locale: Locale) {
+  const lineLabel = locale === "vi" ? "dòng Python đang xét" : "the current Python line";
+  return value
+    .replace(/ac-9618-[\w.-]+/gi, "")
+    .replace(/\b[\w-]+\.production-v\d+\.L\d+\b/gi, lineLabel)
+    .replace(/\b(?:production-v\d+|pilot-v\d+|independent(?:ly)? rerun|verified|frozen)\b|(?:đã kiểm chứng|độc lập chạy lại|đóng băng)/gi, "")
+    .replace(/\b([\w-]+)\.(?:normal|boundary|failure)\b/gi, "$1 example")
+    .replace(/_/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function StateSummary({ value, locale, rawLabel, emptyLabel, learnerMode = false }: Readonly<{ value: JsonValue | undefined; locale: Locale; rawLabel: string; emptyLabel: string; learnerMode?: boolean }>) {
+  if (isRecord(value) && value[locale] !== undefined && structuredValue(value) === undefined) { const text = localText(value, locale); return <p className={styles.stateLead}>{learnerMode ? learnerSafeText(text, locale) : text}</p>; }
   const displayValue = structuredValue(value) ?? value;
   if (displayValue === undefined || displayValue === null) return <p className={styles.emptyState}>{emptyLabel}</p>;
-  if (!isRecord(displayValue)) return <p className={styles.stateLead}>{compactValue(displayValue, locale)}</p>;
-  const entries = Object.entries(displayValue);
+  if (!isRecord(displayValue)) { const text = compactValue(displayValue, locale); return <p className={styles.stateLead}>{learnerMode ? learnerSafeText(text, locale) : text}</p>; }
+  const entries = Object.entries(displayValue).filter(([key]) => !learnerMode || !hiddenLearnerStateKeys.has(key));
   if (entries.length === 0) return <p className={styles.emptyState}>{emptyLabel}</p>;
   return <>
-    <dl className={styles.stateFacts}>{entries.map(([key, item]) => <div className={styles.stateFact} key={key}><dt>{key.replaceAll("_", " ")}</dt><dd title={typeof item === "object" ? JSON.stringify(item) : undefined}>{compactValue(item, locale)}</dd></div>)}</dl>
-    <details className={styles.rawDetails}><summary>{rawLabel}</summary><DataBlock value={displayValue} /></details>
+    <dl className={styles.stateFacts}>{entries.map(([key, item]) => <div className={styles.stateFact} key={key}><dt>{learnerSafeText(key, locale)}</dt><dd title={!learnerMode && typeof item === "object" ? JSON.stringify(item) : undefined}>{learnerMode ? learnerSafeText(compactValue(item, locale), locale) : compactValue(item, locale)}</dd></div>)}</dl>
+    {!learnerMode && <details className={styles.rawDetails}><summary>{rawLabel}</summary><DataBlock value={displayValue} /></details>}
   </>;
 }
 
@@ -162,6 +195,17 @@ function V2Runtime(props: V2Props) {
         } catch {
           try { window.sessionStorage.removeItem(BINARY_SEARCH_PROGRESS_KEY); } catch { /* Storage may be unavailable. */ }
         }
+      } else if (learnerMode && typeof window !== "undefined") {
+        const storageKey = runtimeProgressKey(pattern.pattern_id);
+        try {
+          const serialized = window.sessionStorage.getItem(storageKey);
+          if (serialized) {
+            restored = restoreRuntimeProgress(JSON.parse(serialized), chunk);
+            if (!restored) window.sessionStorage.removeItem(storageKey);
+          }
+        } catch {
+          try { window.sessionStorage.removeItem(storageKey); } catch { /* Storage may be unavailable. */ }
+        }
       }
       const scenario = restored ? chunk.scenarios.find((item) => item.scenario_id === restored.scenarioId) ?? defaultScenario(chunk) : defaultScenario(chunk);
       const firstEventId = scenario.event_ids[0] ?? "";
@@ -204,6 +248,22 @@ function V2Runtime(props: V2Props) {
   }, [binaryProjectionReady, event, eventIndex, loadState.chunk, state.eventId, state.patternId, state.predictionAnswer, state.predictionStatus, state.scenarioId, state.stepPhase]);
 
   useEffect(() => {
+    if (!learnerMode || binaryProjectionReady || !loadState.chunk || !event || !state.patternId) return;
+    try {
+      const stored: StoredRuntimeProgress = {
+        patternId: state.patternId,
+        scenarioId: state.scenarioId,
+        eventIndex,
+        eventId: event.event_id,
+        stepPhase: state.stepPhase,
+        predictionStatus: state.predictionStatus,
+        predictionAnswer: state.predictionAnswer,
+      };
+      window.sessionStorage.setItem(runtimeProgressKey(state.patternId), JSON.stringify(stored));
+    } catch { /* Persistence is progressive enhancement. */ }
+  }, [binaryProjectionReady, event, eventIndex, learnerMode, loadState.chunk, state.patternId, state.predictionAnswer, state.predictionStatus, state.scenarioId, state.stepPhase]);
+
+  useEffect(() => {
     if (binaryProjectionReady || !state.playing || !nextEvent) return;
     const timer = window.setTimeout(() => dispatch({ type: "NEXT", eventId: nextEvent.event_id, keepPlaying: true }), Math.max(500, autoplayDelayMs));
     return () => window.clearTimeout(timer);
@@ -211,23 +271,27 @@ function V2Runtime(props: V2Props) {
 
   useEffect(() => { setPredictionDraft(state.predictionAnswer); setFullStateAnnouncement(""); }, [state.eventId, state.patternId, state.predictionAnswer]);
   useEffect(() => {
-    if (learnerMode) onLearnerProgress?.({ hasRecordedPrediction: state.stepPhase === "revealed" || state.eventIndex > 0 });
-  }, [learnerMode, onLearnerProgress, state.eventIndex, state.stepPhase]);
+    if (learnerMode) onLearnerProgress?.({ hasRecordedPrediction: state.predictionStatus !== "idle" || state.stepPhase === "revealed" || state.eventIndex > 0 });
+  }, [learnerMode, onLearnerProgress, state.eventIndex, state.predictionStatus, state.stepPhase]);
   useEffect(() => {
     if (!focusAfterAction.current || !event) return;
     focusAfterAction.current = false;
-    document.getElementById(event.accessibility.focus_target)?.focus();
-  }, [event, state.inputRevision, state.stepPhase]);
+    const focusTarget = learnerMode
+      ? sceneModel?.focusTarget ?? `${componentId}-trace-${eventIndex}`
+      : event.accessibility.focus_target;
+    document.getElementById(focusTarget)?.focus();
+  }, [componentId, event, eventIndex, learnerMode, sceneModel?.focusTarget, state.inputRevision, state.stepPhase]);
 
   if (!pattern) return <section className={`${styles.empty} ${className ?? ""}`} role="status">{t.loadError}</section>;
   if (loadState.status === "loading") return <section className={`${styles.runtime} ${className ?? ""}`} data-runtime-version="paper4-v2-loading" data-testid="paper4-visual-lab" role="status" aria-live="polite"><p className={styles.empty}>{t.loading}</p>{preloadArtifact && !learnerMode && <article className={`${styles.panel} ${styles.codePanel}`} data-panel="code"><PythonArtifact artifact={preloadArtifact} locale={state.locale} headingLevel={4} /></article>}</section>;
   if (loadState.status === "error" || !loadState.chunk || !event) return <section className={`${styles.empty} ${className ?? ""}`} role="alert"><p>{t.loadError}</p>{!learnerMode && <p className={styles.errorDetail}>{loadState.message}</p>}<button type="button" onClick={() => setLoadRevision((value) => value + 1)}>{t.retry}</button></section>;
 
   const pythonArtifact = loadState.chunk.python_artifact;
-  const eventName = event.accessibility.accessible_label[state.locale];
+  const rawEventName = event.accessibility.accessible_label[state.locale];
+  const eventName = learnerMode ? learnerSafeText(rawEventName, state.locale) : rawEventName;
   const progress = ((eventIndex + 1) / scenarioEvents.length) * 100;
   const goPrevious = () => { const target = scenarioEvents[eventIndex - 1]; if (target) { focusAfterAction.current = true; dispatch({ type: "PREVIOUS", eventId: target.event_id }); } };
-  const goNext = () => { if (nextEvent && (!sceneModel || state.stepPhase === "revealed")) { focusAfterAction.current = true; dispatch({ type: "NEXT", eventId: nextEvent.event_id }); } };
+  const goNext = () => { if (nextEvent && (!sceneModel || state.stepPhase === "revealed") && (!learnerMode || state.predictionStatus !== "idle")) { focusAfterAction.current = true; dispatch({ type: "NEXT", eventId: nextEvent.event_id }); } };
   const reset = () => { const first = scenarioEvents[0]; if (first) { focusAfterAction.current = true; dispatch({ type: "RESET", firstEventId: first.event_id }); } };
   const changeInput = (submission: FormEvent<HTMLFormElement>) => {
     submission.preventDefault();
@@ -255,29 +319,29 @@ function V2Runtime(props: V2Props) {
   };
 
   const genericPanels = <div className={styles.panelGrid}>
-    <article className={`${styles.panel} ${styles.changePanel}`} data-panel="change" aria-labelledby={`${componentId}-change`}><div className={styles.changeHeading}><span>{t.step} {eventIndex + 1}</span><h3 id={`${componentId}-change`}>{t.change}</h3><p>{eventName}</p></div><StateSummary value={event.delta} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noChange} /></article>
-    <article className={`${styles.panel} ${styles.codePanel}`} data-panel="code" aria-labelledby={`${componentId}-code`}><h3 id={`${componentId}-code`}>{t.code}</h3><PythonArtifact artifact={pythonArtifact} activeLineIds={event.active_line_ids} locale={state.locale} headingLevel={4} /></article>
-    <article className={`${styles.panel} ${styles.statePanel}`} data-panel="state" aria-labelledby={`${componentId}-state`}><h3 id={`${componentId}-state`}>{t.stateTransition}</h3><div className={styles.stateSequence}>{([[t.before, event.before], [t.after, event.after]] as const).map(([label, value]) => <section key={label}><h4>{label}</h4><StateSummary value={value} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noChange} /></section>)}</div></article>
-    <article className={`${styles.panel} ${styles.tracePanel}`} data-panel="trace" aria-labelledby={`${componentId}-trace`}><h3 id={`${componentId}-trace`}>{t.trace}</h3><p className={styles.keyboardHelp}>{event.accessibility.keyboard_instruction[state.locale]}</p><ol className={styles.traceList} onKeyDown={traceKeyboard}>{scenarioEvents.map((traceEvent, index) => { const current = index === eventIndex; return <li key={traceEvent.event_id} id={traceEvent.accessibility.focus_target} tabIndex={current ? 0 : -1} aria-current={current ? "step" : undefined} data-complete={index < eventIndex || undefined}><span className={styles.traceNumber}>{index + 1}</span><span>{traceEvent.accessibility.accessible_label[state.locale]}</span>{current && <strong>{t.current}</strong>}</li>; })}</ol></article>
-    <article className={`${styles.panel} ${styles.outputPanel}`} data-panel="output" aria-labelledby={`${componentId}-output`}><h3 id={`${componentId}-output`}>{t.output}</h3><StateSummary value={event.output_delta} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noOutput} /></article>
-    <article className={`${styles.panel} ${styles.invariantPanel}`} data-panel="invariant" aria-labelledby={`${componentId}-invariant`}><h3 id={`${componentId}-invariant`}>{t.invariant}</h3><p>{localText(event.invariant_or_criterion, state.locale)}</p></article>
+    <article id={learnerMode ? `${componentId}-trace-${eventIndex}` : undefined} tabIndex={learnerMode ? -1 : undefined} className={`${styles.panel} ${styles.changePanel}`} data-panel="change" aria-labelledby={`${componentId}-change`}><div className={styles.changeHeading}><span>{t.step} {eventIndex + 1}</span><h3 id={`${componentId}-change`}>{t.change}</h3><p>{eventName}</p></div>{learnerMode ? <p>{learnerSafeText(event.accessibility.live_status.message[state.locale], state.locale)}</p> : <StateSummary value={event.delta} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noChange} />}</article>
+    <article className={`${styles.panel} ${styles.codePanel}`} data-panel="code" aria-labelledby={`${componentId}-code`}><h3 id={`${componentId}-code`}>{t.code}</h3><PythonArtifact artifact={pythonArtifact} activeLineIds={learnerMode ? event.active_line_ids.slice(0, 3) : event.active_line_ids} visibleLineIds={learnerMode ? event.active_line_ids.slice(0, 8) : undefined} maxVisibleLines={8} locale={state.locale} headingLevel={4} audience={audience} /></article>
+    <article className={`${styles.panel} ${styles.statePanel}`} data-panel="state" aria-labelledby={`${componentId}-state`}><h3 id={`${componentId}-state`}>{t.stateTransition}</h3><div className={styles.stateSequence}>{([[t.before, event.before], [t.after, event.after]] as const).map(([label, value]) => <section key={label}><h4>{label}</h4><StateSummary value={value} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noChange} learnerMode={learnerMode} /></section>)}</div></article>
+    {!learnerMode && <article className={`${styles.panel} ${styles.tracePanel}`} data-panel="trace" aria-labelledby={`${componentId}-trace`}><h3 id={`${componentId}-trace`}>{t.trace}</h3><p className={styles.keyboardHelp}>{event.accessibility.keyboard_instruction[state.locale]}</p><ol className={styles.traceList} onKeyDown={traceKeyboard}>{scenarioEvents.map((traceEvent, index) => { const current = index === eventIndex; return <li key={traceEvent.event_id} id={traceEvent.accessibility.focus_target} tabIndex={current ? 0 : -1} aria-current={current ? "step" : undefined} data-complete={index < eventIndex || undefined}><span className={styles.traceNumber}>{index + 1}</span><span>{traceEvent.accessibility.accessible_label[state.locale]}</span>{current && <strong>{t.current}</strong>}</li>; })}</ol></article>}
+    {!learnerMode && <article className={`${styles.panel} ${styles.outputPanel}`} data-panel="output" aria-labelledby={`${componentId}-output`}><h3 id={`${componentId}-output`}>{t.output}</h3><StateSummary value={event.output_delta} locale={state.locale} rawLabel={t.rawJson} emptyLabel={t.noOutput} /></article>}
+    <article className={`${styles.panel} ${styles.invariantPanel}`} data-panel="invariant" aria-labelledby={`${componentId}-invariant`}><h3 id={`${componentId}-invariant`}>{t.invariant}</h3><p>{learnerMode ? learnerSafeText(localText(event.invariant_or_criterion, state.locale), state.locale) : localText(event.invariant_or_criterion, state.locale)}</p></article>
   </div>;
 
-  return <section className={`${styles.runtime} ${className ?? ""}`} data-runtime-version="paper4-v2" data-pattern-id={pattern.pattern_id} data-scenario-id={activeScenario?.scenario_id ?? ""} data-event-id={event.event_id} data-event-index={eventIndex} data-input-revision={state.inputRevision} data-testid="paper4-visual-lab" lang={state.locale} aria-labelledby={`${componentId}-title`}>
+  return <section className={`${styles.runtime} ${className ?? ""}`} data-runtime-version="paper4-v2" data-pattern-id={!learnerMode ? pattern.pattern_id : undefined} data-scenario-id={!learnerMode ? activeScenario?.scenario_id ?? "" : undefined} data-event-id={!learnerMode ? event.event_id : undefined} data-event-index={eventIndex} data-input-revision={!learnerMode ? state.inputRevision : undefined} data-case-kind={learnerMode ? activeScenario?.case_kind : undefined} data-prediction-recorded={learnerMode && state.predictionStatus !== "idle" ? "true" : undefined} data-testid="paper4-visual-lab" lang={state.locale} aria-labelledby={`${componentId}-title`}>
     <header className={`${styles.header} ${sceneModel ? styles.binaryHeader : ""}`}>
       <div><p className={styles.eyebrow}>{t.eyebrow}</p><RuntimeHeading id={`${componentId}-title`}>{patternLabel(pattern, state.locale)}</RuntimeHeading>{pattern.purpose && <p>{pattern.purpose[state.locale]}</p>}</div>
       {!learnerMode && <label className={styles.patternSelect}><span>{t.pattern}</span><select id={`${componentId}-pattern`} value={pattern.pattern_id} onChange={(change) => dispatch({ type: "SELECT_PATTERN", patternId: change.currentTarget.value })}>{patterns.map((item) => <option key={item.pattern_id} value={item.pattern_id}>{patternLabel(item, state.locale)}</option>)}</select></label>}
     </header>
     <div className={styles.progressMeta}><strong>{t.step} {eventIndex + 1} {t.of} {scenarioEvents.length}</strong><span>{eventName}</span></div>
-    <div className={styles.progressTrack} data-testid="event-progress" data-event-id={event.event_id} data-event-index={eventIndex} role="progressbar" aria-valuemin={1} aria-valuemax={scenarioEvents.length} aria-valuenow={eventIndex + 1} aria-label={eventName}><span style={{ width: `${progress}%` }} /></div>
-    <p className={styles.srOnly} data-testid="runtime-announcer" aria-live={event.accessibility.live_status.mode} aria-atomic="true">{sceneModel && state.stepPhase === "predict" ? localizedSceneText(sceneModel.prediction.prompt, state.locale) : event.accessibility.live_status.message[state.locale]}</p>
+    <div className={styles.progressTrack} data-testid="event-progress" data-event-id={!learnerMode ? event.event_id : undefined} data-event-index={eventIndex} role="progressbar" aria-valuemin={1} aria-valuemax={scenarioEvents.length} aria-valuenow={eventIndex + 1} aria-label={eventName}><span style={{ width: `${progress}%` }} /></div>
+    <p className={styles.srOnly} data-testid="runtime-announcer" aria-live={event.accessibility.live_status.mode} aria-atomic="true">{sceneModel && state.stepPhase === "predict" ? localizedSceneText(sceneModel.prediction.prompt, state.locale) : learnerMode ? learnerSafeText(event.accessibility.live_status.message[state.locale], state.locale) : event.accessibility.live_status.message[state.locale]}</p>
     <p className={styles.srOnly} aria-live="polite" aria-atomic="true">{fullStateAnnouncement}</p>
     {!learnerMode && <p className={styles.runContext} data-testid="run-context"><strong>{activeScenario ? scenarioLabel(activeScenario.case_kind, state.locale) : ""}</strong> · {activeScenario?.fixture_ref} · {state.inputRevision}</p>}
 
     {sceneModel ? <>
       <div className={styles.binaryLayout} data-layout="stacked">
         <SearchWindow model={sceneModel} locale={state.locale} headingId={sceneModel.focusTarget} onHearFullState={learnerMode ? undefined : () => setFullStateAnnouncement(sceneModel.fullState[state.locale])} />
-        <article className={`${styles.panel} ${styles.binaryCode}`} data-panel="code" data-primary-panel="true" aria-labelledby={`${componentId}-code`}><h3 id={`${componentId}-code`}>{t.code}</h3>{state.stepPhase === "revealed" ? <PythonArtifact artifact={pythonArtifact} activeLineIds={sceneModel.focusLineIds} visibleLineIds={sceneModel.focusLineIds} maxVisibleLines={8} locale={state.locale} headingLevel={4} audience={audience} /> : <p className={styles.codeLocked}>{t.codeLocked}</p>}</article>
+        <article className={`${styles.panel} ${styles.binaryCode}`} data-panel="code" data-primary-panel="true" aria-labelledby={`${componentId}-code`}><h3 id={`${componentId}-code`}>{t.code}</h3>{state.stepPhase === "revealed" ? <PythonArtifact artifact={pythonArtifact} activeLineIds={learnerMode ? sceneModel.focusLineIds.slice(0, 3) : sceneModel.focusLineIds} visibleLineIds={learnerMode ? sceneModel.focusLineIds.slice(0, 8) : sceneModel.focusLineIds} maxVisibleLines={8} locale={state.locale} headingLevel={4} audience={audience} /> : <p className={styles.codeLocked}>{t.codeLocked}</p>}</article>
         <BinaryPrediction model={sceneModel} locale={state.locale} draft={state.stepPhase === "revealed" ? state.predictionAnswer : predictionDraft} status={state.predictionStatus} onDraft={setPredictionDraft} onSubmit={submitPrediction} complete={!nextEvent} />
         <nav className={`${styles.controls} ${styles.binaryControls}`} aria-label={`${t.trace}: ${eventName}`}><button type="button" data-action="previous" onClick={goPrevious} disabled={eventIndex === 0}>← {t.previous}</button><button type="button" data-action="next" onClick={goNext} disabled={!nextEvent || state.stepPhase === "predict"}>{t.next} →</button><button type="button" data-action="reset" onClick={reset}>↺ {t.reset}</button></nav>
       </div>
@@ -293,8 +357,8 @@ function V2Runtime(props: V2Props) {
       </details>}
     </> : <>
       {genericPanels}
-      <section className={styles.practiceCard} aria-labelledby={`${componentId}-prediction`}><h3 id={`${componentId}-prediction`}>{t.prediction}</h3>{nextEvent ? <form onSubmit={submitPrediction}><p>{localText(event.prediction, state.locale)}</p><label htmlFor={`${componentId}-prediction-input`}>{t.yourPrediction}</label><div className={styles.inlineForm}><input id={`${componentId}-prediction-input`} value={predictionDraft} onChange={(change) => setPredictionDraft(change.currentTarget.value)} autoComplete="off" /><button type="submit" disabled={!predictionDraft.trim()}>{t.checkPrediction}</button></div>{state.predictionStatus !== "idle" && <p className={styles.feedback} data-status={state.predictionStatus} role="status">{state.predictionStatus === "correct" ? t.correct : `${t.incorrect} ${nextEvent.accessibility.accessible_label[state.locale]}.`} {localText(event.feedback, state.locale)}</p>}</form> : <p role="status">{t.traceComplete}</p>}</section>
-      <nav className={styles.controls} aria-label={`${t.trace}: ${eventName}`}><button type="button" data-action="previous" onClick={goPrevious} disabled={eventIndex === 0}>← {t.previous}</button><button type="button" data-action="next" onClick={goNext} disabled={!nextEvent}>{t.next} →</button><button type="button" data-action="play" onClick={() => dispatch({ type: "PLAY" })} disabled={state.playing || !nextEvent}>▶ {t.play}</button><button type="button" data-action="pause" onClick={() => dispatch({ type: "PAUSE" })} disabled={!state.playing}>Ⅱ {t.pause}</button><button type="button" data-action="reset" onClick={reset}>↺ {t.reset}</button></nav>
+      <section className={styles.practiceCard} aria-labelledby={`${componentId}-prediction`}><h3 id={`${componentId}-prediction`}>{t.prediction}</h3>{nextEvent ? <form onSubmit={submitPrediction}><p>{learnerMode ? learnerSafeText(localText(event.prediction, state.locale), state.locale) : localText(event.prediction, state.locale)}</p><label htmlFor={`${componentId}-prediction-input`}>{t.yourPrediction}</label><div className={styles.inlineForm}><input id={`${componentId}-prediction-input`} value={predictionDraft} onChange={(change) => setPredictionDraft(change.currentTarget.value)} autoComplete="off" /><button type="submit" disabled={!predictionDraft.trim()}>{t.checkPrediction}</button></div>{state.predictionStatus !== "idle" && <p className={styles.feedback} data-status={state.predictionStatus} data-answer-revealed="true" role="status">{state.predictionStatus === "correct" ? t.correct : `${t.incorrect} ${learnerMode ? learnerSafeText(nextEvent.accessibility.accessible_label[state.locale], state.locale) : nextEvent.accessibility.accessible_label[state.locale]}.`} {learnerMode ? learnerSafeText(localText(event.feedback, state.locale), state.locale) : localText(event.feedback, state.locale)}</p>}</form> : <p role="status">{t.traceComplete}</p>}</section>
+      <nav className={styles.controls} aria-label={`${t.trace}: ${eventName}`}><button type="button" data-action="previous" onClick={goPrevious} disabled={eventIndex === 0}>← {t.previous}</button><button type="button" data-action="next" onClick={goNext} disabled={!nextEvent || (learnerMode && state.predictionStatus === "idle")}>{t.next} →</button>{!learnerMode && <><button type="button" data-action="play" onClick={() => dispatch({ type: "PLAY" })} disabled={state.playing || !nextEvent}>▶ {t.play}</button><button type="button" data-action="pause" onClick={() => dispatch({ type: "PAUSE" })} disabled={!state.playing}>Ⅱ {t.pause}</button></>}<button type="button" data-action="reset" onClick={reset}>↺ {t.reset}</button></nav>
     </>}
 
     {!learnerMode && <form className={styles.scenarioForm} onSubmit={changeInput}><label htmlFor={`${componentId}-scenario`}><strong>{t.scenarioInput}</strong><span>{t.inputHint}</span></label><div className={styles.inlineForm}><select id={`${componentId}-scenario`} value={scenarioDraft} onChange={(change) => setScenarioDraft(change.currentTarget.value)}>{loadState.chunk.scenarios.map((scenario) => <option key={scenario.scenario_id} value={scenario.scenario_id}>{scenarioLabel(scenario.case_kind, state.locale)}</option>)}</select><button type="submit" disabled={!scenarioDraft || scenarioDraft === state.scenarioId}>{t.applyInput}</button></div></form>}

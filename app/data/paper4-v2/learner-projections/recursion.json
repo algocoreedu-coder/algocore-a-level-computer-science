@@ -609,7 +609,10 @@
           "reveal_rule": {
             "en": "Reveal the first missing label after attempt; show the full teacher-created model only after retry.",
             "vi": "Sau lần thử, chỉ mở nhãn thiếu đầu tiên; chỉ hiện model do giáo viên biên soạn sau khi làm lại."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-02"
+          ]
         },
         {
           "level": "guided",
@@ -642,7 +645,12 @@
           "reveal_rule": {
             "en": "Reveal one next event and at most three code lines after each prediction.",
             "vi": "Sau mỗi dự đoán, chỉ mở một event tiếp theo và tối đa ba dòng code."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-04",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-06",
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-07"
+          ]
         },
         {
           "level": "faded",
@@ -676,7 +684,10 @@
           "reveal_rule": {
             "en": "Dry-trace normal and empty cases before showing the teacher-created model.",
             "vi": "Dry-trace case thường và rỗng trước khi hiện model do giáo viên biên soạn."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-03"
+          ]
         },
         {
           "level": "faded",
@@ -707,7 +718,10 @@
           "reveal_rule": {
             "en": "Reveal one sentence for each missing slot after attempt.",
             "vi": "Sau lần thử, mỗi lần chỉ mở một câu cho ô còn thiếu."
-          }
+          },
+          "assessment_requirement_ids": [
+            "ac-9618-p4-2026-python.assessment-requirement.syl-19.2-05"
+          ]
         },
         {
           "level": "independent",
