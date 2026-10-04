@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.1-T04",
   "slug": "class-object-design-and-encapsulation",
   "estimatedMinutes": 40,
@@ -490,289 +490,289 @@
     {
       "id": "cp-oop-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about class, object and encapsulation?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về class, object và encapsulation?"
+        "en": "Which statement correctly distinguishes a class from an object?",
+        "vi": "Phát biểu nào phân biệt đúng class và object?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "State the meaning and declared convention for class, object and encapsulation.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho class, object và encapsulation."
+            "en": "A class is one runtime value; an object is its source file",
+            "vi": "Class là một giá trị runtime; object là source file"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "A source file does not define this relationship.",
+            "vi": "Source file không định nghĩa quan hệ này."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "A class and every object share one attribute state",
+            "vi": "Class và mọi object dùng chung một attribute state"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Each object normally owns its own instance state.",
+            "vi": "Mỗi object thường có instance state riêng."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "A class is a definition; an object is an instance created from it",
+            "vi": "Class là định nghĩa; object là instance được tạo từ đó"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: the class specifies structure and behaviour.",
+            "vi": "Đúng: class quy định cấu trúc và hành vi."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Construction creates independent object instances from a class definition.",
+        "vi": "Constructor tạo các object instance độc lập từ định nghĩa class."
       }
     },
     {
       "id": "cp-oop-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "Why should Balance be PRIVATE in Account?",
+        "vi": "Vì sao Balance nên là PRIVATE trong Account?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "So updates pass through methods that enforce account rules",
+            "vi": "Để cập nhật đi qua method thực thi quy tắc account"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: controlled methods protect the invariant.",
+            "vi": "Đúng: method được kiểm soát bảo vệ invariant."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "So no Account method can read it",
+            "vi": "Để không method nào của Account đọc được nó"
+          },
+          "feedback": {
+            "en": "Class methods can access private state.",
+            "vi": "Method của class vẫn truy cập private state."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "So every Account object shares one balance",
+            "vi": "Để mọi Account object dùng chung balance"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "PRIVATE controls access, not sharing.",
+            "vi": "PRIVATE kiểm soát quyền truy cập, không tạo shared state."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Encapsulation restricts direct external mutation and exposes valid public operations.",
+        "vi": "Encapsulation hạn chế thay đổi trực tiếp và cung cấp public operation hợp lệ."
       }
     },
     {
       "id": "cp-oop-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "A starts at 50. A.Deposit(10) then A.Deposit(-5) run. What balance is reported?",
+        "vi": "A bắt đầu ở 50. A.Deposit(10) rồi A.Deposit(-5) chạy. Balance được báo là bao nhiêu?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
+            "en": "55",
+            "vi": "55"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This incorrectly applies the rejected negative deposit.",
+            "vi": "Đáp án này áp dụng khoản gửi âm bị từ chối."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "60",
+            "vi": "60"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: +10 succeeds and -5 is rejected without mutation.",
+            "vi": "Đúng: +10 thành công còn -5 bị từ chối mà không đổi state."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "50",
+            "vi": "50"
+          },
+          "feedback": {
+            "en": "This ignores the valid deposit of 10.",
+            "vi": "Đáp án này bỏ qua khoản gửi hợp lệ 10."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace both method return and object state; rejection leaves Balance unchanged.",
+        "vi": "Trace cả method return và object state; thao tác bị từ chối giữ nguyên Balance."
       }
     },
     {
       "id": "cp-oop-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "After object A changes, why does object B still report 20?",
+        "vi": "Sau khi object A thay đổi, vì sao object B vẫn báo 20?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+            "en": "GetBalance resets every object",
+            "vi": "GetBalance reset mọi object"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "A getter should not reset unrelated objects.",
+            "vi": "Getter không reset object khác."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "PRIVATE attributes are constants",
+            "vi": "PRIVATE attribute là hằng"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Private data can change through valid methods.",
+            "vi": "Dữ liệu private vẫn đổi qua method hợp lệ."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "A and B have separate instance state",
+            "vi": "A và B có instance state riêng"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: mutating A does not mutate B.",
+            "vi": "Đúng: thay đổi A không thay đổi B."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Call effects apply to the receiver object, so object identity matters in a trace.",
+        "vi": "Hiệu ứng lời gọi áp dụng cho object nhận nên identity rất quan trọng khi trace."
       }
     },
     {
       "id": "cp-oop-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "A temperature must never be below -273.15. Which design best preserves this invariant?",
+        "vi": "Nhiệt độ không bao giờ dưới -273.15. Thiết kế nào bảo vệ invariant tốt nhất?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Keep value private and validate in constructor and setter",
+            "vi": "Để value private và validate trong constructor cùng setter"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: every update path enforces the rule.",
+            "vi": "Đúng: mọi đường cập nhật đều thực thi quy tắc."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Make value public and ask callers to remember the limit",
+            "vi": "Để value public và yêu cầu caller nhớ giới hạn"
+          },
+          "feedback": {
+            "en": "This allows invalid direct assignment.",
+            "vi": "Cách này cho phép gán trực tiếp state không hợp lệ."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Store the limit only in a getter",
+            "vi": "Chỉ đặt giới hạn trong getter"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "A getter is too late to prevent invalid state.",
+            "vi": "Getter không ngăn state không hợp lệ đi vào object."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Validate every boundary that can create or change protected state.",
+        "vi": "Validate mọi điểm có thể tạo hoặc thay đổi state được bảo vệ."
       }
     },
     {
       "id": "cp-oop-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Two Accounts start at 30. Only Second.Deposit(15) runs. Which trace is correct?",
+        "vi": "Hai Account bắt đầu ở 30. Chỉ Second.Deposit(15) chạy. Trace nào đúng?"
       },
       "transfer": true,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
+            "en": "First = 45, Second = 45",
+            "vi": "First = 45, Second = 45"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This assumes state is shared.",
+            "vi": "Đáp án này giả định state dùng chung."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "First = 30, Second = 45",
+            "vi": "First = 30, Second = 45"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: only the receiver changes.",
+            "vi": "Đúng: chỉ object nhận lời gọi thay đổi."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "First = 30, Second = 30",
+            "vi": "First = 30, Second = 30"
+          },
+          "feedback": {
+            "en": "This ignores the valid call on Second.",
+            "vi": "Đáp án này bỏ qua lời gọi hợp lệ trên Second."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Apply the class rule to the named receiver and keep instance states separate.",
+        "vi": "Áp dụng quy tắc class cho đúng object nhận và giữ instance state tách biệt."
       }
     }
   ],

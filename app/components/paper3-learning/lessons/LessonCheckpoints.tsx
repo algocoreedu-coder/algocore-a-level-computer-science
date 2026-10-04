@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Check, Lightbulb } from "lucide-react";
 import { Button } from "@/app/components/algocore-ui";
 import type { Locale, Localized } from "@/app/lib/paper3/catalog";
@@ -9,8 +9,27 @@ import styles from "./LessonPage.module.css";
 
 type Response = { selected?: string; checked?: string; answerSeen?: boolean; revealed?: boolean };
 
-export function LessonCheckpoints({ checkpoints, locale }: { readonly checkpoints: readonly Checkpoint[]; readonly locale: Locale }) {
+export function LessonCheckpoints({ checkpoints, locale, storageNamespace }: { readonly checkpoints: readonly Checkpoint[]; readonly locale: Locale; readonly storageNamespace: string }) {
   const [responses, setResponses] = useState<Record<string, Response>>({});
+  const [hydrated, setHydrated] = useState(false);
+  const storageKey = useMemo(() => `algocore:paper3:checkpoints:${storageNamespace}`, [storageNamespace]);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(storageKey);
+      if (saved) setResponses(JSON.parse(saved) as Record<string, Response>);
+    } catch {
+      // Checkpoints remain usable in-memory when storage is blocked.
+    } finally {
+      setHydrated(true);
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    try { window.localStorage.setItem(storageKey, JSON.stringify(responses)); } catch { /* Keep the quiz interactive. */ }
+  }, [hydrated, responses, storageKey]);
+
   const update = (id: string, patch: Partial<Response>) => setResponses((current) => ({ ...current, [id]: { ...current[id], ...patch } }));
   return <div className={styles.checkpoints}>{checkpoints.map((checkpoint, index) => {
     const response = responses[checkpoint.id] ?? {};

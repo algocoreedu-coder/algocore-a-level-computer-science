@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.1-T03",
   "slug": "assembly-execution-and-construction",
   "estimatedMinutes": 40,
@@ -478,289 +478,289 @@
     {
       "id": "cp-assembly-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about assembly execution and construction?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về thực thi và xây dựng assembly?"
+        "en": "After LDM #7, what is in ACC?",
+        "vi": "Sau LDM #7, ACC chứa gì?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "State the meaning and declared convention for assembly execution and construction.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho thực thi và xây dựng assembly."
+            "en": "The value stored at memory address 7",
+            "vi": "Giá trị lưu tại địa chỉ nhớ 7"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This treats immediate data as a memory address.",
+            "vi": "Cách này nhầm dữ liệu tức thời với địa chỉ bộ nhớ."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "The literal value 7",
+            "vi": "Giá trị tức thời 7"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: # marks the literal operand.",
+            "vi": "Đúng: # đánh dấu toán hạng tức thời."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "The address of Total",
+            "vi": "Địa chỉ của Total"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Total is not referenced by this instruction.",
+            "vi": "Lệnh này chưa tham chiếu Total."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Immediate addressing places the stated literal in ACC.",
+        "vi": "Định địa chỉ tức thời nạp trực tiếp giá trị đã cho vào ACC."
       }
     },
     {
       "id": "cp-assembly-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "ACC is 7 before STO Total. Which state change follows?",
+        "vi": "ACC bằng 7 trước STO Total. State thay đổi thế nào?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "ACC becomes the old value of Total",
+            "vi": "ACC nhận giá trị cũ của Total"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "That describes a load, not a store.",
+            "vi": "Đây là thao tác load, không phải store."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "The PC jumps to Total",
+            "vi": "PC nhảy tới Total"
+          },
+          "feedback": {
+            "en": "STO is not a branch instruction.",
+            "vi": "STO không phải lệnh rẽ nhánh."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Memory location Total receives 7",
+            "vi": "Ô nhớ Total nhận giá trị 7"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: STO copies ACC into the named memory location.",
+            "vi": "Đúng: STO sao chép ACC vào ô nhớ được nêu."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "STO changes memory; it does not read from the destination.",
+        "vi": "STO thay đổi bộ nhớ; nó không đọc từ destination."
       }
     },
     {
       "id": "cp-assembly-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "LDD Value loads 5, then ADD Total uses the stored 7. What is ACC?",
+        "vi": "LDD Value nạp 5, rồi ADD Total dùng giá trị 7 đã lưu. ACC bằng bao nhiêu?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
+            "en": "12",
+            "vi": "12"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: ACC changes from 5 to 5 + 7.",
+            "vi": "Đúng: ACC đổi từ 5 thành 5 + 7."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "7",
+            "vi": "7"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This ignores the value already loaded from Value.",
+            "vi": "Đáp án này bỏ qua giá trị đã load từ Value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "35",
+            "vi": "35"
+          },
+          "feedback": {
+            "en": "ADD performs addition, not multiplication.",
+            "vi": "ADD thực hiện phép cộng, không phải phép nhân."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace ACC after each instruction; ADD uses the current ACC and resolved operand.",
+        "vi": "Trace ACC sau từng lệnh; ADD dùng ACC hiện tại và toán hạng đã xác định."
       }
     },
     {
       "id": "cp-assembly-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "After CMP #12 finds equality, what does JPE Done do under the supplied convention?",
+        "vi": "Sau khi CMP #12 xác định bằng nhau, JPE Done làm gì theo convention đã cho?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+            "en": "It stores 12 in Done",
+            "vi": "Nó lưu 12 vào Done"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "A branch changes the next instruction address; it does not store ACC.",
+            "vi": "Lệnh nhánh đổi địa chỉ lệnh kế tiếp; nó không store ACC."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "It clears ACC",
+            "vi": "Nó xóa ACC"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The comparison controls the branch, not an ACC reset.",
+            "vi": "Kết quả so sánh điều khiển nhánh, không xóa ACC."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "It sets the next PC to label Done",
+            "vi": "Nó đặt PC kế tiếp tới nhãn Done"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: equality makes the branch taken.",
+            "vi": "Đúng: điều kiện bằng làm nhánh được thực hiện."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "CMP establishes the condition; the following branch decides the next PC.",
+        "vi": "CMP thiết lập điều kiện; lệnh nhánh quyết định PC kế tiếp."
       }
     },
     {
       "id": "cp-assembly-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "Which sequence stores M[A] + M[B] in M[Result]?",
+        "vi": "Chuỗi lệnh nào lưu M[A] + M[B] vào M[Result]?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "LDM #A; ADD B; STO Result",
+            "vi": "LDM #A; ADD B; STO Result"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "LDM #A loads the literal address/name, not M[A].",
+            "vi": "LDM #A nạp địa chỉ/tên tức thời, không nạp M[A]."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "LDD A; ADD B; STO Result",
+            "vi": "LDD A; ADD B; STO Result"
+          },
+          "feedback": {
+            "en": "Correct: load the first value, add the second, then store ACC.",
+            "vi": "Đúng: load giá trị thứ nhất, cộng giá trị thứ hai rồi store ACC."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "STO A; STO B; ADD Result",
+            "vi": "STO A; STO B; ADD Result"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This overwrites inputs before calculating the sum.",
+            "vi": "Chuỗi này ghi đè input trước khi tính tổng."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Construction must use only the supplied instruction semantics.",
+        "vi": "Khi viết code phải dùng đúng ngữ nghĩa tập lệnh được cho."
       }
     },
     {
       "id": "cp-assembly-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Value changes to 4 while Total remains 7. What follows CMP #12 after LDD Value; ADD Total?",
+        "vi": "Value đổi thành 4 còn Total vẫn là 7. CMP #12 cho kết quả gì sau LDD Value; ADD Total?"
       },
       "transfer": true,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
+            "en": "ACC is 11, so the equality condition is false",
+            "vi": "ACC bằng 11 nên điều kiện bằng là false"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: 4 + 7 = 11, not 12.",
+            "vi": "Đúng: 4 + 7 = 11, không bằng 12."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "ACC is 12 because CMP loads its operand",
+            "vi": "ACC bằng 12 vì CMP nạp toán hạng"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "CMP tests; it does not load #12 into ACC here.",
+            "vi": "CMP kiểm tra; nó không nạp #12 vào ACC trong bài này."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "The result is unknown until STO runs",
+            "vi": "Không biết kết quả cho tới khi STO chạy"
+          },
+          "feedback": {
+            "en": "Both operands are already given, so the state is traceable.",
+            "vi": "Hai toán hạng đã được cho nên có thể trace state."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Recompute from changed data rather than reusing the earlier branch outcome.",
+        "vi": "Tính lại từ dữ liệu đã đổi, không tái sử dụng kết quả nhánh cũ."
       }
     }
   ],

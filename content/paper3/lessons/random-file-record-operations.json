@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.2-T02",
   "slug": "random-file-record-operations",
   "estimatedMinutes": 40,
@@ -162,8 +162,8 @@
         "pseudocode-2026"
       ],
       "code": "TYPE StockRecord\n   DECLARE ProductCode : STRING\n   DECLARE Quantity : INTEGER\nENDTYPE\n\nCONSTANT RecordCount = 5\nDECLARE Stock : StockRecord\nDECLARE RecordNumber : INTEGER\nDECLARE Position : INTEGER\nRecordNumber ← 3\n\nOPENFILE \"Stock.dat\" FOR RANDOM\nIF RecordNumber >= 1 AND RecordNumber <= RecordCount THEN\n   Position ← RecordNumber - 1\n   SEEK \"Stock.dat\", Position\n   GETRECORD \"Stock.dat\", Stock\n   Stock.Quantity ← Stock.Quantity + 5\n   SEEK \"Stock.dat\", Position\n   PUTRECORD \"Stock.dat\", Stock\nENDIF\nCLOSEFILE \"Stock.dat\"",
-      "codeLanguage": "assembly",
-      "codeDialect": "Cambridge 9618 assembly language"
+      "codeLanguage": "pseudocode",
+      "codeDialect": "Cambridge-style pseudocode with declared random-file operations"
     }
   ],
   "visual": {
@@ -490,289 +490,289 @@
     {
       "id": "cp-random-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about random-file records?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về record trong random file?"
+        "en": "What does random access mean for a fixed-record file?",
+        "vi": "Random access có nghĩa gì với fixed-record file?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "State the meaning and declared convention for random-file records.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho record trong random file."
+            "en": "A random number chooses an unpredictable record",
+            "vi": "Số ngẫu nhiên chọn record không dự đoán được"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Random access is not probabilistic selection.",
+            "vi": "Random access không phải chọn theo xác suất."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "A calculated or supplied position is accessed directly",
+            "vi": "Truy cập trực tiếp position được tính hoặc cung cấp"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: earlier records need not be read first.",
+            "vi": "Đúng: không cần đọc các record trước đó."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Records have no fixed layout",
+            "vi": "Record không có layout cố định"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Direct positioning depends on a declared layout.",
+            "vi": "Định vị trực tiếp phụ thuộc layout đã khai báo."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Random access selects a known record location directly.",
+        "vi": "Random access chọn trực tiếp vị trí record đã biết."
       }
     },
     {
       "id": "cp-random-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "Record numbers are 1-based but SEEK positions are 0-based. Which position selects record 3?",
+        "vi": "Record number bắt đầu từ 1 nhưng SEEK position bắt đầu từ 0. Position nào chọn record 3?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "3",
+            "vi": "3"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This forgets the one-based to zero-based conversion.",
+            "vi": "Đáp án này quên chuyển one-based sang zero-based."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "1",
+            "vi": "1"
+          },
+          "feedback": {
+            "en": "Position 1 selects the second record.",
+            "vi": "Position 1 chọn record thứ hai."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "2",
+            "vi": "2"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: Position = RecordNumber - 1.",
+            "vi": "Đúng: Position = RecordNumber - 1."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "State the index convention before calculating a logical position.",
+        "vi": "Nêu index convention trước khi tính logical position."
       }
     },
     {
       "id": "cp-random-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "What is the immediate effect of SEEK \"Stock.dat\", 2?",
+        "vi": "Hiệu ứng ngay của SEEK \"Stock.dat\", 2 là gì?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
+            "en": "The file pointer moves to logical position 2",
+            "vi": "File pointer chuyển tới logical position 2"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: SEEK positions but does not read.",
+            "vi": "Đúng: SEEK định vị nhưng chưa đọc."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Record 2 is copied into Stock",
+            "vi": "Record 2 được copy vào Stock"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "GETRECORD performs the read.",
+            "vi": "GETRECORD mới thực hiện read."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A new record is appended",
+            "vi": "Một record mới được append"
+          },
+          "feedback": {
+            "en": "SEEK neither creates nor appends.",
+            "vi": "SEEK không tạo hoặc append."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Separate positioning from transfer: SEEK moves, GET reads and PUT writes.",
+        "vi": "Phân biệt định vị với truyền dữ liệu: SEEK di chuyển, GET đọc, PUT ghi."
       }
     },
     {
       "id": "cp-random-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "The selected record has Quantity 8. After adding 5 and PUTRECORD at the same position, what must be true?",
+        "vi": "Record được chọn có Quantity 8. Sau khi cộng 5 và PUTRECORD tại cùng position, điều gì đúng?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+            "en": "Every record quantity becomes 13",
+            "vi": "Quantity mọi record thành 13"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Only the selected record is written back.",
+            "vi": "Chỉ record được chọn được ghi lại."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "The selected record stores 13; unrelated records stay unchanged",
+            "vi": "Record được chọn lưu 13; record khác không đổi"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: read-modify-write targets one position.",
+            "vi": "Đúng: read-modify-write nhắm tới một position."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "A sixth record is appended with quantity 5",
+            "vi": "Record thứ sáu được append với quantity 5"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "PUT at the current position updates that record.",
+            "vi": "PUT tại position hiện tại cập nhật record đó."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "A correct trace proves target update and non-target preservation.",
+        "vi": "Trace đúng chứng minh cả cập nhật target và giữ nguyên non-target."
       }
     },
     {
       "id": "cp-random-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "RecordCount is 5. What should happen before seeking when RecordNumber is 6?",
+        "vi": "RecordCount bằng 5. Điều gì cần xảy ra trước SEEK khi RecordNumber bằng 6?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Wrap to record 1",
+            "vi": "Quay vòng về record 1"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "No wraparound rule was declared.",
+            "vi": "Không có quy tắc wraparound."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Seek position 5 and create a record automatically",
+            "vi": "Seek position 5 và tự tạo record"
+          },
+          "feedback": {
+            "en": "Fixed bounds do not authorise extension.",
+            "vi": "Giới hạn cố định không cho tự mở rộng."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Reject it as out of range and do not seek",
+            "vi": "Từ chối vì ngoài phạm vi và không seek"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: validate before calculating or seeking.",
+            "vi": "Đúng: validate trước khi tính hoặc seek."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Bounds validation prevents unsafe file access.",
+        "vi": "Validation giới hạn ngăn file access không an toàn."
       }
     },
     {
       "id": "cp-random-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Records are 24 bytes, numbering starts at 1, and the header is 8 bytes. What offset locates record 4?",
+        "vi": "Mỗi record dài 24 byte, đánh số từ 1 và header dài 8 byte. Offset nào định vị record 4?"
       },
       "transfer": true,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
+            "en": "80",
+            "vi": "80"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: 8 + (4 - 1) × 24 = 80.",
+            "vi": "Đúng: 8 + (4 - 1) × 24 = 80."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "96",
+            "vi": "96"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This uses 4 × 24 and ignores the convention.",
+            "vi": "Đáp án này dùng 4 × 24 và bỏ qua convention."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "72",
+            "vi": "72"
+          },
+          "feedback": {
+            "en": "This omits the 8-byte header.",
+            "vi": "Đáp án này thiếu header 8 byte."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Use base offset + (record number - first number) × record size.",
+        "vi": "Dùng base offset + (record number - first number) × record size."
       }
     }
   ],

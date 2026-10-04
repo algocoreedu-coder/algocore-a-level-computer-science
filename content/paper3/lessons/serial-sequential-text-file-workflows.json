@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.2-T01",
   "slug": "serial-sequential-text-file-workflows",
   "estimatedMinutes": 40,
@@ -478,289 +478,289 @@
     {
       "id": "cp-text-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about serial/sequential text files?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về text file serial/sequential?"
+        "en": "Which mode preserves existing lines and writes new lines at the end?",
+        "vi": "Mode nào giữ các dòng cũ và ghi dòng mới ở cuối?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "State the meaning and declared convention for serial/sequential text files.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho text file serial/sequential."
+            "en": "READ",
+            "vi": "READ"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "READ permits input, not new output.",
+            "vi": "READ cho phép đọc, không ghi output mới."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "WRITE",
+            "vi": "WRITE"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "WRITE creates or truncates under this convention.",
+            "vi": "WRITE tạo mới hoặc xóa nội dung cũ theo convention."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "APPEND",
+            "vi": "APPEND"
+          },
+          "feedback": {
+            "en": "Correct: APPEND writes after existing data.",
+            "vi": "Đúng: APPEND ghi sau dữ liệu đã có."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Mode determines permitted operations and the effect on existing content.",
+        "vi": "Mode quyết định operation được phép và ảnh hưởng lên nội dung cũ."
       }
     },
     {
       "id": "cp-text-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "Why is EOF tested before READFILE inside the loop?",
+        "vi": "Vì sao kiểm EOF trước READFILE trong loop?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
+            "en": "To rewind the pointer to the first line",
+            "vi": "Để đưa pointer về dòng đầu"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "EOF testing does not rewind the file.",
+            "vi": "Kiểm EOF không rewind file."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "To avoid reading when no next item exists",
+            "vi": "Để tránh đọc khi không còn item kế tiếp"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: the guard protects the read at end of file.",
+            "vi": "Đúng: guard bảo vệ read ở cuối file."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "To change the file to WRITE mode",
+            "vi": "Để đổi file sang WRITE mode"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "EOF cannot change the open mode.",
+            "vi": "EOF không đổi mode đã mở."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "The safe sequential pattern is test for EOF, then read the next item.",
+        "vi": "Pattern sequential an toàn là kiểm EOF rồi đọc item kế tiếp."
       }
     },
     {
       "id": "cp-text-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "Input.txt contains A then B. Archive.txt opens FOR WRITE and the copy loop completes. What is stored?",
+        "vi": "Input.txt chứa A rồi B. Archive.txt mở FOR WRITE và copy loop hoàn tất. Nó lưu gì?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "A then B, in the same order",
+            "vi": "A rồi B, cùng thứ tự"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: sequential read/write preserves order.",
+            "vi": "Đúng: read/write tuần tự giữ nguyên thứ tự."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "B then A",
+            "vi": "B rồi A"
+          },
+          "feedback": {
+            "en": "Nothing reverses the sequence.",
+            "vi": "Không có thao tác đảo thứ tự."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Only B",
+            "vi": "Chỉ B"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "WRITEFILE runs for every line read.",
+            "vi": "WRITEFILE chạy cho mỗi dòng được đọc."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace one loop iteration per line and preserve pointer order.",
+        "vi": "Trace một vòng lặp cho mỗi dòng và giữ thứ tự pointer."
       }
     },
     {
       "id": "cp-text-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "Which action is invalid while a file is open FOR READ?",
+        "vi": "Thao tác nào không hợp lệ khi file mở FOR READ?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+            "en": "Testing EOF",
+            "vi": "Kiểm tra EOF"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "EOF is part of a normal read workflow.",
+            "vi": "EOF là phần bình thường của quy trình đọc."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Using READFILE",
+            "vi": "Dùng READFILE"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "READFILE matches READ mode.",
+            "vi": "READFILE phù hợp READ mode."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Using WRITEFILE on that file",
+            "vi": "Dùng WRITEFILE trên file đó"
+          },
+          "feedback": {
+            "en": "Correct: READ mode does not permit writing.",
+            "vi": "Đúng: READ mode không cho phép ghi."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Match every file operation to the declared open mode.",
+        "vi": "Đối chiếu từng file operation với mode đã khai báo."
       }
     },
     {
       "id": "cp-text-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "Which workflow safely copies every line from Source.txt to New.txt?",
+        "vi": "Workflow nào copy an toàn mọi dòng từ Source.txt sang New.txt?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+            "en": "Open both FOR READ, then WRITEFILE to New.txt",
+            "vi": "Mở cả hai FOR READ rồi WRITEFILE vào New.txt"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "The destination is not writable.",
+            "vi": "Destination không được mở ở mode cho phép ghi."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Open source FOR READ and destination FOR WRITE; loop while not EOF, read then write; close both",
+            "vi": "Mở source FOR READ và destination FOR WRITE; loop khi chưa EOF, read rồi write; đóng cả hai"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: modes, guard, order and cleanup agree.",
+            "vi": "Đúng: mode, guard, thứ tự và cleanup phù hợp."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Read before opening, then append EOF",
+            "vi": "Đọc trước khi mở rồi append EOF"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Open must precede read; EOF is not data.",
+            "vi": "Phải mở trước khi đọc; EOF không phải dữ liệu."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "A complete answer includes modes, EOF control, read/write order and closing.",
+        "vi": "Câu trả lời đầy đủ gồm mode, EOF, thứ tự read/write và đóng file."
       }
     },
     {
       "id": "cp-text-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Source.txt is empty. How many READFILE and WRITEFILE operations does a correct guarded loop perform?",
+        "vi": "Source.txt rỗng. Loop có guard đúng thực hiện bao nhiêu READFILE và WRITEFILE?"
       },
       "transfer": true,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Zero reads and zero writes",
+            "vi": "Không read và không write"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: NOT EOF is false before the first iteration.",
+            "vi": "Đúng: NOT EOF là false trước vòng đầu."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "One read and zero writes",
+            "vi": "Một read và không write"
+          },
+          "feedback": {
+            "en": "This attempts to read past EOF.",
+            "vi": "Cách này cố đọc quá EOF."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "One read and one blank write",
+            "vi": "Một read và ghi một dòng trống"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "EOF is a state, not a blank record.",
+            "vi": "EOF là trạng thái, không phải blank record."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "An empty-file boundary case skips the guarded loop completely.",
+        "vi": "Boundary file rỗng bỏ qua hoàn toàn loop có guard."
       }
     }
   ],

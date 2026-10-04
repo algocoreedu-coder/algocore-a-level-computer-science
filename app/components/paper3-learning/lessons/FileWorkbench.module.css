@@ -5,6 +5,7 @@
 .keyControls > div:first-child { flex: 1 1 230px; }
 .keyControls input { width: 100%; }
 .presets { display: flex; gap: 8px; flex-wrap: wrap; flex-basis: 100%; }
+.presets button { min-width: 44px; min-height: 44px; }
 .error { padding: 12px 16px; background: var(--alg-state-warning-surface); color: var(--alg-text-default); border-left: 3px solid var(--alg-state-warning); width: 100%; font-size: 15px; }
 .caption { padding: 16px 24px; color: var(--alg-text-muted); font-size: 14px; }
 .unsupported { margin: 0 24px 16px !important; padding: 12px 16px; border-left: 3px solid var(--alg-state-warning); background: var(--alg-state-warning-surface); font-size: 14px; }

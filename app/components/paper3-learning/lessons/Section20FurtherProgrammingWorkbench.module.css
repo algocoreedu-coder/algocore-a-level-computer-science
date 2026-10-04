@@ -23,7 +23,7 @@
 .codePanel ol { margin: 10px 0 0; padding-left: 28px; }
 .codePanel li { padding: 5px 7px; border-left: 3px solid transparent; }
 .codePanel li[data-state="active"] { border-left-color: var(--alg-action-primary); background: var(--alg-action-primary-soft); font-weight: 850; }
-.codePanel code,.stateDigest dd,.fallback pre,.classCard pre,.objectGrid pre { overflow-wrap: anywhere; font-family: Consolas,ui-monospace,monospace; white-space: pre-wrap; }
+.codePanel code,.stateDigest dd,.fallback pre,.technicalState pre { overflow-wrap: anywhere; font-family: Consolas,ui-monospace,monospace; white-space: pre-wrap; }
 .metricGrid { display: grid; grid-template-columns: repeat(auto-fit,minmax(125px,1fr)); gap: 8px; }
 .metric { display: grid; gap: 4px; min-width: 0; padding: 10px; border: 1px solid var(--alg-border-default); border-radius: 7px; background: var(--alg-surface-panel); }
 .metric strong { overflow-wrap: anywhere; font-family: Consolas,ui-monospace,monospace; }
@@ -35,7 +35,30 @@
 .recordRail article[data-state="active"],.objectGrid article[data-state="active"] { border-color: var(--alg-action-primary); background: var(--alg-action-primary-soft); transform: translateY(-3px); }
 .objectBoard,.fileBoard,.proofBoard,.paradigmBoard,.exceptionFlow,.machine { display: grid; gap: 12px; }
 .classCard,.proofBoard article,.twoLane article { display: grid; gap: 7px; min-width: 0; padding: 12px; border: 1px solid var(--alg-border-default); border-radius: 8px; background: var(--alg-surface-panel); }
-.classCard pre,.objectGrid pre { max-height: 180px; margin: 4px 0 0; overflow: auto; font-size: 11px; }
+.blueprintGrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit,minmax(270px,1fr)); }
+.classCard > header,.objectGrid article > header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 7px; }
+.classCard > header strong,.objectGrid article > header strong { font-size: 17px; }
+.memberTable { display: grid; overflow-x: auto; border: 1px solid var(--alg-border-default); border-radius: 7px; }
+.memberTable:focus-visible { outline: 3px solid var(--alg-focus-ring); outline-offset: 2px; }
+.memberTable > div { display: grid; grid-template-columns: minmax(110px,1fr) minmax(72px,.55fr) minmax(76px,.55fr) minmax(150px,1.3fr); min-width: 500px; }
+.memberTable > div + div { border-top: 1px solid var(--alg-border-default); }
+.memberTable :is(strong,span,code) { min-width: 0; padding: 7px 8px; overflow-wrap: anywhere; }
+.memberTable :is(strong,span,code) + :is(strong,span,code) { border-left: 1px solid var(--alg-border-default); }
+.memberTable code { font: 700 12px/1.45 Consolas,ui-monospace,monospace; }
+.memberHeader { background: var(--alg-surface-panel-muted); color: var(--alg-text-muted); font-size: 10px; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+.memberTable [data-access="private"],.fieldList [data-access="private"] dd > span { color: var(--alg-state-warning-foreground,var(--alg-text-default)); }
+.memberTable [data-access="public"] { color: var(--alg-action-primary-soft-foreground); }
+.fieldList { display: grid; gap: 7px; margin: 3px 0 0; }
+.fieldList > div { display: grid; grid-template-columns: minmax(90px,.65fr) minmax(0,1fr); gap: 8px; padding-top: 7px; border-top: 1px solid var(--alg-border-default); }
+.fieldList dt,.fieldList dd { min-width: 0; margin: 0; }
+.fieldList dt strong,.fieldList dt span,.fieldList dd span,.fieldList dd code { display: block; overflow-wrap: anywhere; }
+.fieldList dt span,.fieldList dd span { margin-top: 2px; color: var(--alg-text-muted); font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+.fieldList dd code { font: 750 12px/1.5 Consolas,ui-monospace,monospace; }
+.emptyState { margin: 0; color: var(--alg-text-muted); font-size: 13px; }
+.technicalState { border: 1px dashed var(--alg-border-default); border-radius: 8px; background: var(--alg-surface-panel-muted); }
+.technicalState summary { min-height: 44px; padding: 12px; cursor: pointer; color: var(--alg-text-muted); font-size: 12px; font-weight: 800; }
+.technicalState summary:focus-visible { outline: 3px solid var(--alg-focus-ring); outline-offset: 2px; }
+.technicalState pre { max-height: 260px; margin: 0 12px 12px; overflow: auto; padding: 10px; background: var(--alg-surface-code); color: var(--alg-code-text); font-size: 11px; }
 .relationships { display: flex; flex-wrap: wrap; gap: 8px; }
 .relationships span { padding: 7px 10px; border: 1px dashed var(--alg-action-primary); border-radius: 999px; }
 .proofBoard { grid-template-columns: repeat(3,minmax(0,1fr)); }

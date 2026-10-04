@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.1-T06",
   "slug": "declarative-facts-rules-and-goals",
   "estimatedMinutes": 40,
@@ -162,8 +162,8 @@
         "pseudocode-2026"
       ],
       "code": "studies(an, computer_science).\npassed(an, programming).\ncan_join(S) IF studies(S, computer_science) AND passed(S, programming).\nGOAL can_join(an)",
-      "codeLanguage": "assembly",
-      "codeDialect": "Cambridge 9618 assembly language"
+      "codeLanguage": "declarative",
+      "codeDialect": "AlgoCore declarative teaching notation (facts, rules and goals)"
     }
   ],
   "visual": {
@@ -490,289 +490,289 @@
     {
       "id": "cp-decl-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about declarative facts, rules and goals?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về facts, rules và goals declarative?"
+        "en": "Which item is a fact in the displayed knowledge base?",
+        "vi": "Mục nào là fact trong knowledge base đã cho?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "GOAL can_join(an)",
+            "vi": "GOAL can_join(an)"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This is a query, not stored evidence.",
+            "vi": "Đây là query, không phải bằng chứng đã lưu."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "studies(an, computer_science).",
+            "vi": "studies(an, computer_science)."
+          },
+          "feedback": {
+            "en": "Correct: it directly asserts a relationship.",
+            "vi": "Đúng: nó khẳng định trực tiếp một quan hệ."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "can_join(S) IF ...",
+            "vi": "can_join(S) IF ..."
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "State the meaning and declared convention for declarative facts, rules and goals.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho facts, rules và goals declarative."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This is a rule whose conclusion depends on conditions.",
+            "vi": "Đây là rule có kết luận phụ thuộc các điều kiện."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Facts assert known relationships without another premise.",
+        "vi": "Fact khẳng định quan hệ đã biết mà không cần premise khác."
       }
     },
     {
       "id": "cp-decl-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "Why can GOAL can_join(an) be proved?",
+        "vi": "Vì sao GOAL can_join(an) được chứng minh?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
+            "en": "Both rule conditions match facts with S = an",
+            "vi": "Cả hai điều kiện match fact với S = an"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: all AND premises succeed consistently.",
+            "vi": "Đúng: mọi premise AND thành công nhất quán."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "The first condition alone is enough for an AND rule",
+            "vi": "Chỉ điều kiện đầu là đủ cho rule AND"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Every AND condition must succeed.",
+            "vi": "Mọi điều kiện AND đều phải thành công."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A goal automatically becomes a new fact",
+            "vi": "Goal tự động trở thành fact mới"
+          },
+          "feedback": {
+            "en": "A query does not assert itself.",
+            "vi": "Query không tự khẳng định chính nó."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "A proof matches the goal to a rule and proves each premise.",
+        "vi": "Chứng minh match goal với rule rồi chứng minh từng premise."
       }
     },
     {
       "id": "cp-decl-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "If passed(an, programming) is removed, what happens to can_join(an)?",
+        "vi": "Nếu bỏ passed(an, programming), can_join(an) sẽ thế nào?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
+            "en": "It succeeds because studies(...) matches",
+            "vi": "Nó thành công vì studies(...) match"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "One premise cannot satisfy both sides of AND.",
+            "vi": "Một premise không thể thỏa cả hai phía AND."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "It becomes a syntax error",
+            "vi": "Nó trở thành syntax error"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The goal is well formed but lacks proof.",
+            "vi": "Goal đúng cú pháp nhưng thiếu bằng chứng."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "It is not proved because one required premise fails",
+            "vi": "Nó không được chứng minh vì một premise bắt buộc thất bại"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: both conditions are required.",
+            "vi": "Đúng: cả hai điều kiện đều bắt buộc."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "An unproved well-formed goal is distinct from invalid syntax.",
+        "vi": "Goal đúng cú pháp nhưng không chứng minh được khác với lỗi cú pháp."
       }
     },
     {
       "id": "cp-decl-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "In the declared notation, what does upper-case S represent?",
+        "vi": "Trong notation đã khai báo, chữ hoa S biểu diễn gì?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "A fixed constant named S",
+            "vi": "Constant cố định tên S"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The lesson convention uses upper-case identifiers as variables.",
+            "vi": "Convention của bài dùng identifier chữ hoa làm variable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A variable that keeps one consistent binding",
+            "vi": "Variable giữ một binding nhất quán"
+          },
+          "feedback": {
+            "en": "Correct: every S in the rule refers to the same value.",
+            "vi": "Đúng: mọi S trong rule dùng cùng giá trị."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "A procedure parameter passed by reference",
+            "vi": "Procedure parameter truyền by reference"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Rule variables are not procedural parameters.",
+            "vi": "Rule variable không phải procedural parameter."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace bindings and reuse each binding consistently across premises.",
+        "vi": "Trace binding và dùng nhất quán binding đó qua các premise."
       }
     },
     {
       "id": "cp-decl-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "Which rule states that a student is eligible if they passed programming and submitted the project?",
+        "vi": "Rule nào nói học sinh đủ điều kiện nếu đã pass programming và nộp project?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+            "en": "eligible(S) IF passed(S, programming) AND submitted(S, project).",
+            "vi": "eligible(S) IF passed(S, programming) AND submitted(S, project)."
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: both predicates share student S.",
+            "vi": "Đúng: hai predicate dùng chung học sinh S."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "eligible(S) IF passed(T, programming) AND submitted(U, project).",
+            "vi": "eligible(S) IF passed(T, programming) AND submitted(U, project)."
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Unrelated variables do not connect evidence to S.",
+            "vi": "Variable rời rạc không nối bằng chứng với S."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "CALL eligible(S); passed; submitted",
+            "vi": "CALL eligible(S); passed; submitted"
+          },
+          "feedback": {
+            "en": "This procedural notation is not a declarative rule.",
+            "vi": "Notation procedural này không phải declarative rule."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "A rule connects its conclusion and premises through consistent variables.",
+        "vi": "Rule nối kết luận với premise bằng variable nhất quán."
       }
     },
     {
       "id": "cp-decl-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Facts show studies(mai, computer_science) and passed(lan, programming). Can the rule prove can_join(mai)?",
+        "vi": "Fact cho studies(mai, computer_science) và passed(lan, programming). Rule chứng minh can_join(mai) được không?"
       },
       "transfer": true,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
+            "en": "Yes, because each condition matches someone",
+            "vi": "Có, vì mỗi điều kiện match một người"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "The same S must satisfy both conditions.",
+            "vi": "Cùng S phải thỏa cả hai điều kiện."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Yes, because mai appears in the first fact",
+            "vi": "Có, vì mai xuất hiện trong fact đầu"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The second fact required for mai is absent.",
+            "vi": "Fact thứ hai cần cho mai không có."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "No, because no single binding satisfies both premises",
+            "vi": "Không, vì không có một binding thỏa cả hai premise"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: mai and lan cannot jointly bind S.",
+            "vi": "Đúng: mai và lan không thể cùng bind cho S."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Transfer questions often test consistent bindings across an AND rule.",
+        "vi": "Câu transfer thường kiểm tra binding nhất quán qua rule AND."
       }
     }
   ],

@@ -84,7 +84,12 @@
 .examGuidance { margin-top: 18px; border: 1px solid var(--alg-border-default); border-radius: 8px; padding: 10px 14px; }
 .examGuidance summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--alg-text-link); font-size: 14px; font-weight: 650; }
 .examPractice > label { display: block; margin-top: 20px; font-size: 14px; font-weight: 700; }
-.examPractice textarea { width: 100%; margin-top: 8px; resize: vertical; min-height: 150px; border: 1px solid var(--alg-border-strong); border-radius: 8px; padding: 12px 14px; color: var(--alg-text-default); background: var(--alg-surface-panel); line-height: 1.6; }
+.examPractice textarea, .examPractice input { width: 100%; margin-top: 8px; border: 1px solid var(--alg-border-strong); border-radius: 8px; padding: 12px 14px; color: var(--alg-text-default); background: var(--alg-surface-panel); line-height: 1.6; }
+.examPractice textarea { resize: vertical; min-height: 150px; }
+.examPractice input { min-height: 46px; }
+.structuredAnswer { font-family: var(--font-mono), ui-monospace, SFMono-Regular, Consolas, monospace; tab-size: 2; }
+.supportingAnswer { margin-top: 16px; }
+.supportingAnswer label { display: block; font-size: 14px; font-weight: 700; }
 .examHelp { margin-top: 6px !important; color: var(--alg-text-muted); font-size: 12px; }
 .examActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .primaryButton, .secondaryButton { min-height: 44px; border-radius: 7px; padding: 9px 14px; font-weight: 700; }
@@ -94,6 +99,10 @@
 .markingPoints { margin-top: 20px; border-left: 3px solid var(--alg-state-success); border-radius: 0 8px 8px 0; padding: 16px 18px; background: var(--alg-state-success-surface); }
 .markingPoints h4 { color: var(--alg-state-success); font-size: 16px; }
 .markingPoints p { color: var(--alg-text-muted); font-size: 13px; }
+.selfMarkScore { margin: 8px 0 12px !important; color: var(--alg-text-default) !important; font-size: 15px !important; font-weight: 750; }
+.selfMarkList { display: grid; gap: 8px; padding-left: 0; list-style: none; }
+.selfMarkList label { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; align-items: start; min-height: 44px; padding: 8px 10px; border: 1px solid var(--alg-border-default); border-radius: 8px; background: var(--alg-surface-panel); cursor: pointer; }
+.selfMarkList input { width: 20px; min-height: 20px; margin: 2px 0 0; padding: 0; accent-color: var(--alg-state-success); }
 .checkpoint { padding: 24px; border: 1px solid var(--alg-border-default); border-radius: 12px; }
 .checkpointLabel { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; color: var(--alg-text-muted); font-size: 12px; margin-bottom: 14px; }
 .checkpointLabel > span:first-child { font-weight: 700; color: var(--alg-action-primary); }
@@ -140,7 +149,8 @@
 .visualLoading { display: grid; place-items: center; min-height: 360px; padding: 24px; color: var(--alg-text-muted); background: var(--alg-surface-panel-muted); text-align: center; font-size: 14px; }
 .visualTask { padding: 20px 24px; background: var(--alg-action-primary-soft); color: var(--alg-action-primary-soft-foreground); font-size: 16px; font-weight: 650; }
 .conventions { padding: 16px 24px; border-bottom: 1px solid var(--alg-border-default); color: var(--alg-text-muted); font-size: 13px; }
-.conventions strong { color: var(--alg-text-default); }
+.conventions summary { min-height: 44px; display: flex; align-items: center; color: var(--alg-text-default); font-weight: 700; cursor: pointer; }
+.conventions summary:focus-visible { outline: 3px solid var(--alg-focus-ring); outline-offset: 3px; }
 .lesson .conventions ul { margin: 5px 0 0; padding-left: 18px; }
 .conventions li { margin-top: 3px; }
 .visualControls { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 14px 20px; padding: 20px 24px; border-bottom: 1px solid var(--alg-border-default); }

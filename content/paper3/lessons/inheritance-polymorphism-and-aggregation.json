@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.1-T05",
   "slug": "inheritance-polymorphism-and-aggregation",
   "estimatedMinutes": 40,
@@ -498,289 +498,289 @@
     {
       "id": "cp-rel-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about inheritance, polymorphism and aggregation?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về inheritance, polymorphism và aggregation?"
+        "en": "Which relationship is classified correctly?",
+        "vi": "Quan hệ nào được phân loại đúng?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "State the meaning and declared convention for inheritance, polymorphism and aggregation.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho inheritance, polymorphism và aggregation."
+            "en": "Rectangle is-a Shape; Drawing has-a Shape",
+            "vi": "Rectangle is-a Shape; Drawing has-a Shape"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: inheritance is is-a; aggregation is has-a.",
+            "vi": "Đúng: inheritance là is-a; aggregation là has-a."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Drawing is-a Shape because it stores shapes",
+            "vi": "Drawing is-a Shape vì nó lưu shape"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Containing an object is has-a, not inheritance.",
+            "vi": "Chứa object là has-a, không phải inheritance."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Shape has-a Rectangle because Rectangle inherits it",
+            "vi": "Shape has-a Rectangle vì Rectangle kế thừa nó"
+          },
+          "feedback": {
+            "en": "A base class does not contain each subclass.",
+            "vi": "Base class không chứa từng subclass."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Use substitutability for is-a and containment for has-a.",
+        "vi": "Dùng khả năng thay thế cho is-a và quan hệ chứa cho has-a."
       }
     },
     {
       "id": "cp-rel-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "A Shape reference stores a Rectangle object. Which Area() runs?",
+        "vi": "Shape reference giữ Rectangle object. Area() nào chạy?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
+            "en": "Always Shape.Area() because the reference is Shape",
+            "vi": "Luôn Shape.Area() vì reference là Shape"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This ignores dispatch by actual object type.",
+            "vi": "Đáp án này bỏ qua dispatch theo actual object type."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Both methods run and their results are added",
+            "vi": "Cả hai method chạy và cộng kết quả"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "An overridden call selects one implementation.",
+            "vi": "Lời gọi override chỉ chọn một implementation."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Rectangle.Area() because the actual object is Rectangle",
+            "vi": "Rectangle.Area() vì actual object là Rectangle"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: runtime type selects the override.",
+            "vi": "Đúng: runtime type chọn override."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Polymorphism lets a base-type reference invoke the actual object's override.",
+        "vi": "Polymorphism cho phép base-type reference gọi override của actual object."
       }
     },
     {
       "id": "cp-rel-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "Rectangle(3,4) and Circle(2) use π = 3.14. What does TotalArea() return?",
+        "vi": "Rectangle(3,4) và Circle(2) dùng π = 3.14. TotalArea() trả gì?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "16.00",
+            "vi": "16.00"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This adds dimensions instead of calling both Area methods.",
+            "vi": "Đáp án này cộng kích thước thay vì gọi hai Area method."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "24.56",
+            "vi": "24.56"
+          },
+          "feedback": {
+            "en": "Correct: 3×4 + 3.14×2×2 = 24.56.",
+            "vi": "Đúng: 3×4 + 3.14×2×2 = 24.56."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "0.00",
+            "vi": "0.00"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This wrongly uses only the base placeholder.",
+            "vi": "Đáp án này chỉ dùng placeholder của base class."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace each component's actual type, calculate its override, then aggregate.",
+        "vi": "Trace actual type từng component, tính override rồi tổng hợp."
       }
     },
     {
       "id": "cp-rel-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "What makes Rectangle.Area() an override?",
+        "vi": "Điều gì làm Rectangle.Area() là override?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
+            "en": "It keeps the inherited Area operation contract but supplies subclass behaviour",
+            "vi": "Nó giữ operation contract Area kế thừa nhưng cung cấp hành vi subclass"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Correct: it replaces the inherited implementation for Rectangle objects.",
+            "vi": "Đúng: nó thay implementation kế thừa cho Rectangle object."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "It uses different spelling from Shape.Area()",
+            "vi": "Nó viết khác tên Shape.Area()"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Different spelling would prevent overriding that operation.",
+            "vi": "Khác tên sẽ không override operation đó."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "It can access every private field in Shape",
+            "vi": "Nó truy cập mọi private field trong Shape"
+          },
+          "feedback": {
+            "en": "Override status is not unrestricted private access.",
+            "vi": "Override không phải quyền truy cập private không giới hạn."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "An override preserves operation identity while supplying subtype-specific behaviour.",
+        "vi": "Override giữ identity của operation và cung cấp hành vi riêng của subtype."
       }
     },
     {
       "id": "cp-rel-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "A Library contains Book objects, and EBook is a kind of Book. Which design fits?",
+        "vi": "Library chứa Book object và EBook là một loại Book. Thiết kế nào phù hợp?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+            "en": "Library INHERITS Book; Book contains EBook",
+            "vi": "Library INHERITS Book; Book chứa EBook"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "A library is not substitutable for one book.",
+            "vi": "Library không thể thay thế cho một Book."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Book INHERITS Library; EBook aggregates Book",
+            "vi": "Book INHERITS Library; EBook aggregate Book"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "This reverses both relationships.",
+            "vi": "Cách này đảo ngược cả hai quan hệ."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "EBook INHERITS Book; Library aggregates Books",
+            "vi": "EBook INHERITS Book; Library aggregate các Book"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Correct: EBook is-a Book and Library has-a Books.",
+            "vi": "Đúng: EBook is-a Book và Library has-a các Book."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Choose inheritance for specialisation and aggregation for components or collections.",
+        "vi": "Chọn inheritance cho chuyên biệt hóa và aggregation cho component hoặc collection."
       }
     },
     {
       "id": "cp-rel-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "Triangle overrides Area() and is stored in a Shape field. What evidence shows polymorphism?",
+        "vi": "Triangle override Area() và được lưu trong field kiểu Shape. Bằng chứng nào cho thấy polymorphism?"
       },
       "transfer": true,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "The field type changes to Triangle before every call",
+            "vi": "Field type đổi thành Triangle trước mỗi lời gọi"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Polymorphism does not require rewriting the declared type.",
+            "vi": "Polymorphism không cần đổi declared type."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Calling Area() through the Shape field executes Triangle.Area()",
+            "vi": "Gọi Area() qua field kiểu Shape thực thi Triangle.Area()"
+          },
+          "feedback": {
+            "en": "Correct: one base interface dispatches to the actual subtype.",
+            "vi": "Đúng: một base interface dispatch tới actual subtype."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "Triangle copies every Shape object into itself",
+            "vi": "Triangle sao chép mọi Shape object vào nó"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Inheritance does not copy existing base objects.",
+            "vi": "Inheritance không sao chép base object hiện có."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Polymorphism is observable as different overridden behaviour through one base interface.",
+        "vi": "Polymorphism thể hiện qua hành vi override khác nhau trên cùng base interface."
       }
     }
   ],

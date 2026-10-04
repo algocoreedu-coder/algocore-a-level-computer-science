@@ -90,7 +90,7 @@
 .tableScroll caption { text-align: left; padding: 12px 14px; }
 .tableScroll tr[data-selected=true] { background: var(--alg-action-primary-soft); }
 .tableScroll tr[data-one=true] > th { border-left: 3px solid var(--alg-brand-orange); }
-.tableScroll button { min-height: 44px; padding: 7px 10px; border-radius: 5px; border: 1px solid var(--alg-border-strong); background: var(--alg-surface-panel); color: var(--alg-text-default); cursor: pointer; font: 750 15px/1.5 Consolas,monospace; }
+.tableScroll button { min-width: 44px; min-height: 44px; padding: 7px 10px; border-radius: 5px; border: 1px solid var(--alg-border-strong); background: var(--alg-surface-panel); color: var(--alg-text-default); cursor: pointer; font: 750 15px/1.5 Consolas,monospace; }
 .tableScroll button[aria-pressed=true] { color: var(--alg-action-primary-soft-foreground); border-color: var(--alg-action-primary); }
 .instructionMatrix { min-width: 860px; }
 .instructionMatrix th,.instructionMatrix td { text-align: center; white-space: nowrap; }

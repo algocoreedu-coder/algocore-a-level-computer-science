@@ -609,13 +609,13 @@ export function CambridgeVisualPrimer({ kind, locale }: { readonly kind: VisualK
   const guide = guides[kind];
   if (!guide) return null;
 
-  return <section className={styles.primer} data-cambridge-primer={kind} aria-labelledby={`visual-primer-${kind}`}>
-    <header className={styles.header}>
-      <div className={styles.titleRow}>
-        <BookOpen size={19} aria-hidden="true" />
-        <h3 id={`visual-primer-${kind}`}>{locale === "vi" ? "Sơ đồ đọc nhanh trước khi chạy mô phỏng" : "Quick reference before using the simulation"}</h3>
-      </div>
+  return <details className={styles.primer} data-cambridge-primer={kind}>
+    <summary className={styles.summary}>
+      <span className={styles.summaryTitle}><BookOpen size={19} aria-hidden="true" /><span id={`visual-primer-${kind}`}>{locale === "vi" ? "Mở sơ đồ khái niệm và giới hạn mô hình" : "Open the concept map and model boundaries"}</span></span>
       <span className={styles.sectionBadge}>Cambridge 9618 · Section {guide.section}</span>
+    </summary>
+    <div className={styles.primerContent} aria-labelledby={`visual-primer-${kind}`}>
+    <header className={styles.header}>
       <p>{guide.reference[locale]} · {locale === "vi" ? "AlgoCore dựng lại theo khái niệm, không sao chép hình sách." : "Concept-aligned AlgoCore redraw; it is not a copy of the book artwork."}</p>
       {guide.modelBoundary && <p><strong>{locale === "vi" ? "Giới hạn mô hình: " : "Model boundary: "}</strong>{guide.modelBoundary[locale]}</p>}
     </header>
@@ -639,5 +639,6 @@ export function CambridgeVisualPrimer({ kind, locale }: { readonly kind: VisualK
     </div>
 
     {guide.correction && <aside className={styles.correction}><strong>{locale === "vi" ? "Ghi chú đối chiếu sách" : "Coursebook cross-check"}</strong><p>{guide.correction[locale]}</p></aside>}
-  </section>;
+    </div>
+  </details>;
 }

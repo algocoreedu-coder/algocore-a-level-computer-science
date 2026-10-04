@@ -1,4 +1,6 @@
 .docsLayout { --fd-layout-width: 100%; }
+.docsLayout :global(#nd-sidebar) :is(a,button) { min-height: 44px; }
+.docsLayout :global(#nd-sidebar) button { min-width: 44px; }
 .docsLayout :global(.course-label) > span,
 .docsLayout :global(.sidebar-note) > svg { color: var(--alg-action-primary); }
 .docsLayout :global(.course-label) > p,

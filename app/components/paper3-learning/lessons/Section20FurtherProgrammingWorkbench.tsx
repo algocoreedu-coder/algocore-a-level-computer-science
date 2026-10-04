@@ -72,6 +72,22 @@ const compact = (value: unknown): string => {
   if (Array.isArray(value)) return value.length ? value.map(compact).join(" · ") : "∅";
   return JSON.stringify(value);
 };
+const friendlyValue = (value: unknown): string => {
+  if (value === null || value === undefined) return "—";
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return String(value);
+  if (Array.isArray(value)) return value.length ? value.map(friendlyValue).join(", ") : "∅";
+  if (isMap(value)) return Object.entries(value).map(([key, entry]) => `${key}: ${friendlyValue(entry)}`).join(" · ");
+  return String(value);
+};
+const valueType = (value: unknown): string => {
+  if (value === null || value === undefined) return "UNSET";
+  if (Array.isArray(value)) return "ARRAY";
+  if (typeof value === "string") return "STRING";
+  if (typeof value === "number") return Number.isInteger(value) ? "INTEGER" : "REAL";
+  if (typeof value === "boolean") return "BOOLEAN";
+  if (isMap(value)) return "RECORD";
+  return "VALUE";
+};
 const stateValue = (state: unknown, ...keys: string[]): unknown => {
   let cursor: unknown = state;
   for (const key of keys) cursor = map(cursor)[key];
@@ -93,7 +109,7 @@ function makeTrace(kind: Section20VisualKind, scenario: string): FurtherProgramm
 }
 
 function Metric({ label, value, hook }: { readonly label: string; readonly value: unknown; readonly hook?: string }) {
-  return <div className={styles.metric} {...(hook ? { [hook]: "" } : {})}><span>{label}</span><strong>{compact(value)}</strong></div>;
+  return <div className={styles.metric} {...(hook ? { [hook]: "" } : {})}><span>{label}</span><strong>{friendlyValue(value)}</strong></div>;
 }
 
 function MemoryBoard({ state, locale }: { readonly state: unknown; readonly locale: Locale }) {
@@ -118,15 +134,46 @@ function MemoryBoard({ state, locale }: { readonly state: unknown; readonly loca
   </div>;
 }
 
+function StateFields({ value, locale, privateFields = new Set<string>() }: { readonly value: JsonMap; readonly locale: Locale; readonly privateFields?: ReadonlySet<string> }) {
+  const rows = Object.entries(value).filter(([key]) => !["id", "class", "className", "type", "state"].includes(key));
+  return rows.length ? <dl className={styles.fieldList}>{rows.map(([field, fieldValue]) => <div key={field} data-access={privateFields.has(field) ? "private" : "state"}>
+    <dt><strong>{field}</strong><span>{valueType(fieldValue)}</span></dt>
+    <dd><span>{privateFields.has(field) ? "PRIVATE" : (locale === "vi" ? "STATE" : "STATE")}</span><code>{friendlyValue(fieldValue)}</code></dd>
+  </div>)}</dl> : <p className={styles.emptyState}>{locale === "vi" ? "Chưa có state riêng ở bước này." : "No instance state is set at this step."}</p>;
+}
+
+function ClassBlueprint({ definition, sample, locale }: { readonly definition: unknown; readonly sample: JsonMap; readonly locale: Locale }) {
+  const source = map(definition);
+  const namedDefinitions: [string, JsonMap][] = typeof source.name === "string"
+    ? [[String(source.name), source]]
+    : Object.entries(source).filter(([, value]) => isMap(value)).map(([name, value]) => [name, map(value)]);
+  return <div className={styles.blueprintGrid}>{namedDefinitions.map(([name, blueprint]) => {
+    const privateAttributes = Array.isArray(blueprint.privateAttributes) ? blueprint.privateAttributes.map(String) : [];
+    const publicMethods = Array.isArray(blueprint.publicMethods) ? blueprint.publicMethods.map(String) : Array.isArray(blueprint.methods) ? blueprint.methods.map(String) : [];
+    const relations = Object.entries(blueprint).filter(([key]) => !["name", "privateAttributes", "publicMethods", "methods"].includes(key));
+    return <article className={styles.classCard} key={name}><header><small>{locale === "vi" ? "CLASS BLUEPRINT" : "CLASS BLUEPRINT"}</small><strong>{name}</strong></header><div className={styles.memberTable} role="table" tabIndex={0} aria-label={`${name} ${locale === "vi" ? "bảng member, có thể cuộn ngang" : "member table, horizontally scrollable"}`}>
+      <div role="row" className={styles.memberHeader}><span role="columnheader">{locale === "vi" ? "Trường / member" : "Field / member"}</span><span role="columnheader">{locale === "vi" ? "Kiểu" : "Type"}</span><span role="columnheader">{locale === "vi" ? "Truy cập" : "Access"}</span><span role="columnheader">{locale === "vi" ? "Giá trị / vai trò" : "Value / role"}</span></div>
+      {privateAttributes.map((field) => <div role="row" key={`private-${field}`}><strong role="cell">{field}</strong><span role="cell">{sample[field] === undefined ? (locale === "vi" ? "CHƯA KHAI BÁO" : "NOT DECLARED") : valueType(sample[field])}</span><span role="cell" data-access="private">PRIVATE</span><code role="cell">{sample[field] === undefined ? (locale === "vi" ? "được lưu trong từng object" : "stored per object") : friendlyValue(sample[field])}</code></div>)}
+      {publicMethods.map((method) => <div role="row" key={`public-${method}`}><strong role="cell">{method}</strong><span role="cell">METHOD</span><span role="cell" data-access="public">PUBLIC</span><code role="cell">{method}()</code></div>)}
+      {relations.map(([field, value]) => <div role="row" key={field}><strong role="cell">{field}</strong><span role="cell">{valueType(value)}</span><span role="cell">CLASS</span><code role="cell">{friendlyValue(value)}</code></div>)}
+    </div></article>;
+  })}</div>;
+}
+
 function ObjectBoard({ state, locale }: { readonly state: unknown; readonly locale: Locale }) {
   const items = (stateValue(state, "instances") ?? stateValue(state, "objects") ?? []) as unknown[];
   const relations = (stateValue(state, "relationships") ?? []) as unknown[];
-  const definition = stateValue(state, "classDefinition") ?? stateValue(state, "class");
+  const definition = stateValue(state, "classDefinition") ?? stateValue(state, "class") ?? stateValue(state, "classes");
+  const definitionMap = map(stateValue(state, "classDefinition"));
+  const privateFields = new Set(Array.isArray(definitionMap.privateAttributes) ? definitionMap.privateAttributes.map(String) : []);
+  const firstItem = map(items[0]);
+  const firstState = isMap(firstItem.state) ? map(firstItem.state) : firstItem;
   return <div className={styles.objectBoard}>
-    {definition ? <article className={styles.classCard}><small>{locale === "vi" ? "Class blueprint" : "Class blueprint"}</small><pre tabIndex={0}>{JSON.stringify(definition, null, 2)}</pre></article> : null}
-    <div className={styles.objectGrid}>{items.map((item, index) => { const row = map(item); const id = compact(row.id ?? row.name ?? index); return <article key={id} data-object-id={id}><small>{compact(row.class ?? row.className ?? row.type ?? "Object")}</small><strong>{id}</strong><pre tabIndex={0}>{JSON.stringify(row.state ?? row, null, 2)}</pre></article>; })}</div>
-    {relations.length ? <div className={styles.relationships}>{relations.map((relation, index) => <span key={index}>{compact(relation)}</span>)}</div> : null}
+    {definition ? <ClassBlueprint definition={definition} sample={firstState} locale={locale} /> : null}
+    <div className={styles.objectGrid}>{items.map((item, index) => { const row = map(item); const id = friendlyValue(row.id ?? row.name ?? index); const objectState = isMap(row.state) ? map(row.state) : row; return <article key={id} data-object-id={id}><header><small>{friendlyValue(row.class ?? row.className ?? row.type ?? "Object")}</small><strong>{id}</strong></header><StateFields value={objectState} locale={locale} privateFields={privateFields} /></article>; })}</div>
+    {relations.length ? <div className={styles.relationships}>{relations.map((relation, index) => <span key={index}>{friendlyValue(relation)}</span>)}</div> : null}
     <div className={styles.metricGrid}><Metric label="Receiver" value={stateValue(state, "receiverId")} /><Metric label="Actual type" value={stateValue(state, "actualType")} /><Metric label="Method" value={stateValue(state, "selectedMethod") ?? stateValue(state, "method")} /><Metric label="Result" value={stateValue(state, "result") ?? stateValue(state, "returnValue")} /></div>
+    <details className={styles.technicalState}><summary>{locale === "vi" ? "Dữ liệu kỹ thuật của state" : "Raw technical state"}</summary><pre tabIndex={0}>{JSON.stringify({ definition, objects: items, relationships: relations }, null, 2)}</pre></details>
   </div>;
 }
 
@@ -185,7 +232,7 @@ function PrimaryVisual({ kind, state, locale }: { readonly kind: Section20Visual
 }
 
 function StateDigest({ state }: { readonly state: unknown }) {
-  return <dl className={styles.stateDigest}>{Object.entries(map(state)).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{compact(value)}</dd></div>)}</dl>;
+  return <dl className={styles.stateDigest}>{Object.entries(map(state)).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{friendlyValue(value)}</dd></div>)}</dl>;
 }
 
 export function Section20FurtherProgrammingWorkbench({ kind, locale }: { readonly kind: Section20VisualKind; readonly locale: Locale }) {

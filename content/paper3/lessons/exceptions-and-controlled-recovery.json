@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.2",
+  "version": "2026.3",
   "topicId": "P3-20.2-T03",
   "slug": "exceptions-and-controlled-recovery",
   "estimatedMinutes": 40,
@@ -486,289 +486,289 @@
     {
       "id": "cp-exc-recall",
       "prompt": {
-        "en": "Which response begins an accurate answer about exceptions and controlled recovery?",
-        "vi": "Phản hồi nào bắt đầu câu trả lời chính xác về exception và phục hồi có kiểm soát?"
+        "en": "Which event is an exception rather than an ordinary validation result?",
+        "vi": "Sự kiện nào là exception thay vì kết quả validation thông thường?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Converting blue to an integer raises ValueError",
+            "vi": "Chuyển blue thành integer gây ValueError"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: control transfers to a matching handler.",
+            "vi": "Đúng: control chuyển tới handler phù hợp."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "An IF test finds age < 0",
+            "vi": "IF test xác định age < 0"
+          },
+          "feedback": {
+            "en": "A Boolean outcome does not itself raise.",
+            "vi": "Kết quả Boolean không tự gây raise."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "A loop condition becomes FALSE",
+            "vi": "Điều kiện loop thành FALSE"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "State the meaning and declared convention for exceptions and controlled recovery.",
-            "vi": "Nêu ý nghĩa và convention đã khai báo cho exception và phục hồi có kiểm soát."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "Normal termination is not exceptional flow.",
+            "vi": "Kết thúc bình thường không phải exceptional flow."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Distinguish an operation that raises from a condition evaluated normally.",
+        "vi": "Phân biệt operation gây raise với condition evaluate bình thường."
       }
     },
     {
       "id": "cp-exc-recognition",
       "prompt": {
-        "en": "Which evidence should identify the required method?",
-        "vi": "Bằng chứng nào xác định phương pháp cần dùng?"
+        "en": "With raw = \"0\", conversion succeeds. Which handler then matches?",
+        "vi": "Với raw = \"0\", conversion thành công. Handler nào match tiếp theo?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Use the supplied terms, state and required output.",
-            "vi": "Dùng term, state và output được cung cấp."
+            "en": "ValueError",
+            "vi": "ValueError"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "The text 0 is a valid integer.",
+            "vi": "Text 0 là integer hợp lệ."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "No handler because conversion succeeded",
+            "vi": "Không handler vì conversion thành công"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The later division by zero still raises.",
+            "vi": "Phép chia cho 0 sau đó vẫn gây raise."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "ZeroDivisionError",
+            "vi": "ZeroDivisionError"
+          },
+          "feedback": {
+            "en": "Correct: 100 // 0 raises this type.",
+            "vi": "Đúng: 100 // 0 gây loại exception này."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Trace protected statements in order; the first raise determines matching.",
+        "vi": "Trace statement theo thứ tự; raise đầu tiên quyết định matching."
       }
     },
     {
       "id": "cp-exc-next-state",
       "prompt": {
-        "en": "What must be read before predicting the next state?",
-        "vi": "Cần đọc gì trước khi dự đoán state tiếp?"
+        "en": "After ZeroDivisionError is handled, what is assigned to result?",
+        "vi": "Sau khi ZeroDivisionError được handle, result nhận gì?"
       },
       "transfer": false,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Read the current state and exact operation rule.",
-            "vi": "Đọc current state và operation rule chính xác."
+            "en": "None",
+            "vi": "None"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "None belongs to the ValueError handler.",
+            "vi": "None thuộc handler ValueError."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "0",
+            "vi": "0"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: the matching handler assigns result = 0.",
+            "vi": "Đúng: handler phù hợp gán result = 0."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "100",
+            "vi": "100"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "The failed division produces no quotient.",
+            "vi": "Phép chia lỗi không tạo thương."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Handler statements determine recovery state; do not invent a failed result.",
+        "vi": "Statement của handler quyết định recovery state; không tự tạo kết quả lỗi."
       }
     },
     {
       "id": "cp-exc-trace",
       "prompt": {
-        "en": "What makes a trace row complete?",
-        "vi": "Điều gì làm trace row đầy đủ?"
+        "en": "What does finally guarantee in the fixture?",
+        "vi": "Finally đảm bảo điều gì trong fixture?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "b",
+          "id": "a",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "resource_open becomes False on normal or exceptional paths",
+            "vi": "resource_open thành False trên path bình thường hoặc exceptional"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: finally performs cleanup.",
+            "vi": "Đúng: finally thực hiện cleanup."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Every exception becomes success",
+            "vi": "Mọi exception trở thành success"
+          },
+          "feedback": {
+            "en": "Cleanup does not guarantee handling.",
+            "vi": "Cleanup không đảm bảo exception được handle."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "The division is retried automatically",
+            "vi": "Phép chia tự động retry"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
-          "id": "a",
-          "label": {
-            "en": "Show before state, applied rule, calculation and after state.",
-            "vi": "Cho before state, rule áp dụng, phép tính và after state."
-          },
-          "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "No retry loop exists.",
+            "vi": "Không có retry loop."
           }
         }
       ],
       "correctChoiceId": "a",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Finally is cleanup independent of success or handled recovery.",
+        "vi": "Finally là cleanup độc lập với success hay handled recovery."
       }
     },
     {
       "id": "cp-exc-write",
       "prompt": {
-        "en": "How should code or notation be written?",
-        "vi": "Code hoặc notation nên được viết thế nào?"
+        "en": "A file open may raise FileNotFoundError. Which design gives controlled recovery?",
+        "vi": "Mở file có thể gây FileNotFoundError. Thiết kế nào tạo controlled recovery?"
       },
       "transfer": false,
       "choices": [
         {
-          "id": "c",
-          "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
-          },
-          "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
-          }
-        },
-        {
           "id": "a",
           "label": {
-            "en": "Declare one convention and keep all syntax consistent.",
-            "vi": "Khai báo một convention và giữ cú pháp nhất quán."
+            "en": "Catch every exception and pretend the file was read",
+            "vi": "Catch mọi exception rồi giả vờ đã đọc file"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "This hides failure and creates false state.",
+            "vi": "Cách này che lỗi và tạo state sai."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "Read after the handler without checking open succeeded",
+            "vi": "Read sau handler mà không kiểm open thành công"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "The resource may never have opened.",
+            "vi": "Resource có thể chưa từng mở."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Catch FileNotFoundError, report or use a valid fallback, and clean up opened resources",
+            "vi": "Catch FileNotFoundError, báo lỗi hoặc dùng fallback hợp lệ và cleanup resource đã mở"
+          },
+          "feedback": {
+            "en": "Correct: recovery matches the failure and real state.",
+            "vi": "Đúng: recovery phù hợp failure và state thật."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "c",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "Controlled recovery names the expected type and chooses an honest next action.",
+        "vi": "Controlled recovery nêu đúng loại exception và chọn hành động tiếp theo trung thực."
       }
     },
     {
       "id": "cp-exc-transfer",
       "prompt": {
-        "en": "A new question changes a convention. What should you do?",
-        "vi": "Đề mới đổi convention. Bạn nên làm gì?"
+        "en": "If raw changes to \"blue\", what is printed after handling and finally?",
+        "vi": "Nếu raw đổi thành \"blue\", gì được in sau handling và finally?"
       },
       "transfer": true,
       "choices": [
         {
           "id": "a",
           "label": {
-            "en": "Restate the new convention and recompute from that state.",
-            "vi": "Nêu lại convention mới và tính lại từ state đó."
+            "en": "0 True",
+            "vi": "0 True"
           },
           "feedback": {
-            "en": "Correct: the answer exposes the governing rule and state.",
-            "vi": "Đúng: câu trả lời cho thấy rule và state chi phối."
+            "en": "ZeroDivisionError is never reached and finally closes the resource.",
+            "vi": "Không tới ZeroDivisionError và finally đóng resource."
           }
         },
         {
           "id": "b",
           "label": {
-            "en": "Reuse the previous answer without checking inputs.",
-            "vi": "Dùng lại câu trước mà không kiểm tra input."
+            "en": "None False",
+            "vi": "None False"
           },
           "feedback": {
-            "en": "This can preserve a result after its assumptions changed.",
-            "vi": "Cách này có thể giữ result khi giả định đã đổi."
+            "en": "Correct: ValueError sets None, then finally sets False.",
+            "vi": "Đúng: ValueError gán None rồi finally gán False."
           }
         },
         {
           "id": "c",
           "label": {
-            "en": "Infer hidden rules from the topic name.",
-            "vi": "Suy rule ẩn từ tên topic."
+            "en": "100 False",
+            "vi": "100 False"
           },
           "feedback": {
-            "en": "Only stated conventions receive semantics.",
-            "vi": "Chỉ convention được nêu mới có semantics."
+            "en": "Conversion fails before division produces a value.",
+            "vi": "Conversion lỗi trước khi phép chia tạo giá trị."
           }
         }
       ],
-      "correctChoiceId": "a",
+      "correctChoiceId": "b",
       "explanation": {
-        "en": "A markable response links the declared rule to an observable state change.",
-        "vi": "Câu trả lời chấm được nối rule đã khai báo với state change quan sát được."
+        "en": "After a raise, skip remaining try statements, run the matching handler, then finally.",
+        "vi": "Sau raise, bỏ statement try còn lại, chạy handler phù hợp rồi finally."
       }
     }
   ],

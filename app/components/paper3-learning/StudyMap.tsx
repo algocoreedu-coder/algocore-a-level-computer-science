@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Search, X, Map as MapIcon, Route, Layers3, Clock3, FileCheck2 } from "lucide-react";
 import { SegmentedControl } from "@/app/components/algocore-ui";
@@ -8,6 +8,7 @@ import type { Locale, StudyMapCatalog } from "@/app/lib/paper3/catalog";
 import { getSectionTopics, paper3Href, PreparationNote, SectionIcon, TopicRow } from "./shared";
 import styles from "./Paper3Learning.module.css";
 import { Paper3LocaleBoundary } from "./Paper3LocaleBoundary";
+import { StudyProgressPanel } from "./StudyProgressPanel";
 
 function normalise(value: string) { return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d"); }
 
@@ -31,14 +32,30 @@ export function StudyMap({ catalog, locale }: { readonly catalog: StudyMapCatalo
   }, [catalog, query]);
   const positions = new Map(catalog.sections.map((section, index) => [section.id, { x: index % 2 === 0 ? 25 : 75, y: Math.floor(index / 2) * 25 + 12.5 }]));
 
+  useEffect(() => {
+    try {
+      const saved = window.sessionStorage.getItem("algocore:paper3:study-map-view");
+      setView(saved === "map" || saved === "list" ? saved : (window.matchMedia("(max-width: 430px)").matches ? "list" : "map"));
+    } catch {
+      setView(window.matchMedia("(max-width: 430px)").matches ? "list" : "map");
+    }
+  }, []);
+
+  function changeView(nextView: string) {
+    const safeView = nextView === "list" ? "list" : "map";
+    setView(safeView);
+    try { window.sessionStorage.setItem("algocore:paper3:study-map-view", safeView); } catch { /* Keep the in-page choice when storage is unavailable. */ }
+  }
+
   return <div className={styles.page} lang={locale} data-paper3-map>
     <Paper3LocaleBoundary locale={locale} />
     <header className={styles.hero}>
       <div className={styles.eyebrow}><span>{locale === "vi" ? "BẢN ĐỒ ÔN TẬP" : "YOUR REVISION AT A GLANCE"}</span><span className={styles.yearBadge}>2026</span></div>
       <h1>{locale === "vi" ? <>Kết nối kiến thức.<br /><em>Hiểu trọn Paper 3.</em></> : <>Connect the ideas.<br /><em>See the whole picture.</em></>}</h1>
       <p>{locale === "vi" ? "Khám phá từng phần lý thuyết, thấy các ý tưởng liên quan và chọn topic bạn muốn tìm hiểu." : "Explore the theory, discover how ideas connect, and find the topic you want to understand."}</p>
-      <div className={styles.courseFacts}><span><Layers3 size={17} aria-hidden="true" /><strong>{catalog.sections.length}</strong> {locale === "vi" ? "section" : "sections"}</span><span><Route size={17} aria-hidden="true" /><strong>{catalog.strands.length}</strong> {locale === "vi" ? "mục syllabus" : "syllabus strands"}</span><span><MapIcon size={17} aria-hidden="true" /><strong>{catalog.topics.length}</strong> topics</span><span><Clock3 size={17} aria-hidden="true" />{catalog.course.durationMinutes} {locale === "vi" ? "phút" : "min"}</span><span><FileCheck2 size={17} aria-hidden="true" />{catalog.course.marks} {locale === "vi" ? "điểm" : "marks"}</span></div>
+      <div className={styles.courseFacts}><span><Layers3 size={17} aria-hidden="true" /><strong>{catalog.sections.length}</strong> {locale === "vi" ? "section" : "sections"}</span><span><Route size={17} aria-hidden="true" /><strong>{catalog.strands.length}</strong> {locale === "vi" ? "mục syllabus" : "syllabus strands"}</span><span><MapIcon size={17} aria-hidden="true" /><strong>{catalog.topics.length}</strong> topics</span><span><Clock3 size={17} aria-hidden="true" />{locale === "vi" ? `Một đề thi: ${catalog.course.durationMinutes} phút` : `One exam paper: ${catalog.course.durationMinutes} min`}</span><span><FileCheck2 size={17} aria-hidden="true" />{locale === "vi" ? `Một đề thi: ${catalog.course.marks} điểm` : `One exam paper: ${catalog.course.marks} marks`}</span></div>
     </header>
+    <StudyProgressPanel catalog={catalog} locale={locale} />
     <PreparationNote locale={locale} availableCount={catalog.topics.filter(topic => topic.status === "available").length} totalCount={catalog.topics.length} />
     <section className={styles.mockCallout} aria-labelledby="paper3-mock-title">
       <div><span className={styles.kicker}>{locale === "vi" ? "LUYỆN TRONG ĐIỀU KIỆN THI" : "PRACTISE UNDER EXAM CONDITIONS"}</span><h2 id="paper3-mock-title">{locale === "vi" ? "Hai đề đủ 90 phút · 75 điểm" : "Two full 90-minute · 75-mark papers"}</h2><p>{locale === "vi" ? "Phủ Sections 13–20, có đồng hồ, ô làm bài, lời giải và marking points EN/VI." : "Cover Sections 13–20 with a timer, answer spaces, worked solutions and bilingual marking points."}</p></div>
@@ -50,7 +67,7 @@ export function StudyMap({ catalog, locale }: { readonly catalog: StudyMapCatalo
       <p id="paper3-search-help">{locale === "vi" ? "Thử: floating point, đệ quy, TCP/IP hoặc 13.3. Tìm bằng tiếng Anh hoặc tiếng Việt." : "Try floating point, recursion, TCP/IP or 13.3. Search in English or Vietnamese."}</p>
     </section>
     {query.trim() ? <section className={styles.results} aria-labelledby="paper3-results-title"><div className={styles.blockHeading}><h2 id="paper3-results-title">{locale === "vi" ? "Topic phù hợp" : "Matching topics"}</h2><span role="status">{results.length} {locale === "vi" ? "kết quả" : "results"}</span></div>{results.length ? <div>{results.map((topic) => <TopicRow key={topic.id} topic={topic} locale={locale} />)}</div> : <div className={styles.emptySearch}><Search size={32} aria-hidden="true" /><h3>{locale === "vi" ? "Chưa tìm thấy topic phù hợp" : "No matching topics yet"}</h3><p>{locale === "vi" ? "Thử tên tiếng Anh, một từ ngắn hơn hoặc mã như 19.1. Bạn cũng có thể xóa tìm kiếm để xem cả bản đồ." : "Try an English term, a shorter phrase, or a code such as 19.1. Clear the search to explore the complete map."}</p><button className={styles.secondaryButton} type="button" onClick={() => setQuery("")}>{locale === "vi" ? "Xem toàn bộ bản đồ" : "Explore the full map"}<ArrowRight size={17} aria-hidden="true" /></button></div>}</section> : <section aria-labelledby="paper3-map-title" className={styles.mapSection}>
-      <div className={styles.blockHeading}><div><span className={styles.kicker}>{locale === "vi" ? "8 PHẦN · MỘT BỨC TRANH TỔNG THỂ" : "8 SECTIONS · ONE CONNECTED PICTURE"}</span><h2 id="paper3-map-title">{locale === "vi" ? "Bản đồ học tập" : "Your study map"}</h2></div><SegmentedControl label={locale === "vi" ? "Cách xem bản đồ" : "Study map view"} value={view} onChange={setView} segments={[{ id: "map", label: locale === "vi" ? "Sơ đồ" : "Map" }, { id: "list", label: locale === "vi" ? "Danh sách" : "List" }]} /></div>
+      <div className={styles.blockHeading}><div><span className={styles.kicker}>{locale === "vi" ? "8 PHẦN · MỘT BỨC TRANH TỔNG THỂ" : "8 SECTIONS · ONE CONNECTED PICTURE"}</span><h2 id="paper3-map-title">{locale === "vi" ? "Bản đồ học tập" : "Your study map"}</h2></div><SegmentedControl label={locale === "vi" ? "Cách xem bản đồ" : "Study map view"} value={view} onChange={changeView} segments={[{ id: "map", label: locale === "vi" ? "Sơ đồ" : "Map" }, { id: "list", label: locale === "vi" ? "Danh sách" : "List" }]} /></div>
       <p className={styles.mapHint}>{locale === "vi" ? "Chọn một section để khám phá nội dung và những kết nối kiến thức. Bạn có thể bắt đầu ở bất kỳ phần nào." : "Select a section to see its topics and connections. You can start anywhere."}</p>
       <div className={styles.mapWorkspace}>
         <div className={styles.mapCanvas} data-view={view}>
